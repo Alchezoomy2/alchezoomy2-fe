@@ -9,7 +9,7 @@ export default class teacher extends Component {
     componentDidMount = async () => {
         const URL = 'https://alchezoomy2.herokuapp.com/oauth';
         try {
-            const returnedObject = await fetch.post(URL).send({ token: this.props.baseState.code });
+            const returnedObject = await fetch.post(URL).send({ token: this.props.code });
             this.setState({
                 returnedObject: returnedObject.body,
                 loading: false
@@ -25,6 +25,7 @@ export default class teacher extends Component {
                 {this.state.loading
                     ? <img src='/loading spinner.gif' alt='loading spinner' />
                     : <p>this.props.code</p>
+                    <p>this.state.returnedObject</p>
                 }
             </div>
         )
