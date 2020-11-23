@@ -29,7 +29,7 @@ export default class LandingPage extends Component {
             <div className='landing'>
                 <h1 className='landing-tagline'>Never miss a beat.</h1>
                 <h2 className='landing-description'>Search uploaded Zoom videos and chat logs for easy reference.</h2>
-                <a href='https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://alchezoomy2.netlify.app/redirect/'><button className='teacher-button'>Teacher Login</button></a>
+                <a href='https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://alchezoomy2.netlify.app/redirect'><button className='teacher-button'>Teacher Login</button></a>
                 <div className='box'>
                     <form onSubmit={this.handleSubmit}>
                         <h2 className='student-login'>Student Login</h2>
