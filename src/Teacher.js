@@ -24,7 +24,7 @@ export default class teacher extends Component {
             <div className='teacher'>
 
                 {this.state.loading
-                    ? <img src='/loading spinner.gif' alt='loading spinner' />
+                    ? <p>loading:  {this.props.code}</p>
                     : <div>
                         <p>this.props.code</p>
                         <p>this.state.returnedObject</p>
