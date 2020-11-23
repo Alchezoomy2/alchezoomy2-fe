@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import fetch from 'superagent';
 
 export default class teacher extends Component {
     state = {
