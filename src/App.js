@@ -18,6 +18,8 @@ import VideoDetails from './VideoDetails.js'
 import SignUp from './SignUp.js'
 import AboutUs from './AboutUs.js'
 import Footer from './Footer';
+import Teacher from './Teacher.js';
+import Redirect from './Redirect.js';
 
 
 
@@ -116,6 +118,26 @@ export default class App extends Component {
                 />
               }
 
+            />
+
+            <Route exact path='/teacher'
+              render={(routerProps) =>
+                <Teacher
+
+                  {...routerProps}
+                  code={this.state.code}
+                />
+              }
+            />
+
+            <Route exact path='/redirect'
+              render={(routerProps) =>
+                <Redirect
+
+                  {...routerProps}
+                  handleSetState={this.handleSetState}
+                />
+              }
             />
 
             <Route exact path='/signup'
