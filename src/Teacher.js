@@ -15,6 +15,8 @@ export default class teacher extends Component {
                 returnedObject: returnedObject.body,
                 loading: false
             })
+
+            console.log(returnedObject)
         } catch (e) {
             throw e;
         }
@@ -26,8 +28,8 @@ export default class teacher extends Component {
                 {this.state.loading
                     ? <p>loading:  {this.props.code}</p>
                     : <div>
-                        <p>this.props.code</p>
-                        <p>this.state.returnedObject</p>
+                        <p>{this.props.code}</p>
+                        <p>{this.state.returnedObject}git</p>
                     </div>
                 }
             </div>
