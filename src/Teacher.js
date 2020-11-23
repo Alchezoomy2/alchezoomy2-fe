@@ -24,8 +24,10 @@ export default class teacher extends Component {
 
                 {this.state.loading
                     ? <img src='/loading spinner.gif' alt='loading spinner' />
-                    : <p>this.props.code</p>
-                    <p>this.state.returnedObject</p>
+                    : <div>
+                        <p>this.props.code</p>
+                        <p>this.state.returnedObject</p>
+                    </div>
                 }
             </div>
         )
