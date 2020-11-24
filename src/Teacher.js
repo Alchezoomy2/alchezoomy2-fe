@@ -21,7 +21,7 @@ export default class teacher extends Component {
 
             const returnedMeetingsObject = await fetch
                 .post(serverURL + '/meetings/unpublished')
-                .send({ access_token: userInfo.access_token });
+                .send({ user_info: userInfo });
 
 
             this.setState({
