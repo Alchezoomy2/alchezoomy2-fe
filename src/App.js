@@ -126,6 +126,8 @@ export default class App extends Component {
 
                   {...routerProps}
                   code={this.state.code}
+                  appState={this.state}
+                  handleSetState={this.handleSetState}
                 />
               }
             />
