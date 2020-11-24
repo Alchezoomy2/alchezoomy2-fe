@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import fetch from 'superagent';
+import { Link } from "react-router-dom"; ß
 
 export default class teacher extends Component {
     state = {
