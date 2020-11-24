@@ -20,7 +20,7 @@ export default class teacher extends Component {
                 loading: false
             })
 
-            this.props.handleSetState({ token: this.returnedToken.body });
+            // this.props.handleSetState({ token: this.returnedToken.body });
 
         } catch (e) {
             throw e;
