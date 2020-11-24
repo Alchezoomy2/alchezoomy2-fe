@@ -20,7 +20,7 @@ export default class teacher extends Component {
             this.setState({
                 loading: false
             })
-
+            console.log(userInfo);
             console.log('------------------------------------');
             console.log(`userInfo.access_token:  ${userInfo.access_token}`);
             console.log('------------------------------------');
