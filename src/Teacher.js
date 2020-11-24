@@ -20,10 +20,13 @@ export default class teacher extends Component {
                 loading: false
             })
 
+            console.log('------------------------------------');
+            console.log(`userInfo.access_token:  ${userInfo.access_token}`);
+            console.log('------------------------------------');
+
             const returnedMeetingsObject = await fetch
                 .post(serverURL + '/meetings/unpublished')
                 .send({ access_token: this.props.appState.token })
-            console.log(userInfo)
             console.log('meetingInfo')
             console.log(returnedMeetingsObject);
 
@@ -34,7 +37,7 @@ export default class teacher extends Component {
     render() {
         return (
             <div className='teacher'>
-
+                <Link to='/'>HOME</Link>
                 {this.state.loading
                     ? <p>loading:  {this.props.code}</p>
                     : <div>
