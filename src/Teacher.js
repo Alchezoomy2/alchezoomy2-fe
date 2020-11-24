@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import MeetingsList from 'MeetingsList.js';
 import fetch from 'superagent';
 import { Link } from "react-router-dom";
 
@@ -43,7 +44,7 @@ export default class teacher extends Component {
                     : <div>
                         <p>{this.props.appState.user_name}</p>
                         <img src={this.props.appState.pic_url} alt={this.props.appState.user_name} />
-                        <MeetingList
+                        <MeetingsList
                             meetingArray={this.state.meetingsArray}
                         />
                     </div>
