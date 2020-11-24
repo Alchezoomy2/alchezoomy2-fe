@@ -16,20 +16,19 @@ export default class teacher extends Component {
 
             const userInfo = returnedObject.body;
 
-            this.props.handleSetState(userInfo);
-            this.setState({
-                loading: false
-            })
-            console.log(userInfo);
-            console.log('------------------------------------');
-            console.log(`userInfo.access_token:  ${userInfo.access_token}`);
-            console.log('------------------------------------');
+            await this.props.handleSetState(userInfo);
 
             const returnedMeetingsObject = await fetch
                 .post(serverURL + '/meetings/unpublished')
-                .send({ access_token: userInfo.access_token })
+                .send({ access_token: userInfo.access_token });
+
+
+            this.setState({
+                loading: false,
+                meetingsArray: returnedMeetingsObject.body
+            })
             console.log('meetingInfo')
-            console.log(returnedMeetingsObject);
+            console.log(returnedMeetingsObject.body);
 
         } catch (e) {
             throw e;
@@ -40,10 +39,13 @@ export default class teacher extends Component {
             <div className='teacher'>
                 <Link to='/'>HOME</Link>
                 {this.state.loading
-                    ? <p>loading:  {this.props.code}</p>
+                    ? <p>loading...</p>
                     : <div>
                         <p>{this.props.appState.user_name}</p>
                         <img src={this.props.appState.pic_url} alt={this.props.appState.user_name} />
+                        <MeetingList
+                            meetingArray={this.state.meetingsArray}
+                        />
                     </div>
                 }
             </div>
