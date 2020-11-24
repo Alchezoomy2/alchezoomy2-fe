@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class MeetingsList extends Component {
 
-    handlePublish = async (meeting) {
+    handlePublish = async (meeting) => {
         console.log(meeting)
     }
     render() {
