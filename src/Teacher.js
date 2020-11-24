@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MeetingsList } from 'MeetingsList.js';
+import { MeetingsList } from './MeetingsList.js';
 import fetch from 'superagent';
 import { Link } from "react-router-dom";
 
