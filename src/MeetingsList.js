@@ -1,9 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import fetch from 'superagent';
+
 
 export default class MeetingsList extends Component {
+    serverURL = 'https://alchezoomy2.herokuapp.com';
 
     handlePublish = async (meeting) => {
-        console.log(meeting)
+        const returnedMeetingObj = await fetch
+            .post(`${this.serverURL}/publish/`)
+            .send(meeting);
+
+        console.log(returnedMeetingObj.body)
     }
     render() {
         return (

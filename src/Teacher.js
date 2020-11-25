@@ -44,6 +44,7 @@ export default class teacher extends Component {
                     : <div>
                         <p>{this.props.appState.user_name}</p>
                         <img src={this.props.appState.pic_url} alt={this.props.appState.user_name} />
+                        <p>UNPUBLISHED</p>
                         <MeetingsList
                             meetingsArray={this.state.meetingsArray}
                         />
