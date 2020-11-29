@@ -7,6 +7,18 @@
 
 .meeting-item{
     width: 100%;
-    height: 50px;
+    height: 150px;
     flex-direction: row;
+    background-color: blue;
+    border: 2px solid white;
+
+}
+
+.meeting-item-image{
+    height: 75px;
+}
+
+.teacher-main{
+    display: flex;
+    justify-content: center;
 }

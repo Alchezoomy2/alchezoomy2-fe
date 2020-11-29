@@ -41,7 +41,7 @@ export default class teacher extends Component {
                 <Link to='/'>HOME</Link>
                 {this.state.loading
                     ? <p>loading...</p>
-                    : <div>
+                    : <div className='teacher-main'>
                         <p>{this.props.appState.user_name}</p>
                         <img src={this.props.appState.pic_url} alt={this.props.appState.user_name} />
 
