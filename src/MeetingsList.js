@@ -7,11 +7,11 @@ export default class MeetingsList extends Component {
 
     handlePublish = async (meeting) => {
         console.log(meeting)
-        const returnedMeetingObj = await fetch
+        const returnedMeetingArray = await fetch
             .post(`${this.serverURL}/publish/`)
             .send(meeting);
 
-        console.log(returnedMeetingObj.body)
+        this.props.handleUpdateMeetingsArray(returnedMeetingArray)
     }
     render() {
         return (

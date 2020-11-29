@@ -41,6 +41,10 @@ export default class teacher extends Component {
             throw e;
         }
     }
+
+    handleUpdateMeetingsArray = (meetingsArray) => {
+        this.setState({ meetingsArray });
+    }
     render() {
         return (
             <div className='teacher'>
@@ -53,6 +57,7 @@ export default class teacher extends Component {
 
                         <MeetingsList
                             meetingsArray={this.state.meetingsArray}
+                            handleUpdateMeetingsArray={this.handleUpdateMeetingsArray}
                         />
                     </div>
                 }
