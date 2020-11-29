@@ -20,7 +20,7 @@ export default class teacher extends Component {
             await this.props.handleSetState(userInfo);
 
             const returnedMeetingsObject = await fetch
-                .post(serverURL + '/meetings/unpublished')
+                .post(serverURL + '/meetings/')
                 .send({ user_info: userInfo });
 
 
