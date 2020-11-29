@@ -27,7 +27,7 @@ export default class teacher extends Component {
 
             const returnedMeetingsObject = await fetch
                 .post(serverURL + '/meetings/')
-                .send({ teacber_info: teacherInfo });
+                .send({ teacher_info: teacherInfo });
 
 
             this.setState({
