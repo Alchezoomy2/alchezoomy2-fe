@@ -15,18 +15,19 @@ export default class teacher extends Component {
                 .post(serverURL + '/oauth')
                 .send({ code: this.props.code });
 
-            const userInfo = returnedObject.body;
+            const teacherInfo = returnedObject.body;
 
-            if (userInfo.new_user) {
-                await fetch
+            if (teacherInfo.new_user) {
+                teacherInfo = await fetch
                     .post(serverURL + '/new_teacher/')
-                    .send({ user_info: userInfo });
+                    .send({ teacher_info: teacherInfo });
             }
-            await this.props.handleSetState(userInfo);
+
+            await this.props.handleSetState(teacherInfo);
 
             const returnedMeetingsObject = await fetch
                 .post(serverURL + '/meetings/')
-                .send({ user_info: userInfo });
+                .send({ teacber_info: teacherInfo });
 
 
             this.setState({
