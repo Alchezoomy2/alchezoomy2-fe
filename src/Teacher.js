@@ -15,7 +15,7 @@ export default class teacher extends Component {
                 .post(serverURL + '/oauth')
                 .send({ code: this.props.code });
 
-            const teacherInfo = returnedObject.body;
+            let teacherInfo = returnedObject.body;
 
             if (teacherInfo.new_user) {
                 teacherInfo = await fetch
