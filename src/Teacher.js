@@ -17,6 +17,11 @@ export default class teacher extends Component {
 
             const userInfo = returnedObject.body;
 
+            if (userInfo.new_user) {
+                await fetch
+                    .post(serverURL + '/new_user/')
+                    .send({ user_info: userInfo });
+            }
             await this.props.handleSetState(userInfo);
 
             const returnedMeetingsObject = await fetch
