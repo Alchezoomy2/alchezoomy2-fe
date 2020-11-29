@@ -11,7 +11,7 @@
     flex-direction: row;
     background-color: blue;
     border: 2px solid white;
-
+    color: white;
 }
 
 .meeting-item-image{

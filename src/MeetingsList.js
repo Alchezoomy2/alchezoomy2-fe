@@ -18,12 +18,12 @@ export default class MeetingsList extends Component {
             <div className='meeting-list'>
                 {this.props.meetingsArray.map(meeting => {
                     return <div className='meeting-item'>
-                        <p>
+                        <div>
                             <img src={meeting.pic_url} alt={meeting.user_name} className='meeting-item-image' />
                             {meeting.user_name}
-                        </p>
-                        <p> {meeting.start_time} </p>
-                        <p> {meeting.topic} </p>
+                        </div>
+                        <div> {meeting.start_time}
+                            <br /> {meeting.topic} </div>
                         <button onClick={() => this.handlePublish(meeting)}>PUBLISH</button>
                     </div>
                 })}
