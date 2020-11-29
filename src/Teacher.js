@@ -19,7 +19,7 @@ export default class teacher extends Component {
 
             if (userInfo.new_user) {
                 await fetch
-                    .post(serverURL + '/new_user/')
+                    .post(serverURL + '/new_teacher/')
                     .send({ user_info: userInfo });
             }
             await this.props.handleSetState(userInfo);
