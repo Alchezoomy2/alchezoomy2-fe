@@ -15,9 +15,9 @@ export default class MeetingsList extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='meeting-list'>
                 {this.props.meetingsArray.map(meeting => {
-                    return <div>
+                    return <div className='meeting-item'>
                         <p>
                             <img src={meeting.pic_url} alt={meeting.user_name} />
                             {meeting.user_name}

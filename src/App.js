@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import './temp.css';
 import Header from './Header.js'
 import LandingPage from './LandingPage.js'
 import Student from './Student.js'
