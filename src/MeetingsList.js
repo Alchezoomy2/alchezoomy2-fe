@@ -6,6 +6,9 @@ export default class MeetingsList extends Component {
     serverURL = 'https://alchezoomy2.herokuapp.com';
 
     handlePublish = async (meeting) => {
+
+        console.log(meeting.id);
+
         const returnedMeetingArray = await fetch
             .post(`${this.serverURL}/publish/`)
             .send(meeting.id);
