@@ -17,23 +17,26 @@ export default class teacher extends Component {
 
             let teacherInfo = returnedObject.body;
 
-            if (teacherInfo.new_user) {
-                teacherInfo = await fetch
-                    .post(serverURL + '/new_teacher/')
-                    .send({ teacher_info: teacherInfo });
-            }
-
             await this.props.handleSetState(teacherInfo);
 
-            const returnedMeetingsObject = await fetch
-                .post(serverURL + '/meetings/')
-                .send({ teacher_info: teacherInfo });
+            let returnedMeetingsObject;
 
+            if (teacherInfo.new_user) {
+                returnedMeetingsObject = await fetch
+                    .post(serverURL + '/new_teacher/')
+                    .send({ teacher_info: teacherInfo });
+            } else {
+
+                returnedMeetingsObject = await fetch
+                    .post(serverURL + '/meetings/')
+                    .send({ teacher_info: teacherInfo });
+            }
 
             this.setState({
                 loading: false,
                 meetingsArray: returnedMeetingsObject.body
             })
+
             console.log('meetingInfo')
             console.log(returnedMeetingsObject.body);
 
