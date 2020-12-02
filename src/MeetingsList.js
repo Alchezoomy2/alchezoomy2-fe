@@ -11,7 +11,7 @@ export default class MeetingsList extends Component {
 
         const returnedMeetingArray = await fetch
             .post(`${this.serverURL}/publish/`)
-            .send(meeting.id);
+            .send({ meetingId: meeting.id });
 
         this.props.handleUpdateMeetingsArray(returnedMeetingArray)
     }
