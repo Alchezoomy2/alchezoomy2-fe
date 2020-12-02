@@ -17,6 +17,18 @@ export default class MeetingsList extends Component {
 
         this.props.handleUpdateMeetingsArray(returnedMeetingArray.body);
     }
+
+    handleUnpublish = async (meeting) => {
+
+        const returnedMeetingArray = await fetch
+            .post(`${this.serverURL}/unpublish/`)
+            .send({ meetingId: meeting.id });
+
+        console.log(returnedMeetingArray.body);
+        this.props.handleUpdateMeetingsArray(returnedMeetingArray.body);
+    }
+
+
     render() {
         return (
             <div className='meeting-list'>
@@ -28,7 +40,12 @@ export default class MeetingsList extends Component {
                         </div>
                         <div> {meeting.start_time}
                             <br /> {meeting.topic} </div>
-                        <button onClick={() => this.handlePublish(meeting)}>PUBLISH</button>
+                        {meeting.published
+                            ?
+                            <button onClick={() => this.handleUnpublish(meeting)}>UNPUBLISH</button>
+                            :
+                            <button onClick={() => this.handlePublish(meeting)}>PUBLISH</button>
+                        }
                     </div>
                 })}
             </div>
