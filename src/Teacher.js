@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default class teacher extends Component {
     state = {
+        meetingsArray: [],
         loading: true,
     }
 
