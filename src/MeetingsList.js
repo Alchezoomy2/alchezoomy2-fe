@@ -13,6 +13,8 @@ export default class MeetingsList extends Component {
             .post(`${this.serverURL}/publish/`)
             .send({ meetingId: meeting.id });
 
+        console.log(returnedMeetingArray);
+
         this.props.handleUpdateMeetingsArray(returnedMeetingArray)
     }
     render() {
