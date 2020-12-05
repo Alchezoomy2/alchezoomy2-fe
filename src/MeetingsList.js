@@ -10,7 +10,7 @@ export default class MeetingsList extends Component {
         console.log(meeting.id);
 
         const returnedMeetingArray = await fetch
-            .post(`${this.serverURL}/publish/`)
+            .post(`${this.serverURL}/teacher/publish/`)
             .send({ meetingId: meeting.id });
 
         console.log(returnedMeetingArray.body);
@@ -21,7 +21,7 @@ export default class MeetingsList extends Component {
     handleUnpublish = async (meeting) => {
 
         const returnedMeetingArray = await fetch
-            .post(`${this.serverURL}/unpublish/`)
+            .post(`${this.serverURL}/teacher/unpublish/`)
             .send({ meetingId: meeting.id });
 
         console.log(returnedMeetingArray.body);
