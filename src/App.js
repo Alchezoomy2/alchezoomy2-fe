@@ -12,7 +12,7 @@ import './App.css';
 import './temp.css';
 import Header from './Header.js'
 import LandingPage from './LandingPage.js'
-import Student from './Student.js'
+import Student from './Old-Student.js'
 import Bookmarks from './Bookmarks.js'
 import Favorites from './Favorites.js'
 import VideoDetails from './VideoDetails.js'
@@ -27,20 +27,21 @@ import Redirect from './Redirect.js';
 export default class App extends Component {
   state = {
     code: '',
-    username: localStorage.getItem('USERNAME') || '',
-    token: localStorage.getItem('TOKEN') || '',
-    favorites: []
+    user_type: ''
+    // username: localStorage.getItem('USERNAME') || '',
+    // token: localStorage.getItem('TOKEN') || '',
+    // favorites: []
   }
 
-  changeTokenAndUsername = (name, token) => {
-    localStorage.setItem('TOKEN', token);
-    localStorage.setItem('USERNAME', name);
+  // changeTokenAndUsername = (name, token) => {
+  //   localStorage.setItem('TOKEN', token);
+  //   localStorage.setItem('USERNAME', name);
 
-    this.setState({
-      username: name,
-      token: token,
-    })
-  }
+  //   this.setState({
+  //     username: name,
+  //     token: token,
+  //   })
+  // }
 
   handleSetState = (stateObject) => {
     this.setState(stateObject);
@@ -60,14 +61,13 @@ export default class App extends Component {
                   <LandingPage
 
                     {...routerProps}
-                    token={this.state.token}
-                    changeTokenAndUsername={this.changeTokenAndUsername}
+                    handleSetState={this.handleSetState}
                   /></div>
               }
 
             />
 
-            <PrivateRoute
+            <Route
 
               token={this.state.token}
               exact path='/student'
@@ -136,9 +136,9 @@ export default class App extends Component {
             <Route exact path='/redirect'
               render={(routerProps) =>
                 <Redirect
-
                   {...routerProps}
                   handleSetState={this.handleSetState}
+                  user_type={this.state.user_type}
                 />
               }
             />

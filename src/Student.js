@@ -1,74 +1,70 @@
-import React, { Component } from 'react';
-import VideoList from './VideoList.js';
-import DashMenu from './DashMenu.js';
-
-import {
-
-    fetchPublishedVideos,
-    favoriteVideo,
-    searchPublishedVideos,
-
-} from './Fetches.js';
+import React, { Component } from 'react'
+import MeetingsList from './MeetingsList.js';
+import fetch from 'superagent';
+import { Link } from "react-router-dom";
 
 export default class Student extends Component {
-
     state = {
-        loading: false,
-        allVideos: [],
-        search: '',
+        meetingsArray: [],
+        loading: true,
     }
 
     componentDidMount = async () => {
-        await this.setState({ loading: true });
+        const serverURL = 'https://alchezoomy2.herokuapp.com';
+        try {
+            const returnedObject = await fetch
+                .post(serverURL + '/student/oauth')
+                .send({ code: this.props.code });
 
-        const allVideos = await fetchPublishedVideos(this.props.token)
+            let studentInfo = returnedObject.body;
+            console.log(studentInfo)
+            // await this.props.handleSetState(teacherInfo);
 
-        this.setState({
-            allVideos: allVideos,
-            loading: false
-        })
-    };
+            // let returnedMeetingsObject;
 
-    handleFavorite = async (e) => {
-        await favoriteVideo(e.target.value, this.props.token);
-    };
+            // if (teacherInfo.new_user) {
+            //     returnedMeetingsObject = await fetch
+            //         .post(serverURL + '/teacher/new')
+            //         .send({ teacher_info: teacherInfo });
+            // } else {
 
-    handleSearch = async (e) => {
-        e.preventDefault()
+            //     returnedMeetingsObject = await fetch
+            //         .post(serverURL + '/teacher/meetings')
+            //         .send({ teacher_info: teacherInfo });
+            // }
 
-        const search = await searchPublishedVideos(this.state.search, this.props.token);
-        this.setState({
-            allVideos: search
-        })
+            // this.setState({
+            //     loading: false,
+            //     meetingsArray: returnedMeetingsObject.body
+            // })
+
+            // console.log('meetingInfo')
+            // console.log(returnedMeetingsObject.body);
+
+        } catch (e) {
+            throw e;
+        }
     }
 
+    handleUpdateMeetingsArray = (meetingsArray) => {
+        this.setState({ meetingsArray });
+    }
     render() {
         return (
+            <div className='teacher'>
+                <Link to='/'>HOME</Link>
+                {/* {this.state.loading
+                    ? <p>loading...</p>
+                    : <div className='teacher-main'>
+                        <p>{this.props.appState.user_name}</p>
+                        <img src={this.props.appState.pic_url} alt={this.props.appState.user_name} />
 
-            <div className='student-dashboard'>
-                <div className='left-nav'>
-                    <DashMenu />
-                </div>
-                <h3 className='dashboard'>Student Dashboard</h3>
-                <div className='main-search'>
-                    <form onSubmit={this.handleSearch}>
-                        <input onChange={e => this.setState({ search: e.target.value })} type="text" className='searchbar' />
-                        <button className='search'>Search</button>
-                    </form>
-                </div>
-                <div className='video-box'>
-                    {
-                        this.state.loading
-                            ? <img src={'/loading-spinner.gif'} alt={''} />
-                            :
-                            this.state.allVideos.map(video =>
-                                <div key={`${video.uuid}${Math.random()}`} >
-                                    <VideoList
-                                        video={video} />
-                                </div>
-                            )
-                    }
-                </div>
+                        <MeetingsList
+                            meetingsArray={this.state.meetingsArray}
+                            handleUpdateMeetingsArray={this.handleUpdateMeetingsArray}
+                        />
+                    </div>
+                } */}
             </div>
         )
     }
