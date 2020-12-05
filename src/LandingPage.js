@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import request from 'superagent'
+// import { Link } from 'react-router-dom'
+// import request from 'superagent'
 
 export default class LandingPage extends Component {
 
