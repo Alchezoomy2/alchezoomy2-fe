@@ -7,7 +7,7 @@ export default class Redirect extends Component {
 
         this.props.handleSetState({ code: code.get('code') });
 
-        if (this.props.user_type = 'teacher') {
+        if (this.props.user_type === 'teacher') {
             this.props.history.push('/teacher');
         } else {
             this.props.history.push('/student');
