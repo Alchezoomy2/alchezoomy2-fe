@@ -13,9 +13,9 @@ import './temp.css';
 import Header from './Header.js'
 import LandingPage from './LandingPage.js'
 import Student from './Old-Student.js'
-import Bookmarks from './Bookmarks.js'
+// import Bookmarks from './Bookmarks.js'
 import Favorites from './Favorites.js'
-import VideoDetails from './VideoDetails.js'
+// import VideoDetails from './VideoDetails.js'
 import SignUp from './SignUp.js'
 import AboutUs from './AboutUs.js'
 import Footer from './Footer';
@@ -94,7 +94,7 @@ export default class App extends Component {
               }
             />
 
-            <PrivateRoute
+            {/* <PrivateRoute
               token={this.state.token}
 
               exact path='/bookmarks'
@@ -104,8 +104,8 @@ export default class App extends Component {
                   token={this.state.token}
                 />
               }
-            />
-
+            /> */}
+            {/* 
             <PrivateRoute
               token={this.state.token}
 
@@ -119,7 +119,7 @@ export default class App extends Component {
                 />
               }
 
-            />
+            /> */}
 
             <Route exact path='/teacher'
               render={(routerProps) =>
