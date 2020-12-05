@@ -13,7 +13,7 @@ export default class teacher extends Component {
         const serverURL = 'https://alchezoomy2.herokuapp.com';
         try {
             const returnedObject = await fetch
-                .post(serverURL + '/oauth')
+                .post(serverURL + '/teacher/oauth')
                 .send({ code: this.props.code });
 
             let teacherInfo = returnedObject.body;
@@ -24,12 +24,12 @@ export default class teacher extends Component {
 
             if (teacherInfo.new_user) {
                 returnedMeetingsObject = await fetch
-                    .post(serverURL + '/new_teacher/')
+                    .post(serverURL + '/teacher/new')
                     .send({ teacher_info: teacherInfo });
             } else {
 
                 returnedMeetingsObject = await fetch
-                    .post(serverURL + '/meetings/')
+                    .post(serverURL + '/teacher/meetings')
                     .send({ teacher_info: teacherInfo });
             }
 
