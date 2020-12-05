@@ -6,7 +6,7 @@ export default class LandingPage extends Component {
 
     handleButtonPress = async (buttonPressed) => {
         this.props.handleSetState({ "user_type": buttonPressed });
-        this.props.history.push("https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://alchezoomy2.netlify.app/redirect");
+        window.location.href = "https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://alchezoomy2.netlify.app/redirect";
     }
 
 
