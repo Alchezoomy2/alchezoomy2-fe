@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import PrivateRoute from './PrivateRoute.js';
+// import PrivateRoute from './PrivateRoute.js';
 
 import {
   BrowserRouter as Router,
