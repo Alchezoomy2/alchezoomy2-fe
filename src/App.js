@@ -28,22 +28,10 @@ export default class App extends Component {
   state = {
     code: '',
     user_type: ''
-    // username: localStorage.getItem('USERNAME') || '',
-    // token: localStorage.getItem('TOKEN') || '',
-    // favorites: []
   }
 
-  // changeTokenAndUsername = (name, token) => {
-  //   localStorage.setItem('TOKEN', token);
-  //   localStorage.setItem('USERNAME', name);
-
-  //   this.setState({
-  //     username: name,
-  //     token: token,
-  //   })
-  // }
-
   handleSetState = (stateObject) => {
+    alert(`handleSetState: ${stateObject.user_type}`)
     this.setState(stateObject);
   }
 
@@ -79,8 +67,30 @@ export default class App extends Component {
                   handleSetState={this.handleSetState}
                 />
               }
-
             />
+
+            <Route exact path='/teacher'
+              render={(routerProps) =>
+                <Teacher
+
+                  {...routerProps}
+                  code={this.state.code}
+                  appState={this.state}
+                  handleSetState={this.handleSetState}
+                />
+              }
+            />
+
+            <Route exact path='/redirect'
+              render={(routerProps) =>
+                <Redirect
+                  {...routerProps}
+                  handleSetState={this.handleSetState}
+                  user_type={this.state.user_type}
+                />
+              }
+            />
+
 
             {/* <PrivateRoute
               token={this.state.token}
@@ -120,28 +130,6 @@ export default class App extends Component {
               }
 
             /> */}
-
-            <Route exact path='/teacher'
-              render={(routerProps) =>
-                <Teacher
-
-                  {...routerProps}
-                  code={this.state.code}
-                  appState={this.state}
-                  handleSetState={this.handleSetState}
-                />
-              }
-            />
-
-            <Route exact path='/redirect'
-              render={(routerProps) =>
-                <Redirect
-                  {...routerProps}
-                  handleSetState={this.handleSetState}
-                  user_type={this.state.user_type}
-                />
-              }
-            />
 
             {/* <Route exact path='/signup'
               render={(routerProps) =>
