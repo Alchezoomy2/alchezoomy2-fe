@@ -11,7 +11,7 @@ export default class Student extends Component {
 
     componentDidMount = async () => {
         const serverURL = 'https://alchezoomy2.herokuapp.com';
-        console.log(this.props.code)
+
         try {
             const returnedObject = await fetch
                 .post(serverURL + '/student/oauth')
