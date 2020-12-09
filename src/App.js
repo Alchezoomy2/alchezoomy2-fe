@@ -14,10 +14,10 @@ import Header from './Header.js'
 import LandingPage from './LandingPage.js'
 import Student from './Student.js'
 // import Bookmarks from './Bookmarks.js'
-import Favorites from './Favorites.js'
+// import Favorites from './Favorites.js'
 // import VideoDetails from './VideoDetails.js'
-import SignUp from './SignUp.js'
-import AboutUs from './AboutUs.js'
+// import SignUp from './SignUp.js'
+// import AboutUs from './AboutUs.js'
 import Footer from './Footer';
 import Teacher from './Teacher.js';
 import Redirect from './Redirect.js';
@@ -73,16 +73,16 @@ export default class App extends Component {
               exact path='/student'
               render={(routerProps) =>
                 <Student
-
                   {...routerProps}
-                  token={this.state.token}
-                  logOut={this.logOut}
+                  code={this.state.code}
+                  appState={this.state}
+                  handleSetState={this.handleSetState}
                 />
               }
 
             />
 
-            <PrivateRoute
+            {/* <PrivateRoute
               token={this.state.token}
 
               exact path='/favorites'
@@ -92,7 +92,7 @@ export default class App extends Component {
                   token={this.state.token}
                 />
               }
-            />
+            /> */}
 
             {/* <PrivateRoute
               token={this.state.token}
@@ -143,7 +143,7 @@ export default class App extends Component {
               }
             />
 
-            <Route exact path='/signup'
+            {/* <Route exact path='/signup'
               render={(routerProps) =>
                 <SignUp
 
@@ -152,14 +152,14 @@ export default class App extends Component {
                   changeTokenAndUsername={this.changeTokenAndUsername}
                 />
               }
-            />
-
+            /> */}
+            {/* 
             <Route exact path='/aboutus'
               render={(routerProps) =>
                 <AboutUs {...routerProps}
                 />
               }
-            />
+            /> */}
           </Switch>
           <Footer />
         </Router>
