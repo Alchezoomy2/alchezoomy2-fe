@@ -31,7 +31,7 @@ export default class App extends Component {
   }
 
   handleSetState = (stateObject) => {
-    alert(stateObject)
+    alert(stateObject.user_type)
     this.setState(stateObject);
   }
 
