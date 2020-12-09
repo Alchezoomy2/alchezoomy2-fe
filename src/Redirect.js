@@ -5,12 +5,12 @@ export default class Redirect extends Component {
     componentDidMount = async () => {
         let code = new URLSearchParams(window.location.search);
 
-        this.props.handleSetState({ code: code.get('code') });
-        alert(this.props.user_type)
+        await this.props.handleSetState({ code: code.get('code') });
+        await alert(this.props.user_type)
         if (this.props.user_type === 'teacher') {
-            this.props.history.push('/teacher');
+            await this.props.history.push('/teacher');
         } else {
-            this.props.history.push('/student');
+            await this.props.history.push('/student');
         }
     }
     render() {
