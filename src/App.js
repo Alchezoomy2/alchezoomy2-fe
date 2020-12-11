@@ -19,7 +19,7 @@ function App() {
                     <Route path="/">
                         <LandingPage />
                     </Route>
-                    <Route path="/redirect">
+                    <Route path="/redirect/">
                         <Redirect />
                     </Route>
                     {/* redirect */}
