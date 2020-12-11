@@ -24,7 +24,7 @@ export const Redirect = (props) => {
 
     return useObserver(() => {
         // <p>REDIRECTING</p>
-        this.autoRedirect()
+        autoRedirect()
     })
 }
 export default Redirect;
