@@ -19,10 +19,9 @@ function App() {
                     <Route path="/">
                         <LandingPage />
                     </Route>
-                    <Route path="/redirect"
-                        exactr
-                        render={(routerProps) => <Redirect />}
-                    />
+                    <Route path="/redirect">
+                        <Redirect />
+                    </Route>
                     {/* redirect */}
                     {/* /teacher */}
                     {/* /student */}
