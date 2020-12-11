@@ -9,9 +9,9 @@ import { useStateStore } from "./StoreProvider"
 export const AutoRedirect = (props) => {
     const store = useStateStore();
     // const history = useHistory();
-
-    let code = new URLSearchParams(props.location.search);
-    store.changeCode(code.get('code'));
+    console.log(store)
+    // let code = new URLSearchParams(props.location.search);
+    // store.changeCode(code.get('code'));
 
     // if (store.userType === 'teacher') {
     //     history.push('/teacher');
