@@ -26,7 +26,7 @@ function App() {
                         component={LandingPage}>
                         {/* <LandingPage /> */}
                     </Route>
-                    <Route path="/redirect/?code">
+                    <Route path="/redirect/">
                         <Redirect to="/teacher" />
                     </Route>
                     <Route path="/teacher">
