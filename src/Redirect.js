@@ -1,22 +1,25 @@
 import { useObserver } from 'mobx-react';
 import React from 'react';
 import { useStateStore } from "./StoreProvider"
+import { useHistory } from "react-router-dom";
 
 
 
-export const AutoRedirect = () => {
+
+export const AutoRedirect = (props) => {
     const store = useStateStore();
+    const history = useHistory();
 
-    let code = new URLSearchParams(this.props.location.search);
+    let code = new URLSearchParams(props.location.search);
     store.changeCode(code.get('code'));
     console.log(store.userType);
     console.log(code.get('code'))
 
     if (store.userType === 'teacher') {
         console.log('TO TEACHER!')
-        this.props.history.push = '/teacher';
+        history.push('/teacher');
     } else {
-        this.props.history.push = '/student';
+        history.push('/student');
     }
 
 
