@@ -12,18 +12,20 @@ export const Redirect = (props) => {
     store.changeCode(code.get('code'));
     console.log(userType);
     // console.log(code)
-    // const autoRedirect = () => {
-    //     if (userType === 'teacher') {
-    //         props.history.push = '/teacher';
-    //     } else {
-    //         props.history.push = '/student';
-    //     }
+    const autoRedirect = () => {
+        if (userType === 'teacher') {
+            props.history.push = '/teacher';
+        } else {
+            props.history.push = '/student';
+        }
+    }
 
     return useObserver(() =>
         // <p>REDIRECTING</p>
-        // autoRedirect()
-        <p>userType</p>
+        autoRedirect()
+        // <p>userType</p>
     )
 
-};
-export default Redirect;
+}
+
+export default Redirect
