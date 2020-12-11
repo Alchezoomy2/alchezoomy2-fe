@@ -18,10 +18,12 @@ function App() {
             <Router>
                 {/* Header */}
                 <Switch>
-                    <Route exact path="/" component={LandingPage}>
+                    <Route exact path="/"
+                        component={LandingPage}>
                         {/* <LandingPage /> */}
                     </Route>
-                    <Route path="/redirect/" component={Redirect}>
+                    <Route path="/redirect/"
+                        component={Redirect}>
                         {/* <Redirect /> */}
                     </Route>
                     <Route path="/teacher">
