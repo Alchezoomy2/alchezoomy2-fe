@@ -15,7 +15,6 @@ import Teacher from './Teacher.js';
 
 
 function App() {
-    // const [userType] = React.useState()
     return (
         <StoreProvider>
             <Router>
@@ -25,12 +24,10 @@ function App() {
                         component={LandingPage}>
                     </Route>
                     <Route path="/redirect" component={AutoRedirect}>
-                        {/* <Redirect to="/teacher" /> */}
                     </Route>
                     <Route path="/teacher">
                         <Teacher />
                     </Route>
-                    {/* /teacher */}
                     {/* /student */}
                 </Switch>
             </Router>
