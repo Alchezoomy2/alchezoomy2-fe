@@ -4,10 +4,10 @@ import { useStateStore } from "./StoreProvider"
 
 
 
-export const AutoRedirect = (props) => {
+export const AutoRedirect = () => {
     const store = useStateStore();
 
-    let code = new URLSearchParams(props.location.search);
+    let code = new URLSearchParams(this.props.location.search);
     store.changeCode(code.get('code'));
     console.log(store.userType);
     console.log(code.get('code'))
