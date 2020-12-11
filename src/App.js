@@ -19,9 +19,10 @@ function App() {
                     <Route path="/">
                         <LandingPage />
                     </Route>
-                    <Route path="/redirect/">
-                        <Redirect />
-                    </Route>
+                    <Route path="/redirect"
+                        exactr
+                        render={(routerProps) => <Redirect />}
+                    />
                     {/* redirect */}
                     {/* /teacher */}
                     {/* /student */}
