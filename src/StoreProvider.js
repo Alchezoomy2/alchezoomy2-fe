@@ -34,4 +34,4 @@ export const StoreProvider = ({ children }) => {
     )
 };
 
-export const userStateStore = () => useContext(StoreContext);
+export const useStateStore = () => useContext(StoreContext);
