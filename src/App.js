@@ -16,10 +16,11 @@ function App() {
             <Router>
                 {/* Header */}
                 <Switch>
-                    <Route path="/">
+                    <Route exact path="/">
                         <LandingPage />
                     </Route>
-                    <Route path="/redirect">
+                    <Route path="/redirect"
+                        component={Redirect}>
                         <Redirect />
                     </Route>
                     {/* redirect */}
