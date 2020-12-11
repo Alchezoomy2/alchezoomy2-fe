@@ -19,14 +19,11 @@ export const Redirect = (props) => {
     //         props.history.push = '/student';
     //     }
 
-
-
-
-    return useObserver(() => {
+    return useObserver(() =>
         // <p>REDIRECTING</p>
         // autoRedirect()
         <p>userType</p>
-    })
+    )
 
 };
 export default Redirect;
