@@ -15,6 +15,7 @@ export const Teacher = async () => {
             .send({ code: store.code });
 
         store.changeTeacherInfo(returnedObject.body);
+        console.log(store.changeTeacherInfo)
     }
     catch (e) {
         throw e;
@@ -23,7 +24,6 @@ export const Teacher = async () => {
     return useObserver(() =>
         <Paper elevation={3} >
             <Link to='/'><Button >HOME</Button></Link>
-            {store.teacherInfo.name}
         </Paper>
 
     )
