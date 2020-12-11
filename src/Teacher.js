@@ -22,10 +22,10 @@ export const Teacher = async (props) => {
     // }
 
     return useObserver(() =>
-        <Paper elevation={3} >
-            <Link to='/'><Button >HOME</Button></Link>
-        </Paper>
-
+        // <Paper elevation={3} >
+        //     <Link to='/'><Button >HOME</Button></Link>
+        // </Paper>
+        <p>{store.code}</p>
     )
 }
 
