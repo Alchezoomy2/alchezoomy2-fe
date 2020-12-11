@@ -9,7 +9,7 @@ import {
 
 import LandingPage from './LandingPage.js';
 import Redirect from './Redirect.js';
-import Teacher from './Teacher.js';
+import Teacher from './old-Teacher.js';
 function App() {
     return (
         <StoreProvider>
