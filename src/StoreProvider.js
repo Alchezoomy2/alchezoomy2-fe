@@ -10,6 +10,7 @@ export const StoreProvider = ({ children }) => {
         userType: localStorage.getItem('USERTYPE') || '',
         serverUrl: 'https://alchezoomy2.herokuapp.com',
         teacherInfo: localStorage.getItem('TEACHERINFO') || '',
+        meetingsObj: localStorage.meetingsObj.getItem('MEETINGSOBJ') || '',
 
         changeToken: newToken => {
             store.token = newToken;
@@ -27,11 +28,13 @@ export const StoreProvider = ({ children }) => {
         },
 
         changeTeacherInfo: newTeacherInfo => {
-            console.log('------------------------------------');
-            console.log(`newTeacherInfo:  ${newTeacherInfo}`);
-            console.log('------------------------------------');
             store.teacherInfo = newTeacherInfo;
             localStorage.setItem('TEACHERINFO', newTeacherInfo)
+        };
+
+        changeMeetingsObj: newMeetingsObj => {
+            store.meetingsObj = newMeetingsObj;
+            localStorage.setItem('MEETINGSOBJ', newMeetingsObj);
         }
     }));
     return (

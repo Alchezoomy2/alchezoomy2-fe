@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 
 export const Teacher = () => {
     const store = useStateStore();
-    console.log(store.code)
-    useEffect(() => {
 
+    useEffect(() => {
         async function retrieveTeacherInfo() {
             const returnedObject = await fetch
                 .post(store.serverUrl + '/teacher/oauth')
@@ -19,7 +18,27 @@ export const Teacher = () => {
             store.changeTeacherInfo(returnedObject.body);
             console.log(store.changeTeacherInfo)
         }
+
+        async function newTeacher() {
+            return await fetch
+                .post(store.serverURL + '/teacher/new')
+                .send({ teacher_info: store.teacherInfo });
+        }
+
+        async function exisitingTeacher() {
+            return await fetch
+                .post(store.serverURL + '/teacher/meeting')
+                .send({ teacher_info: store.teacherInfo });
+        }
+
         retrieveTeacherInfo();
+
+        if (store.teacherInfo.newTeacher) {
+            store.changeMeetingsObj(newTeacher());
+        } else {
+            store.changeMeetingsObj(exisitingTeacher())
+        }
+        console.log(store.meetingsObj);
     });
 
 
