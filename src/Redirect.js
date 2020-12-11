@@ -1,3 +1,4 @@
+import { useObserver } from 'mobx-react';
 import React from 'react';
 import { useStateStore } from "./StoreProvider"
 
@@ -15,6 +16,10 @@ export const Redirect = (props) => {
     } else {
         this.props.history.push('/student');
     }
-}
 
+
+    return useObserver(() => {
+        <p>REDIRECTING</p>
+    })
+}
 export default Redirect;
