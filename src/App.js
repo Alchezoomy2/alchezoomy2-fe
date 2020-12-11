@@ -24,7 +24,7 @@ function App() {
                     <Route exact path="/"
                         component={LandingPage}>
                     </Route>
-                    <Route path="/redirect" component={AutoRedirect}>
+                    <Route path="/redirect/" component={AutoRedirect}>
                     </Route>
                     <Route path="/teacher">
                         <Teacher />
