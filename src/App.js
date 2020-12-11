@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import LandingPage from './LandingPage.js';
-import Redirect from './Redirect.js';
+import Redirect from './Redirect.js' as AutoRedirect;
 import Teacher from './Teacher.js';
 
 
@@ -24,8 +24,8 @@ function App() {
                     <Route exact path="/"
                         component={LandingPage}>
                     </Route>
-                    <Route path="/redirect/">
-                        <Redirect to="/teacher" />
+                    <Route path="/redirect" component={AutoRedirect}>
+                        {/* <Redirect to="/teacher" /> */}
                     </Route>
                     <Route path="/teacher">
                         <Teacher />

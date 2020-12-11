@@ -4,7 +4,7 @@ import { useStateStore } from "./StoreProvider"
 
 
 
-export const Redirect = (props) => {
+export const AutoRedirect = (props) => {
     const store = useStateStore();
     const [userType] = React.useState("");
 
@@ -29,4 +29,4 @@ export const Redirect = (props) => {
 
 }
 
-export default Redirect
+export default AutoRedirect
