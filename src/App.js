@@ -15,7 +15,7 @@ import Teacher from './Teacher.js';
 
 
 function App() {
-    const [userType] = React.userState();
+    const [userType] = React.useState();
     return (
         <StoreProvider>
             <Router>
