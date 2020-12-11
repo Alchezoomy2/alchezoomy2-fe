@@ -3,7 +3,7 @@ import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/MenuIcon';
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
-import classes from '*.module.css';
+// import classes from '*.module.css';
 
 
 
@@ -15,12 +15,12 @@ export const Header = () => {
             <Toolbar>
                 <IconButton
                     edge="start"
-                    className={classes.menuButton}
                     coloe="inherit"
                     aria-label="menu">
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" className={classes.title}>
+                <Typography
+                    variant="h6" >
                     Alchezoomy
                 </Typography>
             </Toolbar>
