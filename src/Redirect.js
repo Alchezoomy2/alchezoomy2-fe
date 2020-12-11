@@ -14,9 +14,9 @@ export const AutoRedirect = (props) => {
 
     if (store.userType === 'teacher') {
         console.log('TO TEACHER!')
-        props.history.push = '/teacher';
+        this.props.history.push = '/teacher';
     } else {
-        props.history.push = '/student';
+        this.props.history.push = '/student';
     }
 
 
