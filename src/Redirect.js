@@ -1,22 +1,22 @@
 import { useObserver } from 'mobx-react';
 import React from 'react';
-// import { useStateStore } from "./StoreProvider"
+import { useStateStore } from "./StoreProvider"
 
 
 
 export const Redirect = (props) => {
-    // const store = useStateStore();
+    const store = useStateStore();
     const [userType] = React.useState("");
 
     let code = new URLSearchParams(props.location.search);
-    // store.changeCode(code);
+    store.changeCode(code);
     console.log(userType);
     console.log(code)
-    // if (userType === 'teacher') {
-    //     this.props.history.push = '/teacher';
-    // } else {
-    //     this.props.history.push = '/student';
-    // }
+    if (userType === 'teacher') {
+        props.history.push = '/teacher';
+    } else {
+        props.history.push = '/student';
+    }
 
 
     return useObserver(() => {
