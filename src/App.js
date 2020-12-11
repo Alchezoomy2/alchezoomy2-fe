@@ -1,5 +1,7 @@
 import React from 'react'
 import { StoreProvider } from './StoreProvider.js'
+import { useStateStore } from './StoreProvider.js'
+
 
 import {
     BrowserRouter as Router,
@@ -13,6 +15,7 @@ import Teacher from './Teacher.js';
 
 
 function App() {
+    const [userType] = React.userState();
     return (
         <StoreProvider>
             <Router>
@@ -22,9 +25,8 @@ function App() {
                         component={LandingPage}>
                         {/* <LandingPage /> */}
                     </Route>
-                    <Route path="/redirect/"
-                        component={Redirect}>
-                        {/* <Redirect /> */}
+                    <Route path="/redirect">
+                        {userType === 'teacher' ? <Redirect to="/teacher" /> : <Redirect to="/student" />}
                     </Route>
                     <Route path="/teacher">
                         <Teacher />
