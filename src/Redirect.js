@@ -10,12 +10,12 @@ export const Redirect = (props) => {
 
     let code = new URLSearchParams(this.props.location.search);
     store.changeCode(code);
-
-    if (userType === 'teacher') {
-        this.props.history.push = '/teacher';
-    } else {
-        this.props.history.push = '/student';
-    }
+    console.log(userType)
+    // if (userType === 'teacher') {
+    //     this.props.history.push = '/teacher';
+    // } else {
+    //     this.props.history.push = '/student';
+    // }
 
 
     return useObserver(() => {
