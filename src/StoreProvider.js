@@ -18,7 +18,7 @@ export const StoreProvider = ({ children }) => {
 
         changeCode: newCode => {
             console.log('------------------------------------');
-            console.log(`newCode:  ${newCode}`);
+            console.log(`newCode.code:  ${newCode.code}`);
             console.log('------------------------------------');
             store.Code = newCode;
             localStorage.setItem('CODE', newCode);
