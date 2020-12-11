@@ -1,10 +1,10 @@
 import React from 'react';
 import { useObserver } from "mobx-react";
-import { userStateStore, useStateStore } from './StoreProvider.js'
+import { useStateStore } from './StoreProvider.js'
 import { Paper, Button } from '@material-ui/core';
 
 export const LandingPage = (props) => {
-    const store = userStateStore();
+    const store = useStateStore();
 
     return useObserver(() =>
         <Paper elevation={3} >
