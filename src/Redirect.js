@@ -12,11 +12,8 @@ export const AutoRedirect = (props) => {
 
     let code = new URLSearchParams(props.location.search);
     store.changeCode(code.get('code'));
-    console.log(store.userType);
-    console.log(code.get('code'))
 
     if (store.userType === 'teacher') {
-        console.log('TO TEACHER!')
         history.push('/teacher');
     } else {
         history.push('/student');
