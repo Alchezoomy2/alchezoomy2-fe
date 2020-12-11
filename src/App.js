@@ -4,8 +4,7 @@ import { StoreProvider } from './StoreProvider.js'
 import {
     BrowserRouter as Router,
     Route,
-    Switch,
-    useParams
+    Switch
 } from "react-router-dom";
 
 import LandingPage from './LandingPage.js';
