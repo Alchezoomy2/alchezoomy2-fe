@@ -30,7 +30,7 @@ export const StoreProvider = ({ children }) => {
         changeTeacherInfo: newTeacherInfo => {
             store.teacherInfo = newTeacherInfo;
             localStorage.setItem('TEACHERINFO', newTeacherInfo)
-        };
+        },
 
         changeMeetingsObj: newMeetingsObj => {
             store.meetingsObj = newMeetingsObj;
