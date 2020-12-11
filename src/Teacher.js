@@ -6,16 +6,13 @@ import { useObserver } from 'mobx-react';
 import { Link } from "react-router-dom";
 
 
-export const Teacher = async (props) => {
+export const Teacher = async () => {
     const store = useStateStore();
-    const [code] = React.useState();
-    const [serverUrl] = React.useState();
-    const [teacherInfo] = React.useState();
 
     try {
         const returnedObject = await fetch
-            .post(serverUrl + '/teacher/oauth')
-            .send({ code });
+            .post(store.serverUrl + '/teacher/oauth')
+            .send({ code: store.code });
 
         store.changeTeacherInfo(returnedObject.body);
     }
@@ -26,7 +23,7 @@ export const Teacher = async (props) => {
     return useObserver(() =>
         <Paper elevation={3} >
             <Link to='/'><Button >HOME</Button></Link>
-            {teacherInfo.name}
+            {store.teacherInfo.name}
         </Paper>
 
     )
