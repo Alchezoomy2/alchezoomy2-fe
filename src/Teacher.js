@@ -6,7 +6,7 @@ import { useObserver } from 'mobx-react';
 import { Link } from "react-router-dom";
 
 
-export const Teacher = async () => {
+export const Teacher = () => {
     const store = useStateStore();
     console.log(store.code)
     // try {
