@@ -26,8 +26,9 @@ function App() {
                         component={LandingPage}>
                         {/* <LandingPage /> */}
                     </Route>
-                    <Route path="/redirect">
-                        {userType === 'teacher' ? <Redirect to="/teacher" /> : <Redirect to="/student" />}
+                    <Route path="/redirect" >
+                        {console.log(userType);
+                          userType === 'teacher' ? <Redirect to="/teacher" /> : <Redirect to="/student" />}
                     </Route>
                     <Route path="/teacher">
                         <Teacher />
