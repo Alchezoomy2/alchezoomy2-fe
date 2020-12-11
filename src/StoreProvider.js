@@ -17,17 +17,11 @@ export const StoreProvider = ({ children }) => {
         },
 
         changeCode: newCode => {
-            console.log('------------------------------------');
-            console.log(`newCode:  ${newCode}`);
-            console.log('------------------------------------');
             store.Code = newCode;
             localStorage.setItem('CODE', newCode);
         },
 
         changeUserType: newUserType => {
-            console.log('------------------------------------');
-            console.log(`newUserType:  ${newUserType}`);
-            console.log('------------------------------------');
             store.UserType = newUserType;
             localStorage.setItem('USERTYPE', newUserType);
         },
