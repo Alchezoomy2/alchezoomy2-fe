@@ -8,13 +8,13 @@ export const Redirect = (props) => {
     const store = useStateStore();
     const [userType] = React.useState("");
 
-    let code = new URLSearchParams(window.location.search);
+    let code = new URLSearchParams(props.location.search);
     store.changeCode(code);
 
     if (userType === 'teacher') {
-        window.location.href = '/teacher';
+        this.props.history.push = '/teacher';
     } else {
-        window.location.href = '/student';
+        this.props.history.push = '/student';
     }
 
 
