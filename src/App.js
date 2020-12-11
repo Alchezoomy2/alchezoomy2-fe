@@ -6,17 +6,16 @@ import { StoreProvider } from './StoreProvider.js'
 import {
     BrowserRouter as Router,
     Route,
-    Switch,
-    Redirect
+    Switch
 } from "react-router-dom";
 
 import LandingPage from './LandingPage.js';
+import Redirect from './Redirect.js';
 import Teacher from './Teacher.js';
 
 
 function App() {
-    const [userType] = React.useState();
-    // const store = useStateStore();
+    const [userType] = React.useState()
     return (
         <StoreProvider>
             <Router>
@@ -26,17 +25,8 @@ function App() {
                         component={LandingPage}>
                         {/* <LandingPage /> */}
                     </Route>
-                    <Route path="/redirect" >
-                        {
-
-                            {/* let code = new URLSearchParams(location.search); */ }
-
-                                {/* store.changeCode(code.get('code')); */}
-
-                                console.log(userType)
-
-                                {/* userType === 'teacher' ? <Redirect to="/teacher" /> : <Redirect to="/student" /> */}
-                            }
+                    <Route path="/redirect">
+                        {userType === 'teacher' ? <Redirect to="/teacher" /> : <Redirect to="/student" />}
                     </Route>
                     <Route path="/teacher">
                         <Teacher />
