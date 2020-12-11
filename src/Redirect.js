@@ -5,7 +5,7 @@ import { useStateStore } from "./StoreProvider"
 
 
 export const Redirect = (props) => {
-    const store = useStateStore();
+    // const store = useStateStore();
     const [userType] = React.useState("");
 
     // let code = new URLSearchParams(this.props.location.search);
