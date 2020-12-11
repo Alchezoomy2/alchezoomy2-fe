@@ -12,9 +12,9 @@ export const Redirect = (props) => {
     store.changeCode(code);
 
     if (userType === 'teacher') {
-        this.props.history.push('/teacher');
+        window.location.href = '/teacher';
     } else {
-        this.props.history.push('/student');
+        window.location.href = '/student';
     }
 
 
