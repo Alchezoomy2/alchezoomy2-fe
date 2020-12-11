@@ -9,9 +9,9 @@ export const Redirect = (props) => {
     const [userType] = React.useState("");
 
     let code = new URLSearchParams(props.location.search);
-    store.changeCode(code);
+    store.changeCode(code.get('code'));
     console.log(userType);
-    console.log(code)
+    // console.log(code)
     const autoRedirect = () => {
         if (userType === 'teacher') {
             props.history.push = '/teacher';
