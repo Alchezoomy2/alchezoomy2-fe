@@ -5,17 +5,17 @@ import { useStateStore } from "./StoreProvider"
 
 
 export const Redirect = (props) => {
-    const store = useStateStore();
-    const [userType] = React.useState("");
+    // const store = useStateStore();
+    // const [userType] = React.useState("");
 
-    let code = new URLSearchParams(this.props.location.search);
-    store.changeCode(code);
+    // let code = new URLSearchParams(this.props.location.search);
+    // store.changeCode(code);
 
-    if (userType === 'teacher') {
-        this.props.history.push = '/teacher';
-    } else {
-        this.props.history.push = '/student';
-    }
+    // if (userType === 'teacher') {
+    //     this.props.history.push = '/teacher';
+    // } else {
+    //     this.props.history.push = '/student';
+    // }
 
 
     return useObserver(() => {
