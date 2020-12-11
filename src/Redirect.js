@@ -6,7 +6,6 @@ import { useStateStore } from "./StoreProvider"
 
 export const AutoRedirect = (props) => {
     const store = useStateStore();
-    // const [userType] = React.useState("");
 
     let code = new URLSearchParams(props.location.search);
     store.changeCode(code.get('code'));
@@ -14,6 +13,7 @@ export const AutoRedirect = (props) => {
     console.log(code.get('code'))
 
     if (store.userType === 'teacher') {
+        console.log('TO TEACHER!')
         props.history.push = '/teacher';
     } else {
         props.history.push = '/student';
@@ -21,10 +21,7 @@ export const AutoRedirect = (props) => {
 
 
     return useObserver(() =>
-        // <p>REDIRECTING
-        // autoRedirect()
-        // </p>
-        <p>{store.userType}</p>
+        <p>REDIRECTING!</p>
     )
 
 }
