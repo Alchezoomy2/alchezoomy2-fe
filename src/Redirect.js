@@ -24,7 +24,7 @@ export const AutoRedirect = (props) => {
         // <p>REDIRECTING
         // autoRedirect()
         // </p>
-        <p>{userType}</p>
+        <p>{store.userType}</p>
     )
 
 }
