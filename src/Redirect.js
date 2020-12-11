@@ -11,19 +11,20 @@ export const Redirect = (props) => {
     let code = new URLSearchParams(props.location.search);
     store.changeCode(code.get('code'));
     console.log(userType);
-    // console.log(code)
-    const autoRedirect = () => {
-        if (userType === 'teacher') {
-            props.history.push = '/teacher';
-        } else {
-            props.history.push = '/student';
-        }
+    console.log(code)
+
+    if (userType === 'teacher') {
+        props.history.push = '/teacher';
+    } else {
+        props.history.push = '/student';
     }
 
+
     return useObserver(() =>
-        // <p>REDIRECTING</p>
-        autoRedirect()
-        // <p>userType</p>
+        // <p>REDIRECTING
+        // autoRedirect()
+        // </p>
+        <p>{userType}</p>
     )
 
 }

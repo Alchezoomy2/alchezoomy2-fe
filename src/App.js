@@ -6,12 +6,11 @@ import { StoreProvider } from './StoreProvider.js'
 import {
     BrowserRouter as Router,
     Route,
-    Switch,
-    Redirect
+    Switch
 } from "react-router-dom";
 
 import LandingPage from './LandingPage.js';
-// import Redirect from './Redirect.js';
+import Redirect from './Redirect.js';
 import Teacher from './Teacher.js';
 
 
@@ -24,7 +23,6 @@ function App() {
                 <Switch>
                     <Route exact path="/"
                         component={LandingPage}>
-                        {/* <LandingPage /> */}
                     </Route>
                     <Route path="/redirect/">
                         <Redirect to="/teacher" />
