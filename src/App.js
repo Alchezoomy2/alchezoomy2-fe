@@ -12,10 +12,7 @@ import LandingPage from './LandingPage.js';
 import Redirect from './Redirect.js';
 import Teacher from './Teacher.js';
 
-function Redirect() {
-    let { code } = useParams();
-    return <div>Now Showing Post {code}</div>
-}
+
 function App() {
     return (
         <StoreProvider>
