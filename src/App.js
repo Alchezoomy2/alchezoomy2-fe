@@ -9,7 +9,7 @@ import {
 
 import LandingPage from './LandingPage.js';
 import Redirect from './Redirect.js';
-
+import Teacher from './Teacher.js';
 function App() {
     return (
         <StoreProvider>
@@ -23,7 +23,9 @@ function App() {
                         component={Redirect}>
                         <Redirect />
                     </Route>
-                    {/* redirect */}
+                    <Route path="/teacher">
+                        <Teacher />
+                    </Route>
                     {/* /teacher */}
                     {/* /student */}
                 </Switch>

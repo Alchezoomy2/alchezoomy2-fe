@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Redirect extends Component {
 
     componentDidMount = async () => {
-        let code = new URLSearchParams(props.location.search);
+        let code = new URLSearchParams(this.props.location.search);
 
         await this.props.handleSetState({ code: code.get('code') });
         await alert(this.props.user_type)
