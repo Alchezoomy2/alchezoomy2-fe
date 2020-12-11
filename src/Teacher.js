@@ -20,7 +20,7 @@ export const Teacher = () => {
             console.log(store.changeTeacherInfo)
         }
         retrieveTeacherInfo();
-    }, []);
+    });
 
 
     return useObserver(() =>
