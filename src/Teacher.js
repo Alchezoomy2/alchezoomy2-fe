@@ -1,12 +1,12 @@
 import React from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { Paper, Button } from '@material-ui/core';
-// import fetch from 'superagent';
+import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 import { Link } from "react-router-dom";
 
 
-export const Teacher = async (props) => {
+export const Teacher = async () => {
     const store = useStateStore();
     console.log(store.code)
     // try {
@@ -22,10 +22,10 @@ export const Teacher = async (props) => {
     // }
 
     return useObserver(() =>
-        // <Paper elevation={3} >
-        //     <Link to='/'><Button >HOME</Button></Link>
-        // </Paper>
-        <p>{store.code}</p>
+        <Paper elevation={3} >
+            <Link to='/'><Button >HOME</Button></Link>
+        </Paper>
+
     )
 }
 
