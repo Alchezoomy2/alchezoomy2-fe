@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 export const AutoRedirect = (props) => {
     const store = useStateStore();
     const history = useHistory();
-    console.log(store)
+
     let code = new URLSearchParams(props.location.search);
     store.changeCode(code.get('code'));
 

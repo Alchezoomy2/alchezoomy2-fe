@@ -39,7 +39,7 @@ export const Teacher = () => {
         // }
         // console.log(store.meetingsObj);
     });
-    console.log(store.teacherInfo)
+    console.log(store.teacherInfo.new_user)
 
 
     return useObserver(() =>
