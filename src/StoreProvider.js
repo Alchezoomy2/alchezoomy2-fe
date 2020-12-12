@@ -11,6 +11,7 @@ export const StoreProvider = ({ children }) => {
         serverUrl: 'https://alchezoomy2.herokuapp.com',
         teacherInfo: localStorage.getItem('TEACHERINFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
+        loading: true,
 
         changeToken: newToken => {
             store.token = newToken;
@@ -35,6 +36,10 @@ export const StoreProvider = ({ children }) => {
         changeMeetingsObj: newMeetingsObj => {
             store.meetingsObj = newMeetingsObj;
             localStorage.setItem('MEETINGSOBJ', newMeetingsObj);
+        },
+
+        changeLoading: newLoadingState => {
+            store.loading = newLoadingState;
         }
     }));
     return (
