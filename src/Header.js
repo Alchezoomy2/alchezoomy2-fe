@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
-import { MenuIcon } from '@material-ui/icons';
+import MenuIcon from '@material-ui/icons/Menu';
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
 // import classes from '*.module.css';
