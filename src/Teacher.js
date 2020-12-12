@@ -34,18 +34,16 @@ export const Teacher = () => {
     useEffect(() => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
-        // .then(store.changeLoading(false))
     });
 
     return useObserver(() =>
         <Paper elevation={3} >
-            {store.loading ?
-                <Link to='/'><Button >HOME</Button></Link>
-                :
-                <Typography>
-                    {store.teacherInfo.name}
-                </Typography>
-            }
+            <Link to='/'><Button >HOME</Button></Link>
+
+            <Typography>
+                {store.teacherInfo.name}
+            </Typography>
+
         </Paper>
 
     )
