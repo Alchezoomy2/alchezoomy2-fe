@@ -27,7 +27,7 @@ function App() {
                     <Route path="/redirect/" component={AutoRedirect}>
                     </Route>
                     <Route path="/teacher">
-                        <Teacher />
+                        {/* <Teacher /> */}
                     </Route>
                     {/* /student */}
                 </Switch>
