@@ -24,6 +24,8 @@ export const Teacher = () => {
         return await fetch
             .post(store.serverUrl + '/teacher/new')
             .send({ teacher_info: store.teacherInfo });
+
+
     }
 
 
@@ -32,6 +34,7 @@ export const Teacher = () => {
 
         retrieveTeacherInfo();
         newTeacher();
+        console.log('second')
     });
 
     // useEffect(() => {
