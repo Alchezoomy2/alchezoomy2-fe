@@ -20,26 +20,33 @@ export const Teacher = () => {
 
         }
 
-        // async function newTeacher() {
-        //     return await fetch
-        //         .post(store.serverUrl + '/teacher/new')
-        //         .send({ teacher_info: store.teacherInfo });
-        // }
-
-        // async function exisitingTeacher() {
-        //     return await fetch
-        //         .post(store.serverUrl + '/teacher/meetings')
-        //         .send({ teacher_info: store.teacherInfo });
-        // }
 
         retrieveTeacherInfo();
-        // if (store.teacherInfo.new_user) {
-        //     store.changeMeetingsObj(newTeacher());
-        // } else {
-        //     store.changeMeetingsObj(exisitingTeacher())
-        // }
-        // console.log(store.meetingsObj);
+
     });
+
+    useEffect(() => {
+        console.log(store.teacherInfo.new_user)
+
+        async function newTeacher() {
+            return await fetch
+                .post(store.serverUrl + '/teacher/new')
+                .send({ teacher_info: store.teacherInfo });
+        }
+
+        async function exisitingTeacher() {
+            return await fetch
+                .post(store.serverUrl + '/teacher/meetings')
+                .send({ teacher_info: store.teacherInfo });
+        }
+
+        if (store.teacherInfo.new_user) {
+            store.changeMeetingsObj(newTeacher());
+        } else {
+            store.changeMeetingsObj(exisitingTeacher())
+        }
+        console.log(store.meetingsObj);
+    })
 
 
 
