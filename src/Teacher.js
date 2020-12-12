@@ -33,7 +33,7 @@ export const Teacher = () => {
 
         retrieveTeacherInfo();
 
-        if (store.teacherInfo.newTeacher) {
+        if (store.teacherInfo.new_user) {
             store.changeMeetingsObj(newTeacher());
         } else {
             store.changeMeetingsObj(exisitingTeacher())
