@@ -18,7 +18,6 @@ function App() {
     return (
         <StoreProvider>
             <Router>
-                {/* Header */}
                 <Header />
                 <Switch>
                     <Route exact path="/"
@@ -29,7 +28,6 @@ function App() {
                     </Route>
                     <Route path="/teacher"
                         component={Teacher}>
-                        {/* <Teacher /> */}
                     </Route>
                     {/* /student */}
                 </Switch>
