@@ -20,22 +20,9 @@ export const AutoRedirect = (props) => {
 
     }
 
-    async function retrieveTeacher() {
-
-        if (store.teacherInfo.new_user) {
-            store.changeMeetingsObj(await fetch
-                .post(store.serverUrl + '/teacher/new')
-                .send({ teacher_info: store.teacherInfo }));
-        } else {
-            store.changeMeetingsObj(await fetch
-                .post(store.serverUrl + '/teacher/meetings')
-                .send({ teacher_info: store.teacherInfo }));
-        }
-    }
-
-
     useEffect(() => {
         return retrieveTeacherInfo()
+
     });
 
 

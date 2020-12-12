@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const Teacher = () => {
     const store = useStateStore();
 
-    async function retrieveTeacher() {
+    async function retrieveMeetings() {
 
         if (store.teacherInfo.new_user) {
             store.changeMeetingsObj(await fetch
@@ -23,7 +23,7 @@ export const Teacher = () => {
     }
 
     useEffect(() => {
-        return retrieveTeacher()
+        return retrieveMeetings()
     })
 
     return useObserver(() =>
