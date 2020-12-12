@@ -34,7 +34,7 @@ export const Teacher = () => {
     useEffect(() => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
-            .then(store.changeLoading(false))
+        // .then(store.changeLoading(false))
     });
 
     return useObserver(() =>
