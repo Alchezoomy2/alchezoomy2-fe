@@ -10,7 +10,7 @@ export const StoreProvider = ({ children }) => {
         userType: localStorage.getItem('USERTYPE') || '',
         serverUrl: 'https://alchezoomy2.herokuapp.com',
         teacherInfo: localStorage.getItem('TEACHERINFO') || '',
-        meetingsObj: localStorage.meetingsObj.getItem('MEETINGSOBJ') || '',
+        meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
 
         changeToken: newToken => {
             store.token = newToken;
