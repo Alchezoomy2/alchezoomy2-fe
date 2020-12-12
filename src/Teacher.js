@@ -21,13 +21,13 @@ export const Teacher = () => {
 
         async function newTeacher() {
             return await fetch
-                .post(store.serverURL + '/teacher/new')
+                .post(store.serverUrl + '/teacher/new')
                 .send({ teacher_info: store.teacherInfo });
         }
 
         async function exisitingTeacher() {
             return await fetch
-                .post(store.serverURL + '/teacher/meeting')
+                .post(store.serverUrl + '/teacher/meeting')
                 .send({ teacher_info: store.teacherInfo });
         }
 
