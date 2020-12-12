@@ -1,12 +1,24 @@
 import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
-import { Paper, Button, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Paper, List, ListItem, Chip, ListItemText } from '@material-ui/core';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
-import { Link } from "react-router-dom";
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+        maxWidth: '36ch',
+        backgroundColor: theme.palette.background.paper,
+    },
+    inline: {
+        display: 'inline',
+    },
+}));
 
 export const Teacher = () => {
+    const classes = useStyles();
     const store = useStateStore();
 
     async function retrieveTeacherInfo() {
@@ -14,7 +26,7 @@ export const Teacher = () => {
             .post(store.serverUrl + '/teacher/oauth')
             .send({ code: store.code });
 
-        store.changeTeacherInfo(returnedObject.body);
+        await store.changeTeacherInfo(returnedObject.body);
         console.log(store.teacherInfo)
     }
 
@@ -38,11 +50,20 @@ export const Teacher = () => {
 
     return useObserver(() =>
         <Paper elevation={3} >
-            <Link to='/'><Button >HOME</Button></Link>
+            <List className={classes.root}>
+                {store.meetingsObj.map(meeting =>
+                    <ListItem alignItems="flex-start">
+                        <ListItemText
+                            primary={meeting.start_time}
+                            secondary={meeting.topic} />
+                        if (meeting.audio_url) <Chip size="small" icon={<VolumeUpIcon />} label="audio" />
+                    </ListItem>
 
-            <Typography>
-                {store.teacherInfo.name}
-            </Typography>
+                )}
+
+            </List>
+
+
 
         </Paper>
 

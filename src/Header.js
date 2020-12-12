@@ -15,7 +15,7 @@ export const Header = () => {
             <Toolbar>
                 <IconButton
                     edge="start"
-                    coloe="inherit"
+                    color="inherit"
                     aria-label="menu">
                     <MenuIcon />
                 </IconButton>
