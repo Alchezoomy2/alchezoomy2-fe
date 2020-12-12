@@ -17,17 +17,15 @@ export const Teacher = () => {
 
             store.changeTeacherInfo(returnedObject.body);
             console.log(store.teacherInfo.new_user)
-
+            console.log('first')
         }
-
-
         retrieveTeacherInfo();
 
     });
 
     useEffect(() => {
         console.log(store.teacherInfo.new_user)
-
+        console.log('second')
         async function newTeacher() {
             return await fetch
                 .post(store.serverUrl + '/teacher/new')
@@ -46,6 +44,7 @@ export const Teacher = () => {
             store.changeMeetingsObj(exisitingTeacher())
         }
         console.log(store.meetingsObj);
+        console.log('third')
     })
 
 
