@@ -1,9 +1,9 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar } from '@material-ui/core'
+// import MenuIcon from '@material-ui/icons/Menu';
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
-// import classes from '*.module.css';
+
 
 
 
@@ -12,7 +12,7 @@ export const Header = () => {
 
     return useObserver(() =>
         <AppBar position="static" >
-            <Toolbar>
+            {/* <Toolbar>
                 <IconButton
                     edge="start"
                     color="inherit"
@@ -23,7 +23,7 @@ export const Header = () => {
                     variant="h6" >
                     Alchezoomy
                 </Typography>
-            </Toolbar>
+            </Toolbar> */}
         </AppBar>
     )
 }
