@@ -34,7 +34,8 @@ export const Teacher = () => {
 
         retrieveTeacherInfo()
             .then(console.log)
-            .then(newTeacher());
+            .then(newTeacher)
+            .then(console.log)
 
         console.log('second')
     });
