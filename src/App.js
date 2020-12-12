@@ -19,7 +19,7 @@ function App() {
         <StoreProvider>
             <Router>
                 {/* Header */}
-                <Header />
+                {/* <Header /> */}
                 <Switch>
                     <Route exact path="/"
                         component={LandingPage}>
