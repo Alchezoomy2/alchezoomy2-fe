@@ -19,26 +19,26 @@ export const Teacher = () => {
             console.log(store.changeTeacherInfo)
         }
 
-        async function newTeacher() {
-            return await fetch
-                .post(store.serverUrl + '/teacher/new')
-                .send({ teacher_info: store.teacherInfo });
-        }
+        // async function newTeacher() {
+        //     return await fetch
+        //         .post(store.serverUrl + '/teacher/new')
+        //         .send({ teacher_info: store.teacherInfo });
+        // }
 
-        async function exisitingTeacher() {
-            return await fetch
-                .post(store.serverUrl + '/teacher/meetings')
-                .send({ teacher_info: store.teacherInfo });
-        }
+        // async function exisitingTeacher() {
+        //     return await fetch
+        //         .post(store.serverUrl + '/teacher/meetings')
+        //         .send({ teacher_info: store.teacherInfo });
+        // }
 
         retrieveTeacherInfo();
 
         console.log(store.teacherInfo)
-        if (store.teacherInfo.new_user) {
-            store.changeMeetingsObj(newTeacher());
-        } else {
-            store.changeMeetingsObj(exisitingTeacher())
-        }
+        // if (store.teacherInfo.new_user) {
+        //     store.changeMeetingsObj(newTeacher());
+        // } else {
+        //     store.changeMeetingsObj(exisitingTeacher())
+        // }
         console.log(store.meetingsObj);
     });
 
