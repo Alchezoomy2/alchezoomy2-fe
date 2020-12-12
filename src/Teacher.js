@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, List, ListItem, Chip, ListItemText } from '@material-ui/core';
-import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import { Paper, List } from '@material-ui/core';
+// import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
@@ -27,7 +27,6 @@ export const Teacher = () => {
             .send({ code: store.code });
 
         await store.changeTeacherInfo(returnedObject.body);
-        console.log(store.teacherInfo)
     }
 
     async function retrieveTeacher() {
@@ -47,11 +46,13 @@ export const Teacher = () => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
     });
+    console.log(typeof store.meetingsObj)
+
 
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {store.meetingsObj.map(meeting =>
+                {/* {store.meetingsObj.map(meeting =>
                     <ListItem alignItems="flex-start">
                         <ListItemText
                             primary={meeting.start_time}
@@ -59,7 +60,7 @@ export const Teacher = () => {
                         if (meeting.audio_url) <Chip size="small" icon={<VolumeUpIcon />} label="audio" />
                     </ListItem>
 
-                )}
+                )} */}
 
             </List>
 
