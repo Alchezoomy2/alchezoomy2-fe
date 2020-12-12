@@ -16,6 +16,8 @@ export const Teacher = () => {
                 .send({ code: store.code });
 
             store.changeTeacherInfo(returnedObject.body);
+            console.log(store.teacherInfo.new_user)
+
         }
 
         // async function newTeacher() {
@@ -31,7 +33,6 @@ export const Teacher = () => {
         // }
 
         retrieveTeacherInfo();
-        console.log(store.teacherInfo.new_user)
         // if (store.teacherInfo.new_user) {
         //     store.changeMeetingsObj(newTeacher());
         // } else {
