@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { Paper, Button, Typography } from '@material-ui/core';
 import fetch from 'superagent';
@@ -9,6 +9,22 @@ import { Link } from "react-router-dom";
 export const Teacher = () => {
     const store = useStateStore();
 
+    async function retrieveTeacher() {
+
+        if (store.teacherInfo.new_user) {
+            store.changeMeetingsObj(await fetch
+                .post(store.serverUrl + '/teacher/new')
+                .send({ teacher_info: store.teacherInfo }));
+        } else {
+            store.changeMeetingsObj(await fetch
+                .post(store.serverUrl + '/teacher/meetings')
+                .send({ teacher_info: store.teacherInfo }));
+        }
+    }
+
+    useEffect(() => {
+        return retrieveTeacher()
+    })
 
     return useObserver(() =>
         <Paper elevation={3} >

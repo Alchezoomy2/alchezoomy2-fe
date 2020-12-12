@@ -36,8 +36,6 @@ export const AutoRedirect = (props) => {
 
     useEffect(() => {
         return retrieveTeacherInfo()
-            .then(retrieveTeacher)
-            .then(store.changeLoading(false))
     });
 
 
