@@ -32,8 +32,10 @@ export const Teacher = () => {
     useEffect(() => {
 
 
-        retrieveTeacherInfo();
-        newTeacher();
+        retrieveTeacherInfo()
+            .then(console.log)
+            .then(newTeacher());
+
         console.log('second')
     });
 
