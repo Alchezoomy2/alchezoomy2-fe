@@ -27,7 +27,7 @@ export const Teacher = () => {
 
         async function exisitingTeacher() {
             return await fetch
-                .post(store.serverUrl + '/teacher/meeting')
+                .post(store.serverUrl + '/teacher/meetings')
                 .send({ teacher_info: store.teacherInfo });
         }
 
