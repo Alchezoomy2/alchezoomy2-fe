@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
-import { HomeIcon } from '@material-ui/core/icons'
+import { HomeIcon } from '@material-ui/icons';
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
 // import classes from '*.module.css';
