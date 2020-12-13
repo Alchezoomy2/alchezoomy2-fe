@@ -55,10 +55,7 @@ export const Teacher = () => {
         }
     }
 
-    useEffect(async () => {
-        await retrieveTeacherInfo()
-    }, []);
-
+    retrieveTeacherInfo()
     retrieveMeetings();
 
 
