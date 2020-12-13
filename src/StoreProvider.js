@@ -19,7 +19,7 @@ export const StoreProvider = ({ children }) => {
         },
 
         changeCode: newCode => {
-            store.Code = newCode;
+            store.code = newCode;
             localStorage.setItem('CODE', newCode);
         },
 

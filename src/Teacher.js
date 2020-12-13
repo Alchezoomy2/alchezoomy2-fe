@@ -73,7 +73,7 @@ export const Teacher = () => {
                     <p>LOADING!</p>
                     :
                     store.meetingsObj.map(meeting =>
-                        <ListItem alignItems="flex-end" flexDirection="column" >
+                        <ListItem flexDirection="column" >
                             <ListItemText
                                 primary={meeting.start_time}
                                 secondary={meeting.topic} />
@@ -86,7 +86,9 @@ export const Teacher = () => {
                             <FormControlLabel
                                 control={<Switch checked={meeting.publish}
                                     // onChange={() => handlePublish(meeting.id)}
-                                    name='publish' />}
+                                    name='publish'
+                                    color="primary"
+                                />}
                                 label="publish" />
                         </ListItem>
                     )
