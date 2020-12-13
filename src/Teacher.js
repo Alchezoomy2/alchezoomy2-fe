@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, List, ListItem, ListItemText, Chip } from '@material-ui/core';
-import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
-import ChatIcon from '@material-ui/icons/Chat';
-import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import { Paper, List } from '@material-ui/core';
+// import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+// import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+// import ChatIcon from '@material-ui/icons/Chat';
+// import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
