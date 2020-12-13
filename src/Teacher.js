@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, List } from '@material-ui/core';
-// import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import { Paper, List, ListItem, ListItemText, Chip } from '@material-ui/core';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
@@ -35,14 +35,14 @@ export const Teacher = () => {
             const newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/new')
                 .send({ teacher_info: store.teacherInfo });
-            console.log(newMeetingObj)
-            store.changeMeetingsObj(newMeetingObj);
+            console.log(newMeetingObj.body)
+            store.changeMeetingsObj(newMeetingObj.body);
         } else {
             const newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/meetings')
                 .send({ teacher_info: store.teacherInfo })
-            console.log(newMeetingObj)
-            store.changeMeetingsObj(newMeetingObj);
+            console.log(newMeetingObj.body)
+            store.changeMeetingsObj(newMeetingObj.body);
         }
     }
 
@@ -56,7 +56,7 @@ export const Teacher = () => {
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {/* {store.meetingsObj.map(meeting =>
+                {store.meetingsObj.map(meeting =>
                     <ListItem alignItems="flex-start">
                         <ListItemText
                             primary={meeting.start_time}
@@ -70,7 +70,7 @@ export const Teacher = () => {
 
                     </ListItem>
 
-                )} */}
+                )}
 
             </List>
 
