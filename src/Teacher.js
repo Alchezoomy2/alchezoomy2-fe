@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Teacher = () => {
-    let [loading] = useState('true');
+    let [loading, setLoading] = useState('true');
     const classes = useStyles();
     const store = useStateStore();
 
@@ -43,7 +43,7 @@ export const Teacher = () => {
                 .send({ teacher_info: store.teacherInfo });
             console.log(newMeetingObj.body)
             store.changeMeetingsObj(newMeetingObj.body);
-            loading = false;
+            setLoading(false);
 
         } else {
             const newMeetingObj = await fetch
@@ -51,18 +51,22 @@ export const Teacher = () => {
                 .send({ teacher_info: store.teacherInfo })
             console.log(newMeetingObj.body)
             store.changeMeetingsObj(newMeetingObj.body);
-            loading = false;
+            setLoading(false);
         }
     }
+
     useEffect(() => {
         return retrieveTeacherInfo()
-            .then(retrieveMeetings);
-    }, [])
+            .then(retrieveMeetings)
+    });
+
 
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {store.meetingsObj &&
+                {loading ?
+                    <p>LOADING!</p>
+                    :
                     store.meetingsObj.map(meeting =>
                         <ListItem alignItems="flex-start">
                             <ListItemText
