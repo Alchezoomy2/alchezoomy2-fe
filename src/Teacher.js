@@ -43,7 +43,7 @@ export const Teacher = () => {
                 .send({ teacher_info: store.teacherInfo });
             console.log(newMeetingObj.body)
             store.changeMeetingsObj(newMeetingObj.body);
-            loading = false;
+            setLoading(false);
 
         } else {
             const newMeetingObj = await fetch
@@ -51,7 +51,7 @@ export const Teacher = () => {
                 .send({ teacher_info: store.teacherInfo })
             console.log(newMeetingObj.body)
             store.changeMeetingsObj(newMeetingObj.body);
-            loading = false;
+            setLoading(false);
         }
     }
 
