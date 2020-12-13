@@ -32,13 +32,17 @@ export const Teacher = () => {
     async function retrieveTeacher() {
 
         if (store.teacherInfo.new_user) {
-            store.changeMeetingsObj(await fetch
+            const newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/new')
-                .send({ teacher_info: store.teacherInfo }));
+                .send({ teacher_info: store.teacherInfo });
+            console.log(newMeetingObj)
+            store.changeMeetingsObj(newMeetingObj);
         } else {
-            store.changeMeetingsObj(await fetch
+            const newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/meetings')
-                .send({ teacher_info: store.teacherInfo }));
+                .send({ teacher_info: store.teacherInfo })
+            console.log(newMeetingObj)
+            store.changeMeetingsObj(newMeetingObj);
         }
     }
 
@@ -46,7 +50,7 @@ export const Teacher = () => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
     });
-    console.log(JSON.parse(store.meetingsObj));
+    console.log((store.meetingsObj[0]));
 
 
     return useObserver(() =>
@@ -57,7 +61,13 @@ export const Teacher = () => {
                         <ListItemText
                             primary={meeting.start_time}
                             secondary={meeting.topic} />
+                                                    if (meeting.video_url) <Chip size="small" icon={<VolumeUpIcon />} label="video" />
+
                         if (meeting.audio_url) <Chip size="small" icon={<VolumeUpIcon />} label="audio" />
+                        if (meeting.chat_url) <Chip size="small" icon={<VolumeUpIcon />} label="chat" />
+                        if (meeting.transcript_url) <Chip size="small" icon={<VolumeUpIcon />} label="transcript" />
+
+
                     </ListItem>
 
                 )} */}
