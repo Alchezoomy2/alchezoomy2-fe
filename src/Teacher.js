@@ -3,6 +3,7 @@ import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, List, ListItem, ListItemText, Chip } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
@@ -50,27 +51,31 @@ export const Teacher = () => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
     });
-    console.log((store.meetingsObj[0]));
+    console.log((store.meetingsObj));
 
 
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {store.meetingsObj.map(meeting =>
-                    <ListItem alignItems="flex-start">
-                        <ListItemText
-                            primary={meeting.start_time}
-                            secondary={meeting.topic} />
-                                                    if (meeting.video_url) <Chip size="small" icon={<VolumeUpIcon />} label="video" />
-
+                {store.meetingsObj ?
+                    store.meetingsObj.map(meeting =>
+                        <ListItem alignItems="flex-start">
+                            <ListItemText
+                                primary={meeting.start_time}
+                                secondary={meeting.topic} />
+                        if (meeting.video_url) <Chip size="small" icon={<VideoLabelIcon />} label="video" />
                         if (meeting.audio_url) <Chip size="small" icon={<VolumeUpIcon />} label="audio" />
                         if (meeting.chat_url) <Chip size="small" icon={<VolumeUpIcon />} label="chat" />
                         if (meeting.transcript_url) <Chip size="small" icon={<VolumeUpIcon />} label="transcript" />
 
 
-                    </ListItem>
+                        </ListItem>
 
-                )}
+                    )
+                    :
+                    <p>LOADING!</p>
+                }
+
 
             </List>
 
