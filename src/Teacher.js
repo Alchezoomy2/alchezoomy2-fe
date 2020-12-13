@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, List, Chip, ListItem, ListItemText, FormControlLabel, Switch } from '@material-ui/core';
@@ -21,10 +21,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Teacher = () => {
+    let [loading] = useState('false');
     const classes = useStyles();
     const store = useStateStore();
 
+
     async function retrieveTeacherInfo() {
+        console.log()
         const returnedObject = await fetch
             .post(store.serverUrl + '/teacher/oauth')
             .send({ code: store.code });
@@ -32,7 +35,7 @@ export const Teacher = () => {
         await store.changeTeacherInfo(returnedObject.body);
     }
 
-    async function retrieveTeacher() {
+    async function retrieveMeetings() {
 
         if (store.teacherInfo.new_user) {
             const newMeetingObj = await fetch
@@ -51,15 +54,17 @@ export const Teacher = () => {
 
     useEffect(() => {
         return retrieveTeacherInfo()
-            .then(retrieveTeacher)
-            .then(console.log((store.meetingsObj[0])));
+            .then(retrieveMeetings)
+            .then(loading = true)
     });
 
 
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {store.meetingsObj ?
+                {loading ?
+                    <p>LOADING!</p>
+                    :
                     store.meetingsObj.map(meeting =>
                         <ListItem alignItems="flex-start">
                             <ListItemText
@@ -76,10 +81,7 @@ export const Teacher = () => {
                                     name='publish' />}
                                 label="publish" />
                         </ListItem>
-
                     )
-                    :
-                    <p>LOADING!</p>
                 }
 
 
