@@ -5,11 +5,14 @@ import HomeIcon from '@material-ui/icons/Home';
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
 // import classes from '*.module.css';
+import { useHistory } from "react-router-dom";
 
 
 
 export const Header = () => {
     // const store = useStateStore();
+    const history = useHistory();
+
 
     return useObserver(() =>
         <AppBar position="static" >
@@ -27,7 +30,8 @@ export const Header = () => {
                 <IconButton
                     edge="end"
                     color="inherit"
-                    aria-label="home">
+                    aria-label="home"
+                    onClick={() => history.push('/')}>
                     <HomeIcon />
                 </IconButton>
             </Toolbar>
