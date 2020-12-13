@@ -59,7 +59,7 @@ export const Teacher = () => {
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {store.meetingsObj ?
+                {/* {store.meetingsObj ?
                     store.meetingsObj.map(meeting =>
                         <ListItem alignItems="flex-start">
                             <ListItemText
@@ -76,7 +76,7 @@ export const Teacher = () => {
                     )
                     :
                     <p>LOADING!</p>
-                }
+                } */}
 
 
             </List>
