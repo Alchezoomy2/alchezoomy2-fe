@@ -54,17 +54,15 @@ export const Teacher = () => {
             loading = false;
         }
     }
-
-    retrieveTeacherInfo()
-    retrieveMeetings();
-
+    useEffect(() => {
+        return retrieveTeacherInfo()
+            .then(retrieveMeetings);
+    }, [])
 
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {loading ?
-                    <p>LOADING!</p>
-                    :
+                {store.meetingsObj &&
                     store.meetingsObj.map(meeting =>
                         <ListItem alignItems="flex-start">
                             <ListItemText
