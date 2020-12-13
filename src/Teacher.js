@@ -57,7 +57,7 @@ export const Teacher = () => {
 
     useEffect(async () => {
         await retrieveTeacherInfo()
-    });
+    }, []);
 
     retrieveMeetings();
 
