@@ -59,7 +59,7 @@ export const Teacher = () => {
 
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
-    }, []);
+    }, [store]);
 
 
     return useObserver(() =>
