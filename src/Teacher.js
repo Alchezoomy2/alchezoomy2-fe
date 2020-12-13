@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     inline: {
         display: 'inline',
     },
+    list: {
+        width: '90%',
+        border: '1px solid blue'
+    }
 }));
 
 export const Teacher = () => {
@@ -63,8 +67,8 @@ export const Teacher = () => {
 
 
     return useObserver(() =>
-        <Paper elevation={3} >
-            <List className={classes.root}>
+        <Paper elevation={3} className={classes.root}>
+            <List >
                 {loading ?
                     <p>LOADING!</p>
                     :
