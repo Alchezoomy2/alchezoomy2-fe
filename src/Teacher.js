@@ -52,40 +52,40 @@ export const Teacher = () => {
     useEffect(() => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
-            .then(console.log((store.meetingsObj[0])))            )
-});
+            .then(console.log((store.meetingsObj[0])));
+    });
 
 
-return useObserver(() =>
-    <Paper elevation={3} >
-        <List className={classes.root}>
-            {store.meetingsObj ?
-                store.meetingsObj.map(meeting =>
-                    <ListItem alignItems="flex-start">
-                        <ListItemText
-                            primary={meeting.start_time}
-                            secondary={meeting.topic} />
+    return useObserver(() =>
+        <Paper elevation={3} >
+            <List className={classes.root}>
+                {store.meetingsObj ?
+                    store.meetingsObj.map(meeting =>
+                        <ListItem alignItems="flex-start">
+                            <ListItemText
+                                primary={meeting.start_time}
+                                secondary={meeting.topic} />
                         if (meeting.video_url) <Chip size="small" icon={<VideoLabelIcon />} label="video" />
                         if (meeting.audio_url) <Chip size="small" icon={<VolumeUpIcon />} label="audio" />
                         if (meeting.chat_url) <Chip size="small" icon={<ChatIcon />} label="chat" />
                         if (meeting.transcript_url) <Chip size="small" icon={<RecordVoiceOverIcon />} label="transcript" />
 
 
-                    </ListItem>
+                        </ListItem>
 
-                )
-                :
-                <p>LOADING!</p>
-            }
-
-
-        </List>
+                    )
+                    :
+                    <p>LOADING!</p>
+                }
 
 
+            </List>
 
-    </Paper>
 
-)
+
+        </Paper>
+
+    )
 }
 
 export default Teacher;
