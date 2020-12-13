@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, List } from '@material-ui/core';
-// import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-// import VideoLabelIcon from '@material-ui/icons/VideoLabel';
-// import ChatIcon from '@material-ui/icons/Chat';
-// import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import { Paper, List, Chip, ListItem, ListItemText, FormControlLabel, Switch } from '@material-ui/core';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import ChatIcon from '@material-ui/icons/Chat';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
@@ -59,7 +59,7 @@ export const Teacher = () => {
     return useObserver(() =>
         <Paper elevation={3} >
             <List className={classes.root}>
-                {/* {store.meetingsObj ?
+                {store.meetingsObj ?
                     store.meetingsObj.map(meeting =>
                         <ListItem alignItems="flex-start">
                             <ListItemText
@@ -70,13 +70,17 @@ export const Teacher = () => {
                         if (meeting.chat_url) <Chip size="small" color="primary" icon={<ChatIcon />} label="chat" />
                         if (meeting.transcript_url) <Chip size="small" color="primary" icon={<RecordVoiceOverIcon />} label="transcript" />
 
-
+                            <FormControlLabel
+                                control={<Switch checked={meeting.publish}
+                                    // onChange={() => handlePublish(meeting.id)}
+                                    name='publish' />}
+                                label="publish" />
                         </ListItem>
 
                     )
                     :
                     <p>LOADING!</p>
-                } */}
+                }
 
 
             </List>
