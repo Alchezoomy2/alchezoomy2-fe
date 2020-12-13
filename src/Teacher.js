@@ -55,10 +55,11 @@ export const Teacher = () => {
         }
     }
 
-    useEffect(() => {
-        return retrieveTeacherInfo()
-            .then(retrieveMeetings)
+    useEffect(async () => {
+        await retrieveTeacherInfo()
     });
+
+    retrieveMeetings();
 
 
     return useObserver(() =>
