@@ -73,10 +73,10 @@ export const Teacher = () => {
                             <ListItemText
                                 primary={meeting.start_time}
                                 secondary={meeting.topic} />
-                        if (meeting.video_url) {<Chip size="small" color="primary" icon={<VideoLabelIcon />} label="video" />}
-                        if (meeting.audio_url) {<Chip size="small" color="primary" icon={<VolumeUpIcon />} label="audio" />}
-                        if (meeting.chat_url) {<Chip size="small" color="primary" icon={<ChatIcon />} label="chat" />}
-                        if (meeting.transcript_url) {<Chip size="small" color="primary" icon={<RecordVoiceOverIcon />} label="transcript" />}
+                            <Chip size="small" color="primary" icon={<VideoLabelIcon />} label="video" />
+                            <Chip size="small" color="primary" icon={<VolumeUpIcon />} label="audio" />
+                            <Chip size="small" color="primary" icon={<ChatIcon />} label="chat" />
+                            <Chip size="small" color="primary" icon={<RecordVoiceOverIcon />} label="transcript" />
 
                             <FormControlLabel
                                 control={<Switch checked={meeting.publish}
