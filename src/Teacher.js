@@ -46,7 +46,7 @@ export const Teacher = () => {
         return retrieveTeacherInfo()
             .then(retrieveTeacher)
     });
-    console.log(store.meetingsObj)
+    console.log(JSON.parse(store.meetingsObj));
 
 
     return useObserver(() =>
