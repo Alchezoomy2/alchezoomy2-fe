@@ -69,15 +69,16 @@ export const Teacher = () => {
                     <p>LOADING!</p>
                     :
                     store.meetingsObj.map(meeting =>
-                        <ListItem alignItems="flex-start">
+                        <ListItem alignItems="flex-start" flexDirection="column" >
                             <ListItemText
                                 primary={meeting.start_time}
                                 secondary={meeting.topic} />
-                            <Chip size="small" color="primary" icon={<VideoLabelIcon />} label="video" />
-                            <Chip size="small" color="primary" icon={<VolumeUpIcon />} label="audio" />
-                            <Chip size="small" color="primary" icon={<ChatIcon />} label="chat" />
-                            <Chip size="small" color="primary" icon={<RecordVoiceOverIcon />} label="transcript" />
-
+                            <div>
+                                <Chip size="small" color="primary" icon={<VideoLabelIcon />} label="video" />
+                                <Chip size="small" color="primary" icon={<VolumeUpIcon />} label="audio" />
+                                <Chip size="small" color="primary" icon={<ChatIcon />} label="chat" />
+                                <Chip size="small" color="primary" icon={<RecordVoiceOverIcon />} label="transcript" />
+                            </div>
                             <FormControlLabel
                                 control={<Switch checked={meeting.publish}
                                     // onChange={() => handlePublish(meeting.id)}
