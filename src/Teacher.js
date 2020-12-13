@@ -26,39 +26,40 @@ export const Teacher = () => {
     const store = useStateStore();
 
 
-    async function retrieveTeacherInfo() {
-        console.log()
-        const returnedObject = await fetch
-            .post(store.serverUrl + '/teacher/oauth')
-            .send({ code: store.code });
-
-        await store.changeTeacherInfo(returnedObject.body);
-    }
-
-    async function retrieveMeetings() {
-
-        if (store.teacherInfo.new_user) {
-            const newMeetingObj = await fetch
-                .post(store.serverUrl + '/teacher/new')
-                .send({ teacher_info: store.teacherInfo });
-            console.log(newMeetingObj.body)
-            store.changeMeetingsObj(newMeetingObj.body);
-            setLoading(false);
-
-        } else {
-            const newMeetingObj = await fetch
-                .post(store.serverUrl + '/teacher/meetings')
-                .send({ teacher_info: store.teacherInfo })
-            console.log(newMeetingObj.body)
-            store.changeMeetingsObj(newMeetingObj.body);
-            setLoading(false);
-        }
-    }
 
     useEffect(() => {
+        async function retrieveTeacherInfo() {
+            console.log()
+            const returnedObject = await fetch
+                .post(store.serverUrl + '/teacher/oauth')
+                .send({ code: store.code });
+
+            await store.changeTeacherInfo(returnedObject.body);
+        }
+
+        async function retrieveMeetings() {
+
+            if (store.teacherInfo.new_user) {
+                const newMeetingObj = await fetch
+                    .post(store.serverUrl + '/teacher/new')
+                    .send({ teacher_info: store.teacherInfo });
+                console.log(newMeetingObj.body)
+                store.changeMeetingsObj(newMeetingObj.body);
+                setLoading(false);
+
+            } else {
+                const newMeetingObj = await fetch
+                    .post(store.serverUrl + '/teacher/meetings')
+                    .send({ teacher_info: store.teacherInfo })
+                console.log(newMeetingObj.body)
+                store.changeMeetingsObj(newMeetingObj.body);
+                setLoading(false);
+            }
+        }
+
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
-    });
+    }, []);
 
 
     return useObserver(() =>
