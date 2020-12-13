@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Teacher = () => {
-    let [loading] = useState('false');
+    let [loading] = useState('true');
     const classes = useStyles();
     const store = useStateStore();
 
@@ -43,19 +43,21 @@ export const Teacher = () => {
                 .send({ teacher_info: store.teacherInfo });
             console.log(newMeetingObj.body)
             store.changeMeetingsObj(newMeetingObj.body);
+            loading = false;
+
         } else {
             const newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/meetings')
                 .send({ teacher_info: store.teacherInfo })
             console.log(newMeetingObj.body)
             store.changeMeetingsObj(newMeetingObj.body);
+            loading = false;
         }
     }
 
     useEffect(() => {
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
-            .then(loading = true)
     });
 
 
