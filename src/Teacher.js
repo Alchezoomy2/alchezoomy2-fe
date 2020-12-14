@@ -50,6 +50,7 @@ export const Teacher = () => {
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
+        setLoading(true);
         if (meeting.publish) {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/unpublish')
@@ -60,6 +61,7 @@ export const Teacher = () => {
                 .send({ meetingId: meeting.id })
         }
         store.changeMeetingsObj(newMeetingObj.body);
+        setLoading(false);
     })
 
 
