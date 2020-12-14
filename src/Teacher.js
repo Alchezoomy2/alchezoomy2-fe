@@ -49,7 +49,7 @@ export const Teacher = () => {
 
 
     return useObserver(() =>
-        <Container maxWidth="xl" style={{ display: 'flex', allignItems: 'center' }}>
+        <Container maxWidth="xl" style={{ display: 'flex', allignItems: 'center', backgroundColor: 'gray' }}>
             <List style={{ width: '90%' }}>
                 {loading ?
                     <p>LOADING!</p>
@@ -57,7 +57,7 @@ export const Teacher = () => {
                     store.meetingsObj.map(meeting =>
                         <div>
                             <ListItem alignItems="flex-start" >
-                                <Card>
+                                <Card style={{ width: '500px' }}>
                                     <Typography>{meeting.start_time}</Typography>
                                     <Typography>{meeting.topic}</Typography>
                                     <div>
