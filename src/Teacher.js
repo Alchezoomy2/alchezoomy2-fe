@@ -79,7 +79,7 @@ export const Teacher = () => {
                                     <Typography>{meeting.topic}</Typography>
                                     <div>
                                         <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                        <Chip size="small" color={meeting.audi_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
                                         <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
                                         <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
                                     </div>
