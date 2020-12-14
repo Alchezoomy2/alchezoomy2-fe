@@ -15,9 +15,8 @@ export const Header = () => {
 
 
     return useObserver(() =>
-        <AppBar position="static" >
-            <Toolbar
-                style={{ width: '100%' }}>
+        <AppBar position="static" style={{ width: '100%' }}>
+            <Toolbar>
                 <IconButton
                     edge="start"
                     color="inherit"

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, List, Chip, ListItem, ListItemText, FormControlLabel, Switch } from '@material-ui/core';
+import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -65,13 +65,13 @@ export const Teacher = () => {
 
 
     return useObserver(() =>
-        <Paper elevation={3} className={classes.root}>
+        <Container maxWidth="sm" className={classes.root}>
             <List >
                 {loading ?
                     <p>LOADING!</p>
                     :
                     store.meetingsObj.map(meeting =>
-                        <ListItem flexDirection="column" >
+                        <ListItem flexDirection="flex-start" >
                             <ListItemText
                                 primary={meeting.start_time}
                                 secondary={meeting.topic} />
@@ -97,7 +97,7 @@ export const Teacher = () => {
 
 
 
-        </Paper>
+        </Container>
 
     )
 }
