@@ -13,10 +13,7 @@ export const Teacher = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
 
-
-
     useEffect(() => {
-        console.log('userEffect()')
         async function retrieveTeacherInfo() {
             console.log()
             const returnedObject = await fetch
@@ -27,25 +24,22 @@ export const Teacher = () => {
         }
 
         async function retrieveMeetings() {
-
+            let newMeetingObj;
             if (store.teacherInfo.new_user) {
-                const newMeetingObj = await fetch
+                newMeetingObj = await fetch
                     .post(store.serverUrl + '/teacher/new')
                     .send({ teacher_info: store.teacherInfo });
-                store.changeMeetingsObj(newMeetingObj.body);
-                setLoading(false);
-
             } else {
-                const newMeetingObj = await fetch
+                newMeetingObj = await fetch
                     .post(store.serverUrl + '/teacher/meetings')
                     .send({ teacher_info: store.teacherInfo })
-                store.changeMeetingsObj(newMeetingObj.body);
-                setLoading(false);
             }
+            store.changeMeetingsObj(newMeetingObj.body);
         }
 
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
+            .then(setLoading(false))
     }, [store]);
 
     const handlePublish = (async (meeting) => {
@@ -93,17 +87,13 @@ export const Teacher = () => {
                                     <div>
                                         <Typography>Views: {meeting.meeting_views}</Typography>
                                         <Typography>Favorites: {meeting.meeting_favs}</Typography>
-
                                     </div>
                                 </Card>
                                 <Divider variant="middle" component="li" />
                             </ListItem>
                         </div>
                     )
-
                 }
-
-
             </List>
 
 
