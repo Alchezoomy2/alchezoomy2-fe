@@ -49,8 +49,8 @@ export const Teacher = () => {
 
 
     return useObserver(() =>
-        <Container maxWidth="xl" style={{ backgroundColor: 'green' }}>
-            <List >
+        <Container maxWidth="xl" style={{ display: 'flex', allignItems: 'center' }}>
+            <List style={{ width: '90%' }}>
                 {loading ?
                     <p>LOADING!</p>
                     :
