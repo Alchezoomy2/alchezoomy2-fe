@@ -51,7 +51,7 @@ export const Teacher = () => {
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
         setLoading(true);
-        if (meeting.publish) {
+        if (meeting.published) {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/unpublish')
                 .send({ meetingId: meeting.id })
