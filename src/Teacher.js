@@ -82,7 +82,7 @@ export const Teacher = () => {
                                         <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
                                     </div>
                                     <FormControlLabel
-                                        control={<Switch checked={meeting.publish}
+                                        control={<Switch checked={meeting.published}
                                             onChange={() => handlePublish(meeting)}
                                             name='publish'
                                             color="primary"
