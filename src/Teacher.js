@@ -51,11 +51,11 @@ export const Teacher = () => {
         let newMeetingObj;
         if (meeting.publish) {
             newMeetingObj = await fetch
-                .post(store.serverUrl + '/unpublish')
+                .post(store.serverUrl + '/teacher/unpublish')
                 .send({ meetingId: meeting.id })
         } else {
             newMeetingObj = await fetch
-                .post(store.serverUrl + '/publish')
+                .post(store.serverUrl + '/teacher/publish')
                 .send({ meetingId: meeting.id })
         }
         store.changeMeetingsObj(newMeetingObj.body);
