@@ -65,13 +65,13 @@ export const Teacher = () => {
 
 
     return useObserver(() =>
-        <Container maxWidth="sm" className={classes.root}>
+        <Container maxWidth="lg" className={classes.root}>
             <List >
                 {loading ?
                     <p>LOADING!</p>
                     :
                     store.meetingsObj.map(meeting =>
-                        <ListItem flexDirection="flex-start" >
+                        <ListItem alignItems="flex-start" >
                             <ListItemText
                                 primary={meeting.start_time}
                                 secondary={meeting.topic} />
