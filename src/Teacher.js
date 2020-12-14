@@ -9,24 +9,9 @@ import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-        maxWidth: '36ch',
-        backgroundColor: theme.palette.background.paper,
-    },
-    inline: {
-        display: 'inline',
-    },
-    list: {
-        width: '90%',
-        border: '1px solid blue'
-    }
-}));
 
 export const Teacher = () => {
     let [loading, setLoading] = useState('true');
-    const classes = useStyles();
     const store = useStateStore();
 
 
