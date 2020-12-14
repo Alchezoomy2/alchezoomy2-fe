@@ -47,7 +47,6 @@ export const Teacher = () => {
                 const newMeetingObj = await fetch
                     .post(store.serverUrl + '/teacher/new')
                     .send({ teacher_info: store.teacherInfo });
-                console.log(newMeetingObj.body)
                 store.changeMeetingsObj(newMeetingObj.body);
                 setLoading(false);
 
@@ -55,7 +54,6 @@ export const Teacher = () => {
                 const newMeetingObj = await fetch
                     .post(store.serverUrl + '/teacher/meetings')
                     .send({ teacher_info: store.teacherInfo })
-                console.log(newMeetingObj.body)
                 store.changeMeetingsObj(newMeetingObj.body);
                 setLoading(false);
             }
