@@ -90,6 +90,11 @@ export const Teacher = () => {
                                             color="primary"
                                         />}
                                         label="publish" />
+                                    <div>
+                                        <Typography>Views: {meeting.meeting_views}</Typography>
+                                        <Typography>Favorites: {meeting.meeting_favs}</Typography>
+
+                                    </div>
                                 </Card>
                                 <Divider variant="middle" component="li" />
                             </ListItem>
