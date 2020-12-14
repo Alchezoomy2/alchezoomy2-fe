@@ -69,7 +69,7 @@ export const Teacher = () => {
                         <div>
                             <ListItem alignItems="flex-start" >
                                 <Card style={{ width: '800px', justifyItems: 'center' }}>
-                                    <Typography>{meeting.start_time}</Typography>
+                                    <Typography>{meeting.display_time}</Typography>
                                     <Typography>{meeting.topic}</Typography>
                                     <div>
                                         <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
