@@ -47,8 +47,8 @@ export const Teacher = () => {
             .then(retrieveMeetings)
     }, [store]);
 
-    handlePublish(meeting){
-        const newMeetingObj;
+    const handlePublish = (async (meeting) => {
+        let newMeetingObj;
         if (meeting.publish) {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/unpublish')
@@ -59,7 +59,7 @@ export const Teacher = () => {
                 .send({ meetingId: meeting.id })
         }
         store.changeMeetingsObj(newMeetingObj.body);
-    }
+    })
 
 
     return useObserver(() =>
