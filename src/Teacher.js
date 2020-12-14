@@ -47,6 +47,20 @@ export const Teacher = () => {
             .then(retrieveMeetings)
     }, [store]);
 
+    handlePublish(meeting){
+        const newMeetingObj;
+        if (meeting.publish) {
+            newMeetingObj = await fetch
+                .post(store.serverUrl + '/unpublish')
+                .send({ meetingId: meeting.id })
+        } else {
+            newMeetingObj = await fetch
+                .post(store.serverUrl + '/publish')
+                .send({ meetingId: meeting.id })
+        }
+        store.changeMeetingsObj(newMeetingObj.body);
+    }
+
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center', backgroundColor: 'gray' }}>
@@ -57,7 +71,7 @@ export const Teacher = () => {
                     store.meetingsObj.map(meeting =>
                         <div>
                             <ListItem alignItems="flex-start" >
-                                <Card style={{ width: '500px', justifyItems: 'center' }}>
+                                <Card style={{ width: '800px', justifyItems: 'center' }}>
                                     <Typography>{meeting.start_time}</Typography>
                                     <Typography>{meeting.topic}</Typography>
                                     <div>
@@ -68,7 +82,7 @@ export const Teacher = () => {
                                     </div>
                                     <FormControlLabel
                                         control={<Switch checked={meeting.publish}
-                                            // onChange={() => handlePublish(meeting.id)}
+                                            onChange={() => handlePublish(meeting)}
                                             name='publish'
                                             color="primary"
                                         />}
