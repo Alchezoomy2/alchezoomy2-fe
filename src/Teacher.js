@@ -65,7 +65,7 @@ export const Teacher = () => {
 
 
     return useObserver(() =>
-        <Container maxWidth="lg" className={classes.root}>
+        <Container maxWidth="xl">
             <List >
                 {loading ?
                     <p>LOADING!</p>
