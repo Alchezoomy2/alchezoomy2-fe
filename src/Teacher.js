@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch } from '@material-ui/core';
+import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -90,6 +90,8 @@ export const Teacher = () => {
                                 label="publish" />
                         </ListItem>
                     )
+                    < Divider variant="inset" component="li" />
+
                 }
 
 
