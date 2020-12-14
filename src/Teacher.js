@@ -35,11 +35,11 @@ export const Teacher = () => {
                     .send({ teacher_info: store.teacherInfo })
             }
             store.changeMeetingsObj(newMeetingObj.body);
+            setLoading(false);
         }
 
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
-            .then(setLoading(false))
     }, [store]);
 
     const handlePublish = (async (meeting) => {
