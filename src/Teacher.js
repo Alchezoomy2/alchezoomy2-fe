@@ -16,6 +16,7 @@ export const Teacher = () => {
 
 
     useEffect(() => {
+        console.log('userEffect()')
         async function retrieveTeacherInfo() {
             console.log()
             const returnedObject = await fetch
