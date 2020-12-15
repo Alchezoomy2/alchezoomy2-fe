@@ -7,7 +7,7 @@ import fetch from 'superagent';
 export const Student = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
-    console.log()
+    console.log(store.code)
     useEffect(() => {
         console.log('inside useEffect')
         async function retrieveStudentInfo() {
@@ -21,7 +21,7 @@ export const Student = () => {
         }
 
         return retrieveStudentInfo();
-    });
+    }, [store]);
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
