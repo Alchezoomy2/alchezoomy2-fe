@@ -7,8 +7,9 @@ import { useStateStore } from './StoreProvider.js'
 export const Student = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
-
+    console.log()
     useEffect(() => {
+        console.log('inside useEffect')
         async function retrieveStudentInfo() {
             const returnedObject = await fetch
                 .post(store.serverUrl + '/student/oauth')
@@ -32,3 +33,5 @@ export const Student = () => {
         </Container>
     )
 }
+
+export default Student;

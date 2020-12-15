@@ -11,6 +11,7 @@ import {
 import LandingPage from './LandingPage.js';
 import AutoRedirect from './Redirect.js'
 import Teacher from './Teacher.js';
+import Student from './Student.js';
 import Header from './Header.js';
 
 
@@ -21,18 +22,16 @@ function App() {
                 <Header />
                 <Switch>
                     <Route exact path="/"
-                        component={LandingPage}>
-                    </Route>
+                        component={LandingPage} />
                     <Route path="/redirect/"
-                        component={AutoRedirect}>
-                    </Route>
+                        component={AutoRedirect} />
                     <Route path="/teacher"
-                        component={Teacher}>
-                    </Route>
-                    {/* /student */}
-                </Switch>
-            </Router>
-        </StoreProvider>
+                        component={Teacher} />
+                    <Route path="/student"
+                        component={Student} />
+                </Switch >
+            </Router >
+        </StoreProvider >
 
     );
 }
