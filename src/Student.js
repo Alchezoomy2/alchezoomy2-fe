@@ -20,7 +20,20 @@ export const Student = () => {
             setLoading(false);
         }
 
-        return retrieveStudentInfo();
+        async function retrieveMeetings() {
+            let newMeetingObj;
+            setLoading(true);
+            if (store.studentInfo.new_user) {
+                newMeetingObj = await fetch
+                    .post(store.serverUrl + '/student/new')
+                    .send({ student_info: store.studentInfo })
+            }
+            store.changeMeetingsObj(newMeetingObj.body);
+            setLoading(false)
+        }
+
+        return retrieveStudentInfo()
+            .then(retrieveMeetings);
     }, [store]);
 
     return useObserver(() =>
