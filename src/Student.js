@@ -2,7 +2,7 @@ import { Container, Typography } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
-
+import fetch from 'superagent';
 
 export const Student = () => {
     let [loading, setLoading] = useState('true');
