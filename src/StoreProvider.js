@@ -7,9 +7,10 @@ export const StoreProvider = ({ children }) => {
     const store = useLocalObservable(() => ({
         code: localStorage.getItem('CODE') || '',
         token: localStorage.getItem('TOKEN') || '',
-        userType: localStorage.getItem('USERTYPE') || '',
+        userType: localStorage.getItem('USER_TYPE') || '',
         serverUrl: 'https://alchezoomy2.herokuapp.com',
-        teacherInfo: localStorage.getItem('TEACHERINFO') || '',
+        teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
+        studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
         loading: true,
 
@@ -25,12 +26,17 @@ export const StoreProvider = ({ children }) => {
 
         changeUserType: newUserType => {
             store.UserType = newUserType;
-            localStorage.setItem('USERTYPE', newUserType);
+            localStorage.setItem('USER_TYPE', newUserType);
         },
 
         changeTeacherInfo: newTeacherInfo => {
             store.teacherInfo = newTeacherInfo;
-            localStorage.setItem('TEACHERINFO', newTeacherInfo)
+            localStorage.setItem('TEACHER_INFO', newTeacherInfo)
+        },
+
+        changeStudentInfo: newStudentInfo => {
+            store.studentInfo = newStudentInfo;
+            localStorage.setItem('STUDENT_INFO', newStudentInfo)
         },
 
         changeMeetingsObj: newMeetingsObj => {
