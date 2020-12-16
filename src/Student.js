@@ -27,6 +27,10 @@ export const Student = () => {
                 newMeetingObj = await fetch
                     .post(store.serverUrl + '/student/new')
                     .send({ student_info: store.studentInfo })
+            } else {
+                newMeetingObj = await fetch
+                    .post(store.serverUrl + '/student/meetings')
+                    .send({ student_info: store.studentInfo })
             }
             store.changeMeetingsObj(newMeetingObj.body);
             setLoading(false)
