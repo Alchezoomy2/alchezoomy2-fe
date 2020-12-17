@@ -18,7 +18,7 @@ export const MeetingDetails = (props) => {
 
         async function fetchMeetingDetails(meetingId) {
             const returnedObject = await fetch
-                .get(store.serverUrl + `/teacher/meetings/${meetingId}`)
+                .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
             console.log(returnedObject.body)
 
