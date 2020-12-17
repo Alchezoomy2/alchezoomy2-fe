@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 // import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 // import { useStateStore } from './StoreProvider.js'
@@ -11,7 +11,7 @@ export const MeetingDetails = (props) => {
     let [meetingId] = useRef(new URLSearchParams(props.location.id));
 
     console.log('------------------------------------');
-    console.log(`meetingId:  ${meetingId}`);
+    console.log(`meetingId:  ${meetingId.current}`);
     console.log('------------------------------------');
 
     return useObserver(() =>
