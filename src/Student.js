@@ -68,8 +68,8 @@ export const Student = () => {
                                     </div>
                                     <div>
                                         {/* <Typography> */}
-                                        <Chip size="large" color="secondary" label={meeting.meeting_views} />
-                                        <Chip size="large" color="secondary" label={meeting.meeting_favs} />
+                                        <Chip variant="outlined" size="large" color="secondary" label={"views: " + meeting.meeting_views} />
+                                        <Chip variant="outlined" size="large" color="secondary" label={"favorites " + meeting.meeting_favs} />
                                         {/* Views: {meeting.meeting_views} */}
                                         {/* Favorites: {meeting.meeting_favs} */}
                                         {/* </Typography> */}
