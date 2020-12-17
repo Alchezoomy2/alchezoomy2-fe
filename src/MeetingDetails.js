@@ -25,6 +25,10 @@ export const MeetingDetails = (props) => {
     }
 
     meetingId.current = new URLSearchParams(props.location.id);
+
+    console.log('------------------------------------');
+    console.log(`meetingId:  ${meetingId}`);
+    console.log('------------------------------------');
     let meetingObj = findMeetingObj(meetingId);
 
 
