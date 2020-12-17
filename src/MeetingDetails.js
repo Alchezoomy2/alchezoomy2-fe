@@ -14,7 +14,7 @@ import { useStateStore } from './StoreProvider.js'
 
 export const MeetingDetails = (props) => {
     const store = useStateStore();
-    let [loading] = useState(true)
+    // let [loading] = useState(true)
     // let meetingId = useRef(props.match.params.id)
     // let chatArray = useRef();
     // let transcriptArray = useRef();
