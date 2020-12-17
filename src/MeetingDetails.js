@@ -15,6 +15,10 @@ export const MeetingDetails = (props) => {
     let [loading, setLoading] = useState(true);
 
     const findMeetingObj = (meetingId) => {
+        console.log('------------------------------------');
+        console.log(`meetingId:  ${meetingId}`);
+        console.log('------------------------------------');
+        console.log(store.meetingsObj)
         for (let meeting in store.meetingsObj) {
             if (meeting.id === meetingId) return meeting;
         }
