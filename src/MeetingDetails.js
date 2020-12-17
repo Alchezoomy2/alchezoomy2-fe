@@ -11,6 +11,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
+    let [meetingId] = useRef()
     let [loading, setLoading] = useState(true);
 
     const findMeetingObj = (meetingId) => {
@@ -19,7 +20,7 @@ export const MeetingDetails = (props) => {
         }
     }
 
-    let meetingId = new URLSearchParams(props.location.id);
+    meetingId.current = new URLSearchParams(props.location.id);
     let meetingObj = findMeetingObj(meetingId);
 
 
