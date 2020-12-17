@@ -19,16 +19,10 @@ export const MeetingDetails = (props) => {
     let chatArray = useRef();
     let transcriptArray = useRef();
 
-    console.log(store.meetingsObj)
-    let meetingObj = findMeetingObj(meetingId, store.meetingsObj)
 
-
-    console.log('------------------------------------');
-    console.log(`meetingObj:  ${meetingObj}`);
-    console.log('------------------------------------');
     useEffect(() => {
 
-        const fetchMeetingDetails = async (meetingId) => {
+        async function fetchMeetingDetails(meetingId) {
             const returnedObject = await fetch
                 .get(store.serverUrl + `/teacher/meetings/${meetingId.current}`)
 
@@ -46,6 +40,16 @@ export const MeetingDetails = (props) => {
             console.log(`loading:  ${loading}`);
             console.log('------------------------------------');
         }
+
+
+        console.log(store.meetingsObj)
+        let meetingObj = findMeetingObj(meetingId, store.meetingsObj)
+
+
+        console.log('------------------------------------');
+        console.log(`meetingObj:  ${meetingObj}`);
+        console.log('------------------------------------');
+
 
         if (meetingObj.chat_url || meetingObj.transcript_url) fetchMeetingDetails(meetingId);
     })
