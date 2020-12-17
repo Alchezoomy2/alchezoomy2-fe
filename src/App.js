@@ -12,7 +12,7 @@ import AutoRedirect from './Redirect.js'
 import Teacher from './Teacher.js';
 import Student from './Student.js';
 import Header from './Header.js';
-import VideoDetails from './VideoDetails.js';
+import MeetingDetails from './MeetingDetails.js';
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
                     <Route path="/student"
                         component={Student} />
                     <Route path="/meeting/:id"
-                        component={VideoDetails} />
+                        component={MeetingDetails} />
                 </Switch >
             </Router >
         </StoreProvider >

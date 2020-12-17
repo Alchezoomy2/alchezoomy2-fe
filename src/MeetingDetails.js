@@ -12,7 +12,7 @@ const findMeetingObj = (meetingId) {
 }
 
 
-export const VideoDetails = (props) => {
+export const MeetingDetails = (props) => {
     const store = useStateStore();
     let [chatArray] = useStateStore();
     let [transcriptArray] = useStateStore();
@@ -23,7 +23,7 @@ export const VideoDetails = (props) => {
 
     useEffect(() => {
 
-        async function fetchVideoDetails(meetingId) {
+        async function fetchMeetingDetails(meetingId) {
             const returnedObj = await fetch
                 .get(store.serverUrl + `/teacher/meetings/${meetingId}`)
 
@@ -33,7 +33,7 @@ export const VideoDetails = (props) => {
         }
 
         if (meetingObj.chat_url || meetingObj.transcriptArray)
-            fetchVideoDetails(meetingId);
+            fetchMeetingDetails(meetingId);
 
     }, [store])
 
@@ -48,4 +48,4 @@ export const VideoDetails = (props) => {
 
 }
 
-export default VideoDetails;
+export default MeetingDetails;
