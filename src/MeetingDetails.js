@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 // import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
@@ -16,7 +16,7 @@ export const MeetingDetails = (props) => {
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
     let [meetingId] = useRef()
-    let [loading] = useRef(true);
+    // let [loading] = useRef(true);
 
     const findMeetingObj = (meetingId) => {
         console.log('------------------------------------');
