@@ -1,20 +1,23 @@
-import { Container, Typography } from '@material-ui/core';
+import { Container, Typography, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import ChatIcon from '@material-ui/icons/Chat';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+
 
 export const Student = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
-    console.log(store.code)
+
     useEffect(() => {
-        console.log('inside useEffect')
         async function retrieveStudentInfo() {
             const returnedObject = await fetch
                 .post(store.serverUrl + '/student/oauth')
                 .send({ code: store.code });
-
 
             await store.changeStudentInfo(returnedObject.body);
             setLoading(false);
@@ -42,12 +45,37 @@ export const Student = () => {
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
-            {loading ?
-                <p>LOADING!</p>
-                :
-                <Typography>{store.studentInfo.name}</Typography>
-            }
-        </Container>
+            <List style={{ width: '90%' }}>
+
+                {loading ?
+                    <p>LOADING!</p>
+                    :
+                    store.meetingsObj.map(meeting =>
+
+                        <ListItem alignItems="flex-start">
+                            <ListItemAvatar>
+                                <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                            </ListItemAvatar>
+                            <ListItemText
+                                primary={meeting.topic}
+                                secondary={meeting.display_time}
+                            />
+                            <div>
+                                <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                            </div>
+                            <div>
+                                <Typography>Views: {meeting.meeting_views}</Typography>
+                                <Typography>Favorites: {meeting.meeting_favs}</Typography>
+                            </div>
+                        </ListItem>
+                    )
+                }
+            </List>
+
+        </Container >
     )
 }
 
