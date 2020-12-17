@@ -8,6 +8,10 @@ import fetch from 'superagent';
 
 
 export const MeetingDetails = (props) => {
+
+    console.log('------------------------------------');
+    console.log(`hello!`);
+    console.log('------------------------------------');
     const store = useStateStore();
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
