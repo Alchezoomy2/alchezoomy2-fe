@@ -38,6 +38,10 @@ export const MeetingDetails = (props) => {
             console.log('------------------------------------');
             console.log(`chatArray[0]:  ${chatArray[0]}`);
             console.log('------------------------------------');
+
+            console.log('------------------------------------');
+            console.log(`loading:  ${loading}`);
+            console.log('------------------------------------');
         }
 
         if (meetingObj.chat_url || meetingObj.transcript_url) fetchMeetingDetails(meetingId);
