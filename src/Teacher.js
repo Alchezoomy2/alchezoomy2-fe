@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
-import { Container, List, Chip, ListItem, Card, Typography, FormControlLabel, Switch, Divider } from '@material-ui/core';
+import { Container, List, Chip, ListItem, ListItemText, Typography, FormControlLabel, Switch, Divider } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -67,27 +67,28 @@ export const Teacher = () => {
                     store.meetingsObj.map(meeting =>
                         <div>
                             <ListItem alignItems="flex-start" >
-                                <Card style={{ width: '800px', justifyItems: 'center' }}>
-                                    <Typography>{meeting.display_time}</Typography>
-                                    <Typography>{meeting.topic}</Typography>
-                                    <div>
-                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
-                                    </div>
-                                    <FormControlLabel
-                                        control={<Switch checked={meeting.published}
-                                            onChange={() => handlePublish(meeting)}
-                                            name='publish'
-                                            color="primary"
-                                        />}
-                                        label="publish" />
-                                    <div>
-                                        <Typography>Views: {meeting.meeting_views}</Typography>
-                                        <Typography>Favorites: {meeting.meeting_favs}</Typography>
-                                    </div>
-                                </Card>
+                                <ListItemText
+                                    primary={meeting.topic}
+                                    seconday={meeting.display_time} />
+
+                                <div>
+                                    <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                    <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                    <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                    <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                </div>
+                                <FormControlLabel
+                                    control={<Switch checked={meeting.published}
+                                        onChange={() => handlePublish(meeting)}
+                                        name='publish'
+                                        color="primary"
+                                    />}
+                                    label="publish" />
+                                <div>
+                                    <Typography>Views: {meeting.meeting_views}</Typography>
+                                    <Typography>Favorites: {meeting.meeting_favs}</Typography>
+                                </div>
+
                                 <Divider variant="middle" component="li" />
                             </ListItem>
                         </div>
@@ -97,7 +98,7 @@ export const Teacher = () => {
 
 
 
-        </Container>
+        </Container >
 
     )
 }
