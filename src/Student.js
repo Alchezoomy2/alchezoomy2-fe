@@ -7,7 +7,7 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-
+import { Link } from "react-router-dom";
 
 export const Student = () => {
     let [loading, setLoading] = useState('true');
@@ -51,26 +51,28 @@ export const Student = () => {
                     :
                     store.meetingsObj.map(meeting =>
                         <div>
-                            <ListItem alignItems="flex-start">
-                                <ListItemAvatar>
-                                    <Avatar alt={meeting.user_name} src={meeting.pic_url} />
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary={meeting.topic}
-                                    secondary={meeting.display_time}
-                                />
-                                <div>
+                            <Link to={`/meeting/${meeting.id}`}>
+                                <ListItem alignItems="flex-start">
+                                    <ListItemAvatar>
+                                        <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        primary={meeting.topic}
+                                        secondary={meeting.display_time}
+                                    />
                                     <div>
-                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                        <div>
+                                            <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                            <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                            <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                            <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
 
-                                        <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
-                                        <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                            <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                            <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                        </div>
                                     </div>
-                                </div>
-                            </ListItem>
+                                </ListItem>
+                            </Link>
                             <Divider variant="middle" component="li" />
 
                         </div>

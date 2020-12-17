@@ -5,7 +5,6 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-import fetch from 'superagent';
 import { useObserver } from 'mobx-react';
 
 
@@ -70,8 +69,8 @@ export const Teacher = () => {
 
                                 <ListItemText
                                     primary={meeting.topic}
-                                    seconday={meeting.display_time} />
-
+                                    secondary={meeting.display_time}
+                                />
                                 <div>
                                     <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
                                     <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />

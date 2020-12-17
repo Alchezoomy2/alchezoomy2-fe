@@ -1,6 +1,5 @@
 import React from 'react'
 import { StoreProvider } from './StoreProvider.js'
-// import { useStateStore } from './StoreProvider.js'
 
 import {
     BrowserRouter as Router,
@@ -13,6 +12,7 @@ import AutoRedirect from './Redirect.js'
 import Teacher from './Teacher.js';
 import Student from './Student.js';
 import Header from './Header.js';
+import VideoDetails from './VideoDetails.js';
 
 
 function App() {
@@ -29,6 +29,8 @@ function App() {
                         component={Teacher} />
                     <Route path="/student"
                         component={Student} />
+                    <Route path="/meeting/:id"
+                        component={VideoDetails} />
                 </Switch >
             </Router >
         </StoreProvider >
