@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     console.log('------------------------------------');
     console.log(`hello!`);
     console.log('------------------------------------');
-    const store = useStateStore();
+    // const store = useStateStore();
     // let [chatArray] = useRef();
     // let [transcriptArray] = useRef();
     let [meetingId] = useRef()
@@ -32,7 +32,7 @@ export const MeetingDetails = (props) => {
 
     console.log('------------------------------------');
     console.log(`meetingId:  ${meetingId}`);
-    // console.log('------------------------------------');
+    console.log('------------------------------------');
     // let meetingObj = findMeetingObj(meetingId);
     // console.log(meetingObj)
 
