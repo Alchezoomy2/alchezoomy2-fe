@@ -8,7 +8,7 @@ import { useObserver } from 'mobx-react';
 
 export const MeetingDetails = (props) => {
     let [loading] = useState(true)
-    let [meetingId] = useRef(props.match.params.id)
+    let meetingId = useRef(props.match.params.id)
 
     useEffect(() => {
         console.log('------------------------------------');
