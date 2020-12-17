@@ -19,7 +19,8 @@ export const MeetingDetails = (props) => {
         }
     }
 
-    let meetingObj = findMeetingObj(new URLSearchParams(props.location.id));
+    let meetingId = new URLSearchParams(props.location.id);
+    let meetingObj = findMeetingObj(meetingId);
 
 
     useEffect(() => {
