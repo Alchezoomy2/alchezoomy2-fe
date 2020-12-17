@@ -15,10 +15,17 @@ export const MeetingDetails = (props) => {
 
 
     useEffect(() => {
-        console.log(meetingId.current)
-        console.log(store.meetingsObj[0])
-        console.log(store.userType)
-        setLoading(false)
+
+        async function fetchMeetingDetails(meetingId) {
+            const returnedObject = await fetch
+                .get(store.serverUrl + `/teacher/meetings/${meetingId}`)
+
+            console.log(returnedObject.body)
+
+        }
+
+        fetchMeetingDetails(meetingId.current)
+            .then(setLoading(false))
     }, [store])
 
 
