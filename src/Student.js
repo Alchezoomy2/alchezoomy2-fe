@@ -20,12 +20,11 @@ export const Student = () => {
                 .send({ code: store.code });
 
             await store.changeStudentInfo(returnedObject.body);
-            setLoading(false);
+
         }
 
         async function retrieveMeetings() {
             let newMeetingObj;
-            setLoading(true);
             if (store.studentInfo.new_user) {
                 newMeetingObj = await fetch
                     .post(store.serverUrl + '/student/new')
