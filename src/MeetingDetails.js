@@ -8,7 +8,7 @@ import { useObserver } from 'mobx-react';
 
 export const MeetingDetails = (props) => {
     let [loading] = useState(true)
-    const meetingId = new URLSearchParams(props.location.id);
+    const meetingId = new URLSearchParams(props.location.search);
 
     console.log('------------------------------------');
     console.log(`meetingId:  ${meetingId}`);
