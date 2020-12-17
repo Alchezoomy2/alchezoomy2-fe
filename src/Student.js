@@ -67,12 +67,9 @@ export const Student = () => {
                                         <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
                                     </div>
                                     <div>
-                                        {/* <Typography> */}
-                                        <Chip variant="outlined" size="large" color="secondary" label={"views: " + meeting.meeting_views} />
-                                        <Chip variant="outlined" size="large" color="secondary" label={"favorites " + meeting.meeting_favs} />
-                                        {/* Views: {meeting.meeting_views} */}
-                                        {/* Favorites: {meeting.meeting_favs} */}
-                                        {/* </Typography> */}
+
+                                        <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                        <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
                                     </div>
                                 </div>
                             </ListItem>
