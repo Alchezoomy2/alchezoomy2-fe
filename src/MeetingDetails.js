@@ -8,16 +8,11 @@ import { useObserver } from 'mobx-react';
 
 export const MeetingDetails = (props) => {
     let [loading] = useState(true)
-    let [meetingId] = useRef();
+    let [meetingId] = useRef(new URLSearchParams(props.location.id));
 
-    useEffect(() => {
-        meetingId.current = new URLSearchParams(props.location.id)
-        console.log('------------------------------------');
-        console.log(`meetingId:  ${meetingId}`);
-        console.log('------------------------------------');
-    })
-
-
+    console.log('------------------------------------');
+    console.log(`meetingId:  ${meetingId}`);
+    console.log('------------------------------------');
 
     return useObserver(() =>
         <p>{loading}</p>
