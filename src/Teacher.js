@@ -86,8 +86,9 @@ export const Teacher = () => {
                                     />}
                                     label="publish" />
                                 <div>
-                                    <Typography>Views: {meeting.meeting_views}</Typography>
-                                    <Typography>Favorites: {meeting.meeting_favs}</Typography>
+                                    <Typography>
+                                        Views: {meeting.meeting_views}
+                                        Favorites: {meeting.meeting_favs} </Typography>
                                 </div>
                             </ListItem>
 
