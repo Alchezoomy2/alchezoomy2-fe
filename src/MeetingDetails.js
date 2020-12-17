@@ -56,12 +56,9 @@ export const MeetingDetails = (props) => {
     // })
 
 
-    return useObserver(() => {
-        loading ?
-            <p>FUCK YOU!</p>
-            :
-            <p> {store.meetingsObj}</p>
-    }
+    return useObserver(() =>
+        <p>{store.meetingsObj}</p>
+
 
 
 
