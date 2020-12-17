@@ -1,4 +1,4 @@
-import { Container, Typography, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar } from '@material-ui/core';
+import { Container, Typography, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
@@ -69,7 +69,10 @@ export const Student = () => {
                                 <Typography>Views: {meeting.meeting_views}</Typography>
                                 <Typography>Favorites: {meeting.meeting_favs}</Typography>
                             </div>
+                            <Divider variant="middle" component="li" />
+
                         </ListItem>
+
                     )
                 }
             </List>
