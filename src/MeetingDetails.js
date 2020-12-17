@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 // import ReactPlater from "react-player";
-import { useObserver, toJS } from 'mobx-react';
+import mobx, { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
 
@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     let meetingId = useRef(props.match.params.id)
     // let chatArray = useRef();
     // let transcriptArray = useRef();
-    console.log(toJS(store.meetingsObj))
+    console.log(mobx.toJS(store.meetingsObj))
     useEffect(() => {
 
         async function fetchMeetingDetails(meetingId) {
