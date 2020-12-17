@@ -16,7 +16,7 @@ export const MeetingDetails = (props) => {
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
     let [meetingId] = useRef()
-    // let [loading] = useRef(true);
+    let [loading] = useRef(true);
 
     const findMeetingObj = (meetingId) => {
         console.log('------------------------------------');
