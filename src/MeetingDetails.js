@@ -16,7 +16,7 @@ export const MeetingDetails = (props) => {
 
     useEffect(() => {
         console.log(meetingId.current)
-        console.log(store.meetingsObj)
+        console.log(store.meetingsObj[0])
         console.log(store.userType)
         setLoading(false)
     }, [store])
