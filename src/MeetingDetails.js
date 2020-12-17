@@ -7,7 +7,7 @@ import { useObserver } from 'mobx-react';
 
 
 
-export const MeetingDetails = (props) => {
+export const MeetingDetails = () => {
 
     console.log('------------------------------------');
     console.log(`hello!`);
@@ -15,8 +15,8 @@ export const MeetingDetails = (props) => {
     // const store = useStateStore();
     // let [chatArray] = useRef();
     // let [transcriptArray] = useRef();
-    let [meetingId] = useRef()
-    let [loading] = useRef(true);
+    // let [meetingId] = useRef()
+    // let [loading] = useRef(true);
 
     // const findMeetingObj = (meetingId) => {
     //     console.log('------------------------------------');
@@ -28,11 +28,11 @@ export const MeetingDetails = (props) => {
     //     }
     // }
 
-    meetingId.current = new URLSearchParams(props.location.id);
+    // meetingId.current = new URLSearchParams(props.location.id);
 
-    console.log('------------------------------------');
-    console.log(`meetingId:  ${meetingId}`);
-    console.log('------------------------------------');
+    // console.log('------------------------------------');
+    // console.log(`meetingId:  ${meetingId}`);
+    // console.log('------------------------------------');
     // let meetingObj = findMeetingObj(meetingId);
     // console.log(meetingObj)
 
@@ -53,15 +53,9 @@ export const MeetingDetails = (props) => {
 
     // console.log(chatArray)
     return useObserver(() => {
-        loading ?
-            <p>LOADING!</p>
-            :
-            <p>VIDEO DETAILS!</p>
-    }
+        <p> FUCK YOU!@!!!!!!</p>
 
-
-    )
-
+    })
 }
 
 export default MeetingDetails;
