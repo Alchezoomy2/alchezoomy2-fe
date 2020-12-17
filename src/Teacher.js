@@ -13,7 +13,6 @@ export const Teacher = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
 
-    console.log(store.meetingsObj)
 
     useEffect(() => {
         async function retrieveTeacherInfo() {
@@ -38,6 +37,7 @@ export const Teacher = () => {
             store.changeMeetingsObj(newMeetingObj.body);
             setLoading(false);
         }
+        console.log(store.meetingsObj)
 
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
