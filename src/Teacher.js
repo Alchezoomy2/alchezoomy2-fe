@@ -67,33 +67,33 @@ export const Teacher = () => {
                     store.meetingsObj.map(meeting =>
                         <div>
                             <ListItem alignItems="flex-start" >
+
+                                <ListItemText
+                                    primary={meeting.topic}
+                                    seconday={meeting.display_time} />
+
                                 <div>
-
-                                    <ListItemText
-                                        primary={meeting.topic}
-                                        seconday={meeting.display_time} />
-
-                                    <div>
-                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
-                                    </div>
-                                    <FormControlLabel
-                                        control={<Switch checked={meeting.published}
-                                            onChange={() => handlePublish(meeting)}
-                                            name='publish'
-                                            color="primary"
-                                        />}
-                                        label="publish" />
-                                    <div>
-                                        <Typography>Views: {meeting.meeting_views}</Typography>
-                                        <Typography>Favorites: {meeting.meeting_favs}</Typography>
-                                    </div>
+                                    <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                    <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                    <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                    <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
                                 </div>
-                                <Divider variant="middle" component="li" />
+                                <FormControlLabel
+                                    control={<Switch checked={meeting.published}
+                                        onChange={() => handlePublish(meeting)}
+                                        name='publish'
+                                        color="primary"
+                                    />}
+                                    label="publish" />
+                                <div>
+                                    <Typography>Views: {meeting.meeting_views}</Typography>
+                                    <Typography>Favorites: {meeting.meeting_favs}</Typography>
+                                </div>
                             </ListItem>
+
+                            <Divider variant="middle" component="li" />
                         </div>
+
                     )
                 }
             </List>

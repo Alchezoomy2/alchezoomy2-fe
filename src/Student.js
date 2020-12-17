@@ -50,9 +50,8 @@ export const Student = () => {
                     <p>LOADING!</p>
                     :
                     store.meetingsObj.map(meeting =>
-
-                        <ListItem alignItems="flex-start">
-                            <div>
+                        <div>
+                            <ListItem alignItems="flex-start">
                                 <ListItemAvatar>
                                     <Avatar alt={meeting.user_name} src={meeting.pic_url} />
                                 </ListItemAvatar>
@@ -70,11 +69,10 @@ export const Student = () => {
                                     <Typography>Views: {meeting.meeting_views}</Typography>
                                     <Typography>Favorites: {meeting.meeting_favs}</Typography>
                                 </div>
-                            </div>
+                            </ListItem>
                             <Divider variant="middle" component="li" />
 
-                        </ListItem>
-
+                        </div>
                     )
                 }
             </List>
