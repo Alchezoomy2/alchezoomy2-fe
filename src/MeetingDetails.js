@@ -18,23 +18,23 @@ export const MeetingDetails = (props) => {
     let [meetingId] = useRef()
     let [loading] = useRef(true);
 
-    const findMeetingObj = (meetingId) => {
-        console.log('------------------------------------');
-        console.log(`meetingId:  ${meetingId}`);
-        console.log('------------------------------------');
-        console.log(store.meetingsObj)
-        for (let meeting in store.meetingsObj) {
-            if (meeting.id === meetingId) return meeting;
-        }
-    }
+    // const findMeetingObj = (meetingId) => {
+    //     console.log('------------------------------------');
+    //     console.log(`meetingId:  ${meetingId}`);
+    //     console.log('------------------------------------');
+    //     console.log(store.meetingsObj)
+    //     for (let meeting in store.meetingsObj) {
+    //         if (meeting.id === meetingId) return meeting;
+    //     }
+    // }
 
     meetingId.current = new URLSearchParams(props.location.id);
 
     console.log('------------------------------------');
     console.log(`meetingId:  ${meetingId}`);
-    console.log('------------------------------------');
-    let meetingObj = findMeetingObj(meetingId);
-    console.log(meetingObj)
+    // console.log('------------------------------------');
+    // let meetingObj = findMeetingObj(meetingId);
+    // console.log(meetingObj)
 
     // useEffect(() => {
 
