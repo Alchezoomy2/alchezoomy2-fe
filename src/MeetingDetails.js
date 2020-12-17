@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 // import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
-// import fetch from 'superagent';
+import fetch from 'superagent';
 
 const findMeetingObj = (meetingId, meetingsObj) => {
     for (let meeting of meetingsObj) {
@@ -13,8 +13,10 @@ const findMeetingObj = (meetingId, meetingsObj) => {
 
 export const MeetingDetails = (props) => {
     const store = useStateStore();
-    let [loading] = useState(true)
+    let [loading, setLoading] = useState(true)
     let meetingId = useRef(props.match.params.id)
+    let chatArray = useRef();
+    let transcriptArray = useRef();
     let meetingObj = findMeetingObj(meetingId, store.meetingsObj)
 
 
@@ -23,6 +25,22 @@ export const MeetingDetails = (props) => {
     console.log('------------------------------------');
     useEffect(() => {
 
+        const fetchMeetingDetails = async (meetingId) => {
+            const returnedObject = await fetch
+                .get(store.serverUrl + `/teacher/meetings/${meetingId.current}`)
+
+            chatArray.current = await returnedObject.body.chat;
+
+            transcriptArray.current = await returnedObject.body.transcript;
+
+            setLoading(false);
+
+            console.log('------------------------------------');
+            console.log(`chatArray[0]:  ${chatArray[0]}`);
+            console.log('------------------------------------');
+        }
+
+        if (meetingObj.chat_url || meetingObj.transcript_url) fetchMeetingDetails(meetingId);
     })
 
 
