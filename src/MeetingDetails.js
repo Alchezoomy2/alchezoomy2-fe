@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 // import { useStateStore } from './StoreProvider.js'
@@ -6,11 +6,12 @@ import { useObserver } from 'mobx-react';
 
 
 
-
 export const MeetingDetails = () => {
+    let [loading] = useState('true')
+
 
     return useObserver(() =>
-        <p> FUCK YOU!@!!!!!!</p>
+        <p>{loading}</p>
 
 
 
