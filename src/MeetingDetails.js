@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 // import { useStateStore } from './StoreProvider.js'
@@ -6,8 +6,17 @@ import { useObserver } from 'mobx-react';
 
 
 
-export const MeetingDetails = () => {
-    let [loading] = useState('true')
+export const MeetingDetails = (props) => {
+    let [loading] = useState(true)
+    let [meetingId] = useRef();
+
+    useEffect(() => {
+        meetingId.current = new URLSearchParams(props.location.id)
+        console.log('------------------------------------');
+        console.log(`meetingId:  ${meetingId}`);
+        console.log('------------------------------------');
+    })
+
 
 
     return useObserver(() =>
