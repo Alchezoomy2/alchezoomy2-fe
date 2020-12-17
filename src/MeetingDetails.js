@@ -41,8 +41,8 @@ export const MeetingDetails = (props) => {
             console.log('------------------------------------');
         }
 
-
-        console.log(store.meetingsObj)
+        const meetingsObj = store.meetingsObj;
+        console.log(meetingsObj)
         let meetingObj = findMeetingObj(meetingId, store.meetingsObj)
 
 
