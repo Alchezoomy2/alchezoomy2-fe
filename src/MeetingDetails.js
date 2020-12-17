@@ -12,8 +12,7 @@ export const MeetingDetails = (props) => {
     let meetingId = useRef(props.match.params.id)
     // let chatArray = useRef();
     // let transcriptArray = useRef();
-    let meetingObjArray = store.meetingsObj.map(meeting => 
-        if (meeting.id === meetingId) return meeting;
+    let meetingObjArray = store.meetingsObj.map(meeting => { if (meeting.id === meetingId) return meeting; }
     )
 
     console.log(meetingObjArray);
