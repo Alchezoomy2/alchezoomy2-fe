@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 // import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
-// import fetch from 'superagent';
+import fetch from 'superagent';
 
 
 
