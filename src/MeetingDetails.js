@@ -16,7 +16,7 @@ export const MeetingDetails = (props) => {
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
     let [meetingId] = useRef()
-    let [loading, setLoading] = useState(true);
+    let [loading] = useRef(true);
 
     const findMeetingObj = (meetingId) => {
         console.log('------------------------------------');
@@ -44,7 +44,6 @@ export const MeetingDetails = (props) => {
 
             chatArray.current = returnedObj.body.chat;
             transcriptArray.current = returnedObj.body.transcript;
-            setLoading(false);
         }
 
         if (meetingObj.chat_url || meetingObj.transcriptArray)
