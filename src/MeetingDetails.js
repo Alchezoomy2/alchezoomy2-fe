@@ -8,13 +8,11 @@ import { useObserver } from 'mobx-react';
 
 
 export const MeetingDetails = () => {
-    const [loading] = useState(true)
-    return useObserver(() => {
-        loading ?
-            <p> FUCK YOU!@!!!!!!</p>
-            :
-            <p> FUCCCCKKKKKK!</p>
-    }
+
+    return useObserver(() =>
+        <p> FUCK YOU!@!!!!!!</p>
+
+
 
     )
 }
