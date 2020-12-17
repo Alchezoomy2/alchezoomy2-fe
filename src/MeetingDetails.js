@@ -19,7 +19,7 @@ export const MeetingDetails = (props) => {
         console.log(store.meetingsObj)
         console.log(store.userType)
         setLoading(false)
-    })
+    }, [store])
 
 
     return useObserver(() =>
