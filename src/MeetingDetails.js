@@ -18,6 +18,8 @@ export const MeetingDetails = (props) => {
     let meetingId = useRef(props.match.params.id)
     let chatArray = useRef();
     let transcriptArray = useRef();
+
+    console.log(store.meetingsObj)
     let meetingObj = findMeetingObj(meetingId, store.meetingsObj)
 
 
