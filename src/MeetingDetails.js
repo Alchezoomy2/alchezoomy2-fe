@@ -12,14 +12,16 @@ export const MeetingDetails = (props) => {
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
     let [loading, setLoading] = useState(true);
-    let meetingId = new URLSearchParams(props.location.id);
-    let meetingObj = findMeetingObj(meetingId);
 
     const findMeetingObj = (meetingId) => {
         for (let meeting in store.meetingsObj) {
             if (meeting.id === meetingId) return meeting;
         }
     }
+
+    let meetingId = new URLSearchParams(props.location.id);
+    let meetingObj = findMeetingObj(meetingId);
+
 
     useEffect(() => {
 
