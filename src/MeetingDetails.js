@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     let [chatArray] = useRef();
     let [transcriptArray] = useRef();
     let [loading, setLoading] = useState(true);
-    let meetingId = new URLSearchParams(props.location.search);
+    let meetingId = new URLSearchParams(props.location.id);
     let meetingObj = findMeetingObj(meetingId);
 
     const findMeetingObj = (meetingId) => {
