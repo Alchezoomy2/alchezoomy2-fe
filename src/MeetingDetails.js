@@ -1,25 +1,25 @@
-import React from "react";
-import ReactPlater from "react-player";
+import React, { useEffect, useState, useRef } from "react";
+// import ReactPlater from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
 
 
-const findMeetingObj = (meetingId) {
-    for (let meeting in store.meetingsObj) {
-        if (meeting.id === meetingId) return meeting;
-    }
-}
 
 
 export const MeetingDetails = (props) => {
     const store = useStateStore();
-    let [chatArray] = useStateStore();
-    let [transcriptArray] = useStateStore();
-    let [loading, setLoading] = useStateStore(true);
+    let [chatArray] = useRef();
+    let [transcriptArray] = useRef();
+    let [loading, setLoading] = useState(true);
     let meetingId = new URLSearchParams(props.location.search);
     let meetingObj = findMeetingObj(meetingId);
 
+    const findMeetingObj = (meetingId) => {
+        for (let meeting in store.meetingsObj) {
+            if (meeting.id === meetingId) return meeting;
+        }
+    }
 
     useEffect(() => {
 
@@ -27,21 +27,23 @@ export const MeetingDetails = (props) => {
             const returnedObj = await fetch
                 .get(store.serverUrl + `/teacher/meetings/${meetingId}`)
 
-            chatArray = returnedObj.body.chat;
-            transcriptArray = returnedObj.body.transcript;
+            chatArray.current = returnedObj.body.chat;
+            transcriptArray.current = returnedObj.body.transcript;
             setLoading(false);
         }
 
         if (meetingObj.chat_url || meetingObj.transcriptArray)
             fetchMeetingDetails(meetingId);
 
-    }, [store])
+    }, [chatArray, transcriptArray, meetingId, meetingObj.chat_url, meetingObj.transcriptArray, store.serverUrl])
 
     console.log(chatArray)
-    return useObserver(() =>
-
-        <p>VIDEO DETAILS!</p>
-
+    return useObserver(() => {
+        loading ?
+            <p>LOADING!</p>
+            :
+            <p>VIDEO DETAILS!</p>
+    }
 
 
     )
