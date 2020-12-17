@@ -6,6 +6,7 @@ import fetch from 'superagent';
 
 const findMeetingObj = (meetingId, meetingsObj) => {
     for (let meeting of meetingsObj) {
+        console.log(meeting)
         if (meeting.id === meetingId) return meeting;
     }
 }
