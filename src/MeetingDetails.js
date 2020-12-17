@@ -44,7 +44,7 @@ export const MeetingDetails = (props) => {
         const meetingsObj = store.meetingsObj;
         console.log(meetingsObj)
 
-        let meetingObj = findMeetingObj(meetingId, store.meetingsObj)
+        let meetingObj = findMeetingObj(meetingId, meetingsObj)
 
 
         console.log('------------------------------------');
