@@ -13,8 +13,8 @@ export const MeetingDetails = (props) => {
     console.log(`hello!`);
     console.log('------------------------------------');
     const store = useStateStore();
-    let [chatArray] = useRef();
-    let [transcriptArray] = useRef();
+    // let [chatArray] = useRef();
+    // let [transcriptArray] = useRef();
     let [meetingId] = useRef()
     let [loading] = useRef(true);
 
@@ -51,7 +51,7 @@ export const MeetingDetails = (props) => {
 
     // }, [chatArray, transcriptArray, meetingId, meetingObj.chat_url, meetingObj.transcriptArray, store.serverUrl])
 
-    console.log(chatArray)
+    // console.log(chatArray)
     return useObserver(() => {
         loading ?
             <p>LOADING!</p>
