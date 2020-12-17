@@ -13,6 +13,8 @@ export const Teacher = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
 
+    console.log(store.meetingsObj)
+
     useEffect(() => {
         async function retrieveTeacherInfo() {
             const returnedObject = await fetch
