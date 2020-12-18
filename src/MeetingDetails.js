@@ -31,7 +31,10 @@ export const MeetingDetails = (props) => {
 
 
     return useObserver(() =>
-        <p>{meetingObj.current}</p>
+        <>
+            <p>{meetingObj.current}</p>
+            <p>{loading}</p>
+        </>
     )
 }
 
