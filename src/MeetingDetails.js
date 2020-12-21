@@ -24,11 +24,6 @@ export const MeetingDetails = (props) => {
 
             setMeetingObj(returnedObject.body.meeting);
             setChatArray(returnedObject.body.chat)
-
-            console.log(returnedObject.body)
-            console.log(chatArray)
-            console.log(meetingObj)
-
             // chatArray.current = returnedObject.body.chat;
             // transcriptArray.current = returnedObject.body.meetingObj;
 
@@ -36,7 +31,12 @@ export const MeetingDetails = (props) => {
 
         fetchMeetingDetails(meetingId.current)
             .then(setLoading(false))
+            .then(console.log(chatArray))
+            .then(console.log(meetingObj)
+            )
     }, [chatArray, store.serverUrl, meetingObj])
+
+
 
 
     return useObserver(() =>
