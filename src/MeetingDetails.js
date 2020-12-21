@@ -53,6 +53,7 @@ export const MeetingDetails = (props) => {
                         <p></p>
 
                     }
+                    <p>{store.meetingDetails.video_url + store.teacherInfo.access_token}</p>
                 </div>
             }
         </Container >
