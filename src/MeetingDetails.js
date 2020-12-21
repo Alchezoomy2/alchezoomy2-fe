@@ -32,7 +32,7 @@ export const MeetingDetails = (props) => {
 
         fetchMeetingDetails(meetingId.current)
             .then(setLoading(false))
-    }, [meetingObj, store.serverUrl])
+    }, [chatArray, store.serverUrl])
 
 
     return useObserver(() =>
