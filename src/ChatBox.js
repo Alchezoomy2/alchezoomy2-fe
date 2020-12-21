@@ -1,9 +1,9 @@
 import { useObserver } from "mobx-react";
 import React from "react";
-import { Divider, Paper, List, ListItemText } from '@material-ui/core';
+import { Divider, Paper, List, ListItemText, ListItem } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,10 +28,13 @@ export const ChatBox = () => {
             <List className={classes.list}>
                 {store.chatArray.map(chat =>
                     <div>
-                        <ListItemText
-                            primary={`${chat.speaker}: ${chat.text}`}
-                            secondary={chat.timestamp} />
-                        <Divider />
+                        <ListItem>
+                            <ListItemText
+                                primary={`${chat.speaker}: ${chat.text}`}
+                                secondary={chat.timestamp} />
+                            <BookmarkIcon />
+                            <Divider />
+                        </ListItem>
                     </div>
                 )}
             </List>
