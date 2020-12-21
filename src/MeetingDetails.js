@@ -35,7 +35,8 @@ export const MeetingDetails = (props) => {
     }, [store.serverUrl])
 
 
-
+    console.log(meetingObj)
+    console.log(chatArray)
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
