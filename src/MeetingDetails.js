@@ -25,6 +25,7 @@ export const MeetingDetails = (props) => {
             console.log('fetchMeetingDetails')
 
         }
+
         store.changeLoading(true)
         fetchMeetingDetails(meetingId.current)
         console.log('useEffect')
