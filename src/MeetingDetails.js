@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-// import ReactPlater from "react-player";
+import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
+import { Container, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
 
 
 
@@ -29,12 +30,18 @@ export const MeetingDetails = (props) => {
             .then(setLoading(false))
     }, [store])
 
+    const ref = (player) => {
+        this.player = player;
+    };
 
     return useObserver(() =>
-        <>
-            <p>{meetingObj.current}</p>
-            <p>{loading}</p>
-        </>
+        <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+            <ReactPlayer
+                ref={this.ref}
+                url={meetingObj.video_url}
+                controls
+            />
+        </Container>
     )
 }
 
