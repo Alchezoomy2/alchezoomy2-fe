@@ -5,12 +5,12 @@ import { useStateStore } from './StoreProvider.js'
 
 // import ChatLine from './ChatLine.js';
 
-export const ChatBox = (props) => {
+export const ChatBox = () => {
     const store = useStateStore();
     console.log('CHATBOX!')
     console.log(store.chatArray.map(chat => chat.text))
 
-    return useObserver(() => {
+    return useObserver(() =>
         <Paper elevation={3}>
             <List>
                 {store.chatArray.map(chat =>
@@ -23,7 +23,7 @@ export const ChatBox = (props) => {
                 )}
             </List>
         </Paper>
-    })
+    )
 }
 
 export default ChatBox;
