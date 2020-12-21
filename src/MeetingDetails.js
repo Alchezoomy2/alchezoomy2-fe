@@ -22,7 +22,8 @@ export const MeetingDetails = (props) => {
             const returnedObject = await fetch
                 .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
-            setMeetingObj(returnedObject.body.meetingObj);
+            setMeetingObj(returnedObject.body.meeting);
+
             // chatArray.current = returnedObject.body.chat;
             // transcriptArray.current = returnedObject.body.meetingObj;
             console.log(meetingObj)
