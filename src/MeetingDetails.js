@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
@@ -14,7 +14,7 @@ export const MeetingDetails = (props) => {
     let [meetingObj, setMeetingObj] = useState();
     let [chatArray, setChatArray] = useState();
     // let transcriptArray = useRef();
-    // let ref = React.createRef();
+    let ref = React.createRef();
 
     useEffect(() => {
 
@@ -24,11 +24,10 @@ export const MeetingDetails = (props) => {
 
             setMeetingObj(returnedObject.body.meeting);
             setChatArray(returnedObject.body.chat)
+            console.log(chatArray)
             // chatArray.current = returnedObject.body.chat;
             // transcriptArray.current = returnedObject.body.meetingObj;
-            console.log(meetingObj)
-            console.log(returnedObject.body);
-            console.log(returnedObject);
+
         }
 
         fetchMeetingDetails(meetingId.current)
@@ -42,12 +41,12 @@ export const MeetingDetails = (props) => {
                 <p> LOADING!</p>
                 :
                 <div>
-                    {/* <ReactPlayer
+                    <ReactPlayer
                         ref={ref}
                         url={meetingObj.video_url}
                         controls
-                    /> */}
-                    <p>{chatArray}</p>
+                    />
+
                 </div>
             }
         </Container >
