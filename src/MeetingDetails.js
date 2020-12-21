@@ -23,16 +23,14 @@ export const MeetingDetails = (props) => {
 
             await setMeetingObj(returnedObject.body.meeting);
             await setChatArray(returnedObject.body.chat)
-
+            setLoading(false)
         }
 
         fetchMeetingDetails(meetingId.current)
-            .then(setLoading(false))
 
     }, [store.serverUrl])
 
     console.log(loading)
-
     console.log(meetingObj)
     console.log(chatArray)
 
