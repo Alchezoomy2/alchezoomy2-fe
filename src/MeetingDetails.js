@@ -36,14 +36,15 @@ export const MeetingDetails = (props) => {
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             {loading ?
+                <p> LOADING!</p>
+
+                :
                 <ReactPlayer
                     ref={ref}
                     url={meetingObj.video_url}
                     controls
                 />
-                :
 
-                <p> LOADING!</p>
             }
         </Container >
     )
