@@ -7,8 +7,6 @@ import { useStateStore } from './StoreProvider.js'
 
 export const ChatBox = () => {
     const store = useStateStore();
-    console.log('CHATBOX!')
-    console.log(store.chatArray.map(chat => chat.text))
 
     return useObserver(() =>
         <Paper elevation={3}>
@@ -16,8 +14,8 @@ export const ChatBox = () => {
                 {store.chatArray.map(chat =>
                     <div>
                         <ListItemText
-                            primary={chat.speaker}
-                            secondary={chat.text}></ListItemText>
+                            primary={`${chat.speaker}: ${chat.text}`}
+                            secondary={chat.time_stamp}></ListItemText>
                         <Divider />
                     </div>
                 )}
