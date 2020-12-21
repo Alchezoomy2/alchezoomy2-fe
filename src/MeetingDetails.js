@@ -19,16 +19,16 @@ export const MeetingDetails = (props) => {
         async function fetchMeetingDetails(meetingId) {
             const returnedObject = await fetch
                 .get(store.serverUrl + `/student/meetings/${meetingId}`)
-
+            console.log('after fetch')
             store.changeMeetingDetails(returnedObject.body.meeting);
             store.changeChatArray(returnedObject.body.chat)
             store.changeLoading(false)
             console.log('fetchMeetingDetails')
 
         }
+        console.log('useEffect')
 
         fetchMeetingDetails(meetingId.current)
-        console.log('useEffect')
     }, [store])
 
     // console.log(loading)
