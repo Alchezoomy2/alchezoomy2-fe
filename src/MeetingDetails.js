@@ -46,8 +46,8 @@ export const MeetingDetails = (props) => {
                         url={meetingObj.video_url}
                         controls
                     />
+                    <ChatBox />
                 </div>
-                <ChatBox />
             }
         </Container >
     )
