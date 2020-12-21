@@ -11,7 +11,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let [loading, setLoading] = useState(true)
     let meetingId = useRef(props.match.params.id)
-    let meetingObj = useRef();
+    let [meetingObj, setMeetingObj] = useState();
     let chatArray = useRef();
     let transcriptArray = useRef();
     let ref = React.createRef();
@@ -22,15 +22,15 @@ export const MeetingDetails = (props) => {
             const returnedObject = await fetch
                 .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
-            meetingObj.current = returnedObject.body.meetingObj;
-            chatArray.current = returnedObject.body.chat;
-            transcriptArray.current = returnedObject.body.meetingObj;
+            setMeetingObj(returnedObject.body.meetingObj);
+            // chatArray.current = returnedObject.body.chat;
+            // transcriptArray.current = returnedObject.body.meetingObj;
             console.log(meetingObj)
         }
 
         fetchMeetingDetails(meetingId.current)
             .then(setLoading(false))
-    }, [store])
+    }, [])
 
 
     return useObserver(() =>
