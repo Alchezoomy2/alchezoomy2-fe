@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'scroll',
     },
     list_item: {
-        width: '400px',
+        width: '650px',
     },
 }));
 
@@ -29,10 +29,10 @@ export const ChatBox = () => {
                 {store.chatArray.map(chat =>
                     <div>
                         <ListItem className={classes.list_item}>
+                            <BookmarkIcon />
                             <ListItemText
                                 primary={`${chat.speaker}: ${chat.text}`}
                                 secondary={chat.timestamp} />
-                            <BookmarkIcon />
                             <Divider />
                         </ListItem>
                     </div>
