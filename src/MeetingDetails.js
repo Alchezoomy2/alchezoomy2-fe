@@ -12,8 +12,8 @@ export const MeetingDetails = (props) => {
     let [loading, setLoading] = useState(true)
     let meetingId = useRef(props.match.params.id)
     let [meetingObj, setMeetingObj] = useState();
-    let chatArray = useRef();
-    let transcriptArray = useRef();
+    // let chatArray = useRef();
+    // let transcriptArray = useRef();
     let ref = React.createRef();
 
     useEffect(() => {
