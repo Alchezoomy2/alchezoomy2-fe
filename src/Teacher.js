@@ -46,7 +46,7 @@ export const Teacher = () => {
         let newMeetingObj;
         setLoading(true);
         console.log('------------------------------------');
-        console.log(`store.token:  ${store.token}`);
+        console.log(`store.teachInfo.access_token:  ${store.teachInfo.access_token}`);
         console.log('------------------------------------');
         if (meeting.published) {
             newMeetingObj = await fetch
@@ -57,7 +57,7 @@ export const Teacher = () => {
                 .post(store.serverUrl + '/teacher/publish')
                 .send({
                     meetingId: meeting.id,
-                    access_token: store.token
+                    access_token: store.teachInfo.access_token
                 })
         }
         store.changeMeetingsObj(newMeetingObj.body);
