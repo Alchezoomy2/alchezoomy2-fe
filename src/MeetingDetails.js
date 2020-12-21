@@ -25,10 +25,12 @@ export const MeetingDetails = (props) => {
             await setMeetingObj(returnedObject.body.meeting);
             await setChatArray(returnedObject.body.chat)
             setLoading(false)
+            console.log('fetchMeetingDetails')
+
         }
 
         fetchMeetingDetails(meetingId.current)
-
+        console.log('useEffect')
     }, [store.serverUrl])
 
     // console.log(loading)
