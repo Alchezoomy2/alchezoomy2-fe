@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
@@ -14,7 +14,7 @@ export const MeetingDetails = (props) => {
     let [meetingObj, setMeetingObj] = useState();
     let [chatArray, setChatArray] = useState();
     // let transcriptArray = useRef();
-    let ref = React.createRef();
+    // let ref = React.createRef();
 
     useEffect(() => {
 
