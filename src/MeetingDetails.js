@@ -15,7 +15,6 @@ export const MeetingDetails = (props) => {
     let [chatArray, setChatArray] = useState();
     // let transcriptArray = useRef();
     let ref = React.createRef();
-
     useEffect(() => {
 
         async function fetchMeetingDetails(meetingId) {
@@ -24,8 +23,6 @@ export const MeetingDetails = (props) => {
 
             await setMeetingObj(returnedObject.body.meeting);
             await setChatArray(returnedObject.body.chat)
-            // chatArray.current = returnedObject.body.chat;
-            // transcriptArray.current = returnedObject.body.meetingObj;
 
         }
 
@@ -34,6 +31,7 @@ export const MeetingDetails = (props) => {
 
     }, [store.serverUrl])
 
+    console.log(loading)
 
     console.log(meetingObj)
     console.log(chatArray)
