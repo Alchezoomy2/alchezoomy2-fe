@@ -1,10 +1,11 @@
 import React from "react";
 import { ListItem, Typography } from '@material-ui/core';
+import { useObserver } from 'mobx-react';
 
 
 export const ChatLine = (props) => {
-
-    return (
+    console.log(props.chat)
+    return useObserver(() =>
         <ListItem>
             <Typography>{props.chat.timestamp}</Typography>
 

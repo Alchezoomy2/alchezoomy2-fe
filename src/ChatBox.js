@@ -5,7 +5,7 @@ import ChatLine from './ChatLine.js';
 
 export const ChatBox = (props) => {
 
-
+    console.log(props.chatArray)
     return useObserver(() => {
         <Paper elevation={3}>
             <List>
