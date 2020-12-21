@@ -27,6 +27,8 @@ export const MeetingDetails = (props) => {
             // chatArray.current = returnedObject.body.chat;
             // transcriptArray.current = returnedObject.body.meetingObj;
             console.log(meetingObj)
+            console.log(returnedObject.body);
+            console.log(returnedObject);
         }
 
         fetchMeetingDetails(meetingId.current)
