@@ -8,7 +8,7 @@ import { useStateStore } from './StoreProvider.js'
 export const ChatBox = (props) => {
     const store = useStateStore();
     console.log('CHATBOX!')
-    console.log(store.chatArray)
+    console.log(store.chatArray.map(chat => chat.text))
 
     return useObserver(() => {
         <Paper elevation={3}>
