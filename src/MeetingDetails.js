@@ -12,7 +12,6 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let ref = React.createRef();
-    store.changeLoading(true)
 
     useEffect(() => {
 
@@ -27,6 +26,7 @@ export const MeetingDetails = (props) => {
 
         }
         console.log('useEffect')
+        store.changeLoading(true)
 
         fetchMeetingDetails(meetingId.current)
     }, [store])
