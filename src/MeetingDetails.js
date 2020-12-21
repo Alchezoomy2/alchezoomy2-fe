@@ -46,7 +46,12 @@ export const MeetingDetails = (props) => {
                         url={store.meetingDetails.video_url}
                         controls
                     />
-                    <ChatBox />
+                    {store.meetingDetails.chat_url ?
+                        <ChatBox />
+                        :
+                        <p></p>
+
+                    }
                 </div>
             }
         </Container >
