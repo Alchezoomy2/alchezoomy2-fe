@@ -28,7 +28,7 @@ export const MeetingDetails = (props) => {
         }
 
         store.changeLoading(true)
-
+        console.log(store.meetingDetails.video_url + store.studentInfo.access_token)
         fetchMeetingDetails(meetingId.current)
     }, [store])
 
@@ -44,7 +44,7 @@ export const MeetingDetails = (props) => {
                 <div>
                     <ReactPlayer
                         ref={ref}
-                        url={store.meetingDetails.video_url + store.teacherInfo.access_token}
+                        url={store.meetingDetails.video_url + store.studentInfo.access_token}
                         controls
                     />
                     {store.meetingDetails.chat_url ?
@@ -53,7 +53,7 @@ export const MeetingDetails = (props) => {
                         <p></p>
 
                     }
-                    <p>{store.meetingDetails.video_url + store.teacherInfo.access_token}</p>
+                    <p>{store.meetingDetails.video_url + store.studentInfo.access_token}</p>
                 </div>
             }
         </Container >
