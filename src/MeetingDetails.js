@@ -10,28 +10,25 @@ import ChatBox from './ChatBox.js';
 
 export const MeetingDetails = (props) => {
     const store = useStateStore();
-    let [loading, setLoading] = useState(true)
     let meetingId = useRef(props.match.params.id)
-    let [meetingObj, setMeetingObj] = useState();
-    let [chatArray, setChatArray] = useState();
-    // let transcriptArray = useRef();
     let ref = React.createRef();
+
     useEffect(() => {
 
         async function fetchMeetingDetails(meetingId) {
             const returnedObject = await fetch
                 .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
-            await setMeetingObj(returnedObject.body.meeting);
-            await setChatArray(returnedObject.body.chat)
-            setLoading(false)
+            store.changeMeetingDetails(returnedObject.body.meeting);
+            store.changeChatArray(returnedObject.body.chat)
+            store.changeLoading(false)
             console.log('fetchMeetingDetails')
 
         }
-
+        store.changeLoading(true)
         fetchMeetingDetails(meetingId.current)
         console.log('useEffect')
-    }, [store.serverUrl])
+    }, [store])
 
     // console.log(loading)
     // console.log(meetingObj)
@@ -39,16 +36,16 @@ export const MeetingDetails = (props) => {
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
-            {loading ?
+            {store.loading ?
                 <p> LOADING!</p>
                 :
                 <div>
                     <ReactPlayer
                         ref={ref}
-                        url={meetingObj.video_url}
+                        url={store.meetingDetails.video_url}
                         controls
                     />
-                    <ChatBox chatArray={chatArray} />
+                    <ChatBox />
                 </div>
             }
         </Container >

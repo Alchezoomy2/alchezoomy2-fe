@@ -1,16 +1,19 @@
 import { useObserver } from "mobx-react";
 import React from "react";
 import { Divider, Paper, List, ListItemText } from '@material-ui/core';
+import { useStateStore } from './StoreProvider.js'
+
 // import ChatLine from './ChatLine.js';
 
 export const ChatBox = (props) => {
+    const store = useStateStore();
     console.log('CHATBOX!')
-    console.log(props.chatArray)
+    console.log(store.chatArray)
 
     return useObserver(() => {
         <Paper elevation={3}>
             <List>
-                {props.chatArray.map(chat =>
+                {store.chatArray.map(chat =>
                     <div>
                         <ListItemText
                             primary={chat.speaker}
