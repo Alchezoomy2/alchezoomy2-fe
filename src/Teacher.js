@@ -45,9 +45,7 @@ export const Teacher = () => {
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
         setLoading(true);
-        console.log('------------------------------------');
-        console.log(`store.teacherInfo.access_token:  ${store.teacherInfo.access_token}`);
-        console.log('------------------------------------');
+
         if (meeting.published) {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/unpublish')

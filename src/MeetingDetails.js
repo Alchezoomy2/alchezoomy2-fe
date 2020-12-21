@@ -44,7 +44,7 @@ export const MeetingDetails = (props) => {
                 <div>
                     <ReactPlayer
                         ref={ref}
-                        url={store.meetingDetails.video_url + store.token}
+                        url={store.meetingDetails.video_url + store.teacherInfo.access_token}
                         controls
                     />
                     {store.meetingDetails.chat_url ?
