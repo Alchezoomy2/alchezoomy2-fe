@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
         height: '200px',
         overflow: 'scroll',
     },
-    title: {
-        margin: theme.spacing(4, 0, 2),
+    list_item: {
+        width: '400px',
     },
 }));
 
@@ -28,7 +28,7 @@ export const ChatBox = () => {
             <List className={classes.list}>
                 {store.chatArray.map(chat =>
                     <div>
-                        <ListItem>
+                        <ListItem className={classes.list_item}>
                             <ListItemText
                                 primary={`${chat.speaker}: ${chat.text}`}
                                 secondary={chat.timestamp} />

@@ -32,9 +32,6 @@ export const MeetingDetails = (props) => {
         fetchMeetingDetails(meetingId.current)
     }, [store])
 
-    // console.log(loading)
-    // console.log(meetingObj)
-    // console.log(chatArray)
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
@@ -53,7 +50,6 @@ export const MeetingDetails = (props) => {
                         <p></p>
 
                     }
-                    <p>{store.meetingDetails.video_url + store.studentInfo.access_token}</p>
                 </div>
             }
         </Container >
