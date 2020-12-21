@@ -8,11 +8,11 @@ import ChatBox from './ChatBox.js';
 
 
 
-export const MeetingDetails = async (props) => {
+export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let ref = React.createRef();
-    await store.changeLoading(true)
+    store.changeLoading(true)
 
     useEffect(() => {
 
