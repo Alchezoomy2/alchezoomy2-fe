@@ -6,7 +6,10 @@ export const ChatLine = (props) => {
 
     return (
         <ListItem>
+            <Typography>{props.chat.timestamp}</Typography>
+
             <Typography>{props.chat.speaker}</Typography>
+            <Typography>{props.chat.text}</Typography>
         </ListItem>
     )
 }
