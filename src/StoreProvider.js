@@ -63,7 +63,7 @@ export const StoreProvider = ({ children }) => {
         },
 
         changeMeetingDetails: newMeetingsDetails => {
-            store.meetingsDetails = newMeetingsDetails;
+            store.meetingDetails = newMeetingsDetails;
             localStorage.setItem('MEETING_DETAILS', newMeetingsDetails)
         }
     }));

@@ -3,7 +3,6 @@ import React from "react";
 import { Divider, Paper, List, ListItemText } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 
-// import ChatLine from './ChatLine.js';
 
 export const ChatBox = () => {
     const store = useStateStore();
@@ -15,7 +14,7 @@ export const ChatBox = () => {
                     <div>
                         <ListItemText
                             primary={`${chat.speaker}: ${chat.text}`}
-                            secondary={chat.time_stamp}></ListItemText>
+                            secondary={chat.timestamp} />
                         <Divider />
                     </div>
                 )}
