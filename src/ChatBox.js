@@ -12,8 +12,8 @@ export const ChatBox = (props) => {
                 {props.chatArray.map(chat =>
                     <div>
                         <ListItemText
-                            primary={props.chat.speaker}
-                            secondary={props.chat.text}></ListItemText>
+                            primary={chat.speaker}
+                            secondary={chat.text}></ListItemText>
                         <Divider />
                     </div>
                 )}
