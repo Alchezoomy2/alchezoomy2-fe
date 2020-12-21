@@ -14,6 +14,7 @@ export const MeetingDetails = (props) => {
     let meetingObj = useRef();
     let chatArray = useRef();
     let transcriptArray = useRef();
+    let ref = React.createRef();
 
     useEffect(() => {
 
@@ -35,6 +36,7 @@ export const MeetingDetails = (props) => {
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             <p>{loading}</p>
             <ReactPlayer
+                ref={ref}
                 url={meetingObj.video_url}
                 controls
             />
