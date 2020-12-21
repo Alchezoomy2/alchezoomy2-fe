@@ -30,15 +30,11 @@ export const MeetingDetails = (props) => {
             .then(setLoading(false))
     }, [store])
 
-    const ref = (player) => {
-        this.player = player;
-    };
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             <p>{loading}</p>
             <ReactPlayer
-                ref={this.ref}
                 url={meetingObj.video_url}
                 controls
             />
