@@ -24,6 +24,8 @@ export const MeetingDetails = (props) => {
 
             setMeetingObj(returnedObject.body.meeting);
             setChatArray(returnedObject.body.chat)
+
+            console.log(returnedObject.body)
             console.log(chatArray)
             console.log(meetingObj)
 
@@ -45,7 +47,7 @@ export const MeetingDetails = (props) => {
                 <div>
                     <ReactPlayer
                         ref={ref}
-                        url={meetingObj.video_url}
+                        // url={meetingObj.video_url}
                         controls
                     />
 
