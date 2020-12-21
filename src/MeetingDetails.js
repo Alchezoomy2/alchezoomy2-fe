@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     let [loading, setLoading] = useState(true)
     let meetingId = useRef(props.match.params.id)
     let [meetingObj, setMeetingObj] = useState();
-    // let chatArray = useRef();
+    let [chatArray, setChatArray] = useState();
     // let transcriptArray = useRef();
     let ref = React.createRef();
 
@@ -23,7 +23,7 @@ export const MeetingDetails = (props) => {
                 .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
             setMeetingObj(returnedObject.body.meeting);
-
+            setChatArray(returnedObject.body.chat)
             // chatArray.current = returnedObject.body.chat;
             // transcriptArray.current = returnedObject.body.meetingObj;
             console.log(meetingObj)
@@ -38,14 +38,15 @@ export const MeetingDetails = (props) => {
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             {loading ?
                 <p> LOADING!</p>
-
                 :
-                <ReactPlayer
-                    ref={ref}
-                    url={meetingObj.video_url}
-                    controls
-                />
-
+                <div>
+                    {/* <ReactPlayer
+                        ref={ref}
+                        url={meetingObj.video_url}
+                        controls
+                    /> */}
+                    <p>{chatArray}</p>
+                </div>
             }
         </Container >
     )
