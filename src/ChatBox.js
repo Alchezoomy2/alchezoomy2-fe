@@ -2,6 +2,7 @@ import { useObserver } from "mobx-react";
 import React from "react";
 import { Divider, Paper, List } from '@material-ui/core';
 import ChatLine from './ChatLine.js';
+
 export const ChatBox = (props) => {
 
 
@@ -18,3 +19,5 @@ export const ChatBox = (props) => {
         </Paper>
     })
 }
+
+export default ChatBox;

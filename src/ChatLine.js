@@ -10,3 +10,5 @@ export const ChatLine = (props) => {
         </ListItem>
     )
 }
+
+export default ChatLine;
