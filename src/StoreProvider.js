@@ -15,7 +15,7 @@ export const StoreProvider = ({ children }) => {
         chatArray: localStorage.getItem('CHAT_ARRAY' || ''),
         transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
         meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
-        loading: localStorage.getITEM('LOADING' || true),
+        loading: localStorage.getItem('LOADING' || true),
 
         changeToken: newToken => {
             store.token = newToken;
