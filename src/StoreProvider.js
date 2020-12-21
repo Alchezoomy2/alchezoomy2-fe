@@ -12,7 +12,10 @@ export const StoreProvider = ({ children }) => {
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
-        loading: true,
+        chatArray: localStorage.getItem('CHAT_ARRAY' || ''),
+        transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
+        meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
+        loading: localStorage.getITEM('LOADING' || true),
 
         changeToken: newToken => {
             store.token = newToken;
@@ -46,6 +49,22 @@ export const StoreProvider = ({ children }) => {
 
         changeLoading: newLoadingState => {
             store.loading = newLoadingState;
+            localStorage.setItem('LOADING', newLoadingState);
+        },
+
+        changeChatArray: newChatArray => {
+            store.chatArray = newChatArray;
+            localStorage.setItem('CHAT_ARRAY', newChatArray)
+        },
+
+        changeTranscriptArray: newTranscriptArray => {
+            store.transcriptArray = newTranscriptArray;
+            localStorage.setItem('TRANSCRIPT_ARRAY', newTranscriptArray)
+        },
+
+        changeMeetingDetails: newMeetingsDetails => {
+            store.meetingsDetails = newMeetingsDetails;
+            localStorage.setItem('MEETING_DETAILS', newMeetingsDetails)
         }
     }));
     return (
