@@ -52,7 +52,10 @@ export const Teacher = () => {
         } else {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/publish')
-                .send({ meetingId: meeting.id })
+                .send({
+                    meetingId: meeting.id,
+                    access_token: store.token
+                })
         }
         store.changeMeetingsObj(newMeetingObj.body);
         setLoading(false);
