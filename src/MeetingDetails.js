@@ -31,10 +31,8 @@ export const MeetingDetails = (props) => {
 
         fetchMeetingDetails(meetingId.current)
             .then(setLoading(false))
-            .then(console.log(chatArray))
-            .then(console.log(meetingObj)
-            )
-    }, [chatArray, store.serverUrl, meetingObj])
+
+    }, [store.serverUrl])
 
 
 
