@@ -4,6 +4,7 @@ import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
 import { Container } from '@material-ui/core';
+import ChatBox from './ChatBox.js';
 
 
 
@@ -45,8 +46,8 @@ export const MeetingDetails = (props) => {
                         url={meetingObj.video_url}
                         controls
                     />
-
                 </div>
+                <ChatBox />
             }
         </Container >
     )
