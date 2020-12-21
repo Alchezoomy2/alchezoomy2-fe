@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
-import { Container, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 
 
@@ -36,6 +36,7 @@ export const MeetingDetails = (props) => {
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+            <p>{loading}</p>
             <ReactPlayer
                 ref={this.ref}
                 url={meetingObj.video_url}
