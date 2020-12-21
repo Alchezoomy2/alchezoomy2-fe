@@ -19,6 +19,7 @@ export const MeetingDetails = (props) => {
             const returnedObject = await fetch
                 .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
+            await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
             store.changeMeetingDetails(returnedObject.body.meeting);
             store.changeChatArray(returnedObject.body.chat)
             store.changeLoading(false)
