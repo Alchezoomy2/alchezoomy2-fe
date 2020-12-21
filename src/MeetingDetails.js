@@ -46,7 +46,7 @@ export const MeetingDetails = (props) => {
                 <div>
                     <ReactPlayer
                         ref={ref}
-                        // url={meetingObj.video_url}
+                        url={meetingObj.video_url}
                         controls
                     />
 
