@@ -8,10 +8,11 @@ import ChatBox from './ChatBox.js';
 
 
 
-export const MeetingDetails = (props) => {
+export const MeetingDetails = async (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let ref = React.createRef();
+    await store.changeLoading(true)
 
     useEffect(() => {
 
@@ -26,7 +27,6 @@ export const MeetingDetails = (props) => {
 
         }
 
-        store.changeLoading(true)
         fetchMeetingDetails(meetingId.current)
         console.log('useEffect')
     }, [store])
