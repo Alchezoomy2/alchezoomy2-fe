@@ -1,6 +1,6 @@
 import { Container, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
@@ -10,7 +10,6 @@ import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import { useHistory } from "react-router-dom";
 
 export const Student = () => {
-    let [loading, setLoading] = useState('true');
     const store = useStateStore();
     const history = useHistory();
 
@@ -36,7 +35,7 @@ export const Student = () => {
                     .send({ student_info: store.studentInfo })
             }
             store.changeMeetingsObj(newMeetingObj.body);
-            setLoading(false)
+            store.changeLoading(false);
         }
 
         return retrieveStudentInfo()
@@ -44,7 +43,6 @@ export const Student = () => {
     }, [store]);
 
     const handleMeetingClick = (meetingId) => {
-        setLoading(true);
         store.changeLoading(true);
         history.push(`/meeting/${meetingId}`)
     }
@@ -53,33 +51,34 @@ export const Student = () => {
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             <List style={{ width: '90%' }}>
 
-                {loading ?
+                {store.loading ?
                     <p>LOADING!</p>
                     :
                     store.meetingsObj.map(meeting =>
                         <div>
-                            <ListItem alignItems="flex-start" onClick={() => handleMeetingClick(meeting.id)}>
-                                <ListItemAvatar>
-                                    <Avatar alt={meeting.user_name} src={meeting.pic_url} />
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary={meeting.topic}
-                                    secondary={meeting.display_time}
-                                />
-                                <div>
+                            <button onClick={() => handleMeetingClick(meeting.id)}>
+                                <ListItem alignItems="flex-start" >
+                                    <ListItemAvatar>
+                                        <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                                    </ListItemAvatar>
+                                    <ListItemText
+                                        primary={meeting.topic}
+                                        secondary={meeting.display_time}
+                                    />
                                     <div>
-                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                        <div>
+                                            <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                            <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                            <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                            <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
 
-                                        <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
-                                        <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                            <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                            <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                        </div>
                                     </div>
-                                </div>
-                            </ListItem>
+                                </ListItem>
+                            </button>
                             <Divider variant="middle" component="li" />
-
                         </div>
                     )
                 }
