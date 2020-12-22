@@ -31,6 +31,7 @@ export const MeetingDetails = (props) => {
         console.log(store.meetingDetails.video_url + store.studentInfo.access_token)
         fetchMeetingDetails(meetingId.current)
     }, [store])
+
     console.log(store.loading)
 
     return useObserver(() =>

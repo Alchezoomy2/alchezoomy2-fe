@@ -44,7 +44,8 @@ export const Student = () => {
     }, [store]);
 
     const handleMeetingClick = (meetingId) => {
-        store.setLoading(true);
+        setLoading(true);
+        store.changeLoading(true);
         history.push(`/meeting/${meetingId}`)
     }
 
