@@ -7,11 +7,12 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export const Student = () => {
     let [loading, setLoading] = useState('true');
     const store = useStateStore();
+    const history = useHistory();
 
     useEffect(() => {
         async function retrieveStudentInfo() {
@@ -42,6 +43,11 @@ export const Student = () => {
             .then(retrieveMeetings);
     }, [store]);
 
+    const handleMeetingClick = (meetingId) => {
+        store.setLoading(true);
+        history.push(`/meeting/${meetingId}`)
+    }
+
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             <List style={{ width: '90%' }}>
@@ -51,28 +57,26 @@ export const Student = () => {
                     :
                     store.meetingsObj.map(meeting =>
                         <div>
-                            <Link to={`/meeting/${meeting.id}`}>
-                                <ListItem alignItems="flex-start">
-                                    <ListItemAvatar>
-                                        <Avatar alt={meeting.user_name} src={meeting.pic_url} />
-                                    </ListItemAvatar>
-                                    <ListItemText
-                                        primary={meeting.topic}
-                                        secondary={meeting.display_time}
-                                    />
+                            <ListItem alignItems="flex-start" onClick={() => handleMeetingClick(meeting.id)}>
+                                <ListItemAvatar>
+                                    <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={meeting.topic}
+                                    secondary={meeting.display_time}
+                                />
+                                <div>
                                     <div>
-                                        <div>
-                                            <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                            <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                            <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                            <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
 
-                                            <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
-                                            <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
-                                        </div>
+                                        <Chip variant="outlined" size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                        <Chip variant="outlined" size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
                                     </div>
-                                </ListItem>
-                            </Link>
+                                </div>
+                            </ListItem>
                             <Divider variant="middle" component="li" />
 
                         </div>
