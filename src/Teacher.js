@@ -17,7 +17,7 @@ export const Teacher = () => {
     useEffect(() => {
         async function retrieveTeacherInfo() {
             const returnedObject = await fetch
-                .post(store.serverUrl + '/teacher/oauth')
+                .post('172.31.5.109:3000/teacher/oauth')
                 .send({ code: store.code });
 
             await store.changeTeacherInfo(returnedObject.body);
