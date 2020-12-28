@@ -8,7 +8,7 @@ export const StoreProvider = ({ children }) => {
         code: localStorage.getItem('CODE') || '',
         token: localStorage.getItem('TOKEN') || '',
         userType: localStorage.getItem('USER_TYPE') || '',
-        serverUrl: 'https://ec2-34-222-106-177.us-west-2.compute.amazonaws.com:3000',
+        serverUrl: '34.222.106.177:3000',
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
