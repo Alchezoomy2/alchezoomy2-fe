@@ -56,7 +56,7 @@ export const Student = () => {
                     :
                     store.meetingsObj.map(meeting =>
                         <div>
-                            <button onClick={() => handleMeetingClick(meeting.id)}>
+                            <div onClick={() => handleMeetingClick(meeting.id)}>
                                 <ListItem alignItems="flex-start" >
                                     <ListItemAvatar>
                                         <Avatar alt={meeting.user_name} src={meeting.pic_url} />
@@ -77,7 +77,7 @@ export const Student = () => {
                                         </div>
                                     </div>
                                 </ListItem>
-                            </button>
+                            </div>
                             <Divider variant="middle" component="li" />
                         </div>
                     )
