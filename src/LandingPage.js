@@ -6,7 +6,7 @@ import { Paper, Button } from '@material-ui/core';
 export const LandingPage = (props) => {
     const store = useStateStore();
     console.log(store.serverUrl)
-    console.log(process.env)
+    console.log(process.env.SERVER_URL)
 
     return useObserver(() =>
         <Paper elevation={3} >
