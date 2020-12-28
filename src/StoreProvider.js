@@ -8,7 +8,7 @@ export const StoreProvider = ({ children }) => {
         code: localStorage.getItem('CODE') || '',
         token: localStorage.getItem('TOKEN') || '',
         userType: localStorage.getItem('USER_TYPE') || '',
-        serverUrl: process.env.SERVER_URL,
+        serverUrl: '172.31.5.109',
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
