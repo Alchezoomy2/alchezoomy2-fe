@@ -14,7 +14,7 @@ export const LandingPage = (props) => {
                 onClick={() => {
                     store.changeUserType('teacher')
 
-                    window.location.href = "https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://main.dabs41jnm6k92.amplifyapp.com/redirect/";
+                    window.location.href = "https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://35.160.21.42/redirect/";
                 }}>
                 Teacher
             </Button>
@@ -22,7 +22,7 @@ export const LandingPage = (props) => {
                 onClick={() => {
                     store.changeUserType('student')
 
-                    window.location.href = "https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://main.dabs41jnm6k92.amplifyapp.com/redirect/";
+                    window.location.href = "https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://35.160.21.42/redirect/";
                 }}>
                 Student
             </Button>
