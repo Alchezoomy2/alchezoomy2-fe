@@ -9,7 +9,7 @@ export const StoreProvider = ({ children }) => {
         token: localStorage.getItem('TOKEN') || '',
         userType: localStorage.getItem('USER_TYPE') || '',
         serverUrl: 'http://34.222.106.177:3000',
-        zoomAPIurl: 'https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=http://35.160.21.42/redirect/',
+        zoomAPIurl: 'https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://www.alchezoomy.com/redirect/',
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
