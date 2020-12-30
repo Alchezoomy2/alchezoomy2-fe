@@ -8,7 +8,7 @@ export const StoreProvider = ({ children }) => {
         code: localStorage.getItem('CODE') || '',
         token: localStorage.getItem('TOKEN') || '',
         userType: localStorage.getItem('USER_TYPE') || '',
-        serverUrl: 'https://172.31.5.109:3000',
+        serverUrl: 'https://34.222.106.177:3000',
         zoomAPIurl: 'https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://www.alchezoomy.com/redirect/',
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
