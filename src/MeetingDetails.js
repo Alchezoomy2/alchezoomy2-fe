@@ -24,11 +24,10 @@ export const MeetingDetails = (props) => {
             store.changeChatArray(returnedObject.body.chat)
             store.changeLoading(false)
             console.log(store.meetingDetails.video_url)
-
         }
 
         store.changeLoading(true)
-        console.log(store.meetingDetails.video_url + store.studentInfo.access_token)
+        // console.log(store.meetingDetails.video_url + store.studentInfo.access_token)
         fetchMeetingDetails(meetingId.current)
     }, [store])
 
