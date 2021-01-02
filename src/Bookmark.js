@@ -4,7 +4,7 @@ import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
 
 import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BookmarkBorderIcon from '@material-ui/icons/'
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder'
 
 
 
