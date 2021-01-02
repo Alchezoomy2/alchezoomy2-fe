@@ -36,8 +36,8 @@ export const ChatBox = () => {
 
     const handleBookmark = (chatItem) => {
         setBookmarkCard(chatItem);
-        console.log(chatItem)
-        // setOpen(true);
+        console.log(bookmarkCard)
+        setOpen(true);
     }
 
     const saveBookmark = async () => {
@@ -60,7 +60,7 @@ export const ChatBox = () => {
                             <ListItem className={classes.list_item}>
                                 <BookmarkBorderIcon
                                     clickable
-                                    onClick={() => console.log(chat)}
+                                    onClick={() => { handleBookmark(chat) }}
                                 />
                                 <ListItemText
                                     primary={`${chat.speaker} ${chat.text}`}
@@ -75,9 +75,9 @@ export const ChatBox = () => {
 
                 <Dialog
                     open={open}
-                    TransitionComponent={Transition}
+                    // TransitionComponent={Transition}
                     keepMounted
-                    onClose={setOpen(false)}
+                    onClose={() => setOpen(false)}
                     aria-labelledby="alert-dialog-slide-title"
                     aria-describedby="alert-dialog-slide-description"
                 >
