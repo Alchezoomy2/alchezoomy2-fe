@@ -80,6 +80,7 @@ export const ChatBox = () => {
                 .get(store.serverUrl + '/student/bookmark')
 
             setBookmarkArray(bookmarkArray);
+            console.log(bookmarkArray)
         }
 
         retrieveBookmarks();
