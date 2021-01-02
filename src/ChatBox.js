@@ -1,6 +1,6 @@
 import { useObserver } from "mobx-react";
 import React from "react";
-import { Divider, Paper, List, ListItemText, ListItem } from '@material-ui/core';
+import { Divider, Paper, List, ListItemText, ListItem, Typography } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 // import BookmarkIcon from '@material-ui/icons/Bookmark';
@@ -26,16 +26,20 @@ export const ChatBox = () => {
 
     return useObserver(() =>
         <Paper elevation={3}>
+            <Typography
+                variant='h2'>
+                CHAT
+            </Typography>
             <List className={classes.list}>
                 {store.chatArray.map(chat =>
                     <div>
                         <ListItem className={classes.list_item}>
                             <BookmarkBorderIcon />
                             <ListItemText
-                                primary={`${chat.speaker}: ${chat.text}`}
+                                primary={`${chat.speaker} ${chat.text}`}
                                 secondary={chat.timestamp} />
-                            <Divider />
                         </ListItem>
+                        <Divider />
                     </div>
                 )}
             </List>

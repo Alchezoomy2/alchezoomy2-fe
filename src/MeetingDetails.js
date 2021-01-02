@@ -23,15 +23,12 @@ export const MeetingDetails = (props) => {
             store.changeMeetingDetails(returnedObject.body.meeting);
             store.changeChatArray(returnedObject.body.chat)
             store.changeLoading(false)
-            console.log(store.meetingDetails.video_url)
         }
 
         store.changeLoading(true)
-        // console.log(store.meetingDetails.video_url + store.studentInfo.access_token)
+
         fetchMeetingDetails(meetingId.current)
     }, [store])
-
-    console.log(store.loading)
 
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
@@ -48,7 +45,6 @@ export const MeetingDetails = (props) => {
                         <ChatBox />
                         :
                         <p></p>
-
                     }
                 </div>
             }
