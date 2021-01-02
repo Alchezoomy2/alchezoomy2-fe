@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const ChatBox = (props) => {
+export const ChatBox = () => {
     const store = useStateStore();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -36,7 +36,8 @@ export const ChatBox = (props) => {
 
     const handleBookmark = (chatItem) => {
         setBookmarkCard(chatItem);
-        setOpen(true);
+        console.log(chatItem)
+        // setOpen(true);
     }
 
     const saveBookmark = async () => {
@@ -87,9 +88,9 @@ export const ChatBox = (props) => {
                         <DialogContentText id="speaker">
                             {bookmarkCard.speaker}
                         </DialogContentText>
-                        <DialogContentText id="speaker">
+                        {/* <DialogContentText id="speaker">
                             {bookmarkCard.speaker}
-                        </DialogContentText>
+                        </DialogContentText> */}
                         <DialogContentText id="timestamp">
                             {bookmarkCard.timestamp}
                         </DialogContentText>
