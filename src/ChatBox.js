@@ -1,6 +1,8 @@
 import { useObserver } from "mobx-react";
-import React, { useState } from "react";
-import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText } from '@material-ui/core';
+import React, { useState, useEffect } from "react";
+import fetch from 'superagent';
+
+import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 // import BookmarkIcon from '@material-ui/icons/Bookmark';
@@ -26,6 +28,26 @@ const useStyles = makeStyles((theme) => ({
         zIndex: theme.zIndex.drawer + 1,
         color: '#fff',
     },
+    dialog_title: {
+        backgroundColor: theme.color,
+        color: '#fff'
+    },
+    dialog_speaker: {
+        fontWeight: 'bold',
+        fontSize: '1.1em',
+        margin: '3px'
+    },
+    dialog_timestamp: {
+        fontSize: '.9em',
+        margin: '3px',
+        color: "secondary"
+    },
+    dialog_text: {
+        margin: '3px'
+    }
+
+
+
 }));
 
 export const ChatBox = () => {
@@ -33,18 +55,36 @@ export const ChatBox = () => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [bookmarkCard, setBookmarkCard] = useState();
+    const [bookmarkArray, setBookmarkArray] = useState([]);
 
     const handleBookmark = (chatItem) => {
         setBookmarkCard(chatItem);
-        console.log(bookmarkCard)
         setOpen(true);
     }
 
     const saveBookmark = async () => {
-        console.log(bookmarkCard.timestamp)
+        const bookmarkArray = await fetch
+            .post(store.serverUrl + '/student/bookmark')
+            .send({
+                chatId: bookmarkCard.id,
+                studentId: store.studentInfo.id,
+            })
+        console.log(bookmarkArray)
+        setBookmarkArray(bookmarkArray)
     }
 
+    useEffect(() => {
 
+        async function retrieveBookmarks() {
+            const bookmarkArray = await fetch
+                .get(store.serverUrl + '/student/bookmark')
+
+            setBookmarkArray(bookmarkArray);
+        }
+
+        retrieveBookmarks();
+
+    }, [store])
 
 
     return useObserver(() =>
@@ -75,26 +115,26 @@ export const ChatBox = () => {
 
                 <Dialog
                     open={open}
-                    // TransitionComponent={Transition}
+                    TransitionComponent={Transition}
                     keepMounted
                     onClose={() => setOpen(false)}
                     aria-labelledby="alert-dialog-slide-title"
                     aria-describedby="alert-dialog-slide-description"
                 >
                     <DialogContent>
-                        <DialogContentText>
+                        <DialogTitle className={classes.dialog_title}>
                             SAVE THIS CHAT?
-                </DialogContentText>
-                        <DialogContentText id="speaker">
+                        </DialogTitle>
+                        <DialogContentText id="speaker" className={classes.dialog_speaker}>
                             {bookmarkCard.speaker}
                         </DialogContentText>
                         {/* <DialogContentText id="speaker">
                             {bookmarkCard.speaker}
                         </DialogContentText> */}
-                        <DialogContentText id="timestamp">
+                        <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
                             {bookmarkCard.timestamp}
                         </DialogContentText>
-                        <DialogContentText id="text">
+                        <DialogContentText id="text" className={classes.dialog_text}>
                             {bookmarkCard.text}
                         </DialogContentText>
                     </DialogContent>
