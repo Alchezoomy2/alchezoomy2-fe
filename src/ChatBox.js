@@ -99,7 +99,7 @@ export const ChatBox = (props) => {
                     </DialogContent>
                     <DialogActions>
                         <Button
-                            onClick={setOpen(false)}
+                            onClick={() => setOpen(false)}
                             color="primary">
                             Disagree
                     </Button>
