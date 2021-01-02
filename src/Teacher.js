@@ -37,7 +37,7 @@ export const Teacher = () => {
             store.changeMeetingsObj(newMeetingObj.body);
             setLoading(false);
         }
-        console.log(store.serverUrl)
+
         return retrieveTeacherInfo()
             .then(retrieveMeetings)
     }, [store]);
