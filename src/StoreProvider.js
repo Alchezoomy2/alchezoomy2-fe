@@ -10,6 +10,7 @@ export const StoreProvider = ({ children }) => {
         userType: localStorage.getItem('USER_TYPE') || '',
         serverUrl: 'https://api.alchezoomy.com:3443',
         zoomAPIurl: 'https://zoom.us/oauth/authorize?response_type=code&client_id=AxrbH83_Q0aEO273dFIafw&redirect_uri=https://www.alchezoomy.com/redirect/',
+        s3VideoUrl: 'https://alchezoomy.s3-us-west-2.amazonaws.com/',
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
