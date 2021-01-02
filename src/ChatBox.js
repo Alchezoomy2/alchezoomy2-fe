@@ -70,44 +70,49 @@ export const ChatBox = (props) => {
                     )}
                 </List>
             </Paper>
-            <Dialog
-                open={open}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={setOpen(false)}
-                aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description"
-            >
-                <DialogContent>
-                    <DialogContentText>
-                        SAVE THIS CHAT?
+            {bookmarkCard ?
+
+                <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={setOpen(false)}
+                    aria-labelledby="alert-dialog-slide-title"
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <DialogContent>
+                        <DialogContentText>
+                            SAVE THIS CHAT?
                 </DialogContentText>
-                    <DialogContentText id="speaker">
-                        {bookmarkCard.speaker}
-                    </DialogContentText>
-                    <DialogContentText id="speaker">
-                        {bookmarkCard.speaker}
-                    </DialogContentText>
-                    <DialogContentText id="timestamp">
-                        {bookmarkCard.timestamp}
-                    </DialogContentText>
-                    <DialogContentText id="text">
-                        {bookmarkCard.text}
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button
-                        onClick={setOpen(false)}
-                        color="primary">
-                        Disagree
+                        <DialogContentText id="speaker">
+                            {bookmarkCard.speaker}
+                        </DialogContentText>
+                        <DialogContentText id="speaker">
+                            {bookmarkCard.speaker}
+                        </DialogContentText>
+                        <DialogContentText id="timestamp">
+                            {bookmarkCard.timestamp}
+                        </DialogContentText>
+                        <DialogContentText id="text">
+                            {bookmarkCard.text}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button
+                            onClick={setOpen(false)}
+                            color="primary">
+                            Disagree
                     </Button>
-                    <Button
-                        onClick={saveBookmark}
-                        color="primary">
-                        Agree
+                        <Button
+                            onClick={saveBookmark}
+                            color="primary">
+                            Agree
                     </Button>
-                </DialogActions>
-            </Dialog>
+                    </DialogActions>
+                </Dialog>
+                :
+                "LOADING!"
+            }
         </div>
     )
 }
