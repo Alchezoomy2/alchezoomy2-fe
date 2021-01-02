@@ -60,7 +60,7 @@ export const ChatBox = () => {
                             <ListItem className={classes.list_item}>
                                 <BookmarkBorderIcon
                                     clickable
-                                    onClick={(chat) => { handleBookmark(chat) }}
+                                    onClick={() => { handleBookmark(chat) }}
                                 />
                                 <ListItemText
                                     primary={`${chat.speaker} ${chat.text}`}
