@@ -78,6 +78,7 @@ export const ChatBox = () => {
             console.log(`bookmarkCard.id:  ${bookmarkCard.id}`);
             console.log('------------------------------------');
             const bookmarkId = bookmarkArray.find(bookmark => bookmark['chat_id'] === bookmarkCard.id)
+            console.log(bookmarkId)
             newBookmarkArray = await fetch
                 .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
         } else {
