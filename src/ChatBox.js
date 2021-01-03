@@ -80,17 +80,13 @@ export const ChatBox = () => {
                 chatId: bookmarkCard.id,
                 studentId: store.studentInfo.id,
             })
-        console.log('waited?')
         setBookmarkArray(bookmarkArray.body)
         setOpen(false);
     }
 
     const deleteBookmark = async () => {
-        console.log(bookmarkCard)
         const bookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
-        console.log('waited?')
-
         setBookmarkArray(bookmarkArray.body);
         setOpen(false);
     }
@@ -106,7 +102,7 @@ export const ChatBox = () => {
 
         retrieveBookmarks();
 
-    }, [store])
+    })
 
 
     return useObserver(() =>
