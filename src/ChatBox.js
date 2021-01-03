@@ -181,8 +181,8 @@ export const ChatBox = () => {
                             />
                             :
                             <Typography>
-                                <CommentIcon fontSize="large" />
-                                {bookmarkCard.comment}
+                                <CommentIcon fontSize="small" />
+                                {`  ${bookmarkCard.comment}`}
                             </Typography>
                         }
                     </DialogContent>
