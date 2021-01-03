@@ -179,7 +179,7 @@ export const ChatBox = () => {
                     </DialogActions>
                 </Dialog>
                 :
-                "LOADING!"
+                <></>
             }
         </div>
     )
