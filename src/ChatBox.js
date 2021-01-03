@@ -178,7 +178,7 @@ export const ChatBox = () => {
                                 Cancel
                     </Button>
                             <Button
-                                onClick={handleBookmarkChange}
+                                // onClick={handleBookmarkChange}
                                 color="primary">
                                 {bookmarkCard.title}
                             </Button>
