@@ -56,6 +56,7 @@ export const ChatBox = () => {
     const [open, setOpen] = useState(false);
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
+    const [commentField, setCommentField] = useState("");
 
     const handleBookmark = async (chatItem) => {
         setBookmarkCard({
@@ -72,8 +73,7 @@ export const ChatBox = () => {
     }
 
     const handleBookmarkChange = async (e) => {
-        console.log('handleBookmarkChange')
-        console.log(e.target.value)
+        console.log(commentField)
         let newBookmarkArray = [];
         if (bookmarkCard.current) {
 
@@ -91,6 +91,12 @@ export const ChatBox = () => {
         }
         setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
+        setCommentField("")
+    }
+
+    const handleCommentChange = (e) => {
+        setCommentField(e.target.value);
+        console.log(commentField)
     }
 
     useEffect(() => {
@@ -149,44 +155,41 @@ export const ChatBox = () => {
                     aria-describedby="alert-dialog-slide-description"
                     maxWidth="xl"
                 >
-                    <form id="bookmark-comment" onSubmit={handleBookmarkChange}>
-                        <DialogContent>
-                            <DialogTitle className={classes.dialog_title}>
-                                {bookmarkCard.title}
-                            </DialogTitle>
-                            <DialogContentText id="speaker" className={classes.dialog_speaker}>
-                                {bookmarkCard.speaker}
-                            </DialogContentText>
-                            <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
-                                {bookmarkCard.timestamp}
-                            </DialogContentText>
-                            <DialogContentText id="text" className={classes.dialog_text}>
-                                {bookmarkCard.text}
-                            </DialogContentText>
-                            <TextField
-                                id="bookmark-comment"
-                                label="comment"
-                                multiline
-                                rows={4}
-                                variant="outlined"
-                            />
+                    <DialogContent>
+                        <DialogTitle className={classes.dialog_title}>
+                            {bookmarkCard.title}
+                        </DialogTitle>
+                        <DialogContentText id="speaker" className={classes.dialog_speaker}>
+                            {bookmarkCard.speaker}
+                        </DialogContentText>
+                        <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
+                            {bookmarkCard.timestamp}
+                        </DialogContentText>
+                        <DialogContentText id="text" className={classes.dialog_text}>
+                            {bookmarkCard.text}
+                        </DialogContentText>
+                        <TextField
+                            id="comment"
+                            label="comment"
+                            multiline
+                            rows={4}
+                            variant="outlined"
+                            onChange={handleCommentChange}
+                        />
 
-                        </DialogContent>
-                        <DialogActions>
-                            <Button
-                                onClick={() => setOpen(false)}
-                                color="primary">
-                                Cancel
+                    </DialogContent>
+                    <DialogActions>
+                        <Button
+                            onClick={() => setOpen(false)}
+                            color="primary">
+                            Cancel
                         </Button>
-                            <Button
-                                type="submit"
-                                // onClick={handleBookmarkChange}
-                                color="primary">
-                                {bookmarkCard.title}
-                            </Button>
-                        </DialogActions>
-                    </form>
-
+                        <Button
+                            // onClick={handleBookmarkChange}
+                            color="primary">
+                            {bookmarkCard.title}
+                        </Button>
+                    </DialogActions>
                 </Dialog>
                 :
                 <></>
