@@ -7,6 +7,7 @@ import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import CommentIcon from '@material-ui/icons/Comment';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -180,7 +181,8 @@ export const ChatBox = () => {
                             />
                             :
                             <Typography>
-                                {`comment: ${bookmarkCard.comment}`}
+                                <CommentIcon />
+                                {bookmarkCard.comment}
                             </Typography>
                         }
                     </DialogContent>
