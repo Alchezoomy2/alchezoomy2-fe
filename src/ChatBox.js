@@ -102,7 +102,7 @@ export const ChatBox = () => {
 
         retrieveBookmarks();
 
-    })
+    }, [store])
 
 
     return useObserver(() =>
