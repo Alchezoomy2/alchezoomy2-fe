@@ -72,20 +72,23 @@ export const ChatBox = () => {
     }
 
     const handleBookmarkChange = async () => {
-        let bookmarkArray = [];
+        let newBookmarkArray = [];
         if (bookmarkCard.current) {
-            const bookmarkId = bookmarkArray.find(bookmark => bookmark.chat_id === bookmarkCard.id)
-            bookmarkArray = await fetch
+            console.log('------------------------------------');
+            console.log(`bookmarkCard.id:  ${bookmarkCard.id}`);
+            console.log('------------------------------------');
+            const bookmarkId = bookmarkArray.find(bookmark => bookmark['chat_id'] === bookmarkCard.id)
+            newBookmarkArray = await fetch
                 .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
         } else {
-            bookmarkArray = await fetch
+            newBookmarkArray = await fetch
                 .post(store.serverUrl + '/student/bookmark')
                 .send({
                     chatId: bookmarkCard.id,
                     studentId: store.studentInfo.id,
                 })
         }
-        setBookmarkArray(bookmarkArray.body);
+        setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
     }
 
