@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff',
     },
     dialog_title: {
-        backgroundColor: theme.color,
+        backgroundColor: theme.primary,
         color: '#fff'
     },
     dialog_speaker: {
@@ -59,15 +59,19 @@ export const ChatBox = () => {
 
     const handleBookmark = (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", "function": saveBookmark
+            ...chatItem, title: "BOOKMARK?", bFunction: saveBookmark
         });
+        console.log(bookmarkCard)
+
         setOpen(true);
     }
 
     const handleUnbookmark = (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", "function": deleteBookmark
+            ...chatItem, title: "UNBOOKMARK?", bFunction: deleteBookmark
         });
+        console.log(bookmarkCard)
+
         setOpen(true);
     }
 
@@ -172,7 +176,7 @@ export const ChatBox = () => {
                             Disagree
                     </Button>
                         <Button
-                            onClick={bookmarkCard.function}
+                            onClick={bookmarkCard.bFunction}
                             color="primary">
                             Agree
                     </Button>
