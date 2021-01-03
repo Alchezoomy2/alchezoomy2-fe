@@ -59,14 +59,14 @@ export const ChatBox = () => {
 
     const handleBookmark = (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", "function": deleteBookmark
+            ...chatItem, title: "UNBOOKMARK?", "function": saveBookmark
         });
         setOpen(true);
     }
 
     const handleUnbookmark = (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", "function": saveBookmark
+            ...chatItem, title: "UNBOOKMARK?", "function": deleteBookmark
         });
         setOpen(true);
     }
@@ -83,6 +83,7 @@ export const ChatBox = () => {
     }
 
     const deleteBookmark = async () => {
+        console.log(bookmarkCard)
         const bookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
 
