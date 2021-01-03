@@ -67,10 +67,14 @@ export const ChatBox = () => {
     }
 
     const handleUnbookmark = async (chatItem) => {
+        console.log('handleUnbookmark')
         await setBookmarkCard({
             ...chatItem, title: "UNBOOKMARK?", bFunction: deleteBookmark
         });
         await setOpen(true);
+        console.log('------------------------------------');
+        console.log(bookmarkCard);
+        console.log('------------------------------------');
     }
 
     const saveBookmark = async () => {
@@ -85,6 +89,8 @@ export const ChatBox = () => {
     }
 
     const deleteBookmark = async () => {
+        console.log('deleteBookmark!')
+        console.log(bookmarkCard)
         const bookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
         await setBookmarkArray(bookmarkArray.body);
