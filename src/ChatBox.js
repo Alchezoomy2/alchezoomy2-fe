@@ -72,6 +72,7 @@ export const ChatBox = () => {
     }
 
     const handleBookmarkChange = async (e) => {
+        console.log('handleBookmarkChange')
         console.log(e.target.value)
         let newBookmarkArray = [];
         if (bookmarkCard.current) {
