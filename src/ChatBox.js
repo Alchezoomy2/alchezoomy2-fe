@@ -175,7 +175,6 @@ export const ChatBox = () => {
                                 rows={4}
                                 variant="outlined"
                                 onChange={handleCommentChange}
-                                value=""
                             />
                             :
                             <Typography>
