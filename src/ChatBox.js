@@ -73,7 +73,6 @@ export const ChatBox = () => {
     }
 
     const handleBookmarkChange = async (e) => {
-        console.log(commentField)
         let newBookmarkArray = [];
         if (bookmarkCard.current) {
 
@@ -86,17 +85,18 @@ export const ChatBox = () => {
                 .send({
                     chatId: bookmarkCard.id,
                     studentId: store.studentInfo.id,
-                    comment: e.target.value
+                    comment: commentField
                 })
         }
         setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
         setCommentField("")
+        console.log('post send commentField:')
+        console.log(commentField)
     }
 
     const handleCommentChange = async (e) => {
-        await setCommentField(e.target.value);
-        console.log(commentField)
+        setCommentField(e.target.value);
     }
 
     useEffect(() => {
