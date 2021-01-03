@@ -141,12 +141,14 @@ export const ChatBox = () => {
             {bookmarkCard ?
                 <form onSubmit={(e) => { handleBookmarkChange(e) }}>
                     <Dialog
+                        disableProtal
                         open={open}
                         TransitionComponent={Transition}
                         keepMounted
                         onClose={() => setOpen(false)}
                         aria-labelledby="alert-dialog-slide-title"
                         aria-describedby="alert-dialog-slide-description"
+                        maxWidth="xl"
                     >
 
                         <DialogContent>
