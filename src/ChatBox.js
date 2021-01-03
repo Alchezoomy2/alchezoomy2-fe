@@ -94,8 +94,8 @@ export const ChatBox = () => {
         setCommentField("")
     }
 
-    const handleCommentChange = (e) => {
-        setCommentField(e.target.value);
+    const handleCommentChange = async (e) => {
+        await setCommentField(e.target.value);
         console.log(commentField)
     }
 
@@ -185,7 +185,7 @@ export const ChatBox = () => {
                             Cancel
                         </Button>
                         <Button
-                            // onClick={handleBookmarkChange}
+                            onClick={handleBookmarkChange}
                             color="primary">
                             {bookmarkCard.title}
                         </Button>
