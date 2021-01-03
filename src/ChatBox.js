@@ -176,11 +176,11 @@ export const ChatBox = () => {
                                 rows={4}
                                 variant="outlined"
                                 onChange={handleCommentChange}
+                                value={commentField}
                             />
                             :
                             <Typography>
-                                {console.log(bookmarkCard)}
-                                {bookmarkCard.comment}
+                                {`comment: ${bookmarkCard.comment}`}
                             </Typography>
                         }
                     </DialogContent>
