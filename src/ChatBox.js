@@ -58,25 +58,26 @@ export const ChatBox = () => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
 
     const handleBookmark = async (chatItem) => {
-        await setBookmarkCard({
-            ...chatItem, title: "BOOKMARK?", bFunction: saveBookmark
+        setBookmarkCard({
+            ...chatItem, title: "BOOKMARK?", current: false
         });
-        console.log(bookmarkCard)
-
-        await setOpen(true);
+        setOpen(true);
     }
 
     const handleUnbookmark = async (chatItem) => {
-        console.log('handleUnbookmark')
-        await setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", bFunction: deleteBookmark
+        setBookmarkCard({
+            ...chatItem, title: "UNBOOKMARK?", current: true
         });
-        await setOpen(true);
-        console.log('------------------------------------');
-        console.log(bookmarkCard);
-        console.log('------------------------------------');
+        setOpen(true);
     }
 
+    const handleBookmarkChange = async () => {
+        if (bookmarkCard.current) {
+            console.log('true')
+        } else {
+            console.log('false')
+        }
+    }
     const saveBookmark = async () => {
         const bookmarkArray = await fetch
             .post(store.serverUrl + '/student/bookmark')
@@ -177,7 +178,7 @@ export const ChatBox = () => {
                             Disagree
                     </Button>
                         <Button
-                            onClick={bookmarkCard.bFunction}
+                            onClick={handleBookmarkChange}
                             color="primary">
                             Agree
                     </Button>
