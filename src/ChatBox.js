@@ -92,7 +92,7 @@ export const ChatBox = () => {
     }
 
     useEffect(() => {
-
+        console.log('useEffect')
         async function retrieveBookmarks() {
             const bookmarkArray = await fetch
                 .get(store.serverUrl + '/student/bookmark/' + store.studentInfo.id)
