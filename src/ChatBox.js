@@ -80,7 +80,7 @@ export const ChatBox = () => {
             const bookmarkId = bookmarkArray.find(bookmark => bookmark['chat_id'] === bookmarkCard.id)
             console.log(bookmarkId)
             newBookmarkArray = await fetch
-                .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
+                .delete(store.serverUrl + '/student/bookmark/' + bookmarkId.id)
         } else {
             newBookmarkArray = await fetch
                 .post(store.serverUrl + '/student/bookmark')
