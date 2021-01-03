@@ -72,7 +72,7 @@ export const ChatBox = () => {
         setOpen(true);
     }
 
-    const handleBookmarkChange = async (e) => {
+    const handleBookmarkChange = async () => {
         let newBookmarkArray = [];
         if (bookmarkCard.current) {
 
@@ -166,17 +166,22 @@ export const ChatBox = () => {
                         <DialogContentText id="text" className={classes.dialog_text}>
                             {bookmarkCard.text}
                         </DialogContentText>
-                        <TextField
-                            id="comment"
-                            label="comment"
-                            multiline
-                            fullWidth
-                            rows={4}
-                            variant="outlined"
-                            onChange={handleCommentChange}
-                            value={bookmarkCard.comment}
-                        />
-
+                        {!bookmarkCard.current ?
+                            <TextField
+                                id="comment"
+                                label="comment"
+                                multiline
+                                fullWidth
+                                rows={4}
+                                variant="outlined"
+                                onChange={handleCommentChange}
+                                value={bookmarkCard.comment}
+                            />
+                            :
+                            <Typography>
+                                {bookmarkCard.comment}
+                            </Typography>
+                        }
                     </DialogContent>
                     <DialogActions>
                         <Button
