@@ -148,7 +148,7 @@ export const ChatBox = () => {
                     aria-describedby="alert-dialog-slide-description"
                     maxWidth="xl"
                 >
-                    <form onSubmit={(e) => { handleBookmarkChange(e) }}>
+                    <form id="bookmark-comment" onSubmit={(e) => { handleBookmarkChange(e) }}>
                         <DialogContent>
                             <DialogTitle className={classes.dialog_title}>
                                 {bookmarkCard.title}
@@ -163,7 +163,7 @@ export const ChatBox = () => {
                                 {bookmarkCard.text}
                             </DialogContentText>
                             <TextField
-                                id="comment"
+                                id="bookmark-comment"
                                 label="comment"
                                 multiline
                                 rows={4}
