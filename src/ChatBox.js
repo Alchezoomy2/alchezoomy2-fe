@@ -5,7 +5,7 @@ import fetch from 'superagent';
 import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -69,8 +69,8 @@ export const ChatBox = () => {
                 chatId: bookmarkCard.id,
                 studentId: store.studentInfo.id,
             })
-        console.log(bookmarkArray)
-        setBookmarkArray(bookmarkArray)
+        setBookmarkArray(bookmarkArray.body)
+        setOpen(false);
     }
 
     useEffect(() => {
@@ -79,8 +79,7 @@ export const ChatBox = () => {
             const bookmarkArray = await fetch
                 .get(store.serverUrl + '/student/bookmark/' + store.studentInfo.id)
 
-            setBookmarkArray(bookmarkArray);
-            console.log(bookmarkArray)
+            setBookmarkArray(bookmarkArray.body);
         }
 
         retrieveBookmarks();
@@ -99,10 +98,14 @@ export const ChatBox = () => {
                     {store.chatArray.map(chat =>
                         <div>
                             <ListItem className={classes.list_item}>
-                                <BookmarkBorderIcon
-                                    clickable
-                                    onClick={() => { handleBookmark(chat) }}
-                                />
+                                {bookmarkArray.some(bookmark => bookmark.chat_id === chat.id ?
+                                    <BookmarkIcon />
+                                    :
+                                    <BookmarkBorderIcon
+                                        clickable
+                                        onClick={() => { handleBookmark(chat) }}
+                                    />
+                            }
                                 <ListItemText
                                     primary={`${chat.speaker} ${chat.text}`}
                                     secondary={chat.timestamp} />
