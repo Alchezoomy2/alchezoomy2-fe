@@ -77,7 +77,7 @@ export const ChatBox = () => {
 
         async function retrieveBookmarks() {
             const bookmarkArray = await fetch
-                .get(store.serverUrl + '/student/bookmark')
+                .get(store.serverUrl + '/student/bookmark/' + store.studentInfo.id)
 
             setBookmarkArray(bookmarkArray);
             console.log(bookmarkArray)
