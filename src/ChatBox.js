@@ -58,7 +58,16 @@ export const ChatBox = () => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
 
     const handleBookmark = (chatItem) => {
-        setBookmarkCard(chatItem);
+        setBookmarkCard({
+            ...chatItem, title: "UNBOOKMARK?", function: () => { deleteBookmark }
+        });
+        setOpen(true);
+    }
+
+    const handleUnbookmark = (chatItem) => {
+        setBookmarkCard({
+            ...chatItem, title: "UNBOOKMARK?", function: saveBookmark
+        });
         setOpen(true);
     }
 
@@ -70,6 +79,14 @@ export const ChatBox = () => {
                 studentId: store.studentInfo.id,
             })
         setBookmarkArray(bookmarkArray.body)
+        setOpen(false);
+    }
+
+    const deleteBookmark = async () => {
+        const bookmarkArray = await fetch
+            .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
+
+        setBookmarkArray(bookmarkArray.body);
         setOpen(false);
     }
 
@@ -97,10 +114,15 @@ export const ChatBox = () => {
                 <List className={classes.list}>
                     {store.chatArray.map(chat =>
                         <div>
+                            <Divider />
+
                             <ListItem className={classes.list_item}>
                                 {(bookmarkArray &&
                                     bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
-                                    <BookmarkIcon />
+                                    <BookmarkIcon
+                                        clickable
+                                        onClick={() => handleUnbookmark(chat)}
+                                    />
                                     :
                                     <BookmarkBorderIcon
                                         clickable
@@ -111,7 +133,6 @@ export const ChatBox = () => {
                                     primary={`${chat.speaker} ${chat.text}`}
                                     secondary={chat.timestamp} />
                             </ListItem>
-                            <Divider />
                         </div>
                     )}
                 </List>
@@ -128,7 +149,7 @@ export const ChatBox = () => {
                 >
                     <DialogContent>
                         <DialogTitle className={classes.dialog_title}>
-                            SAVE THIS CHAT?
+                            {bookmarkCard.title}
                         </DialogTitle>
                         <DialogContentText id="speaker" className={classes.dialog_speaker}>
                             {bookmarkCard.speaker}
@@ -150,7 +171,7 @@ export const ChatBox = () => {
                             Disagree
                     </Button>
                         <Button
-                            onClick={saveBookmark}
+                            onClick={bookmarkCard.function}
                             color="primary">
                             Agree
                     </Button>
