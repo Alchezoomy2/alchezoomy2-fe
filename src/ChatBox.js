@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff',
     },
     dialog_title: {
-        backgroundColor: "blue",
-        color: '#fff'
+        fontWeight: 'bold',
+        color: "black"
     },
     dialog_speaker: {
         fontWeight: 'bold',
@@ -60,14 +60,14 @@ export const ChatBox = () => {
 
     const handleBookmark = async (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "BOOKMARK?", current: false
+            ...chatItem, title: "BOOKMARK", current: false
         });
         setOpen(true);
     }
 
     const handleUnbookmark = async (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", current: true
+            ...chatItem, title: "UNBOOKMARK", current: true
         });
         setOpen(true);
     }
@@ -172,9 +172,11 @@ export const ChatBox = () => {
                             id="comment"
                             label="comment"
                             multiline
+                            fullWidth
                             rows={4}
                             variant="outlined"
                             onChange={handleCommentChange}
+                            value=""
                         />
 
                     </DialogContent>
