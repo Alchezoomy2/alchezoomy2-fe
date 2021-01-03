@@ -139,18 +139,16 @@ export const ChatBox = () => {
                 </List>
             </Paper>
             {bookmarkCard ?
-                <form onSubmit={(e) => { handleBookmarkChange(e) }}>
-                    <Dialog
-                        disableProtal
-                        open={open}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="alert-dialog-slide-title"
-                        aria-describedby="alert-dialog-slide-description"
-                        maxWidth="xl"
-                    >
-
+                <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={() => setOpen(false)}
+                    aria-labelledby="alert-dialog-slide-title"
+                    aria-describedby="alert-dialog-slide-description"
+                    maxWidth="xl"
+                >
+                    <form onSubmit={(e) => { handleBookmarkChange(e) }}>
                         <DialogContent>
                             <DialogTitle className={classes.dialog_title}>
                                 {bookmarkCard.title}
@@ -178,15 +176,16 @@ export const ChatBox = () => {
                                 onClick={() => setOpen(false)}
                                 color="primary">
                                 Cancel
-                    </Button>
+                        </Button>
                             <Button
                                 // onClick={handleBookmarkChange}
                                 color="primary">
                                 {bookmarkCard.title}
                             </Button>
                         </DialogActions>
-                    </Dialog>
-                </form>
+                    </form>
+
+                </Dialog>
                 :
                 <></>
             }
