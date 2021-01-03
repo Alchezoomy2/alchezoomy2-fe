@@ -65,9 +65,9 @@ export const ChatBox = () => {
         setOpen(true);
     }
 
-    const handleUnbookmark = async (bookmarkItem) => {
+    const handleUnbookmark = async (bookmarkItem, chatItem) => {
         setBookmarkCard({
-            ...bookmarkItem, title: "UNBOOKMARK", current: true
+            ...chatItem, comment: bookmarkItem.comment, title: "UNBOOKMARK", current: true
         });
         setOpen(true);
     }
@@ -127,7 +127,7 @@ export const ChatBox = () => {
                                     bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
                                     <BookmarkIcon
                                         clickable
-                                        onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id))}
+                                        onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id), chat)}
                                     />
                                     :
                                     <BookmarkBorderIcon
