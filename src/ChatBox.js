@@ -91,8 +91,6 @@ export const ChatBox = () => {
         setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
         setCommentField("")
-        console.log('post send commentField:')
-        console.log(commentField)
     }
 
     const handleCommentChange = async (e) => {
