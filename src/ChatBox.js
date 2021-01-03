@@ -98,14 +98,15 @@ export const ChatBox = () => {
                     {store.chatArray.map(chat =>
                         <div>
                             <ListItem className={classes.list_item}>
-                                {bookmarkArray.some(bookmark => bookmark.chat_id === chat.id ?
+                                {(bookmarkArray &&
+                                    bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
                                     <BookmarkIcon />
                                     :
                                     <BookmarkBorderIcon
                                         clickable
-                                        onClick={() => { handleBookmark(chat) }}
+                                        onClick={() => handleBookmark(chat)}
                                     />
-                            }
+                                }
                                 <ListItemText
                                     primary={`${chat.speaker} ${chat.text}`}
                                     secondary={chat.timestamp} />
