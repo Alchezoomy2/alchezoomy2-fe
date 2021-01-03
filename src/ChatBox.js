@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff',
     },
     dialog_title: {
-        backgroundColor: theme.primary,
+        backgroundColor: "blue",
         color: '#fff'
     },
     dialog_speaker: {
