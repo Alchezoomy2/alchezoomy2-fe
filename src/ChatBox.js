@@ -72,31 +72,32 @@ export const ChatBox = () => {
     }
 
     const handleBookmarkChange = async () => {
+        let bookmarkArray = [];
         if (bookmarkCard.current) {
-            console.log('true')
+            bookmarkArray = await fetch
+                .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
         } else {
-            console.log('false')
+            bookmarkArray = await fetch
+                .post(store.serverUrl + '/student/bookmark')
+                .send({
+                    chatId: bookmarkCard.id,
+                    studentId: store.studentInfo.id,
+                })
         }
+        setBookmarkArray(bookmarkArray.body);
+        setOpen(false);
     }
-    const saveBookmark = async () => {
-        const bookmarkArray = await fetch
-            .post(store.serverUrl + '/student/bookmark')
-            .send({
-                chatId: bookmarkCard.id,
-                studentId: store.studentInfo.id,
-            })
-        await setBookmarkArray(bookmarkArray.body)
-        await setOpen(false);
-    }
+    // const saveBookmark = async () => {
 
-    const deleteBookmark = async () => {
-        console.log('deleteBookmark!')
-        console.log(bookmarkCard)
-        const bookmarkArray = await fetch
-            .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
-        await setBookmarkArray(bookmarkArray.body);
-        await setOpen(false);
-    }
+    //     await setBookmarkArray(bookmarkArray.body)
+    //     await setOpen(false);
+    // }
+
+    // const deleteBookmark = async () => {
+    //     console.log('deleteBookmark!')
+    //     console.log(bookmarkCard)
+
+    // }
 
     useEffect(() => {
         async function retrieveBookmarks() {
