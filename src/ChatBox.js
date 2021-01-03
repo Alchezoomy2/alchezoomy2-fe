@@ -59,14 +59,14 @@ export const ChatBox = () => {
 
     const handleBookmark = (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", function: deleteBookmark
+            ...chatItem, title: "UNBOOKMARK?", "function": deleteBookmark
         });
         setOpen(true);
     }
 
     const handleUnbookmark = (chatItem) => {
         setBookmarkCard({
-            ...chatItem, title: "UNBOOKMARK?", function: saveBookmark
+            ...chatItem, title: "UNBOOKMARK?", "function": saveBookmark
         });
         setOpen(true);
     }
