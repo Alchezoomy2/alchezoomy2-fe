@@ -59,6 +59,7 @@ export const ChatBox = () => {
     const [commentField, setCommentField] = useState("");
 
     const handleBookmark = async (chatItem) => {
+        setCommentField("")
         setBookmarkCard({
             ...chatItem, title: "BOOKMARK", current: false
         });
@@ -90,7 +91,7 @@ export const ChatBox = () => {
         }
         setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
-        setCommentField("")
+        await setCommentField("")
     }
 
     const handleCommentChange = async (e) => {
