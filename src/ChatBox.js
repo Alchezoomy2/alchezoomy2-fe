@@ -57,20 +57,20 @@ export const ChatBox = () => {
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
 
-    const handleBookmark = (chatItem) => {
-        setBookmarkCard({
+    const handleBookmark = async (chatItem) => {
+        await setBookmarkCard({
             ...chatItem, title: "BOOKMARK?", bFunction: saveBookmark
         });
         console.log(bookmarkCard)
 
-        setOpen(true);
+        await setOpen(true);
     }
 
-    const handleUnbookmark = (chatItem) => {
-        setBookmarkCard({
+    const handleUnbookmark = async (chatItem) => {
+        await setBookmarkCard({
             ...chatItem, title: "UNBOOKMARK?", bFunction: deleteBookmark
         });
-        setOpen(true);
+        await setOpen(true);
     }
 
     const saveBookmark = async () => {
@@ -80,24 +80,23 @@ export const ChatBox = () => {
                 chatId: bookmarkCard.id,
                 studentId: store.studentInfo.id,
             })
-        setBookmarkArray(bookmarkArray.body)
-        setOpen(false);
+        await setBookmarkArray(bookmarkArray.body)
+        await setOpen(false);
     }
 
     const deleteBookmark = async () => {
         const bookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkCard.id)
-        setBookmarkArray(bookmarkArray.body);
-        setOpen(false);
+        await setBookmarkArray(bookmarkArray.body);
+        await setOpen(false);
     }
 
     useEffect(() => {
-        console.log('useEffect')
         async function retrieveBookmarks() {
             const bookmarkArray = await fetch
                 .get(store.serverUrl + '/student/bookmark/' + store.studentInfo.id)
 
-            setBookmarkArray(bookmarkArray.body);
+            await setBookmarkArray(bookmarkArray.body);
         }
 
         retrieveBookmarks();
