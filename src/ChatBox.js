@@ -66,6 +66,7 @@ export const ChatBox = () => {
     }
 
     const handleUnbookmark = async (chatItem) => {
+        console.log(chatItem)
         setBookmarkCard({
             ...chatItem, title: "UNBOOKMARK", current: true
         });
@@ -179,6 +180,7 @@ export const ChatBox = () => {
                             />
                             :
                             <Typography>
+                                {"HELLO THERE!"}
                                 {bookmarkCard.comment}
                             </Typography>
                         }
