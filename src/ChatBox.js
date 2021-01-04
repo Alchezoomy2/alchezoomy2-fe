@@ -65,8 +65,8 @@ export const ChatBox = (props) => {
 
 
     const handleChatSync = () => {
-        chatSync.current ? setChatSync(false) : setChatSync(true);
-        console.log(chatSync.current)
+        chatSync ? setChatSync(false) : setChatSync(true);
+        console.log(chatSync)
     }
 
     const handleBookmark = async (chatItem) => {
