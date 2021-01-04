@@ -1,7 +1,7 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect, useRef } from "react";
 import fetch from 'superagent';
-import fuse from 'fuse.basic.js';
+import fuse from 'fuse.js';
 
 import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, FormControlLabel, Switch } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
