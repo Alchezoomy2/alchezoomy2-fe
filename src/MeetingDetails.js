@@ -11,8 +11,8 @@ import ChatBox from './ChatBox.js';
 export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
-    const [videoTimestamp, setVideoTimestamp] = useRef(0);
-    const [chatSync, setChatSync] = useRef(true);
+    let [videoTimestamp, setVideoTimestamp] = useRef(0);
+    let [chatSync, setChatSync] = useRef(true);
     let player = useRef();
 
     const handleChatSync = () => {
