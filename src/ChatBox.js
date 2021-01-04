@@ -162,7 +162,7 @@ export const ChatBox = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {fuseChatList.search(searchField).map(chat =>
+                    {store.chatArray.map(chat =>
                         <div>
                             <Divider />
                             <ListItem
