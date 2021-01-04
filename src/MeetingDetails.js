@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
@@ -11,7 +11,14 @@ import ChatBox from './ChatBox.js';
 export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
+    const [videoTimestamp, setVideoTimestamp] = useState(0);
     let ref = React.createRef();
+
+    ref = (player) => {
+        this.player = player;
+    };
+
+
 
     useEffect(() => {
 
@@ -27,11 +34,20 @@ export const MeetingDetails = (props) => {
 
         store.changeLoading(true)
 
+        function videoProgression() {
+            setInterval(() => {
+                console.log(this.player.getCurrentTime())
+            })
+        }
+
+        videoProgression();
         fetchMeetingDetails(meetingId.current)
     }, [store])
 
     return useObserver(() =>
-        <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+        <Container
+            maxWidth="xl"
+            style={{ display: 'flex', justifyItems: 'center' }}>
             {store.loading ?
                 <p> LOADING!</p>
                 :

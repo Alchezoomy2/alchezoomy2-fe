@@ -52,11 +52,13 @@ export const Student = () => {
             <List style={{ width: '90%' }}>
 
                 {store.loading ?
-                    <p>LOADING!</p>
+                    <p></p>
                     :
                     store.meetingsObj.map(meeting =>
                         <div>
-                            <div onClick={() => handleMeetingClick(meeting.id)}>
+                            <div
+                                onClick={() => handleMeetingClick(meeting.id)}
+                                style={{ curser: 'pointer' }}>
                                 <ListItem alignItems="flex-start" >
                                     <ListItemAvatar>
                                         <Avatar alt={meeting.user_name} src={meeting.pic_url} />
@@ -67,15 +69,34 @@ export const Student = () => {
                                     />
                                     <div>
                                         <div>
-                                            <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                            <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                            <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                            <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                            <Chip
+                                                size="small"
+                                                color={meeting.video_url ? "primary" : ''}
+                                                icon={<VideoLabelIcon />}
+                                                label="video" />
+                                            <Chip
+                                                size="small"
+                                                color={meeting.audio_url ? "primary" : ''}
+                                                icon={<VolumeUpIcon />}
+                                                label="audio" />
+                                            <Chip
+                                                size="small"
+                                                color={meeting.chat_url ? "primary" : ''}
+                                                icon={<ChatIcon />}
+                                                label="chat" />
+                                            <Chip
+                                                size="small"
+                                                color={meeting.transcript_url ? "primary" : ''}
+                                                icon={<RecordVoiceOverIcon />} label="transcript" />
 
                                             <Chip
-                                                size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                                size="small"
+                                                color="secondary"
+                                                label={"views: " + meeting.meeting_views} />
                                             <Chip
-                                                size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                                size="small"
+                                                color="secondary"
+                                                label={"favorites " + meeting.meeting_favs} />
                                         </div>
                                     </div>
                                 </ListItem>

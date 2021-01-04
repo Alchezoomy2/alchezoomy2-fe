@@ -89,7 +89,7 @@ export const ChatBox = () => {
         }
         setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
-        await setCommentField("")
+        setCommentField("")
     }
 
     const handleCommentChange = async (e) => {
@@ -113,7 +113,7 @@ export const ChatBox = () => {
         <div>
             <Paper elevation={3}>
                 <Typography
-                    variant='h2'>
+                    variant='h5'>
                     CHAT
             </Typography>
                 <List className={classes.list}>
@@ -165,6 +165,7 @@ export const ChatBox = () => {
                         <DialogContentText id="text" className={classes.dialog_text}>
                             {bookmarkCard.text}
                         </DialogContentText>
+                        <Divider />
                         {!bookmarkCard.current ?
                             <TextField
                                 id="comment"
