@@ -31,7 +31,7 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                store.setTimestamps(player.current.getCurrentTime());
+                store.changeVideoTimestamp(player.current.getCurrentTime());
             }, 500)
         }
 

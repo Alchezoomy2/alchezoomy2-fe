@@ -57,6 +57,7 @@ export const ChatBox = () => {
     const [commentField, setCommentField] = useState("");
     const chatSync = useRef(true);
     const videoTimestamp = useRef(0);
+    const selectedChatId = useRef(0);
 
 
     const handleChatSync = () => {
@@ -146,8 +147,10 @@ export const ChatBox = () => {
                     {store.chatArray.map(chat =>
                         <div>
                             <Divider />
-
-                            <ListItem className={classes.list_item}>
+                            <ListItem
+                                className={classes.list_item}
+                                selected={chat.id === selectedChatId}
+                            >
                                 {(bookmarkArray &&
                                     bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
                                     <BookmarkIcon
