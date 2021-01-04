@@ -18,7 +18,7 @@ export const StoreProvider = ({ children }) => {
         transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
         meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
         loading: localStorage.getItem('LOADING' || true),
-        timestamp: 0,
+        videoTimestamp: 0,
 
         changeToken: newToken => {
             store.token = newToken;
@@ -70,8 +70,8 @@ export const StoreProvider = ({ children }) => {
             localStorage.setItem('MEETING_DETAILS', newMeetingsDetails)
         },
 
-        changeTimestamp: newTimestamp => {
-            store.timestamp = newTimestamp;
+        changevideoTimestamp: newTimestamp => {
+            store.videoTimestamp = newTimestamp;
         }
 
     }));
