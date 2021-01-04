@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let player = useRef();
-    let [videoTimestamp, setVideoTimestamp] = useState();
+    let [videoTimestamp, setVideoTimestamp] = useState(0);
 
 
 
