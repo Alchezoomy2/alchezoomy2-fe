@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const ChatBox = () => {
+export const ChatBox = (props) => {
     const store = useStateStore();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
