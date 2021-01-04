@@ -118,7 +118,7 @@ export const ChatBox = (props) => {
                 console.log(props.returnVideoTimestamp())
                 console.log(store.chatArray[selectedChatIndex.current].parsed_timestamp)
 
-                if (store.chatArray[selectedChatIndex.current + 1].parsed_timestamp < props.returnVideoTimestamp()) {
+                if (store.chatArray[selectedChatIndex.current + 1].parsed_timestamp < props.returnVideoTimestamp() && selectedChatIndex.current < store.chatArray.length) {
                     selectedChatIndex.current = selectedChatIndex.current + 1;
                 }
                 console.log(selectedChatIndex.current);
