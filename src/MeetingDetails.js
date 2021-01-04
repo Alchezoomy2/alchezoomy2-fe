@@ -12,11 +12,8 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     const [videoTimestamp, setVideoTimestamp] = useState(0);
-    let ref = React.createRef();
+    this.player = React.createRef();
 
-    ref = (player) => {
-        this.player = player;
-    };
 
 
 
@@ -37,7 +34,7 @@ export const MeetingDetails = (props) => {
         function videoProgression() {
             setInterval(() => {
                 console.log(this.player.getCurrentTime())
-            })
+            }, 500)
         }
 
         videoProgression();
@@ -53,7 +50,7 @@ export const MeetingDetails = (props) => {
                 :
                 <div>
                     <ReactPlayer
-                        ref={ref}
+                        ref={this.player}
                         url={`${store.s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
                         controls
                     />
