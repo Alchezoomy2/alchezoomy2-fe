@@ -60,8 +60,8 @@ export const ChatBox = (props) => {
     const [searchField, setSearchField] = useState('');
     const selectedChatIndex = useRef(0)
     const fuseChatList = new fuse(store.chatArray, {
-        keys: ['text'],
-        threshold: 0.2,
+        keys: ['text', 'speaker'],
+        threshold: 0.4,
         ignoreLocation: true
     })
 
