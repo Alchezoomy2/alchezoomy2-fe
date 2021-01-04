@@ -1,6 +1,7 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect, useRef } from "react";
 import fetch from 'superagent';
+import fuse from 'fuse.js';
 
 import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, FormControlLabel, Switch } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
@@ -56,7 +57,11 @@ export const ChatBox = (props) => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
     const [chatSync, setChatSync] = useState(true);
+    const [searchField, setSearchField] = useState('');
     const selectedChatIndex = useRef(0)
+    const fuseChatList = fuse(store.chatArray, {
+        keys: ['speaker', 'text']
+    })
 
 
     const handleChatSync = () => {
@@ -104,6 +109,10 @@ export const ChatBox = (props) => {
         setCommentField(e.target.value);
     }
 
+    const handleSearchChange = async (e) => {
+        setSearchField(e.target.value);
+    }
+
     useEffect(() => {
         async function retrieveBookmarks() {
             const bookmarkArray = await fetch
@@ -114,13 +123,6 @@ export const ChatBox = (props) => {
 
         function selectedChat() {
             setInterval(() => {
-                // store.changeVideoTimestamp(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp))
-                console.log(props.returnVideoTimestamp())
-                console.log(store.chatArray[selectedChatIndex.current].parsed_timestamp)
-                console.log('------------------------------------');
-                console.log(`selectedChatIndex.current:  ${selectedChatIndex.current}`);
-                console.log('------------------------------------');
-                console.log(store.chatArray.length)
 
                 if (selectedChatIndex.current < store.chatArray.length && store.chatArray[selectedChatIndex.current + 1].parsed_timestamp < props.returnVideoTimestamp()) {
                     selectedChatIndex.current = selectedChatIndex.current + 1;
@@ -141,7 +143,7 @@ export const ChatBox = (props) => {
                     variant='h5'>
                     CHAT
                 </Typography>
-                <FormControlLabel
+                {/* <FormControlLabel
                     control={
                         <Switch
                             checked={chatSync.current}
@@ -151,9 +153,16 @@ export const ChatBox = (props) => {
                         />
                     }
                     label="sync chat"
+                /> */}
+                <TextField
+                    id="search"
+                    label="search"
+                    fullWidth
+                    variant="outlined"
+                    onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {store.chatArray.map(chat =>
+                    {fuseChatList.search(searchField).map(chat =>
                         <div>
                             <Divider />
                             <ListItem
