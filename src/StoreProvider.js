@@ -18,6 +18,7 @@ export const StoreProvider = ({ children }) => {
         transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
         meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
         loading: localStorage.getItem('LOADING' || true),
+        timestamp: 0,
 
         changeToken: newToken => {
             store.token = newToken;
@@ -67,7 +68,12 @@ export const StoreProvider = ({ children }) => {
         changeMeetingDetails: newMeetingsDetails => {
             store.meetingDetails = newMeetingsDetails;
             localStorage.setItem('MEETING_DETAILS', newMeetingsDetails)
+        },
+
+        changeTimestamp: newTimestamp => {
+            store.timestamp = newTimestamp;
         }
+
     }));
     return (
         <StoreContext.Provider

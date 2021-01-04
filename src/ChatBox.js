@@ -1,8 +1,8 @@
 import { useObserver } from "mobx-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import fetch from 'superagent';
 
-import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@material-ui/core';
+import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, FormControlLabel, Switch } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
@@ -55,6 +55,13 @@ export const ChatBox = () => {
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
+    const chatSync = useRef(true);
+    const videoTimestamp = useRef(0);
+
+
+    const handleChatSync = () => {
+        chatSync.current ? chatSync.current = false : chatSync.current = true;
+    }
 
     const handleBookmark = async (chatItem) => {
         setCommentField("")
@@ -104,12 +111,17 @@ export const ChatBox = () => {
             await setBookmarkArray(bookmarkArray.body);
         }
 
+        function selectedChat() {
+            store.videoTimestamp = 0;
+            setInterval(() => {
+                console.log(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp))
+            }, 500
+            )
+        }
+
         retrieveBookmarks();
-
+        selectedChat();
     }, [store])
-
-
-    // console.log(this.props.videoTimestamp);
 
 
     return useObserver(() =>
@@ -118,7 +130,18 @@ export const ChatBox = () => {
                 <Typography
                     variant='h5'>
                     CHAT
-            </Typography>
+                </Typography>
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={chatSync.current}
+                            onChange={handleChatSync}
+                            name="chatTrack"
+                            color="primary"
+                        />
+                    }
+                    label="sync chat"
+                />
                 <List className={classes.list}>
                     {store.chatArray.map(chat =>
                         <div>

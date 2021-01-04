@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
-import { Container, FormControlLabel, Switch } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import ChatBox from './ChatBox.js';
 
 
@@ -11,14 +11,8 @@ import ChatBox from './ChatBox.js';
 export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
-    let videoTimestamp = useRef(0);
-    let chatSync = useRef(true);
     let player = useRef();
 
-    const handleChatSync = () => {
-        chatSync.current ? chatSync.current = false : chatSync.current = true;
-        console.log(chatSync.current)
-    }
 
 
     useEffect(() => {
@@ -37,7 +31,7 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                videoTimestamp.current = player.current.getCurrentTime();
+                store.setTimestamps(player.current.getCurrentTime());
             }, 500)
         }
 
@@ -59,22 +53,7 @@ export const MeetingDetails = (props) => {
                         controls
                     />
                     {store.meetingDetails.chat_url ?
-                        <div>
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={chatSync}
-                                        onChange={handleChatSync}
-                                        name="chatTrack"
-                                        color="primary"
-                                    />
-                                }
-                                label="sync chat"
-                            />
-                            <ChatBox
-                                videoTimestamp={videoTimestamp.current}
-                            />
-                        </div>
+                        <ChatBox />
                         :
                         <p></p>
                     }
