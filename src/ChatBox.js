@@ -59,7 +59,7 @@ export const ChatBox = (props) => {
     const [chatSync, setChatSync] = useState(true);
     const [searchField, setSearchField] = useState('');
     const selectedChatIndex = useRef(0)
-    const fuseChatList = fuse(store.chatArray, {
+    const fuseChatList = new fuse(store.chatArray, {
         keys: ['speaker', 'text']
     })
 
@@ -162,7 +162,7 @@ export const ChatBox = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {store.chatArray.map(chat =>
+                    {fuseChatList.search(searchField).map(chat =>
                         <div>
                             <Divider />
                             <ListItem
