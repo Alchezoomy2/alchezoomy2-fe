@@ -58,7 +58,7 @@ export const MeetingDetails = (props) => {
                     />
                     {store.meetingDetails.chat_url ?
                         <ChatBox
-                            videoTimestamp={"HI!"}
+                            videoTimestamp={videoTimestamp.current}
                         />
                         :
                         <p></p>
