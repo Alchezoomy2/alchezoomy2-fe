@@ -55,13 +55,13 @@ export const ChatBox = (props) => {
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
-    const chatSync = useRef(true);
+    const [chatSync, setChatSync] = useState(true);
     const videoTimestamp = useRef(0);
     const selectedChatId = useRef(0);
 
 
     const handleChatSync = () => {
-        chatSync.current ? chatSync.current = false : chatSync.current = true;
+        chatSync.current ? setChatSync(false) : setChatSync(true);
         console.log(chatSync.current)
     }
 
