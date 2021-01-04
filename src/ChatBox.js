@@ -117,6 +117,9 @@ export const ChatBox = (props) => {
                 // store.changeVideoTimestamp(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp))
                 console.log(props.returnVideoTimestamp())
                 console.log(store.chatArray[selectedChatIndex.current].parsed_timestamp)
+                console.log('------------------------------------');
+                console.log(`selectedChatIndex.current:  ${selectedChatIndex.current}`);
+                console.log('------------------------------------');
                 console.log(store.chatArray.length)
 
                 if (selectedChatIndex.current < store.chatArray.length && store.chatArray[selectedChatIndex.current + 1].parsed_timestamp < props.returnVideoTimestamp()) {
