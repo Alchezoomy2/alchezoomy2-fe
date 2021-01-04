@@ -1,7 +1,7 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect, useRef } from "react";
 import fetch from 'superagent';
-import fuse from 'fuse.js';
+import fuse from 'fuse.basic.js';
 
 import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, FormControlLabel, Switch } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
@@ -57,7 +57,7 @@ export const ChatBox = (props) => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
     const [chatSync, setChatSync] = useState(true);
-    const [searchField, setSearchField] = useState();
+    const [searchField, setSearchField] = useState('');
     const selectedChatIndex = useRef(0)
     const fuseChatList = new fuse(store.chatArray, {
         keys: ['speaker', 'text']
@@ -113,6 +113,8 @@ export const ChatBox = (props) => {
         setSearchField(e.target.value);
     }
 
+
+
     useEffect(() => {
         async function retrieveBookmarks() {
             const bookmarkArray = await fetch
@@ -134,6 +136,36 @@ export const ChatBox = (props) => {
         retrieveBookmarks();
         selectedChat();
     }, [store, props])
+
+    const chatListItems = (chat) => {
+
+        return (
+            <div>
+                <Divider />
+                <ListItem
+                    className={classes.list_item}
+                >
+                    {(bookmarkArray &&
+                        bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
+                        <BookmarkIcon
+                            clickable
+                            onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id), chat)}
+                        />
+                        :
+                        <BookmarkBorderIcon
+                            clickable
+                            onClick={() => handleBookmark(chat)}
+                        />
+                    }
+                    <ListItemText
+                        primary={`${chat.speaker} ${chat.text}`}
+                        secondary={chat.timestamp} />
+                </ListItem>
+            </div>
+
+        )
+    }
+
 
 
     return useObserver(() =>
@@ -162,30 +194,10 @@ export const ChatBox = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {fuseChatList.search(searchField).map(({ item }) =>
-                        <div>
-                            <Divider />
-                            <ListItem
-                                className={classes.list_item}
-                            >
-                                {(bookmarkArray &&
-                                    bookmarkArray.some(bookmark => bookmark.chat_id === item.id)) ?
-                                    <BookmarkIcon
-                                        clickable
-                                        onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === item.id), item)}
-                                    />
-                                    :
-                                    <BookmarkBorderIcon
-                                        clickable
-                                        onClick={() => handleBookmark(item)}
-                                    />
-                                }
-                                <ListItemText
-                                    primary={`${item.speaker} ${item.text}`}
-                                    secondary={item.timestamp} />
-                            </ListItem>
-                        </div>
+                    {fuseChatList.search(searchField).map(({ item }) => chatListItems(item)
+
                     )}
+
                 </List>
             </Paper>
             {bookmarkCard ?
@@ -249,5 +261,6 @@ export const ChatBox = (props) => {
         </div>
     )
 }
+
 
 export default ChatBox;
