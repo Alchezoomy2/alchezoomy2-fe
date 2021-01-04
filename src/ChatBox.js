@@ -46,9 +46,6 @@ const useStyles = makeStyles((theme) => ({
     dialog_text: {
         margin: '3px'
     }
-
-
-
 }));
 
 export const ChatBox = () => {
