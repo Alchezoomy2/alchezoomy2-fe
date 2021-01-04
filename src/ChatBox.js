@@ -123,18 +123,18 @@ export const ChatBox = (props) => {
             await setBookmarkArray(bookmarkArray.body);
         }
 
-        function selectedChat() {
-            setInterval(() => {
+        // function selectedChat() {
+        //     setInterval(() => {
 
-                if (selectedChatIndex.current < store.chatArray.length && store.chatArray[selectedChatIndex.current + 1].parsed_timestamp < props.returnVideoTimestamp()) {
-                    selectedChatIndex.current = selectedChatIndex.current + 1;
-                }
-            }, 500
-            )
-        }
+        //         if (selectedChatIndex.current < store.chatArray.length && store.chatArray[selectedChatIndex.current + 1].parsed_timestamp < props.returnVideoTimestamp()) {
+        //             selectedChatIndex.current = selectedChatIndex.current + 1;
+        //         }
+        //     }, 500
+        //     )
+        // }
 
         retrieveBookmarks();
-        selectedChat();
+        // selectedChat();
     }, [store, props])
 
     const chatListItems = (chat) => {
