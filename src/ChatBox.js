@@ -116,14 +116,14 @@ export const ChatBox = (props) => {
         function selectedChat() {
             setInterval(() => {
                 // store.changeVideoTimestamp(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp))
-                console.log(props.videoTimestamp)
+                console.log(props.returnVideoTimestamp());
             }, 500
             )
         }
 
         retrieveBookmarks();
         selectedChat();
-    }, [store])
+    }, [store, props])
 
 
     return useObserver(() =>

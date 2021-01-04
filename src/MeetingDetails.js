@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let player = useRef();
-    let [videoTimestamp, setVideoTimestamp] = useState(0);
+    let videoTimestamp = useRef();
 
 
 
@@ -32,16 +32,21 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                setVideoTimestamp(player.current.getCurrentTime());
+                videoTimestamp.current = player.current.getCurrentTime();
                 console.log('------------------------------------');
-                console.log(`videoTimestamp:  ${videoTimestamp}`);
+                console.log(`videoTimestamp.current:  ${videoTimestamp.current}`);
                 console.log('------------------------------------');
+                console.log(videoTimestamp.current)
             }, 500)
         }
 
         videoProgression();
         fetchMeetingDetails(meetingId.current)
-    }, [store, videoTimestamp])
+    }, [store])
+
+    const returnVideoTimestamp = () => {
+        return videoTimestamp.current;
+    }
 
     return useObserver(() =>
         <Container
@@ -58,7 +63,7 @@ export const MeetingDetails = (props) => {
                     />
                     {store.meetingDetails.chat_url ?
                         <ChatBox
-                            videoTimestamp={videoTimestamp}
+                            returnVideoTimestamp={returnVideoTimestamp}
                         />
                         :
                         <p></p>
