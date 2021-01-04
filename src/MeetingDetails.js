@@ -33,10 +33,6 @@ export const MeetingDetails = (props) => {
         function videoProgression() {
             setInterval(() => {
                 videoTimestamp.current = player.current.getCurrentTime();
-                console.log('------------------------------------');
-                console.log(`videoTimestamp.current:  ${videoTimestamp.current}`);
-                console.log('------------------------------------');
-                console.log(videoTimestamp.current)
             }, 500)
         }
 

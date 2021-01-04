@@ -56,7 +56,6 @@ export const ChatBox = (props) => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
     const [chatSync, setChatSync] = useState(true);
-    const videoTimestamp = useRef(0);
     const selectedChatId = useRef(0);
 
 
@@ -116,7 +115,7 @@ export const ChatBox = (props) => {
         function selectedChat() {
             setInterval(() => {
                 // store.changeVideoTimestamp(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp))
-                console.log(props.returnVideoTimestamp());
+                console.log(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp));
             }, 500
             )
         }
