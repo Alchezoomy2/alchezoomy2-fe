@@ -11,12 +11,12 @@ import ChatBox from './ChatBox.js';
 export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
-    let [videoTimestamp, setVideoTimestamp] = useRef(0);
-    let [chatSync, setChatSync] = useRef(true);
+    let videoTimestamp = useRef(0);
+    let chatSync = useRef(true);
     let player = useRef();
 
     const handleChatSync = () => {
-        chatSync.current ? setChatSync(false) : setChatSync(true);
+        chatSync.current ? chatSync.current = false : chatSync.current = true;
         console.log(chatSync.current)
     }
 
@@ -38,7 +38,7 @@ export const MeetingDetails = (props) => {
         function videoProgression() {
             setInterval(() => {
                 console.log(player.current.getCurrentTime())
-                setVideoTimestamp(player.current.getCurrentTime())
+                videoTimestamp.current = player.current.getCurrentTime();
                 console.log('------------------------------------');
                 console.log(`videoTimestamp.current:  ${videoTimestamp.current}`);
                 console.log('------------------------------------');
