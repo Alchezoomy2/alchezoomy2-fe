@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     const [videoTimestamp, setVideoTimestamp] = useState(0);
-    let player = React.createRef();
+    let player = useRef();
 
 
 
@@ -33,7 +33,7 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                console.log(player.getCurrentTime())
+                console.log(player.current.getCurrentTime())
             }, 500)
         }
 
