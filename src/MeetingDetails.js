@@ -32,7 +32,8 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                store.changeVideoTimestamp(player.current.getCurrentTime());
+                videoTimestamp.current = player.current.getCurrentTime();
+
             }, 500)
         }
 
@@ -55,7 +56,7 @@ export const MeetingDetails = (props) => {
                     />
                     {store.meetingDetails.chat_url ?
                         <ChatBox
-                            videoTimestamp={videoTimestamp}
+                            videoTimestamp={videoTimestamp.current}
                         />
                         :
                         <p></p>
