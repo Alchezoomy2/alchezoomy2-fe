@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
-import { Container } from '@material-ui/core';
+import { Container, FormControlLabel, Switch } from '@material-ui/core';
 import ChatBox from './ChatBox.js';
 
 
@@ -11,10 +11,14 @@ import ChatBox from './ChatBox.js';
 export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
-    const [videoTimestamp, setVideoTimestamp] = useState(0);
+    const [videoTimestamp, setVideoTimestamp] = useRef(0);
+    const [chatSync, setChatSync] = useRef(true);
     let player = useRef();
 
-
+    const handleChatSync = () => {
+        chatSync.current ? setChatSync(false) : setChatSync(true);
+        console.log(chatSync.current)
+    }
 
 
     useEffect(() => {
@@ -34,6 +38,10 @@ export const MeetingDetails = (props) => {
         function videoProgression() {
             setInterval(() => {
                 console.log(player.current.getCurrentTime())
+                setVideoTimestamp(player.current.getCurrentTime())
+                console.log('------------------------------------');
+                console.log(`videoTimestamp.current:  ${videoTimestamp.current}`);
+                console.log('------------------------------------');
             }, 500)
         }
 
@@ -46,7 +54,7 @@ export const MeetingDetails = (props) => {
             maxWidth="xl"
             style={{ display: 'flex', justifyItems: 'center' }}>
             {store.loading ?
-                <p> LOADING!</p>
+                <p></p>
                 :
                 <div>
                     <ReactPlayer
@@ -55,7 +63,20 @@ export const MeetingDetails = (props) => {
                         controls
                     />
                     {store.meetingDetails.chat_url ?
-                        <ChatBox />
+                        <div>
+                            <FormControlLabel
+                                control={
+                                    <Switch
+                                        checked={chatSync}
+                                        onChange={handleChatSync}
+                                        name="chatTrack"
+                                        color="primary"
+                                    />
+                                }
+                                label="sync chat"
+                            />
+                            <ChatBox />
+                        </div>
                         :
                         <p></p>
                     }
