@@ -178,7 +178,7 @@ export const ChatBox = (props) => {
                 <FormControlLabel
                     control={
                         <Switch
-                            checked={chatSync.current}
+                            checked={chatSync}
                             onChange={handleChatSync}
                             name="chatTrack"
                             color="primary"
