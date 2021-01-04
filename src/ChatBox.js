@@ -108,6 +108,8 @@ export const ChatBox = () => {
 
     }, [store])
 
+    console.log(this.props.videoTimestamp);
+
 
     return useObserver(() =>
         <div>

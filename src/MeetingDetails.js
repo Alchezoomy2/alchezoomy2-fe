@@ -37,11 +37,7 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                console.log(player.current.getCurrentTime())
                 videoTimestamp.current = player.current.getCurrentTime();
-                console.log('------------------------------------');
-                console.log(`videoTimestamp.current:  ${videoTimestamp.current}`);
-                console.log('------------------------------------');
             }, 500)
         }
 
@@ -75,7 +71,9 @@ export const MeetingDetails = (props) => {
                                 }
                                 label="sync chat"
                             />
-                            <ChatBox />
+                            <ChatBox
+                                videoTimestamp={videoTimestamp.current}
+                            />
                         </div>
                         :
                         <p></p>
