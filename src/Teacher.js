@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
-import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider } from '@material-ui/core';
+import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider, Backdrop, CircularProgress } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -11,6 +11,7 @@ import fetch from 'superagent';
 
 export const Teacher = () => {
     let [loading, setLoading] = useState('true');
+    let [open, setOpen] = useState(false);
     const store = useStateStore();
 
 
@@ -44,7 +45,7 @@ export const Teacher = () => {
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
-        setLoading(true);
+        setOpen(true);
 
         if (meeting.published) {
             newMeetingObj = await fetch
@@ -59,55 +60,57 @@ export const Teacher = () => {
                 })
         }
         store.changeMeetingsObj(newMeetingObj.body);
-        setLoading(false);
+        setOpen(false);
     })
 
-
     return useObserver(() =>
-        <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
-            <List style={{ width: '90%' }}>
-                {loading ?
-                    <p>LOADING!</p>
-                    :
-                    store.meetingsObj.map(meeting =>
-                        <div>
-                            <ListItem alignItems="flex-start" >
+        <div>
+            <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+                <List style={{ width: '90%' }}>
+                    {loading ?
+                        <p></p>
+                        :
+                        store.meetingsObj.map(meeting =>
+                            <div>
+                                <ListItem alignItems="flex-start" >
+                                    <ListItemText
+                                        primary={meeting.topic}
+                                        secondary={meeting.display_time}
+                                    />
+                                    <div>
+                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                    </div>
+                                    <FormControlLabel
+                                        control={<Switch checked={meeting.published}
+                                            onChange={() => handlePublish(meeting)}
+                                            name='publish'
+                                            color="primary"
+                                        />}
+                                        label="publish" />
+                                    <div>
 
-                                <ListItemText
-                                    primary={meeting.topic}
-                                    secondary={meeting.display_time}
-                                />
-                                <div>
-                                    <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                    <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                    <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                    <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
-                                </div>
-                                <FormControlLabel
-                                    control={<Switch checked={meeting.published}
-                                        onChange={() => handlePublish(meeting)}
-                                        name='publish'
-                                        color="primary"
-                                    />}
-                                    label="publish" />
-                                <div>
+                                        <Chip size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                        <Chip size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                    </div>
+                                </ListItem>
 
-                                    <Chip size="small" color="secondary" label={"views: " + meeting.meeting_views} />
-                                    <Chip size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
-                                </div>
-                            </ListItem>
+                                <Divider variant="middle" component="li" />
+                            </div>
 
-                            <Divider variant="middle" component="li" />
-                        </div>
-
-                    )
-                }
-            </List>
+                        )
+                    }
+                </List>
 
 
 
-        </Container >
-
+            </Container >
+            <Backdrop open={open}>
+                <CircularProgress />
+            </Backdrop>
+        </div>
     )
 }
 

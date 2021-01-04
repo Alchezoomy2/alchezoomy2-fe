@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { useObserver } from 'mobx-react';
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
-import { Container, Backdrop, CircularProgress } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import ChatBox from './ChatBox.js';
 
 
@@ -31,8 +31,10 @@ export const MeetingDetails = (props) => {
     }, [store])
 
     return useObserver(() =>
-        <div>
-            <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+        <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+            {store.loading ?
+                <p> LOADING!</p>
+                :
                 <div>
                     <ReactPlayer
                         ref={ref}
@@ -45,12 +47,8 @@ export const MeetingDetails = (props) => {
                         <p></p>
                     }
                 </div>
-
-            </Container >
-            <Backdrop open={store.loading} >
-                <CircularProgress />
-            </Backdrop>
-        </div>
+            }
+        </Container >
     )
 }
 
