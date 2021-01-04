@@ -155,7 +155,7 @@ export const ChatBox = (props) => {
                             <Divider />
                             <ListItem
                                 className={classes.list_item}
-                                selected={chat.id ? chat.id === store.chatArray[selectedChatIndex].id : false}
+                                selected={chat ? chat.id === store.chatArray[selectedChatIndex].id : false}
                             >
                                 {(bookmarkArray &&
                                     bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
