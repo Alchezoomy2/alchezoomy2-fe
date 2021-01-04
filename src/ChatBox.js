@@ -57,7 +57,7 @@ export const ChatBox = (props) => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
     const [chatSync, setChatSync] = useState(true);
-    const [searchField, setSearchField] = useState('');
+    const [searchField, setSearchField] = useState();
     const selectedChatIndex = useRef(0)
     const fuseChatList = new fuse(store.chatArray, {
         keys: ['speaker', 'text']
