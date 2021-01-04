@@ -12,7 +12,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let player = useRef();
-    let videoTimestamp = useRef();
+    let [videoTimestamp, setVideoTimestamp] = useState();
 
 
 
@@ -32,9 +32,9 @@ export const MeetingDetails = (props) => {
 
         function videoProgression() {
             setInterval(() => {
-                videoTimestamp.current = player.current.getCurrentTime();
+                setVideoTimestamp(player.current.getCurrentTime());
                 console.log('------------------------------------');
-                console.log(`videoTimestamp.current:  ${videoTimestamp.current}`);
+                console.log(`videoTimestamp:  ${videoTimestamp}`);
                 console.log('------------------------------------');
             }, 500)
         }
@@ -58,7 +58,7 @@ export const MeetingDetails = (props) => {
                     />
                     {store.meetingDetails.chat_url ?
                         <ChatBox
-                            videoTimestamp={videoTimestamp.current}
+                            videoTimestamp={videoTimestamp}
                         />
                         :
                         <p></p>
