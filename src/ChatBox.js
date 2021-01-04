@@ -60,7 +60,7 @@ export const ChatBox = (props) => {
     const [searchField, setSearchField] = useState('');
     const selectedChatIndex = useRef(0)
     const fuseChatList = new fuse(store.chatArray, {
-        keys: ['speaker', 'text']
+        keys: ['text']
     })
 
 
@@ -175,7 +175,7 @@ export const ChatBox = (props) => {
                     variant='h5'>
                     CHAT
                 </Typography>
-                {/* <FormControlLabel
+                <FormControlLabel
                     control={
                         <Switch
                             checked={chatSync.current}
@@ -185,7 +185,7 @@ export const ChatBox = (props) => {
                         />
                     }
                     label="sync chat"
-                /> */}
+                />
                 <TextField
                     id="search"
                     label="search"
@@ -199,7 +199,6 @@ export const ChatBox = (props) => {
                         :
                         fuseChatList.search(searchField).map(({ item }) => chatListItems(item))
                     }
-
                 </List>
             </Paper>
             {bookmarkCard ?
