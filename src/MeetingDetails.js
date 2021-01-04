@@ -12,6 +12,7 @@ export const MeetingDetails = (props) => {
     const store = useStateStore();
     let meetingId = useRef(props.match.params.id)
     let player = useRef();
+    let videoTimestamp = useRef();
 
 
 
@@ -53,7 +54,9 @@ export const MeetingDetails = (props) => {
                         controls
                     />
                     {store.meetingDetails.chat_url ?
-                        <ChatBox />
+                        <ChatBox
+                            videoTimestamp={videoTimestamp}
+                        />
                         :
                         <p></p>
                     }
