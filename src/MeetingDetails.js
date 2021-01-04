@@ -41,7 +41,7 @@ export const MeetingDetails = (props) => {
 
         videoProgression();
         fetchMeetingDetails(meetingId.current)
-    }, [store])
+    }, [store, videoTimestamp])
 
     return useObserver(() =>
         <Container
