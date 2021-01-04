@@ -70,7 +70,7 @@ export const StoreProvider = ({ children }) => {
             localStorage.setItem('MEETING_DETAILS', newMeetingsDetails)
         },
 
-        changevideoTimestamp: newTimestamp => {
+        changeVideoTimestamp: newTimestamp => {
             store.videoTimestamp = newTimestamp;
         }
 

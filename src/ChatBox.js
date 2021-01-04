@@ -112,7 +112,7 @@ export const ChatBox = () => {
         }
 
         function selectedChat() {
-            store.videoTimestamp = 0;
+            store.changeVideoTimestamp(0)
             setInterval(() => {
                 console.log(store.chatArray.find(chat => chat.timestamp < store.videoTimestamp))
             }, 500
