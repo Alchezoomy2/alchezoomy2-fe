@@ -194,9 +194,11 @@ export const ChatBox = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {fuseChatList.search(searchField).map(({ item }) => chatListItems(item)
-
-                    )}
+                    {searchField === '' ?
+                        store.chatArray.map(chat => chatListItems(chat))
+                        :
+                        fuseChatList.search(searchField).map(({ item }) => chatListItems(item))
+                    }
 
                 </List>
             </Paper>
