@@ -162,27 +162,27 @@ export const ChatBox = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {fuseChatList.search(searchField).map(chat =>
+                    {fuseChatList.search(searchField).map(({ item }) =>
                         <div>
                             <Divider />
                             <ListItem
                                 className={classes.list_item}
                             >
                                 {(bookmarkArray &&
-                                    bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
+                                    bookmarkArray.some(bookmark => bookmark.chat_id === item.id)) ?
                                     <BookmarkIcon
                                         clickable
-                                        onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id), chat)}
+                                        onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === item.id), item)}
                                     />
                                     :
                                     <BookmarkBorderIcon
                                         clickable
-                                        onClick={() => handleBookmark(chat)}
+                                        onClick={() => handleBookmark(item)}
                                     />
                                 }
                                 <ListItemText
-                                    primary={`${chat.speaker} ${chat.text}`}
-                                    secondary={chat.timestamp} />
+                                    primary={`${item.speaker} ${item.text}`}
+                                    secondary={item.timestamp} />
                             </ListItem>
                         </div>
                     )}
