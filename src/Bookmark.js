@@ -1,11 +1,21 @@
 import { useObserver } from 'mobx-react';
 import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
-import DeleteIcon from '@material-ui/icons/Delete';
 import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvatar, Avatar, TextField } from '@material-ui/core';
 import fuse from 'fuse.js';
+import fetch from 'superagent';
 
 
+import ReplyIcon from '@material-ui/icons/Reply';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+
+const useStyles = makeStyles((theme) => ({
+    reply_icon: {
+        transform: 'scaleX(-1)'
+    }
+}
+}
 
 
 export const Bookmark = () => {
@@ -26,7 +36,7 @@ export const Bookmark = () => {
 
         const newBookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
-        store.changeBookmarkArray(newBookmarkArray.body)
+        store.changeBookmarkArray(newBookmarkArray.body);
     }
 
     const listItems = (bookmark) => {
@@ -45,10 +55,15 @@ export const Bookmark = () => {
                     primary={`${bookmark.speaker}:  ${bookmark.text}`}
                     secondary={bookmark.comment}
                 />
-                <DeleteIcon
-                    clickable
-                    onClick={() => handleDeleteBookmark(bookmark.id)}
-                />
+                <div>
+                    <DeleteIcon
+                        clickable
+                        onClick={() => handleDeleteBookmark(bookmark.id)}
+                    />
+                    <ReplyIcon
+                        className={classes.reply_icon}
+                    />
+                </div>
             </ListItem>
             <Divider variant="middle" component="li" />
         </div>
