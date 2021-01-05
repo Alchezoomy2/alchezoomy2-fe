@@ -1,7 +1,7 @@
 import { useObserver } from 'mobx-react';
-import React, { useState, useEffect } from 'react';
-import fetch from 'superagent';
+import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvatar, Avatar, TextField } from '@material-ui/core';
 import fuse from 'fuse.js';
 
@@ -22,6 +22,13 @@ export const Bookmark = () => {
         setSearchField(e.target.value);
     }
 
+    const handleDeleteBookmark = async (bookmarkId) => {
+
+        const newBookmarkArray = await fetch
+            .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
+        store.changeBookmarkArray(newBookmarkArray.body)
+    }
+
     const listItems = (bookmark) => {
 
         return <div>
@@ -38,9 +45,10 @@ export const Bookmark = () => {
                     primary={`${bookmark.speaker}:  ${bookmark.text}`}
                     secondary={bookmark.comment}
                 />
-
-
-
+                <DeleteIcon
+                    clickable
+                    onClick={() => handleDeleteBookmark(bookmark.id)}
+                />
             </ListItem>
             <Divider variant="middle" component="li" />
         </div>
