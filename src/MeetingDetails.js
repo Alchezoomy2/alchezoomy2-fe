@@ -10,26 +10,15 @@ import ChatBox from './ChatBox.js';
 
 export const MeetingDetails = (props) => {
     const store = useStateStore();
-    let meetingId = useRef(props.match.params.id)
+    const startingTimestamp = useRef(props.match.params.timestamp)
     let player = useRef();
     let videoTimestamp = useRef();
 
 
-
     useEffect(() => {
-
-        async function fetchMeetingDetails(meetingId) {
-            const returnedObject = await fetch
-                .get(store.serverUrl + `/student/meetings/${meetingId}`)
-
-            await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
-            store.changeMeetingDetails(returnedObject.body.meeting);
-            store.changeChatArray(returnedObject.body.chat)
-            store.changeLoading(false)
+        function startAtTimestamp() {
+            player.current.seekTo(startingTimestamp, 'seconds')
         }
-
-        store.changeLoading(true)
-
         function videoProgression() {
             setInterval(() => {
                 videoTimestamp.current = player.current.getCurrentTime();
@@ -37,15 +26,14 @@ export const MeetingDetails = (props) => {
         }
 
         videoProgression();
-        fetchMeetingDetails(meetingId.current)
-    }, [store])
+        startAtTimestamp();
+    })
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
     }
 
     const handleChatSeek = (newTimestamp) => {
-
         player.current.seekTo(newTimestamp, 'seconds')
     }
 

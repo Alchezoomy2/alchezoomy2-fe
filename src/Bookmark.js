@@ -5,6 +5,7 @@ import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvata
 import fuse from 'fuse.js';
 import fetch from 'superagent';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from "react-router-dom";
 
 
 
@@ -24,6 +25,7 @@ export const Bookmark = () => {
     const [searchField, setSearchField] = useState('');
     const store = useStateStore();
     const classes = useStyles();
+    const history = useHistory();
     let fuseBookmarkList = new fuse(store.bookmarkArray, {
         keys: ['text', 'speaker', 'comment'],
         threshold: 0.4,
@@ -40,6 +42,18 @@ export const Bookmark = () => {
         const newBookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
         store.changeBookmarkArray(newBookmarkArray.body);
+    }
+
+    const handleOpenMeeting = async (bookmark) => {
+        const returnedObject = await fetch
+            .get(store.serverUrl + `/student/meetings/${bookmark.meeting_id}`)
+
+        await fetch.get(store.serverUrl + `/student/view/${bookmark.meeting_id}`)
+        store.changeMeetingDetails(returnedObject.body.meeting);
+        store.changeMeetingTranscript(returnedObject.body.transcript);
+        store.changeChatArray(returnedObject.body.chat);
+
+        history.push(`/meeting/${bookmark.timestamp}`)
     }
 
     const listItems = (bookmark) => {
@@ -65,6 +79,7 @@ export const Bookmark = () => {
                     />
                     <ReplyIcon
                         className={classes.reply_icon}
+                        onClick={() => handleOpenMeeting(bookmark)}
                     />
                 </div>
             </ListItem>

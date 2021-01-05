@@ -33,7 +33,7 @@ function App() {
                         component={Student} />
                     <PrivateRoute path="/bookmark"
                         component={Bookmark} />
-                    <PrivateRoute path="/meeting/:id"
+                    <PrivateRoute path="/meeting/:timestamp"
                         component={MeetingDetails} />
                 </Switch >
             </Router >

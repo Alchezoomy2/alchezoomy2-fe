@@ -41,9 +41,16 @@ export const Student = () => {
             .then(retrieveMeetings);
     }, [store]);
 
-    const handleMeetingClick = (meetingId) => {
-        store.changeLoading(true);
-        history.push(`/meeting/${meetingId}`)
+    const handleMeetingClick = async (meetingId) => {
+        const returnedObject = await fetch
+            .get(store.serverUrl + `/student/meetings/${meetingId}`)
+
+        await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
+        store.changeMeetingDetails(returnedObject.body.meeting);
+        store.changeMeetingTranscript(returnedObject.body.transcript);
+        store.changeChatArray(returnedObject.body.chat);
+
+        history.push(`/meeting/0`)
     }
 
     const handleBookmarkClick = async () => {
