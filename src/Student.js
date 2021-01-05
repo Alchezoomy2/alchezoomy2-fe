@@ -23,7 +23,7 @@ export const Student = () => {
             if (returnedStudentInfo.body.new_user) {
                 returnedStudentInfo = await fetch
                     .post(store.serverUrl + '/student/new')
-                    .send({ student_info: store.studentInfo })
+                    .send({ student_info: returnedStudentInfo.body })
             }
             await store.changeStudentInfo(returnedStudentInfo.body);
         }
