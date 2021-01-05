@@ -14,21 +14,23 @@ export const MeetingDetails = (props) => {
     let player = useRef();
     let videoTimestamp = useRef();
 
+    player.current.seekTo(startingTimestamp, 'seconds')
 
-    useEffect(() => {
-        async function startAtTimestamp() {
-            console.log(startingTimestamp)
-            await player.current.seekTo(startingTimestamp, 'seconds')
-        }
-        function videoProgression() {
-            setInterval(() => {
-                videoTimestamp.current = player.current.getCurrentTime();
-            }, 500)
-        }
 
-        // videoProgression();
-        startAtTimestamp();
-    })
+    // useEffect(() => {
+    //     async function startAtTimestamp() {
+    //         console.log(startingTimestamp)
+    //         await 
+    //     }
+    //     function videoProgression() {
+    //         setInterval(() => {
+    //             videoTimestamp.current = player.current.getCurrentTime();
+    //         }, 500)
+    //     }
+
+    //     // videoProgression();
+    //     startAtTimestamp();
+    // })
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
