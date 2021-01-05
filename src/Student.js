@@ -14,25 +14,25 @@ export const Student = () => {
     const history = useHistory();
 
     useEffect(() => {
+
         async function retrieveStudentInfo() {
-            const returnedObject = await fetch
+            let returnedStudentInfo = await fetch
                 .post(store.serverUrl + '/student/oauth')
                 .send({ code: store.code });
 
-            await store.changeStudentInfo(returnedObject.body);
+            if (returnedStudentInfo.body.new_user) {
+                returnedStudentInfo = await fetch
+                    .post(store.serverUrl + '/student/new')
+                    .send({ student_info: store.studentInfo })
+            }
+            await store.changeStudentInfo(returnedStudentInfo.body);
         }
 
         async function retrieveMeetings() {
-            let newMeetingObj;
-            if (store.studentInfo.new_user) {
-                newMeetingObj = await fetch
-                    .post(store.serverUrl + '/student/new')
-                    .send({ student_info: store.studentInfo })
-            } else {
-                newMeetingObj = await fetch
-                    .post(store.serverUrl + '/student/meetings')
-                    .send({ student_info: store.studentInfo })
-            }
+            const newMeetingObj = await fetch
+                .post(store.serverUrl + '/student/meetings')
+                .send({ student_info: store.studentInfo })
+
             store.changeMeetingsObj(newMeetingObj.body);
             store.changeLoading(false);
         }
