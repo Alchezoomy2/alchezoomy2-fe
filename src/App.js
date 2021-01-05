@@ -13,6 +13,7 @@ import AutoRedirect from './Redirect.js'
 import Teacher from './Teacher.js';
 import Student from './Student.js';
 import Header from './Header.js';
+import Bookmark from './Bookmark.js';
 import MeetingDetails from './MeetingDetails.js';
 
 
@@ -30,6 +31,8 @@ function App() {
                         component={Teacher} />
                     <PrivateRoute path="/student"
                         component={Student} />
+                    <PrivateRoute path="/bookmark"
+                        component={Bookmark} />
                     <PrivateRoute path="/meeting/:id"
                         component={MeetingDetails} />
                 </Switch >

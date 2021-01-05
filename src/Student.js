@@ -1,4 +1,4 @@
-import { Container, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from '@material-ui/core';
+import { Container, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider, Button } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
 import React, { useEffect } from 'react'
 import { useStateStore } from './StoreProvider.js'
@@ -46,8 +46,13 @@ export const Student = () => {
         history.push(`/meeting/${meetingId}`)
     }
 
+    const handleBookmarkClick = () => {
+        history.push(`/bookmark`)
+    }
+
     return useObserver(() =>
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+            <Button onClick={handleBookmarkClick}>BOOKMARKS</Button>
             <List style={{ width: '90%' }}>
 
                 {store.loading ?
