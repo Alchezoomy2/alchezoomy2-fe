@@ -47,7 +47,7 @@ export const Student = () => {
 
         await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
         store.changeMeetingDetails(returnedObject.body.meeting);
-        store.changeMeetingTranscript(returnedObject.body.transcript);
+        store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
 
         history.push(`/meeting/0`)

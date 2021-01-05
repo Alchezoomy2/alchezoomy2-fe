@@ -50,7 +50,7 @@ export const Bookmark = () => {
 
         await fetch.get(store.serverUrl + `/student/view/${bookmark.meeting_id}`)
         store.changeMeetingDetails(returnedObject.body.meeting);
-        store.changeMeetingTranscript(returnedObject.body.transcript);
+        store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
 
         history.push(`/meeting/${bookmark.timestamp}`)
