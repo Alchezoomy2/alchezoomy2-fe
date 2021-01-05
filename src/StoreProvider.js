@@ -14,7 +14,8 @@ export const StoreProvider = ({ children }) => {
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
-        chatArray: localStorage.getItem('CHAT_ARRAY' || ''),
+        chatArray: localStorage.getItem('CHAT_ARRAY') || '',
+        bookmarkArray: localStorage.getItem('BOOKMARK_ARRAY') || '',
         transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
         meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
         loading: localStorage.getItem('LOADING' || true),
@@ -72,6 +73,11 @@ export const StoreProvider = ({ children }) => {
 
         changeVideoTimestamp: newTimestamp => {
             store.videoTimestamp = newTimestamp;
+        },
+
+        changeBookmarkArray: newBookmarkArray => {
+            store.bookmarkArray = newBookmarkArray;
+            localStorage.setItem('BOOKMARK_ARRAY', newBookmarkArray)
         }
 
     }));

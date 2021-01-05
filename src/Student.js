@@ -46,7 +46,11 @@ export const Student = () => {
         history.push(`/meeting/${meetingId}`)
     }
 
-    const handleBookmarkClick = () => {
+    const handleBookmarkClick = async () => {
+        const returnedBookmarkArray = await fetch
+            .get(store.serverUrl + `/student/bookmark/` + store.studentInfo.id);
+
+        await store.changeBookmarkArray(returnedBookmarkArray.body)
         history.push(`/bookmark`)
     }
 
