@@ -4,6 +4,8 @@ import { useStateStore } from './StoreProvider.js'
 import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvatar, Avatar, TextField } from '@material-ui/core';
 import fuse from 'fuse.js';
 import fetch from 'superagent';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 
 import ReplyIcon from '@material-ui/icons/Reply';
@@ -14,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
     reply_icon: {
         transform: 'scaleX(-1)'
     }
-}
-}
+}))
+
 
 
 export const Bookmark = () => {
     const [searchField, setSearchField] = useState('');
     const store = useStateStore();
+    const classes = useStyles();
     let fuseBookmarkList = new fuse(store.bookmarkArray, {
         keys: ['text', 'speaker', 'comment'],
         threshold: 0.4,
