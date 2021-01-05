@@ -44,6 +44,10 @@ export const MeetingDetails = (props) => {
         return videoTimestamp.current;
     }
 
+    const handleChatSeek = (newTimestamp) => {
+        player.seekTo(newTimestamp)
+    }
+
     return useObserver(() =>
         <Container
             maxWidth="xl"
@@ -60,6 +64,7 @@ export const MeetingDetails = (props) => {
                     {store.meetingDetails.chat_url ?
                         <ChatBox
                             returnVideoTimestamp={returnVideoTimestamp}
+                            handleChatSeek={handleChatSeek}
                         />
                         :
                         <p></p>

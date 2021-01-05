@@ -166,6 +166,8 @@ export const ChatBox = (props) => {
                         secondary={chat.timestamp} />
                     <ReplyIcon
                         className={classes.reply_icon}
+                        clickable
+                        onClick={() => props.handleChatSeek(chat.parsed_timestamp)}
                     />
                 </ListItem>
             </div>
