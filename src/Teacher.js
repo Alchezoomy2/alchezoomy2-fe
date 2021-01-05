@@ -27,14 +27,17 @@ export const Teacher = () => {
         async function retrieveMeetings() {
             let newMeetingObj;
             if (store.teacherInfo.new_user) {
-                newMeetingObj = await fetch
+                const returnedObject = await fetch
                     .post(store.serverUrl + '/teacher/new')
                     .send({ teacher_info: store.teacherInfo });
-            } else {
-                newMeetingObj = await fetch
-                    .post(store.serverUrl + '/teacher/meetings')
-                    .send({ teacher_info: store.teacherInfo })
+
+                store.changeTeacherInfo(returnedObject.body)
             }
+
+            newMeetingObj = await fetch
+                .post(store.serverUrl + '/teacher/meetings')
+                .send({ teacher_info: store.teacherInfo })
+
             store.changeMeetingsObj(newMeetingObj.body);
             setLoading(false);
         }

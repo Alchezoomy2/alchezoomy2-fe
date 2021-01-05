@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchBookmarks, deleteBookmark } from './Fetches'
 import DashMenu from './DashMenu.js'
-import BookmarkList from './BookmarkList.js';
+import BookmarkList from './old-BookmarkList.js';
 
 
 export default class Bookmarks extends Component {

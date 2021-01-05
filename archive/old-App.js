@@ -10,17 +10,17 @@ import {
 
 import './App.css';
 import './temp.css';
-import Header from './Header.js'
-import LandingPage from './LandingPage.js'
-import Student from './Student.js'
+import Header from '../src/Header.js'
+import LandingPage from '../src/LandingPage.js'
+import Student from '../src/Student.js'
 // import Bookmarks from './Bookmarks.js'
 // import Favorites from './Favorites.js'
 // import VideoDetails from './VideoDetails.js'
 // import SignUp from './SignUp.js'
 // import AboutUs from './AboutUs.js'
 import Footer from './Footer';
-import Teacher from './Teacher.js';
-import Redirect from './Redirect.js';
+import Teacher from '../src/Teacher.js';
+import Redirect from '../src/Redirect.js';
 
 
 

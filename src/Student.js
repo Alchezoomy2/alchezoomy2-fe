@@ -20,7 +20,6 @@ export const Student = () => {
                 .send({ code: store.code });
 
             await store.changeStudentInfo(returnedObject.body);
-
         }
 
         async function retrieveMeetings() {

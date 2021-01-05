@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BookmarkItem from './BookmarkItem.js'
+import BookmarkItem from './old-BookmarkItem.js'
 
 export default class BookmarkList extends Component {
     render() {
