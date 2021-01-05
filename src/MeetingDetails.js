@@ -19,7 +19,6 @@ export const MeetingDetails = (props) => {
         function startAtTimestamp() {
             console.log(startingTimestamp)
             player.current.seekTo(startingTimestamp, 'seconds')
-
         }
         function videoProgression() {
             setInterval(() => {
@@ -43,25 +42,21 @@ export const MeetingDetails = (props) => {
         <Container
             maxWidth="xl"
             style={{ display: 'flex', justifyItems: 'center' }}>
-            {store.loading ?
-                <p></p>
-                :
-                <div>
-                    <ReactPlayer
-                        ref={player}
-                        url={`${store.s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
-                        controls
+            <div>
+                <ReactPlayer
+                    ref={player}
+                    url={`${store.s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
+                    controls
+                />
+                {store.meetingDetails.chat_url ?
+                    <ChatBox
+                        returnVideoTimestamp={returnVideoTimestamp}
+                        handleChatSeek={handleChatSeek}
                     />
-                    {store.meetingDetails.chat_url ?
-                        <ChatBox
-                            returnVideoTimestamp={returnVideoTimestamp}
-                            handleChatSeek={handleChatSeek}
-                        />
-                        :
-                        <p></p>
-                    }
-                </div>
-            }
+                    :
+                    <p></p>
+                }
+            </div>
         </Container >
     )
 }
