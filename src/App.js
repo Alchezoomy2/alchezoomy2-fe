@@ -30,7 +30,7 @@ function App() {
                         component={Teacher} />
                     <PrivateRoute path="/student"
                         component={Student} />
-                    <PrivateRoute path="/student/meeting/:id"
+                    <PrivateRoute path="/meeting/:id"
                         component={MeetingDetails} />
                 </Switch >
             </Router >
