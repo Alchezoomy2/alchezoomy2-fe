@@ -14,7 +14,7 @@ export const MeetingDetails = (props) => {
     let player = useRef();
     let videoTimestamp = useRef();
 
-    player.current.seekTo(startingTimestamp, 'seconds')
+    // player.current.seekTo(startingTimestamp, 'seconds')
 
 
     // useEffect(() => {
