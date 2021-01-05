@@ -49,6 +49,7 @@ export const MeetingDetails = (props) => {
                     ref={player}
                     url={`${store.s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
                     controls
+                    start={startingTimestamp}
                 />
                 {store.meetingDetails.chat_url ?
                     <ChatBox
