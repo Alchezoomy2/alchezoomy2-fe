@@ -53,7 +53,7 @@ export const Bookmark = () => {
         store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
 
-        history.push(`/meeting/${bookmark.timestamp}`)
+        history.push(`/meeting/${bookmark.parsed_timestamp}`)
     }
 
     const listItems = (bookmark) => {
