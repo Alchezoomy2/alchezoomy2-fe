@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import CommentIcon from '@material-ui/icons/Comment';
+import ReplyIcon from '@material-ui/icons/Reply';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -46,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     },
     dialog_text: {
         margin: '3px'
+    },
+    reply_icon: {
+        transform: 'scaleX(-1)'
     }
 }));
 
@@ -115,8 +119,6 @@ export const ChatBox = (props) => {
         setSearchField(e.target.value);
     }
 
-
-
     useEffect(() => {
         async function retrieveBookmarks() {
             const bookmarkArray = await fetch
@@ -162,6 +164,9 @@ export const ChatBox = (props) => {
                     <ListItemText
                         primary={`${chat.speaker} ${chat.text}`}
                         secondary={chat.timestamp} />
+                    <ReplyIcon
+                        className={classes.reply_icon}
+                    />
                 </ListItem>
             </div>
 
