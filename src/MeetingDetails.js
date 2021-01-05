@@ -14,7 +14,12 @@ export const MeetingDetails = (props) => {
     let player = useRef();
     let videoTimestamp = useRef();
 
-    // player.current.seekTo(startingTimestamp, 'seconds')
+
+    player.current.onStart(() => {
+        player.current.seekTo(startingTimestamp, 'seconds')
+    })
+
+
 
 
     // useEffect(() => {
@@ -49,7 +54,6 @@ export const MeetingDetails = (props) => {
                     ref={player}
                     url={`${store.s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
                     controls
-                    start={startingTimestamp}
                 />
                 {store.meetingDetails.chat_url ?
                     <ChatBox
