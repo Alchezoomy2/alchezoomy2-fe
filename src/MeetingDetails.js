@@ -45,9 +45,7 @@ export const MeetingDetails = (props) => {
     }
 
     const handleChatSeek = (newTimestamp) => {
-        console.log('------------------------------------');
-        console.log(`newTimestamp:  ${newTimestamp}`);
-        console.log('------------------------------------');
+
         player.current.seekTo(newTimestamp, 'seconds')
     }
 

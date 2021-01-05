@@ -43,7 +43,7 @@ export const Student = () => {
 
     const handleMeetingClick = (meetingId) => {
         store.changeLoading(true);
-        history.push(`/meeting/${meetingId}`)
+        history.push(`/student/meeting/${meetingId}`)
     }
 
     return useObserver(() =>

@@ -7,6 +7,7 @@ import {
     Switch
 } from "react-router-dom";
 
+import PrivateRoute from './PrivateRoute.js';
 import LandingPage from './LandingPage.js';
 import AutoRedirect from './Redirect.js'
 import Teacher from './Teacher.js';
@@ -25,11 +26,11 @@ function App() {
                         component={LandingPage} />
                     <Route path="/redirect/"
                         component={AutoRedirect} />
-                    <Route path="/teacher"
+                    <PrivateRoute path="/teacher"
                         component={Teacher} />
-                    <Route path="/student"
+                    <PrivateRoute path="/student"
                         component={Student} />
-                    <Route path="/meeting/:id"
+                    <PrivateRoute path="/student/meeting/:id"
                         component={MeetingDetails} />
                 </Switch >
             </Router >
