@@ -28,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'scroll',
     },
     list: {
-        height: '200px',
-        overflow: 'scroll',
         width: '90%'
     },
     list_item: {
@@ -194,7 +192,6 @@ export const Student = () => {
                         store.meetingsObj.map(meeting =>
                             <div>
                                 <div
-                                    // onClick={() => handleMeetingClick(meeting.id)}
                                     style={{ curser: 'pointer' }}>
                                     <ListItem alignItems="flex-start" >
                                         <ListItemAvatar>
