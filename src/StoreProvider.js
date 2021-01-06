@@ -17,7 +17,7 @@ export const StoreProvider = ({ children }) => {
         chatArray: localStorage.getItem('CHAT_ARRAY') || '',
         bookmarkArray: localStorage.getItem('BOOKMARK_ARRAY') || '',
         transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
-        favoriteArray: localStorage.getItem('FAVORITES_ARRAY') || '',
+        favoriteArray: localStorage.getItem('FAVORITE_ARRAY') || [],
         meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
         loading: localStorage.getItem('LOADING' || true),
         videoTimestamp: 0,
@@ -67,9 +67,9 @@ export const StoreProvider = ({ children }) => {
             localStorage.setItem('TRANSCRIPT_ARRAY', newTranscriptArray)
         },
 
-        changeFavoriteArray: newFavoritesArray => {
-            store.favoritesArray = newFavoritesArray;
-            localStorage.setItem('FAVORITES_ARRAY', newFavoritesArray)
+        changeFavoriteArray: newFavoriteArray => {
+            store.favoritesArray = newFavoriteArray;
+            localStorage.setItem('FAVORITE_ARRAY', newFavoriteArray)
         },
 
         changeMeetingDetails: newMeetingsDetails => {
