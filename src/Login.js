@@ -33,6 +33,8 @@ export const Login = async (props) => {
             .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
 
         await store.changeFavoriteArray(newFavoritesArray.body);
+
+        history.push('/student/');
     }
 
     return useObserver(() =>
