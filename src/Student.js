@@ -240,12 +240,12 @@ export const Student = () => {
                                                         store.favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
                                                         <StarIcon
                                                             clickable
-                                                            onClick={() => handleFavorite(meeting)}
+                                                            onClick={() => handleUnfavorite(meeting)}
                                                         />
                                                         :
                                                         <StarBorderIcon
                                                             clickable
-                                                            onClick={() => handleUnfavorite(meeting)}
+                                                            onClick={() => handleFavorite(meeting)}
                                                         />
                                                 }
                                                 <ReplyIcon
