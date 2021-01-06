@@ -23,8 +23,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        maxHeight: '90vh',
         maxWidth: '80vw',
+        overflow: 'scroll',
     },
     list: {
         height: '200px',
