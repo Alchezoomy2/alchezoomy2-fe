@@ -14,6 +14,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import CommentIcon from '@material-ui/icons/Comment';
+import ReplyIcon from '@material-ui/icons/Reply';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -192,7 +193,7 @@ export const Student = () => {
                         store.meetingsObj.map(meeting =>
                             <div>
                                 <div
-                                    onClick={() => handleMeetingClick(meeting.id)}
+                                    // onClick={() => handleMeetingClick(meeting.id)}
                                     style={{ curser: 'pointer' }}>
                                     <ListItem alignItems="flex-start" >
                                         <ListItemAvatar>
@@ -247,6 +248,10 @@ export const Student = () => {
                                                             onClick={() => handleUnfavorite(meeting)}
                                                         />
                                                 }
+                                                <ReplyIcon
+                                                    className={classes.reply_icon}
+                                                    onClick={() => handleMeetingClick(meeting.id)}
+                                                />
                                             </div>
                                         </div>
                                     </ListItem>
