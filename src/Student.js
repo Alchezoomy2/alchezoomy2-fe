@@ -234,7 +234,7 @@ export const Student = () => {
                                             </div>
                                             <div>
                                                 {
-                                                    store.favoriteArray &&
+                                                    store.favoriteArray != [] &&
                                                         store.favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
                                                         <StarIcon
                                                             clickable
