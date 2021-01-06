@@ -12,11 +12,7 @@ export const AutoRedirect = (props) => {
     store.changeCode(code.get('code'));
     store.changeLoading(true);
 
-    if (store.userType === 'teacher') {
-        history.push('/teacher');
-    } else {
-        history.push('/student');
-    }
+    history.push('/Login')
 
 
     return useObserver(() =>

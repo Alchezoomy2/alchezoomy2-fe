@@ -100,9 +100,9 @@ export const Student = () => {
             store.changeLoading(false);
         }
 
-        return retrieveStudentInfo()
-            .then(retrieveMeetings)
-            .then(retrieveFavorites)
+        // return retrieveStudentInfo()
+        //     .then(retrieveMeetings)
+        //     .then(retrieveFavorites)
     }, [store]);
 
     const handleMeetingClick = async (meetingId) => {
@@ -186,9 +186,7 @@ export const Student = () => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {store.loading ?
-                        <p></p>
-                        :
+                    {
                         store.meetingsObj.map(meeting =>
                             <div>
                                 <div
@@ -234,7 +232,7 @@ export const Student = () => {
                                             </div>
                                             <div>
                                                 {
-                                                    store.favoriteArray != [] &&
+                                                    store.favoriteArray &&
                                                         store.favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
                                                         <StarIcon
                                                             clickable
