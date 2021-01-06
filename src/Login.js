@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import fetch from 'superagent';
 
 
-export const Login = async (props) => {
+export const Login = async () => {
     const store = useStateStore();
     const history = useHistory();
 
@@ -37,7 +37,7 @@ export const Login = async (props) => {
         history.push('/student/');
     }
 
-    return useObserver(() =>
+    return (
         <p>LOGGING IN!</p>
     )
 
