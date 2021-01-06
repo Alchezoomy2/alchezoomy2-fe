@@ -94,7 +94,7 @@ export const Student = () => {
 
         async function retrieveFavorites() {
             const newFavoritesArray = await fetch
-                .get(store.serverUrl + '/student/favorite' + store.studentInfo.id)
+                .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
 
             await store.changeFavoriteArray(newFavoritesArray.body);
             store.changeLoading(false);
@@ -154,7 +154,7 @@ export const Student = () => {
                 .delete(store.serverUrl + '/student/favorite/' + favoriteId.id)
         } else {
             newfavoriteArray = await fetch
-                .post(store.serverUrl + '/student/favorite')
+                .post(store.serverUrl + '/student/favorite/')
                 .send({
                     meetingId: favoriteCard.id,
                     studentId: store.studentInfo.id,
