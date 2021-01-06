@@ -10,9 +10,8 @@ export const AutoRedirect = (props) => {
 
     let code = new URLSearchParams(props.location.search);
     store.changeCode(code.get('code'));
-    store.changeLoading(true);
 
-    history.push('/Login')
+    history.push('/login')
 
 
     return useObserver(() =>
