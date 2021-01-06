@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-
 export const Bookmark = () => {
     const [searchField, setSearchField] = useState('');
     const store = useStateStore();

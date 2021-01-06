@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     list: {
         height: '200px',
         overflow: 'scroll',
+        width: '90%'
     },
     list_item: {
         width: '650px',
@@ -78,7 +79,9 @@ export const ChatBox = (props) => {
     const handleBookmark = async (chatItem) => {
         setCommentField("")
         setBookmarkCard({
-            ...chatItem, title: "BOOKMARK", current: false
+            ...chatItem,
+            title: "BOOKMARK",
+            current: false
         });
         setOpen(true);
     }
