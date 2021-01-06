@@ -161,7 +161,7 @@ export const Student = () => {
                     comment: commentField
                 })
         }
-        store.setFavoriteArray(newfavoriteArray.body);
+        store.changeFavoriteArray(newfavoriteArray.body);
         setOpen(false);
         setCommentField("")
     }
