@@ -9,7 +9,8 @@ import {
 
 import PrivateRoute from './PrivateRoute.js';
 import LandingPage from './LandingPage.js';
-import AutoRedirect from './Redirect.js'
+import AutoRedirect from './Redirect.js';
+import Login from './Login.js';
 import Teacher from './Teacher.js';
 import Student from './Student.js';
 import Header from './Header.js';
@@ -27,6 +28,8 @@ function App() {
                         component={LandingPage} />
                     <Route path="/redirect/"
                         component={AutoRedirect} />
+                    <Route path="/login/"
+                        component={Login} />
                     <PrivateRoute path="/teacher"
                         component={Teacher} />
                     <PrivateRoute path="/student"

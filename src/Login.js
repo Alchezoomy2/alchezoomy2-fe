@@ -42,3 +42,5 @@ export const Login = async (props) => {
     )
 
 }
+
+export default Login;
