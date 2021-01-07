@@ -46,6 +46,7 @@ export const Bookmark = () => {
         const newBookmarkArray = await fetch
             .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
         store.changeBookmarkArray(newBookmarkArray.body);
+        setOpen(false);
     }
 
     const handleDeleteClick = async (bookmark) => {
