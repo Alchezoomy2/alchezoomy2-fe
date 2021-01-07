@@ -188,71 +188,73 @@ export const Student = () => {
 
 
     const meetingListItem = (meeting) => {
-        <div>
+        return (
             <div>
-                <ListItem alignItems="flex-start" >
-                    <ListItemAvatar>
-                        <Avatar alt={meeting.user_name} src={meeting.pic_url} />
-                    </ListItemAvatar>
-                    <ListItemText
-                        primary={meeting.topic}
-                        secondary={meeting.display_time}
-                    />
-                    <div>
+                <div>
+                    <ListItem alignItems="flex-start" >
+                        <ListItemAvatar>
+                            <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                        </ListItemAvatar>
+                        <ListItemText
+                            primary={meeting.topic}
+                            secondary={meeting.display_time}
+                        />
                         <div>
-                            <Chip
-                                size="medium"
-                                color={meeting.video_url ? "primary" : ''}
-                                icon={<VideoLabelIcon />}
-                                label="video" />
-                            <Chip
-                                size="medium"
-                                color={meeting.audio_url ? "primary" : ''}
-                                icon={<VolumeUpIcon />}
-                                label="audio" />
-                            <Chip
-                                size="medium"
-                                color={meeting.chat_url ? "primary" : ''}
-                                icon={<ChatIcon />}
-                                label="chat" />
-                            <Chip
-                                size="medium"
-                                color={meeting.transcript_url ? "primary" : ''}
-                                icon={<RecordVoiceOverIcon />} label="transcript" />
+                            <div>
+                                <Chip
+                                    size="medium"
+                                    color={meeting.video_url ? "primary" : ''}
+                                    icon={<VideoLabelIcon />}
+                                    label="video" />
+                                <Chip
+                                    size="medium"
+                                    color={meeting.audio_url ? "primary" : ''}
+                                    icon={<VolumeUpIcon />}
+                                    label="audio" />
+                                <Chip
+                                    size="medium"
+                                    color={meeting.chat_url ? "primary" : ''}
+                                    icon={<ChatIcon />}
+                                    label="chat" />
+                                <Chip
+                                    size="medium"
+                                    color={meeting.transcript_url ? "primary" : ''}
+                                    icon={<RecordVoiceOverIcon />} label="transcript" />
 
-                            <Chip
-                                size="medium"
-                                color="secondary"
-                                label={"views: " + meeting.meeting_views} />
-                            <Chip
-                                size="medium"
-                                color="secondary"
-                                label={"favorites " + meeting.meeting_favs} />
+                                <Chip
+                                    size="medium"
+                                    color="secondary"
+                                    label={"views: " + meeting.meeting_views} />
+                                <Chip
+                                    size="medium"
+                                    color="secondary"
+                                    label={"favorites " + meeting.meeting_favs} />
+                            </div>
+                            <div>
+                                {
+                                    favoriteArray &&
+                                        favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
+                                        <StarIcon
+                                            clickable
+                                            onClick={() => handleUnfavorite(meeting)}
+                                        />
+                                        :
+                                        <StarBorderIcon
+                                            clickable
+                                            onClick={() => handleFavorite(meeting)}
+                                        />
+                                }
+                                <ReplyIcon
+                                    className={classes.reply_icon}
+                                    onClick={() => handleMeetingClick(meeting.id)}
+                                />
+                            </div>
                         </div>
-                        <div>
-                            {
-                                favoriteArray &&
-                                    favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
-                                    <StarIcon
-                                        clickable
-                                        onClick={() => handleUnfavorite(meeting)}
-                                    />
-                                    :
-                                    <StarBorderIcon
-                                        clickable
-                                        onClick={() => handleFavorite(meeting)}
-                                    />
-                            }
-                            <ReplyIcon
-                                className={classes.reply_icon}
-                                onClick={() => handleMeetingClick(meeting.id)}
-                            />
-                        </div>
-                    </div>
-                </ListItem>
+                    </ListItem>
+                </div>
+                <Divider variant="middle" component="li" />
             </div>
-            <Divider variant="middle" component="li" />
-        </div>
+        )
     }
 
     return useObserver(() =>
@@ -268,10 +270,10 @@ export const Student = () => {
                 />
                 <List className={classes.list}>
 
-                    {//searchField === '' ?
+                    {searchField === '' ?
                         store.meetingsObj.map(meeting => meetingListItem(meeting))
-                        //:
-                        //fuseMeetingList.search(searchField).map(({ item }) => meetingListItem(item))
+                        :
+                        fuseMeetingList.search(searchField).map(({ item }) => meetingListItem(item))
                     }
                 </List>
 
