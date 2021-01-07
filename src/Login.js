@@ -32,11 +32,6 @@ export const Login = () => {
 
             store.changeMeetingsObj(newMeetingObj.body);
 
-            // const newFavoritesArray = await fetch
-            //     .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
-
-            // await store.changeFavoriteArray(newFavoritesArray.body);
-
             history.push('/student/');
         }
 
