@@ -138,20 +138,22 @@ export const Student = () => {
     }
 
 
-    const handleFavorite = async (meetingObj) => {
+    const handleFavorite = async (favoriteObj, meetingObj) => {
         setCommentField('');
         setFavoriteCard({
             ...meetingObj,
+            ...favoriteObj,
             title: "FAVORITE",
             current: false
         });
         setOpen(true);
     }
 
-    const handleUnfavorite = async (meetingObj) => {
+    const handleUnfavorite = async (favoriteObj, meetingObj) => {
         setCommentField('');
         setFavoriteCard({
             ...meetingObj,
+            ...favoriteObj,
             title: "UNFAVORITE",
             current: true
         });
@@ -161,9 +163,9 @@ export const Student = () => {
     const handleFavoriteChange = async () => {
         let newfavoriteArray = [];
         if (favoriteCard.current) {
-            const favoriteId = store.favoriteArray.find(favorite => favorite.meeting_id === favoriteCard.id)
+            // const favoriteId = favoriteArray.find(favorite => favorite.meeting_id === favoriteCard.id)
             newfavoriteArray = await fetch
-                .delete(store.serverUrl + '/student/favorite/' + favoriteId.id)
+                .delete(store.serverUrl + '/student/favorite/' + favoriteCard.id)
         } else {
             newfavoriteArray = await fetch
                 .post(store.serverUrl + '/student/favorite/')
@@ -241,7 +243,7 @@ export const Student = () => {
                                         :
                                         <StarBorderIcon
                                             clickable
-                                            onClick={() => handleFavorite(meeting)}
+                                            onClick={() => handleFavorite(favoriteArray.find(favorite => favorite.meeting_id === meeting.id), meeting)}
                                         />
                                 }
                                 <ReplyIcon
