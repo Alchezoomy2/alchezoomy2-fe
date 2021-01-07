@@ -5,13 +5,14 @@ import { useHistory } from 'react-router-dom';
 import fetch from 'superagent';
 
 
-export const Login = async () => {
+export const Login = () => {
     const store = useStateStore();
     const history = useHistory();
 
     useEffect(() => {
 
         async function loginStudent() {
+
             let returnedStudentInfo = await fetch
                 .post(store.serverUrl + '/student/oauth')
                 .send({ code: store.code });
