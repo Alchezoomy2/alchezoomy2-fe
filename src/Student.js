@@ -138,7 +138,10 @@ export const Student = () => {
     }
 
 
-    const handleFavorite = async (favoriteObj, meetingObj) => {
+    const handleFavorite = async (meetingObj) => {
+        console.log('------------------------------------');
+        console.log(meetingObj);
+        console.log('------------------------------------');
         setCommentField('');
         setFavoriteCard({
             ...meetingObj,
