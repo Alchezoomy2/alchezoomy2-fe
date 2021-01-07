@@ -153,6 +153,7 @@ export const Student = () => {
         setFavoriteCard({
             ...meetingObj,
             comment: favoriteObj.comment,
+            favoriteId: favoriteObj.id,
             title: "UNFAVORITE",
             current: true
         });
@@ -165,9 +166,10 @@ export const Student = () => {
         console.log(favoriteCard)
 
         if (favoriteCard.current) {
+            console.log(favoriteCard);
             // const favoriteId = favoriteArray.find(favorite => favorite.meeting_id === favoriteCard.id)
             newfavoriteArray = await fetch
-                .delete(store.serverUrl + '/student/favorite/' + favoriteCard.id)
+                .delete(store.serverUrl + '/student/favorite/' + favoriteCard.favoriteId)
         } else {
             newfavoriteArray = await fetch
                 .post(store.serverUrl + '/student/favorite/')
@@ -240,12 +242,12 @@ export const Student = () => {
                                         favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
                                         <StarIcon
                                             clickable
-                                            onClick={() => handleUnfavorite(meeting)}
+                                            onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meeting_id === meeting.id), meeting)}
                                         />
                                         :
                                         <StarBorderIcon
                                             clickable
-                                            onClick={() => handleFavorite(favoriteArray.find(favorite => favorite.meeting_id === meeting.id), meeting)}
+                                            onClick={() => handleFavorite(meeting)}
                                         />
                                 }
                                 <ReplyIcon
