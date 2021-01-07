@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useStateStore } from './StoreProvider';
 import { useHistory } from 'react-router-dom';
 import fetch from 'superagent';
+import { Backdrop, CircularProgress } from '@material-ui/core';
 
 
 export const Login = () => {
@@ -31,10 +32,10 @@ export const Login = () => {
 
             store.changeMeetingsObj(newMeetingObj.body);
 
-            const newFavoritesArray = await fetch
-                .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
+            // const newFavoritesArray = await fetch
+            //     .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
 
-            await store.changeFavoriteArray(newFavoritesArray.body);
+            // await store.changeFavoriteArray(newFavoritesArray.body);
 
             history.push('/student/');
         }
@@ -45,7 +46,9 @@ export const Login = () => {
     })
 
     return (
-        <p>LOGGING IN!</p>
+        <Backdrop open={true}>
+            <CircularProgress />
+        </Backdrop>
     )
 
 }

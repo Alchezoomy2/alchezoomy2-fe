@@ -2,6 +2,7 @@ import { useObserver } from 'mobx-react';
 import React from 'react';
 import { useStateStore } from "./StoreProvider"
 import { useHistory } from "react-router-dom";
+import { Backdrop, CircularProgress } from '@material-ui/core';
 
 
 export const AutoRedirect = (props) => {
@@ -15,7 +16,9 @@ export const AutoRedirect = (props) => {
 
 
     return useObserver(() =>
-        <p>REDIRECTING!</p>
+        <Backdrop open={true}>
+            <CircularProgress />
+        </Backdrop>
     )
 
 }

@@ -65,45 +65,52 @@ export const Student = () => {
     const [searchField, setSearchField] = useState('');
     const [commentField, setCommentField] = useState('');
     const [favoriteCard, setFavoriteCard] = useState('');
+    const [favoriteArray, setFavoriteArray] = useState();
     const [open, setOpen] = useState(false);
     const classes = useStyles();
 
 
     useEffect(() => {
 
-        async function retrieveStudentInfo() {
-            let returnedStudentInfo = await fetch
-                .post(store.serverUrl + '/student/oauth')
-                .send({ code: store.code });
-
-            if (returnedStudentInfo.body.new_user) {
-                returnedStudentInfo = await fetch
-                    .post(store.serverUrl + '/student/new')
-                    .send({ student_info: returnedStudentInfo.body })
-            }
-            await store.changeStudentInfo(returnedStudentInfo.body);
-        }
-
-        async function retrieveMeetings() {
-            const newMeetingObj = await fetch
-                .post(store.serverUrl + '/student/meetings')
-                .send({ student_info: store.studentInfo })
-
-            store.changeMeetingsObj(newMeetingObj.body);
-        }
-
         async function retrieveFavorites() {
             const newFavoritesArray = await fetch
                 .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
 
-            await store.changeFavoriteArray(newFavoritesArray.body);
-            store.changeLoading(false);
+            await setFavoriteArray(newFavoritesArray.body);
         }
 
-        // return retrieveStudentInfo()
-        //     .then(retrieveMeetings)
-        //     .then(retrieveFavorites)
-    }, [store]);
+        retrieveFavorites();
+    }
+
+    // useEffect(() => {
+
+    //     async function retrieveStudentInfo() {
+    //         let returnedStudentInfo = await fetch
+    //             .post(store.serverUrl + '/student/oauth')
+    //             .send({ code: store.code });
+
+    //         if (returnedStudentInfo.body.new_user) {
+    //             returnedStudentInfo = await fetch
+    //                 .post(store.serverUrl + '/student/new')
+    //                 .send({ student_info: returnedStudentInfo.body })
+    //         }
+    //         await store.changeStudentInfo(returnedStudentInfo.body);
+    //     }
+
+    //     async function retrieveMeetings() {
+    //         const newMeetingObj = await fetch
+    //             .post(store.serverUrl + '/student/meetings')
+    //             .send({ student_info: store.studentInfo })
+
+    //         store.changeMeetingsObj(newMeetingObj.body);
+    //     }
+
+
+
+    //     // return retrieveStudentInfo()
+    //     //     .then(retrieveMeetings)
+    //     //     .then(retrieveFavorites)
+    // }, [store]);
 
     const handleMeetingClick = async (meetingId) => {
         const returnedObject = await fetch
@@ -161,7 +168,7 @@ export const Student = () => {
                     comment: commentField
                 })
         }
-        store.changeFavoriteArray(newfavoriteArray.body);
+        setFavoriteArray(newfavoriteArray.body);
         setOpen(false);
         setCommentField("")
     }
@@ -232,8 +239,8 @@ export const Student = () => {
                                             </div>
                                             <div>
                                                 {
-                                                    store.favoriteArray &&
-                                                        store.favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
+                                                    favoriteArray &&
+                                                        favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
                                                         <StarIcon
                                                             clickable
                                                             onClick={() => handleUnfavorite(meeting)}
