@@ -141,7 +141,7 @@ export const Student = () => {
     const handleFavorite = async (favoriteObj, meetingObj) => {
         setCommentField('');
         setFavoriteCard({
-            ...meetingObj,
+            // ...meetingObj,
             ...favoriteObj,
             title: "FAVORITE",
             current: false
@@ -152,7 +152,7 @@ export const Student = () => {
     const handleUnfavorite = async (favoriteObj, meetingObj) => {
         setCommentField('');
         setFavoriteCard({
-            ...meetingObj,
+            // ...meetingObj,
             ...favoriteObj,
             title: "UNFAVORITE",
             current: true
