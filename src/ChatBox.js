@@ -88,7 +88,10 @@ export const ChatBox = (props) => {
 
     const handleUnbookmark = async (bookmarkItem, chatItem) => {
         setBookmarkCard({
-            ...chatItem, comment: bookmarkItem.comment, title: "UNBOOKMARK", current: true
+            ...chatItem,
+            comment: bookmarkItem.comment,
+            title: "UNBOOKMARK",
+            current: true
         });
         setOpen(true);
     }
