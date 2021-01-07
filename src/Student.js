@@ -162,6 +162,9 @@ export const Student = () => {
 
     const handleFavoriteChange = async () => {
         let newfavoriteArray = [];
+
+        console.log(favoriteCard)
+
         if (favoriteCard.current) {
             // const favoriteId = favoriteArray.find(favorite => favorite.meeting_id === favoriteCard.id)
             newfavoriteArray = await fetch
