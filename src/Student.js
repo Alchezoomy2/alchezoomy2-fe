@@ -268,10 +268,10 @@ export const Student = () => {
                 />
                 <List className={classes.list}>
 
-                    {searchField === '' ?
+                    {//searchField === '' ?
                         store.meetingsObj.map(meeting => meetingListItem(meeting))
-                        :
-                        fuseMeetingList.search(searchField).map(({ item }) => meetingListItem(item))
+                        //:
+                        //fuseMeetingList.search(searchField).map(({ item }) => meetingListItem(item))
                     }
                 </List>
 
