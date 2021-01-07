@@ -70,7 +70,7 @@ export const Student = () => {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     let fuseMeetingList = new fuse(store.meetingsObj, {
-        keys: ['text', 'speaker', 'comment'],
+        keys: ['topic', 'user_name', 'display_time'],
         threshold: 0.4,
         ignoreLocation: true
     })
@@ -84,7 +84,6 @@ export const Student = () => {
 
             await setFavoriteArray(newFavoritesArray.body);
         }
-
         retrieveFavorites();
     }, [store]);
 
@@ -190,8 +189,7 @@ export const Student = () => {
 
     const meetingListItem = (meeting) => {
         <div>
-            <div
-                style={{ curser: 'pointer' }}>
+            <div>
                 <ListItem alignItems="flex-start" >
                     <ListItemAvatar>
                         <Avatar alt={meeting.user_name} src={meeting.pic_url} />
