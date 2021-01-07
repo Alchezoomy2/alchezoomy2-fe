@@ -6,6 +6,7 @@ import fetch from 'superagent';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
+import fuse from 'fuse.js';
 
 
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
@@ -68,6 +69,11 @@ export const Student = () => {
     const [favoriteArray, setFavoriteArray] = useState();
     const [open, setOpen] = useState(false);
     const classes = useStyles();
+    let fuseMeetingList = new fuse(store.meetingsObj, {
+        keys: ['text', 'speaker', 'comment'],
+        threshold: 0.4,
+        ignoreLocation: true
+    })
 
 
     useEffect(() => {
@@ -181,6 +187,76 @@ export const Student = () => {
         setSearchField(e.target.value);
     }
 
+
+    const meetingListItem = (meeting) => {
+        <div>
+            <div
+                style={{ curser: 'pointer' }}>
+                <ListItem alignItems="flex-start" >
+                    <ListItemAvatar>
+                        <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary={meeting.topic}
+                        secondary={meeting.display_time}
+                    />
+                    <div>
+                        <div>
+                            <Chip
+                                size="medium"
+                                color={meeting.video_url ? "primary" : ''}
+                                icon={<VideoLabelIcon />}
+                                label="video" />
+                            <Chip
+                                size="medium"
+                                color={meeting.audio_url ? "primary" : ''}
+                                icon={<VolumeUpIcon />}
+                                label="audio" />
+                            <Chip
+                                size="medium"
+                                color={meeting.chat_url ? "primary" : ''}
+                                icon={<ChatIcon />}
+                                label="chat" />
+                            <Chip
+                                size="medium"
+                                color={meeting.transcript_url ? "primary" : ''}
+                                icon={<RecordVoiceOverIcon />} label="transcript" />
+
+                            <Chip
+                                size="medium"
+                                color="secondary"
+                                label={"views: " + meeting.meeting_views} />
+                            <Chip
+                                size="medium"
+                                color="secondary"
+                                label={"favorites " + meeting.meeting_favs} />
+                        </div>
+                        <div>
+                            {
+                                favoriteArray &&
+                                    favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
+                                    <StarIcon
+                                        clickable
+                                        onClick={() => handleUnfavorite(meeting)}
+                                    />
+                                    :
+                                    <StarBorderIcon
+                                        clickable
+                                        onClick={() => handleFavorite(meeting)}
+                                    />
+                            }
+                            <ReplyIcon
+                                className={classes.reply_icon}
+                                onClick={() => handleMeetingClick(meeting.id)}
+                            />
+                        </div>
+                    </div>
+                </ListItem>
+            </div>
+            <Divider variant="middle" component="li" />
+        </div>
+    }
+
     return useObserver(() =>
         <div>
             <Container maxWidth="xl" className={classes.root}>
@@ -193,75 +269,11 @@ export const Student = () => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {
-                        store.meetingsObj.map(meeting =>
-                            <div>
-                                <div
-                                    style={{ curser: 'pointer' }}>
-                                    <ListItem alignItems="flex-start" >
-                                        <ListItemAvatar>
-                                            <Avatar alt={meeting.user_name} src={meeting.pic_url} />
-                                        </ListItemAvatar>
-                                        <ListItemText
-                                            primary={meeting.topic}
-                                            secondary={meeting.display_time}
-                                        />
-                                        <div>
-                                            <div>
-                                                <Chip
-                                                    size="medium"
-                                                    color={meeting.video_url ? "primary" : ''}
-                                                    icon={<VideoLabelIcon />}
-                                                    label="video" />
-                                                <Chip
-                                                    size="medium"
-                                                    color={meeting.audio_url ? "primary" : ''}
-                                                    icon={<VolumeUpIcon />}
-                                                    label="audio" />
-                                                <Chip
-                                                    size="medium"
-                                                    color={meeting.chat_url ? "primary" : ''}
-                                                    icon={<ChatIcon />}
-                                                    label="chat" />
-                                                <Chip
-                                                    size="medium"
-                                                    color={meeting.transcript_url ? "primary" : ''}
-                                                    icon={<RecordVoiceOverIcon />} label="transcript" />
 
-                                                <Chip
-                                                    size="medium"
-                                                    color="secondary"
-                                                    label={"views: " + meeting.meeting_views} />
-                                                <Chip
-                                                    size="medium"
-                                                    color="secondary"
-                                                    label={"favorites " + meeting.meeting_favs} />
-                                            </div>
-                                            <div>
-                                                {
-                                                    favoriteArray &&
-                                                        favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
-                                                        <StarIcon
-                                                            clickable
-                                                            onClick={() => handleUnfavorite(meeting)}
-                                                        />
-                                                        :
-                                                        <StarBorderIcon
-                                                            clickable
-                                                            onClick={() => handleFavorite(meeting)}
-                                                        />
-                                                }
-                                                <ReplyIcon
-                                                    className={classes.reply_icon}
-                                                    onClick={() => handleMeetingClick(meeting.id)}
-                                                />
-                                            </div>
-                                        </div>
-                                    </ListItem>
-                                </div>
-                                <Divider variant="middle" component="li" />
-                            </div>
-                        )
+                    {searchField === '' ?
+                        store.meetingsObj.map(meeting => meetingListItem(meeting))
+                        :
+                        fuseMeetingList.search(searchField).map(({ item }) => meetingListItem(item))
                     }
                 </List>
 
