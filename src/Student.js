@@ -80,7 +80,7 @@ export const Student = () => {
         }
 
         retrieveFavorites();
-    }
+    });
 
     // useEffect(() => {
 
