@@ -86,7 +86,7 @@ export const Student = () => {
         }
 
         retrieveFavorites();
-    });
+    }, [store]);
 
     // useEffect(() => {
 
