@@ -37,12 +37,21 @@ export const Student = () => {
         setDisplayedPage(<Favorite />)
     }
 
+    const handleMeetingsClick = async () => {
+        const returnedMeetingArray = await fetch
+            .get(store.serverUrl + `/student/meetings/` + store.studentInfo.id);
+
+        await store.changeMeetingObj(returnedMeetingArray.body)
+        setDisplayedPage(<StudentMeetings />)
+    }
+
 
     return useObserver(() =>
         <Grid>
             <StudentHeader
                 handleBookmarkClick={handleBookmarkClick}
                 handleFavoriteClick={handleFavoriteClick}
+                handleMeetingsClick={handleMeetingsClick}
             />
             {displayedPage}
         </Grid>
