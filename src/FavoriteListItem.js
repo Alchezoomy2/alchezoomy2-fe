@@ -35,4 +35,5 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handelOpenMeeting)
             </ListItem>
             <Divider variant="middle" component="li" />
         </div>
+    )
 }
