@@ -41,7 +41,7 @@ export const Student = () => {
         const returnedMeetingArray = await fetch
             .get(store.serverUrl + `/student/meetings/` + store.studentInfo.id);
         console.log(returnedMeetingArray.body)
-        await store.changeMeetingsObj(returnedMeetingArray.body)
+        await store.changeMeetingsObj(returnedMeetingArray.body.meeting)
         setDisplayedPage(<StudentMeetings />)
     }
 
