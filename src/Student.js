@@ -211,31 +211,31 @@ export const Student = () => {
                         <div>
                             <div>
                                 <Chip
-                                    size="medium"
+                                    size="small"
                                     color={meeting.video_url ? "primary" : ''}
                                     icon={<VideoLabelIcon />}
                                     label="video" />
                                 <Chip
-                                    size="medium"
+                                    size="small"
                                     color={meeting.audio_url ? "primary" : ''}
                                     icon={<VolumeUpIcon />}
                                     label="audio" />
                                 <Chip
-                                    size="medium"
+                                    size="small"
                                     color={meeting.chat_url ? "primary" : ''}
                                     icon={<ChatIcon />}
                                     label="chat" />
                                 <Chip
-                                    size="medium"
+                                    size="small"
                                     color={meeting.transcript_url ? "primary" : ''}
                                     icon={<RecordVoiceOverIcon />} label="transcript" />
 
                                 <Chip
-                                    size="medium"
+                                    size="small"
                                     color="secondary"
                                     label={"views: " + meeting.meeting_views} />
                                 <Chip
-                                    size="medium"
+                                    size="small"
                                     color="secondary"
                                     label={"favorites " + meeting.meeting_favs} />
                             </div>

@@ -10,41 +10,21 @@ import fetch from 'superagent';
 
 
 export const Teacher = () => {
-    let [loading, setLoading] = useState('true');
+    // let [loading, setLoading] = useState('true');
     let [open, setOpen] = useState(false);
     const store = useStateStore();
 
 
-    useEffect(() => {
-        async function retrieveTeacherInfo() {
-            const returnedObject = await fetch
-                .post(store.serverUrl + '/teacher/oauth')
-                .send({ code: store.code });
+    // useEffect(() => {
+    //     async function retrieveTeacherInfo() {
 
-            await store.changeTeacherInfo(returnedObject.body);
-        }
+    //     }
 
-        async function retrieveMeetings() {
-            let newMeetingObj;
-            if (store.teacherInfo.new_user) {
-                const returnedObject = await fetch
-                    .post(store.serverUrl + '/teacher/new')
-                    .send({ teacher_info: store.teacherInfo });
+    //     async function retrieveMeetings() {
 
-                store.changeTeacherInfo(returnedObject.body)
-            }
-
-            newMeetingObj = await fetch
-                .post(store.serverUrl + '/teacher/meetings')
-                .send({ teacher_info: store.teacherInfo })
-
-            store.changeMeetingsObj(newMeetingObj.body);
-            setLoading(false);
-        }
-
-        return retrieveTeacherInfo()
-            .then(retrieveMeetings)
-    }, [store]);
+    //     return retrieveTeacherInfo()
+    //         .then(retrieveMeetings)
+    // }, [store]);
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
@@ -70,9 +50,7 @@ export const Teacher = () => {
         <div>
             <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
                 <List style={{ width: '90%' }}>
-                    {loading ?
-                        <p></p>
-                        :
+                    {
                         store.meetingsObj.map(meeting =>
                             <div>
                                 <ListItem alignItems="flex-start" >
