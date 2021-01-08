@@ -16,6 +16,7 @@ import fetch from "superagent";
 
 export const Student = () => {
     const [displayedPage, setDisplayedPage] = useState(<StudentMeetings />)
+    const [pageIcon, setPageIcon] = useState('meeting');
     const store = useStateStore();
     // const history = useHistory();
 
@@ -25,6 +26,7 @@ export const Student = () => {
             .get(store.serverUrl + `/student/bookmark/` + store.studentInfo.id);
 
         await store.changeBookmarkArray(returnedBookmarkArray.body)
+        setPageIcon('bookmark')
         setDisplayedPage(<Bookmark />)
     }
 
@@ -33,7 +35,7 @@ export const Student = () => {
             .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
 
         await store.changeFavoriteArray(returnedFavoriteArray.body)
-        console.log('handleFavorite')
+        setPageIcon('favorite')
         setDisplayedPage(<Favorite />)
     }
 
@@ -44,6 +46,7 @@ export const Student = () => {
             .send({ student_info: store.studentInfo })
 
         store.changeMeetingsObj(newMeetingArray.body);
+        setPageIcon('meeting')
         setDisplayedPage(<StudentMeetings />)
     }
 
@@ -54,6 +57,7 @@ export const Student = () => {
                 handleBookmarkClick={handleBookmarkClick}
                 handleFavoriteClick={handleFavoriteClick}
                 handleMeetingsClick={handleMeetingsClick}
+                pageIcon={pageIcon}
             />
             {displayedPage}
         </Grid>
