@@ -35,11 +35,13 @@ export const Favorite = (props) => {
     }
 
     const handleDeleteFavorite = async (favoriteId) => {
-
         const newFavoriteArray = await fetch
             .delete(store.serverUrl + '/student/favorite/' + favoriteId)
         store.changeFavoriteArray(newFavoriteArray.body);
+        console.log('before setOpen')
         setOpen(false);
+        console.log('after setOpen')
+
     }
 
     const handleDeleteClick = async (favorite) => {
