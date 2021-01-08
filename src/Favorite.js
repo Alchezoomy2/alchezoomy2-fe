@@ -5,7 +5,7 @@ import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvata
 import fuse from 'fuse.js';
 import fetch from 'superagent';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 import CommentIcon from '@material-ui/icons/Comment';
@@ -29,9 +29,9 @@ export const Favorite = () => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const classes = useStyles();
-    const history = useHistory();
+    // const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
-        keys: ['text', 'speaker', 'comment'],
+        keys: ['text', 'speaker', 'comment', 'display_date'],
         threshold: 0.4,
         ignoreLocation: true
     })
@@ -63,7 +63,7 @@ export const Favorite = () => {
         store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
 
-        history.push(`/meeting/${favorite.parsed_timestamp}`)
+        // history.push(`/meeting/${favorite.parsed_timestamp}`)
     }
 
     const listItems = (favorite) => {
