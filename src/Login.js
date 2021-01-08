@@ -62,11 +62,6 @@ export const Login = () => {
             history.push('/teacher/');
 
         }
-
-
-
-
-
         if (store.userType === 'student') {
             loginStudent();
         } else if (store.userType === 'teacher') {

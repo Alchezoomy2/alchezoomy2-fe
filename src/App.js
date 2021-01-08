@@ -15,6 +15,7 @@ import Teacher from './Teacher.js';
 import Student from './Student.js';
 import Header from './Header.js';
 import Bookmark from './Bookmark.js';
+import Favorite from './Favorite.js';
 import MeetingDetails from './MeetingDetails.js';
 
 
@@ -38,6 +39,8 @@ function App() {
                         component={Bookmark} />
                     <PrivateRoute path="/meeting/:timestamp"
                         component={MeetingDetails} />
+                    <PrivateRoute path="/favorite"
+                        component={Favorite} />
                 </Switch >
             </Router >
         </StoreProvider >

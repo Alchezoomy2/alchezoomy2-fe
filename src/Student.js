@@ -137,11 +137,17 @@ export const Student = () => {
         history.push(`/bookmark`)
     }
 
+    const handleFavoriteClick = async () => {
+        const returnedFavoriteArray = await fetch
+            .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
+
+        await store.changeBookmarkArray(returnedFavoriteArray.body)
+
+        history.push(`/bookmark`)
+    }
+
 
     const handleFavorite = async (meetingObj) => {
-        console.log('------------------------------------');
-        console.log(meetingObj);
-        console.log('------------------------------------');
         setCommentField('');
         setFavoriteCard({
             ...meetingObj,
@@ -270,6 +276,7 @@ export const Student = () => {
         <div>
             <Container maxWidth="xl" className={classes.root}>
                 <Button onClick={handleBookmarkClick}>BOOKMARKS</Button>
+                <Button onClick={handleFavoriteClick}>FAVORITES</Button>
                 <TextField
                     id="search"
                     label="search"
