@@ -39,8 +39,8 @@ export const Student = () => {
 
     const handleMeetingsClick = async () => {
         const returnedMeetingArray = await fetch
-            .get(store.serverUrl + `/student/meetings/` + store.studentInfo.id);
-        console.log(returnedMeetingArray.body)
+            .get(store.serverUrl + `/student/meetings/`);
+
         await store.changeMeetingsObj(returnedMeetingArray.body.meeting)
         setDisplayedPage(<StudentMeetings />)
     }
