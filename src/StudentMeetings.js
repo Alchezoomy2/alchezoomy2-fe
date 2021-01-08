@@ -3,10 +3,9 @@ import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
-import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import { makeStyles } from '@material-ui/core/styles';
 import fuse from 'fuse.js';
-
+import MeetingListItem from './MeetingListItem.js';
 
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
@@ -199,75 +198,6 @@ export const Student = (props) => {
     }
 
 
-    const meetingListItem = (meeting) => {
-        return (
-            <div>
-                <div>
-                    <ListItem alignItems="flex-start" >
-                        <ListItemAvatar>
-                            <Avatar alt={meeting.user_name} src={meeting.pic_url} />
-                        </ListItemAvatar>
-                        <ListItemText
-                            primary={meeting.topic}
-                            secondary={meeting.display_time}
-                        />
-                        <div>
-                            <div>
-                                <Chip
-                                    size="small"
-                                    color={meeting.video_url ? "primary" : ''}
-                                    icon={<VideoLabelIcon />}
-                                    label="video" />
-                                <Chip
-                                    size="small"
-                                    color={meeting.audio_url ? "primary" : ''}
-                                    icon={<VolumeUpIcon />}
-                                    label="audio" />
-                                <Chip
-                                    size="small"
-                                    color={meeting.chat_url ? "primary" : ''}
-                                    icon={<ChatIcon />}
-                                    label="chat" />
-                                <Chip
-                                    size="small"
-                                    color={meeting.transcript_url ? "primary" : ''}
-                                    icon={<RecordVoiceOverIcon />} label="transcript" />
-
-                                <Chip
-                                    size="small"
-                                    color="secondary"
-                                    label={"views: " + meeting.meeting_views} />
-                                <Chip
-                                    size="small"
-                                    color="secondary"
-                                    label={"favorites " + meeting.meeting_favs} />
-                            </div>
-                            <div>
-                                {
-                                    favoriteArray &&
-                                        favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
-                                        <StarIcon
-                                            clickable
-                                            onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meeting_id === meeting.id), meeting)}
-                                        />
-                                        :
-                                        <StarBorderIcon
-                                            clickable
-                                            onClick={() => handleFavorite(meeting)}
-                                        />
-                                }
-                                <ReplyIcon
-                                    className={classes.reply_icon}
-                                    onClick={() => props.handleMeetingDetailClick(meeting.id)}
-                                />
-                            </div>
-                        </div>
-                    </ListItem>
-                </div>
-                <Divider variant="middle" component="li" />
-            </div>
-        )
-    }
 
     return useObserver(() =>
         <div>
@@ -282,9 +212,14 @@ export const Student = (props) => {
                 <List className={classes.list}>
 
                     {searchField === '' ?
-                        store.meetingsObj.map(meeting => meetingListItem(meeting))
+                        store.meetingsObj.map(meeting => MeetingListItem(
+                            meeting,
+                            favoriteArray,
+                            handleUnfavorite,
+                            handleFavorite,
+                            () => { props.handleMeetingDetailClick(meeting.id) }))
                         :
-                        fuseMeetingList.search(searchField).map(({ item }) => meetingListItem(item))
+                        fuseMeetingList.search(searchField).map(({ item }) => MeetingListItem(item, favoriteArray))
                     }
                 </List>
 
