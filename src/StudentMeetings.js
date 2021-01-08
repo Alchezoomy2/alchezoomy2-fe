@@ -137,14 +137,14 @@ export const Student = () => {
     //     history.push(`/bookmark`)
     // }
 
-    const handleFavoriteClick = async () => {
-        const returnedFavoriteArray = await fetch
-            .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
+    // const handleFavoriteClick = async () => {
+    //     const returnedFavoriteArray = await fetch
+    //         .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
 
-        await store.changeBookmarkArray(returnedFavoriteArray.body)
+    //     await store.changeBookmarkArray(returnedFavoriteArray.body)
 
-        history.push(`/bookmark`)
-    }
+    //     history.push(`/bookmark`)
+    // }
 
 
     const handleFavorite = async (meetingObj) => {
@@ -275,7 +275,6 @@ export const Student = () => {
     return useObserver(() =>
         <div>
             <Container maxWidth="xl" className={classes.root}>
-                <Button onClick={handleFavoriteClick}>FAVORITES</Button>
                 <TextField
                     id="search"
                     label="search"

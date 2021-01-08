@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import StudentMeetings from "./StudentMeetings.js"
 import StudentHeader from "./StudentHeader.js";
 import Bookmark from "./Bookmark.js";
+import Favorite from "./Favorite.js";
 import fetch from "superagent";
 
 
@@ -27,16 +28,26 @@ export const Student = () => {
         setDisplayedPage(<Bookmark />)
     }
 
+    const handleFavoriteClick = async () => {
+        const returnedFavoriteArray = await fetch
+            .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
 
-    return useObserver(() =>
-        <Grid>
-            <StudentHeader
-                handleBookmarkClick={handleBookmarkClick}
-            />
-            {displayedPage}
-        </Grid>
+        await store.changeFavoriteArray(returnedFavoriteArray.body)
 
-    )
+        setDisplayedPage(<Favorite />)
+    }
+}
+
+return useObserver(() =>
+    <Grid>
+        <StudentHeader
+            handleBookmarkClick={handleBookmarkClick}
+            handleFavoriteClick={handleFavoriteClick}
+        />
+        {displayedPage}
+    </Grid>
+
+)
 }
 
 export default Student;

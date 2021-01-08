@@ -3,6 +3,7 @@ import { AppBar, Toolbar, IconButton, Typography, Grid } from '@material-ui/core
 import MenuIcon from '@material-ui/icons/Menu';
 // import HomeIcon from '@material-ui/icons/Home';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import StarIcon from '@material-ui/icons/Star';
 
 
 // import { useStateStore } from './StoreProvider.js'
@@ -20,12 +21,6 @@ export const StudentHeader = (props) => {
     return useObserver(() =>
         <AppBar position="static" style={{ width: '100%' }}>
             <Toolbar>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu">
-                    <MenuIcon />
-                </IconButton>
                 <Typography
                     variant="h6" >
                     Alchezoomy
@@ -37,6 +32,14 @@ export const StudentHeader = (props) => {
                     onClick={props.handleBookmarkClick}>
                     <BookmarkIcon />
                 </IconButton>
+                <IconButton
+                    edge="end"
+                    color="inherit"
+                    aria-label="home"
+                    onClick={props.handleBookmarkClick}>
+                    <StarIcon />
+                </IconButton>
+
             </Toolbar>
         </AppBar>
     )
