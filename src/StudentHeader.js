@@ -1,7 +1,10 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Grid } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
-import HomeIcon from '@material-ui/icons/Home';
+// import HomeIcon from '@material-ui/icons/Home';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+
+
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
 // import classes from '*.module.css';
@@ -32,7 +35,7 @@ export const StudentHeader = () => {
                     color="inherit"
                     aria-label="home"
                     onClick={() => history.push('/')}>
-                    <HomeIcon />
+                    <BookmarkIcon />
                 </IconButton>
             </Toolbar>
         </AppBar>
