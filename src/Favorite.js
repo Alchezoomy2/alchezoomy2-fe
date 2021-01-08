@@ -24,16 +24,16 @@ const useStyles = makeStyles((theme) => ({
 
 
 export const Favorite = () => {
-    const [searchField, setSearchField] = useState('');
-    const [dialogCard, setDialogCard] = useState();
-    const [open, setOpen] = useState(false);
-    const store = useStateStore();
-    const classes = useStyles();
-    let fuseFavoriteList = new fuse(store.favoriteArray, {
-        keys: ['text', 'speaker', 'comment', 'display_date'],
-        threshold: 0.4,
-        ignoreLocation: true
-    })
+    // const [searchField, setSearchField] = useState('');
+    // const [dialogCard, setDialogCard] = useState();
+    // const [open, setOpen] = useState(false);
+    // const store = useStateStore();
+    // const classes = useStyles();
+    // let fuseFavoriteList = new fuse(store.favoriteArray, {
+    //     keys: ['text', 'speaker', 'comment', 'display_date'],
+    //     threshold: 0.4,
+    //     ignoreLocation: true
+    // })
 
 
     // const handleSearchChange = async (e) => {
