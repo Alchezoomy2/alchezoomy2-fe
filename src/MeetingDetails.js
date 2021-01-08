@@ -17,7 +17,8 @@ export const MeetingDetails = (props) => {
 
     useEffect(() => {
         async function startAtTimestamp() {
-            if (player) player.current.seekTo(props.startTime, 'seconds')
+            console.log(player.current)
+            if (player.current) player.current.seekTo(props.startTime, 'seconds')
         }
         function videoProgression() {
             setInterval(() => {
