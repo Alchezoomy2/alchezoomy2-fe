@@ -40,7 +40,7 @@ export const Favorite = (props) => {
             .delete(store.serverUrl + '/student/favorite/' + favoriteId)
         console.log('afterfetch')
         console.log(newFavoriteArray.body)
-        store.changeFavoriteArray(newFavoriteArray.body);
+        // store.changeFavoriteArray(newFavoriteArray.body);
         console.log('before setOpen')
         setOpen(false);
         console.log('after setOpen')
@@ -53,15 +53,7 @@ export const Favorite = (props) => {
     }
 
     const handleOpenMeeting = async (favorite) => {
-        // const returnedObject = await fetch
-        //     .get(store.serverUrl + `/student/meetings/${favorite.meeting_id}`)
 
-        // await fetch.get(store.serverUrl + `/student/view/${favorite.meeting_id}`)
-        // store.changeMeetingDetails(returnedObject.body.meeting);
-        // store.changeTranscriptArray(returnedObject.body.transcript);
-        // store.changeChatArray(returnedObject.body.chat);
-
-        // history.push(`/meeting/${favorite.parsed_timestamp}`)
         props.handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp)
     }
 
