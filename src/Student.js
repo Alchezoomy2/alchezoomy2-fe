@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Grid } from '@material-ui/core'
-// import MenuIcon from '@material-ui/icons/Menu';
-// import HomeIcon from '@material-ui/icons/Home';
+import MeetingDetails from './MeetingDetails.js';
 import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
 // import classes from '*.module.css';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import StudentMeetings from "./StudentMeetings.js"
 import StudentHeader from "./StudentHeader.js";
 import Bookmark from "./Bookmark.js";
@@ -15,7 +14,7 @@ import fetch from "superagent";
 
 
 export const Student = () => {
-    const [displayedPage, setDisplayedPage] = useState(<StudentMeetings />)
+    const [displayedPage, setDisplayedPage] = useState();
     const [pageIcon, setPageIcon] = useState('meeting');
     const store = useStateStore();
     // const history = useHistory();
@@ -27,7 +26,9 @@ export const Student = () => {
 
         await store.changeBookmarkArray(returnedBookmarkArray.body)
         setPageIcon('bookmark')
-        setDisplayedPage(<Bookmark />)
+        setDisplayedPage(<Bookmark
+            handleMeetingDetailClick={handleMeetingDetailClick}
+        />)
     }
 
     const handleFavoriteClick = async () => {
@@ -36,20 +37,39 @@ export const Student = () => {
 
         await store.changeFavoriteArray(returnedFavoriteArray.body)
         setPageIcon('favorite')
-        setDisplayedPage(<Favorite />)
+        setDisplayedPage(<Favorite
+            handleMeetingDetailClick={handleMeetingDetailClick}
+        />)
     }
 
     const handleMeetingsClick = async () => {
-
         const newMeetingArray = await fetch
             .post(store.serverUrl + '/student/meetings')
             .send({ student_info: store.studentInfo })
 
         store.changeMeetingsObj(newMeetingArray.body);
         setPageIcon('meeting')
-        setDisplayedPage(<StudentMeetings />)
+        setDisplayedPage(<StudentMeetings
+            handleMeetingDetailClick={handleMeetingDetailClick} />)
     }
 
+    const handleMeetingDetailClick = useCallback(async (meetingId, startTime = 0) => {
+
+        const returnedObject = await fetch
+            .get(store.serverUrl + `/student/meetings/${meetingId}`)
+
+        await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
+        store.changeMeetingDetails(returnedObject.body.meeting);
+        store.changeTranscriptArray(returnedObject.body.transcript);
+        store.changeChatArray(returnedObject.body.chat);
+
+        setDisplayedPage(<MeetingDetails startTime={startTime} />);
+    }, [store])
+
+
+    useEffect(() => {
+        setDisplayedPage(<StudentMeetings handleMeetingDetailClick={handleMeetingDetailClick} />)
+    }, [handleMeetingDetailClick])
 
     return useObserver(() =>
         <Grid>

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-export const Bookmark = () => {
+export const Bookmark = (props) => {
     const [searchField, setSearchField] = useState('');
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -55,15 +55,16 @@ export const Bookmark = () => {
     }
 
     const handleOpenMeeting = async (bookmark) => {
-        const returnedObject = await fetch
-            .get(store.serverUrl + `/student/meetings/${bookmark.meeting_id}`)
+        // const returnedObject = await fetch
+        //     .get(store.serverUrl + `/student/meetings/${bookmark.meeting_id}`)
 
-        await fetch.get(store.serverUrl + `/student/view/${bookmark.meeting_id}`)
-        store.changeMeetingDetails(returnedObject.body.meeting);
-        store.changeTranscriptArray(returnedObject.body.transcript);
-        store.changeChatArray(returnedObject.body.chat);
+        // await fetch.get(store.serverUrl + `/student/view/${bookmark.meeting_id}`)
+        // store.changeMeetingDetails(returnedObject.body.meeting);
+        // store.changeTranscriptArray(returnedObject.body.transcript);
+        // store.changeChatArray(returnedObject.body.chat);
 
-        history.push(`/meeting/${bookmark.parsed_timestamp}`)
+        props.handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp)
+        // history.push(`/meeting/${bookmark.parsed_timestamp}`)
     }
 
     const listItems = (bookmark) => {

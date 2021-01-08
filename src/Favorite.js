@@ -5,7 +5,7 @@ import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvata
 import fuse from 'fuse.js';
 import fetch from 'superagent';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 import CommentIcon from '@material-ui/icons/Comment';
@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-export const Favorite = () => {
+export const Favorite = (props) => {
     const [searchField, setSearchField] = useState('');
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const classes = useStyles();
-    const history = useHistory();
+    // const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
         keys: ['topic', 'comment', 'user_name'],
         threshold: 0.4,
@@ -55,15 +55,16 @@ export const Favorite = () => {
     }
 
     const handleOpenMeeting = async (favorite) => {
-        const returnedObject = await fetch
-            .get(store.serverUrl + `/student/meetings/${favorite.meeting_id}`)
+        // const returnedObject = await fetch
+        //     .get(store.serverUrl + `/student/meetings/${favorite.meeting_id}`)
 
-        await fetch.get(store.serverUrl + `/student/view/${favorite.meeting_id}`)
-        store.changeMeetingDetails(returnedObject.body.meeting);
-        store.changeTranscriptArray(returnedObject.body.transcript);
-        store.changeChatArray(returnedObject.body.chat);
+        // await fetch.get(store.serverUrl + `/student/view/${favorite.meeting_id}`)
+        // store.changeMeetingDetails(returnedObject.body.meeting);
+        // store.changeTranscriptArray(returnedObject.body.transcript);
+        // store.changeChatArray(returnedObject.body.chat);
 
-        history.push(`/meeting/${favorite.parsed_timestamp}`)
+        // history.push(`/meeting/${favorite.parsed_timestamp}`)
+        props.handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp)
     }
 
     const listItems = (favorite) => {

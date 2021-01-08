@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import fetch from 'superagent';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
-import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import fuse from 'fuse.js';
 
@@ -60,9 +59,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const Student = () => {
+export const Student = (props) => {
     const store = useStateStore();
-    const history = useHistory();
     const [searchField, setSearchField] = useState('');
     const [commentField, setCommentField] = useState('');
     const [favoriteCard, setFavoriteCard] = useState('');
@@ -117,17 +115,17 @@ export const Student = () => {
     //     //     .then(retrieveFavorites)
     // }, [store]);
 
-    const handleMeetingClick = async (meetingId) => {
-        const returnedObject = await fetch
-            .get(store.serverUrl + `/student/meetings/${meetingId}`)
+    // const handleMeetingClick = async (meetingId) => {
+    //     const returnedObject = await fetch
+    //         .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
-        await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
-        store.changeMeetingDetails(returnedObject.body.meeting);
-        store.changeTranscriptArray(returnedObject.body.transcript);
-        store.changeChatArray(returnedObject.body.chat);
+    //     await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
+    //     store.changeMeetingDetails(returnedObject.body.meeting);
+    //     store.changeTranscriptArray(returnedObject.body.transcript);
+    //     store.changeChatArray(returnedObject.body.chat);
 
-        history.push(`/meeting/0`)
-    }
+    //     history.push(`/meeting/0`)
+    // }
 
     // const handleBookmarkClick = async () => {
     //     const returnedBookmarkArray = await fetch
@@ -175,7 +173,6 @@ export const Student = () => {
         console.log(favoriteCard)
 
         if (favoriteCard.current) {
-            console.log(favoriteCard);
             // const favoriteId = favoriteArray.find(favorite => favorite.meeting_id === favoriteCard.id)
             newfavoriteArray = await fetch
                 .delete(store.serverUrl + '/student/favorite/' + favoriteCard.favoriteId)
@@ -261,7 +258,7 @@ export const Student = () => {
                                 }
                                 <ReplyIcon
                                     className={classes.reply_icon}
-                                    onClick={() => handleMeetingClick(meeting.id)}
+                                    onClick={() => props.handleMeetingDetailClick(meeting.id)}
                                 />
                             </div>
                         </div>
