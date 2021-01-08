@@ -5,17 +5,18 @@ import HomeIcon from '@material-ui/icons/Home';
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
 // import classes from '*.module.css';
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 
 export const StudentHeader = () => {
     // const store = useStateStore();
-    // const history = useHistory();
+    const history = useHistory();
 
 
     return useObserver(() =>
-        <AppBar position="static" style={{ width: '100%' }}>
+        <AppBar >
+            {/* position="static" style={{ width: '100%' }}> */}
             <Toolbar>
                 <IconButton
                     edge="start"
