@@ -18,6 +18,9 @@ export const Student = () => {
     // const history = useHistory();
 
     const handleNavigation = (page) => {
+        console.log('------------------------------------');
+        console.log(`page:  ${page}`);
+        console.log('------------------------------------');
         if (page === 'bookmark') {
             setDisplayedPage(<Bookmark handleNavigation={handleNavigation} />)
         } else {
