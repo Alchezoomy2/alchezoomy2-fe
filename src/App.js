@@ -12,7 +12,7 @@ import LandingPage from './LandingPage.js';
 import AutoRedirect from './Redirect.js';
 import Login from './Login.js';
 import Teacher from './Teacher.js';
-import Student from './Student.js';
+import Student from './StudentMeetings.js';
 import Header from './Header.js';
 import Bookmark from './Bookmark.js';
 import Favorite from './Favorite.js';
@@ -23,7 +23,7 @@ function App() {
     return (
         <StoreProvider>
             <Router>
-                <Header />
+                {/* <Header /> */}
                 <Switch>
                     <Route exact path="/"
                         component={LandingPage} />

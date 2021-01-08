@@ -79,8 +79,7 @@ export const Favorite = () => {
                     secondary={favorite.display_time}
                 />
                 <ListItemText
-                    primary={`${favorite.speaker}:  ${favorite.text}`}
-                    secondary={favorite.comment}
+                    primary={favorite.comment}
                 />
                 <div>
                     <DeleteIcon
