@@ -34,7 +34,7 @@ export const StudentHeader = (props) => {
                     edge="end"
                     color="inherit"
                     aria-label="home"
-                    onClick={() => props.handleNavigation('bookmark')}>
+                    onClick={props.handleBookmarkClick}>
                     <BookmarkIcon />
                 </IconButton>
             </Toolbar>

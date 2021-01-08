@@ -129,13 +129,13 @@ export const Student = () => {
         history.push(`/meeting/0`)
     }
 
-    const handleBookmarkClick = async () => {
-        const returnedBookmarkArray = await fetch
-            .get(store.serverUrl + `/student/bookmark/` + store.studentInfo.id);
+    // const handleBookmarkClick = async () => {
+    //     const returnedBookmarkArray = await fetch
+    //         .get(store.serverUrl + `/student/bookmark/` + store.studentInfo.id);
 
-        await store.changeBookmarkArray(returnedBookmarkArray.body)
-        history.push(`/bookmark`)
-    }
+    //     await store.changeBookmarkArray(returnedBookmarkArray.body)
+    //     history.push(`/bookmark`)
+    // }
 
     const handleFavoriteClick = async () => {
         const returnedFavoriteArray = await fetch
