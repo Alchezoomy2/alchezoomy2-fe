@@ -119,7 +119,7 @@ export const Favorite = () => {
                     }
                 </List> */}
             </Paper>
-            {
+            {/* {
                 dialogCard ?
                     <Dialog
                         open={open}
@@ -163,7 +163,7 @@ export const Favorite = () => {
                     </Dialog >
                     :
                     <></>
-            }
+            } */}
 
 
 
