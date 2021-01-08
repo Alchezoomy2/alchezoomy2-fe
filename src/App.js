@@ -35,12 +35,12 @@ function App() {
                         component={Teacher} />
                     <PrivateRoute path="/student"
                         component={Student} />
-                    <PrivateRoute path="/bookmark"
+                    {/* <PrivateRoute path="/bookmark"
                         component={Bookmark} />
                     <PrivateRoute path="/meeting/:timestamp"
                         component={MeetingDetails} />
                     <PrivateRoute path="/favorite"
-                        component={Favorite} />
+                        component={Favorite} /> */}
                 </Switch >
             </Router >
         </StoreProvider >
