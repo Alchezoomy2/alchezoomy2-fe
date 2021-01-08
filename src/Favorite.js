@@ -35,8 +35,10 @@ export const Favorite = (props) => {
     }
 
     const handleDeleteFavorite = async (favoriteId) => {
+        console.log('before fetch')
         const newFavoriteArray = await fetch
             .delete(store.serverUrl + '/student/favorite/' + favoriteId)
+        console.log('afterfetch')
         store.changeFavoriteArray(newFavoriteArray.body);
         console.log('before setOpen')
         setOpen(false);
