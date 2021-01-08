@@ -68,7 +68,7 @@ export const StoreProvider = ({ children }) => {
         },
 
         changeFavoriteArray: newFavoriteArray => {
-            store.favoritesArray = newFavoriteArray;
+            store.favoriteArray = newFavoriteArray;
             localStorage.setItem('FAVORITE_ARRAY', newFavoriteArray)
         },
 

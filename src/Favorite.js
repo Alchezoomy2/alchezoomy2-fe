@@ -31,7 +31,7 @@ export const Favorite = () => {
     const classes = useStyles();
     const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
-        keys: ['topic'],
+        keys: ['topic', 'comment', 'user_name'],
         threshold: 0.4,
         ignoreLocation: true
     })
