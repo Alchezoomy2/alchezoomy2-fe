@@ -37,3 +37,5 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handelOpenMeeting)
         </div>
     )
 }
+
+export default FavoriteListItem;
