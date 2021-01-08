@@ -13,13 +13,13 @@ import StudentHeader from "./StudentHeader.js"
 
 export const Student = () => {
     // const store = useStateStore();
-    const history = useHistory();
+    // const history = useHistory();
 
 
     return useObserver(() =>
         <Grid>
             <StudentHeader />
-            <StudentMeetings />
+            {/* <StudentMeetings /> */}
         </Grid>
 
     )
