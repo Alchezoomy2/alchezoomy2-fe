@@ -19,7 +19,7 @@ export const Student = () => {
     return useObserver(() =>
         <Grid>
             <StudentHeader />
-            {/* <StudentMeetings /> */}
+            <StudentMeetings />
         </Grid>
 
     )
