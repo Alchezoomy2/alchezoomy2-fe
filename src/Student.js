@@ -33,8 +33,8 @@ export const Student = () => {
             .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
 
         await store.changeFavoriteArray(returnedFavoriteArray.body)
-
-        setDisplayedPage(<Favorite />)
+        console.log('handleFavorite')
+        // setDisplayedPage(<Favorite />)
     }
 
     const handleMeetingsClick = async () => {
