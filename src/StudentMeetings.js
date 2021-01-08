@@ -275,7 +275,6 @@ export const Student = () => {
     return useObserver(() =>
         <div>
             <Container maxWidth="xl" className={classes.root}>
-                <Button onClick={handleBookmarkClick}>BOOKMARKS</Button>
                 <Button onClick={handleFavoriteClick}>FAVORITES</Button>
                 <TextField
                     id="search"
