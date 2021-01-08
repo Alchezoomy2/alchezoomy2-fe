@@ -10,7 +10,7 @@ import ChatBox from './ChatBox.js';
 
 export const MeetingDetails = (props) => {
     const store = useStateStore();
-    const startingTimestamp = useRef(props.match.params.timestamp)
+    // const startingTimestamp = useRef(props.match.params.timestamp)
     let player = useRef();
     let videoTimestamp = useRef();
 
