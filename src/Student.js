@@ -36,18 +36,18 @@ export const Student = () => {
 
         setDisplayedPage(<Favorite />)
     }
-}
 
-return useObserver(() =>
-    <Grid>
-        <StudentHeader
-            handleBookmarkClick={handleBookmarkClick}
-            handleFavoriteClick={handleFavoriteClick}
-        />
-        {displayedPage}
-    </Grid>
 
-)
+    return useObserver(() =>
+        <Grid>
+            <StudentHeader
+                handleBookmarkClick={handleBookmarkClick}
+                handleFavoriteClick={handleFavoriteClick}
+            />
+            {displayedPage}
+        </Grid>
+
+    )
 }
 
 export default Student;
