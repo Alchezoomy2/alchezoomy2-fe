@@ -1,26 +1,19 @@
 import { useObserver } from 'mobx-react';
 import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
-import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvatar, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
+import { Divider, Paper, List, Typography, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
 import fuse from 'fuse.js';
 import fetch from 'superagent';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-
+import FavoriteListItem from './FavoriteListItem.js'
 
 import CommentIcon from '@material-ui/icons/Comment';
-import ReplyIcon from '@material-ui/icons/Reply';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles((theme) => ({
-    reply_icon: {
-        transform: 'scaleX(-1)'
-    }
-}))
 
 
 export const Favorite = (props) => {
@@ -28,7 +21,7 @@ export const Favorite = (props) => {
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
-    const classes = useStyles();
+    // const classes = useStyles();
     // const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
         keys: ['topic', 'comment', 'user_name'],
@@ -67,35 +60,6 @@ export const Favorite = (props) => {
         props.handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp)
     }
 
-    const listItems = (favorite) => {
-
-        return <div>
-
-            <ListItem alignItems='flex-start'>
-                <ListItemAvatar>
-                    <Avatar alt={favorite.user_name} src={favorite.pic_url} />
-                </ListItemAvatar>
-                <ListItemText
-                    primary={favorite.topic}
-                    secondary={favorite.display_time}
-                />
-                <ListItemText
-                    primary={favorite.comment}
-                />
-                <div>
-                    <DeleteIcon
-                        clickable
-                        onClick={() => handleDeleteClick(favorite)}
-                    />
-                    <ReplyIcon
-                        className={classes.reply_icon}
-                        onClick={() => handleOpenMeeting(favorite)}
-                    />
-                </div>
-            </ListItem>
-            <Divider variant="middle" component="li" />
-        </div>
-    }
 
 
     return useObserver(() =>
@@ -115,9 +79,13 @@ export const Favorite = (props) => {
                 />
                 <List>
                     {searchField === '' ?
-                        store.favoriteArray.map(favorite => listItems(favorite))
+                        store.favoriteArray.map(favorite => FavoriteListItem(favorite,
+                            handleDeleteClick,
+                            handleOpenMeeting))
                         :
-                        fuseFavoriteList.search(searchField).map(({ item }) => listItems(item))
+                        fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(item,
+                            handleDeleteClick,
+                            handleOpenMeeting))
                     }
                 </List>
             </Paper>
@@ -134,13 +102,13 @@ export const Favorite = (props) => {
                     >
                         <DialogContent>
                             <Avatar alt={dialogCard.user_name} src={dialogCard.pic_url} />
-                            <DialogTitle className={classes.dialog_title}>
+                            <DialogTitle >
                                 {dialogCard.topic}
                             </DialogTitle>
-                            <DialogContentText id="speaker" className={classes.dialog_speaker}>
+                            <DialogContentText id="speaker">
                                 {dialogCard.user_name}
                             </DialogContentText>
-                            <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
+                            <DialogContentText id="timestamp">
                                 {dialogCard.display_time}
                             </DialogContentText>
                             <Divider />

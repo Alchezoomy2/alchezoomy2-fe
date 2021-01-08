@@ -10,7 +10,7 @@ import ReplyIcon from '@material-ui/icons/Reply';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 
 
-export const meetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
+export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
     return (
         <div>
             <div>
@@ -80,4 +80,4 @@ export const meetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     )
 }
 
-export default meetingListItem;
+export default MeetingListItem;

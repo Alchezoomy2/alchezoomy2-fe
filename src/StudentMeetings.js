@@ -1,4 +1,4 @@
-import { Container, List, Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, Slide, DialogContentText, TextField, Typography, DialogActions } from '@material-ui/core';
+import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, Slide, DialogContentText, TextField, Typography, DialogActions } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
@@ -7,13 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import fuse from 'fuse.js';
 import MeetingListItem from './MeetingListItem.js';
 
-import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
-import ChatIcon from '@material-ui/icons/Chat';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import CommentIcon from '@material-ui/icons/Comment';
-import ReplyIcon from '@material-ui/icons/Reply';
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -53,9 +47,6 @@ const useStyles = makeStyles((theme) => ({
     dialog_text: {
         margin: '3px'
     },
-    reply_icon: {
-        transform: 'scaleX(-1)'
-    }
 }));
 
 export const Student = (props) => {
@@ -83,65 +74,6 @@ export const Student = (props) => {
         }
         retrieveFavorites();
     }, [store]);
-
-    // useEffect(() => {
-
-    //     async function retrieveStudentInfo() {
-    //         let returnedStudentInfo = await fetch
-    //             .post(store.serverUrl + '/student/oauth')
-    //             .send({ code: store.code });
-
-    //         if (returnedStudentInfo.body.new_user) {
-    //             returnedStudentInfo = await fetch
-    //                 .post(store.serverUrl + '/student/new')
-    //                 .send({ student_info: returnedStudentInfo.body })
-    //         }
-    //         await store.changeStudentInfo(returnedStudentInfo.body);
-    //     }
-
-    //     async function retrieveMeetings() {
-    //         const newMeetingObj = await fetch
-    //             .post(store.serverUrl + '/student/meetings')
-    //             .send({ student_info: store.studentInfo })
-
-    //         store.changeMeetingsObj(newMeetingObj.body);
-    //     }
-
-
-
-    //     // return retrieveStudentInfo()
-    //     //     .then(retrieveMeetings)
-    //     //     .then(retrieveFavorites)
-    // }, [store]);
-
-    // const handleMeetingClick = async (meetingId) => {
-    //     const returnedObject = await fetch
-    //         .get(store.serverUrl + `/student/meetings/${meetingId}`)
-
-    //     await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
-    //     store.changeMeetingDetails(returnedObject.body.meeting);
-    //     store.changeTranscriptArray(returnedObject.body.transcript);
-    //     store.changeChatArray(returnedObject.body.chat);
-
-    //     history.push(`/meeting/0`)
-    // }
-
-    // const handleBookmarkClick = async () => {
-    //     const returnedBookmarkArray = await fetch
-    //         .get(store.serverUrl + `/student/bookmark/` + store.studentInfo.id);
-
-    //     await store.changeBookmarkArray(returnedBookmarkArray.body)
-    //     history.push(`/bookmark`)
-    // }
-
-    // const handleFavoriteClick = async () => {
-    //     const returnedFavoriteArray = await fetch
-    //         .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
-
-    //     await store.changeBookmarkArray(returnedFavoriteArray.body)
-
-    //     history.push(`/bookmark`)
-    // }
 
 
     const handleFavorite = async (meetingObj) => {
@@ -172,7 +104,7 @@ export const Student = (props) => {
         console.log(favoriteCard)
 
         if (favoriteCard.current) {
-            // const favoriteId = favoriteArray.find(favorite => favorite.meeting_id === favoriteCard.id)
+
             newfavoriteArray = await fetch
                 .delete(store.serverUrl + '/student/favorite/' + favoriteCard.favoriteId)
         } else {
@@ -219,7 +151,12 @@ export const Student = (props) => {
                             handleFavorite,
                             () => { props.handleMeetingDetailClick(meeting.id) }))
                         :
-                        fuseMeetingList.search(searchField).map(({ item }) => MeetingListItem(item, favoriteArray))
+                        fuseMeetingList.search(searchField).map(({ item }) => MeetingListItem(
+                            item,
+                            favoriteArray,
+                            handleUnfavorite,
+                            handleFavorite,
+                            () => { props.handleMeetingDetailClick(meeting.id) })
                     }
                 </List>
 
