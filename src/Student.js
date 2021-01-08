@@ -13,7 +13,7 @@ import Bookmark from "./Bookmark.js";
 
 
 export const Student = () => {
-    const [displayedPage, setDisplayedPage] = setState(<StudentMeetings />)
+    const [displayedPage, setDisplayedPage] = useState(<StudentMeetings />)
     // const store = useStateStore();
     // const history = useHistory();
 
