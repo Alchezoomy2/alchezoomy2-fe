@@ -28,7 +28,9 @@ export const Student = () => {
 
     return useObserver(() =>
         <Grid>
-            <StudentHeader />
+            <StudentHeader
+                handleNavigation={handleNavigation}
+            />
             {displayedPage}
         </Grid>
 

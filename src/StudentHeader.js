@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-export const StudentHeader = () => {
+export const StudentHeader = (props) => {
     // const store = useStateStore();
     const history = useHistory();
 
@@ -34,7 +34,7 @@ export const StudentHeader = () => {
                     edge="end"
                     color="inherit"
                     aria-label="home"
-                    onClick={() => history.push('/')}>
+                    onClick={() => props.handleNavigation('bookmark')}>
                     <BookmarkIcon />
                 </IconButton>
             </Toolbar>
