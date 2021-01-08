@@ -29,7 +29,6 @@ export const Favorite = () => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const classes = useStyles();
-    // const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
         keys: ['text', 'speaker', 'comment', 'display_date'],
         threshold: 0.4,
@@ -112,13 +111,13 @@ export const Favorite = () => {
                     variant="outlined"
                     onChange={handleSearchChange}
                 />
-                <List>
+                {/* <List>
                     {searchField === '' ?
                         store.favoriteArray.map(favorite => listItems(favorite))
                         :
                         fuseFavoriteList.search(searchField).map(({ item }) => listItems(item))
                     }
-                </List>
+                </List> */}
             </Paper>
             {
                 dialogCard ?
