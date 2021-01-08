@@ -62,7 +62,7 @@ export const Student = () => {
         store.changeMeetingDetails(returnedObject.body.meeting);
         store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
-
+        setPageIcon("")
         setDisplayedPage(<MeetingDetails startTime={startTime} />);
     }, [store])
 
