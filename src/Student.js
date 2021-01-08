@@ -54,6 +54,7 @@ export const Student = () => {
     }
 
     const handleMeetingDetailClick = useCallback(async (meetingId, startTime = 0) => {
+        console.log('handle handleMeetingDetailClick')
 
         const returnedObject = await fetch
             .get(store.serverUrl + `/student/meetings/${meetingId}`)

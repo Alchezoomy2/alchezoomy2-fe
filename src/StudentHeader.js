@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Grid } from '@material-ui/core'
+import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
@@ -16,7 +16,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
 export const StudentHeader = (props) => {
     // const store = useStateStore();
-    const history = useHistory();
+    // const history = useHistory();
 
 
 
