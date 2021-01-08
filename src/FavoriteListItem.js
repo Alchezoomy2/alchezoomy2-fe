@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 
 
-export const FavoriteListItem = (favorite, handleDeleteClick, handelOpenMeeting) => {
+export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
 
     return useObserver(() =>
 
