@@ -5,7 +5,7 @@ import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvata
 import fuse from 'fuse.js';
 import fetch from 'superagent';
 import { makeStyles } from '@material-ui/core/styles';
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 import CommentIcon from '@material-ui/icons/Comment';
@@ -29,6 +29,7 @@ export const Favorite = () => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const classes = useStyles();
+    const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
         keys: ['text', 'speaker', 'comment'],
         threshold: 0.4,
@@ -36,70 +37,70 @@ export const Favorite = () => {
     })
 
 
-    // const handleSearchChange = async (e) => {
-    //     setSearchField(e.target.value);
-    // }
+    const handleSearchChange = async (e) => {
+        setSearchField(e.target.value);
+    }
 
-    // const handleDeleteFavorite = async (favoriteId) => {
+    const handleDeleteFavorite = async (favoriteId) => {
 
-    //     const newFavoriteArray = await fetch
-    //         .delete(store.serverUrl + '/student/favorite/' + favoriteId)
-    //     store.changeFavoriteArray(newFavoriteArray.body);
-    //     setOpen(false);
-    // }
+        const newFavoriteArray = await fetch
+            .delete(store.serverUrl + '/student/favorite/' + favoriteId)
+        store.changeFavoriteArray(newFavoriteArray.body);
+        setOpen(false);
+    }
 
-    // const handleDeleteClick = async (favorite) => {
-    //     setDialogCard(favorite)
-    //     setOpen(true);
-    // }
+    const handleDeleteClick = async (favorite) => {
+        setDialogCard(favorite)
+        setOpen(true);
+    }
 
-    // const handleOpenMeeting = async (favorite) => {
-    //     const returnedObject = await fetch
-    //         .get(store.serverUrl + `/student/meetings/${favorite.meeting_id}`)
+    const handleOpenMeeting = async (favorite) => {
+        const returnedObject = await fetch
+            .get(store.serverUrl + `/student/meetings/${favorite.meeting_id}`)
 
-    //     await fetch.get(store.serverUrl + `/student/view/${favorite.meeting_id}`)
-    //     store.changeMeetingDetails(returnedObject.body.meeting);
-    //     store.changeTranscriptArray(returnedObject.body.transcript);
-    //     store.changeChatArray(returnedObject.body.chat);
+        await fetch.get(store.serverUrl + `/student/view/${favorite.meeting_id}`)
+        store.changeMeetingDetails(returnedObject.body.meeting);
+        store.changeTranscriptArray(returnedObject.body.transcript);
+        store.changeChatArray(returnedObject.body.chat);
 
-    //     // history.push(`/meeting/${favorite.parsed_timestamp}`)
-    // }
+        history.push(`/meeting/${favorite.parsed_timestamp}`)
+    }
 
-    // const listItems = (favorite) => {
+    const listItems = (favorite) => {
 
-    //     return <div>
+        return <div>
 
-    //         <ListItem alignItems='flex-start'>
-    //             <ListItemAvatar>
-    //                 <Avatar alt={favorite.user_name} src={favorite.pic_url} />
-    //             </ListItemAvatar>
-    //             <ListItemText
-    //                 primary={favorite.topic}
-    //                 secondary={favorite.display_time}
-    //             />
-    //             <ListItemText
-    //                 primary={favorite.comment}
-    //             />
-    //             <div>
-    //                 <DeleteIcon
-    //                     clickable
-    //                     onClick={() => handleDeleteClick(favorite)}
-    //                 />
-    //                 <ReplyIcon
-    //                     className={classes.reply_icon}
-    //                     onClick={() => handleOpenMeeting(favorite)}
-    //                 />
-    //             </div>
-    //         </ListItem>
-    //         <Divider variant="middle" component="li" />
-    //     </div>
-    // }
+            <ListItem alignItems='flex-start'>
+                <ListItemAvatar>
+                    <Avatar alt={favorite.user_name} src={favorite.pic_url} />
+                </ListItemAvatar>
+                <ListItemText
+                    primary={favorite.topic}
+                    secondary={favorite.display_time}
+                />
+                <ListItemText
+                    primary={favorite.comment}
+                />
+                <div>
+                    <DeleteIcon
+                        clickable
+                        onClick={() => handleDeleteClick(favorite)}
+                    />
+                    <ReplyIcon
+                        className={classes.reply_icon}
+                        onClick={() => handleOpenMeeting(favorite)}
+                    />
+                </div>
+            </ListItem>
+            <Divider variant="middle" component="li" />
+        </div>
+    }
 
 
     return useObserver(() =>
 
         <div>
-            {/* <Paper elevation={3}>
+            <Paper elevation={3}>
                 <Typography
                     variant='h5'>
                     Favorites
@@ -111,15 +112,15 @@ export const Favorite = () => {
                     variant="outlined"
                     onChange={handleSearchChange}
                 />
-                {/* <List>
+                <List>
                     {searchField === '' ?
                         store.favoriteArray.map(favorite => listItems(favorite))
                         :
                         fuseFavoriteList.search(searchField).map(({ item }) => listItems(item))
                     }
-                </List> */}
-            {/* </Paper> * /} */}
-            {/* {
+                </List>
+            </Paper>
+            {
                 dialogCard ?
                     <Dialog
                         open={open}
@@ -163,7 +164,7 @@ export const Favorite = () => {
                     </Dialog >
                     :
                     <></>
-            } */}
+            }
 
 
 
