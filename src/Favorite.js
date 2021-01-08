@@ -99,7 +99,7 @@ export const Favorite = () => {
     return useObserver(() =>
 
         <div>
-            <Paper elevation={3}>
+            {/* <Paper elevation={3}>
                 <Typography
                     variant='h5'>
                     Favorites
@@ -118,7 +118,7 @@ export const Favorite = () => {
                         fuseFavoriteList.search(searchField).map(({ item }) => listItems(item))
                     }
                 </List> */}
-            </Paper>
+            {/* </Paper> * /} */}
             {/* {
                 dialogCard ?
                     <Dialog
