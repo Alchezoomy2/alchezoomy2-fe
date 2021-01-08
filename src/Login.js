@@ -64,21 +64,21 @@ export const Login = () => {
         }
 
 
-    }
+
 
 
         if (store.userType === 'student') {
-        loginStudent();
-    } else if (store.userType === 'teacher') {
-        loginTeacher();
-    }
-})
+            loginStudent();
+        } else if (store.userType === 'teacher') {
+            loginTeacher();
+        }
+    })
 
-return (
-    <Backdrop open={true}>
-        <CircularProgress />
-    </Backdrop>
-)
+    return (
+        <Backdrop open={true}>
+            <CircularProgress />
+        </Backdrop>
+    )
 
 }
 
