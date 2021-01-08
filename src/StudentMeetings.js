@@ -156,7 +156,7 @@ export const Student = (props) => {
                             favoriteArray,
                             handleUnfavorite,
                             handleFavorite,
-                            () => { props.handleMeetingDetailClick(meeting.id) })
+                            () => { props.handleMeetingDetailClick(item.id) }))
                     }
                 </List>
 
