@@ -29,11 +29,11 @@ export const Favorite = () => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const classes = useStyles();
-    // let fuseFavoriteList = new fuse(store.favoriteArray, {
-    //     keys: ['text', 'speaker', 'comment', 'display_date'],
-    //     threshold: 0.4,
-    //     ignoreLocation: true
-    // })
+    let fuseFavoriteList = new fuse(store.favoriteArray, {
+        keys: ['text', 'speaker', 'comment'],
+        threshold: 0.4,
+        ignoreLocation: true
+    })
 
 
     // const handleSearchChange = async (e) => {
