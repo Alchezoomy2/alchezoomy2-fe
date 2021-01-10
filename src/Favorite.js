@@ -7,14 +7,10 @@ import fetch from 'superagent';
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
 import FavoriteListItem from './FavoriteListItem.js'
+import Transition from './DialogTransition.js';
+
 
 import CommentIcon from '@material-ui/icons/Comment';
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
-
-
 
 export const Favorite = (props) => {
     const [searchField, setSearchField] = useState('');

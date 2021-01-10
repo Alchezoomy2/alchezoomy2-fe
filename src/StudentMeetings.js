@@ -6,13 +6,9 @@ import fetch from 'superagent';
 import { makeStyles } from '@material-ui/core/styles';
 import fuse from 'fuse.js';
 import MeetingListItem from './MeetingListItem.js';
+import Transition from './DialogTransition.js';
 
 import CommentIcon from '@material-ui/icons/Comment';
-
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const useStyles = makeStyles((theme) => ({
     root: {
