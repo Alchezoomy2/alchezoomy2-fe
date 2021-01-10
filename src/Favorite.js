@@ -41,9 +41,9 @@ export const Favorite = (props) => {
 
         console.log('afterfetch')
         console.log(newFavoriteArray.body)
+        setOpen(false);
         await store.changeFavoriteArray(newFavoriteArray.body);
         console.log('before setOpen')
-        setOpen(false);
         console.log('after setOpen')
 
     }
