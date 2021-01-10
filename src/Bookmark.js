@@ -7,13 +7,13 @@ import fetch from 'superagent';
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
 import BookmarkListItem from './BookmarkListItem.js';
-
+import Transition from './DialogTransition.js';
 
 import CommentIcon from '@material-ui/icons/Comment';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+// const Transition = React.forwardRef(function Transition(props, ref) {
+//     return <Slide direction="up" ref={ref} {...props} />;
+// });
 
 // const useStyles = makeStyles((theme) => ({
 //     reply_icon: {
