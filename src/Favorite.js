@@ -39,7 +39,7 @@ export const Favorite = (props) => {
         const newFavoriteArray = await fetch
             .delete(store.serverUrl + '/student/favorite/' + favoriteId)
 
-        // props.handleFavoriteClick();
+        props.handleFavoriteClick();
         console.log('afterfetch')
         console.log(newFavoriteArray.body)
         // await store.changeFavoriteArray(newFavoriteArray.body);
