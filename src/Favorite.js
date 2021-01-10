@@ -40,7 +40,7 @@ export const Favorite = (props) => {
             .delete(store.serverUrl + '/student/favorite/' + favoriteId)
         console.log('afterfetch')
         console.log(newFavoriteArray.body)
-        // store.changeFavoriteArray(newFavoriteArray.body);
+        store.changeFavoriteArray(newFavoriteArray.body);
         console.log('before setOpen')
         setOpen(false);
         console.log('after setOpen')
