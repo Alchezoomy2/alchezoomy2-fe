@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { AppBar, Toolbar, IconButton, Typography, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import MeetingDetails from './MeetingDetails.js';
 import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
@@ -69,7 +69,9 @@ export const Student = () => {
 
 
     useEffect(() => {
-        setDisplayedPage(<StudentMeetings handleMeetingDetailClick={handleMeetingDetailClick} />)
+        setDisplayedPage(<StudentMeetings
+            handleMeetingDetailClick={handleMeetingDetailClick}
+        />)
     }, [handleMeetingDetailClick])
 
     return useObserver(() =>
@@ -82,7 +84,6 @@ export const Student = () => {
             />
             {displayedPage}
         </Grid>
-
     )
 }
 

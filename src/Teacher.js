@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
-import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider, Backdrop, CircularProgress } from '@material-ui/core';
+import { Grid, Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider, Backdrop, CircularProgress } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -13,18 +13,6 @@ export const Teacher = () => {
     // let [loading, setLoading] = useState('true');
     let [open, setOpen] = useState(false);
     const store = useStateStore();
-
-
-    // useEffect(() => {
-    //     async function retrieveTeacherInfo() {
-
-    //     }
-
-    //     async function retrieveMeetings() {
-
-    //     return retrieveTeacherInfo()
-    //         .then(retrieveMeetings)
-    // }, [store]);
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
@@ -48,50 +36,59 @@ export const Teacher = () => {
 
     return useObserver(() =>
         <div>
-            <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
-                <List style={{ width: '90%' }}>
-                    {
-                        store.meetingsObj.map(meeting =>
-                            <div>
-                                <ListItem alignItems="flex-start" >
-                                    <ListItemText
-                                        primary={meeting.topic}
-                                        secondary={meeting.display_time}
-                                    />
-                                    <div>
-                                        <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
-                                        <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
-                                        <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
-                                        <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
-                                    </div>
-                                    <FormControlLabel
-                                        control={<Switch checked={meeting.published}
-                                            onChange={() => handlePublish(meeting)}
-                                            name='publish'
-                                            color="primary"
-                                        />}
-                                        label="publish" />
-                                    <div>
+            <Grid>
+                <AppBar position="static" style={{ width: 100 %}}>
+                    <Typography
+                        variant="h6" >
+                        Alchezoomy
+                </Typography>
+                </AppBar>
+                <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
+                    <List style={{ width: '90%' }}>
+                        {
+                            store.meetingsObj.map(meeting =>
+                                <div>
+                                    <ListItem alignItems="flex-start" >
+                                        <ListItemText
+                                            primary={meeting.topic}
+                                            secondary={meeting.display_time}
+                                        />
+                                        <div>
+                                            <Chip size="small" color={meeting.video_url ? "primary" : ''} icon={<VideoLabelIcon />} label="video" />
+                                            <Chip size="small" color={meeting.audio_url ? "primary" : ''} icon={<VolumeUpIcon />} label="audio" />
+                                            <Chip size="small" color={meeting.chat_url ? "primary" : ''} icon={<ChatIcon />} label="chat" />
+                                            <Chip size="small" color={meeting.transcript_url ? "primary" : ''} icon={<RecordVoiceOverIcon />} label="transcript" />
+                                        </div>
+                                        <FormControlLabel
+                                            control={<Switch checked={meeting.published}
+                                                onChange={() => handlePublish(meeting)}
+                                                name='publish'
+                                                color="primary"
+                                            />}
+                                            label="publish" />
+                                        <div>
 
-                                        <Chip size="small" color="secondary" label={"views: " + meeting.meeting_views} />
-                                        <Chip size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
-                                    </div>
-                                </ListItem>
+                                            <Chip size="small" color="secondary" label={"views: " + meeting.meeting_views} />
+                                            <Chip size="small" color="secondary" label={"favorites " + meeting.meeting_favs} />
+                                        </div>
+                                    </ListItem>
 
-                                <Divider variant="middle" component="li" />
-                            </div>
+                                    <Divider variant="middle" component="li" />
+                                </div>
 
-                        )
-                    }
-                </List>
+                            )
+                        }
+                    </List>
 
 
 
-            </Container >
-            <Backdrop open={open}>
-                <CircularProgress />
-            </Backdrop>
+                </Container >
+                <Backdrop open={open}>
+                    <CircularProgress />
+                </Backdrop>
+            </Grid>
         </div>
+
     )
 }
 

@@ -116,6 +116,7 @@ export const Student = (props) => {
             .send({ student_info: store.studentInfo })
 
         store.changeMeetingsObj(newMeetingArray.body);
+
         setOpen(false);
         setCommentField("")
     }
