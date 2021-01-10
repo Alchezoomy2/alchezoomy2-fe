@@ -80,10 +80,10 @@ export const Favorite = (props) => {
                         store.favoriteArray.map(favorite => FavoriteListItem(favorite,
                             handleDeleteClick,
                             handleOpenMeeting))
-                        {/* :
-                        fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(item,
-                            handleDeleteClick,
-                            handleOpenMeeting)) */}
+                        // :
+                        //fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(item,
+                        //    handleDeleteClick,
+                        //    handleOpenMeeting)) 
                     }
                 </List>
             </Paper>
