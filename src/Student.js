@@ -39,6 +39,7 @@ export const Student = () => {
         setPageIcon('favorite')
         setDisplayedPage(<Favorite
             handleMeetingDetailClick={handleMeetingDetailClick}
+            handleFavoriteClick={handleFavoriteClick}
         />)
     }
 
