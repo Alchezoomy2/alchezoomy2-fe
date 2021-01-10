@@ -37,7 +37,7 @@ export const Teacher = () => {
     return useObserver(() =>
         <div>
             <Grid>
-                <AppBar position="static" style={{ width: 100 %}}>
+                <AppBar position="static" style={{ width: '100%' }}>
                     <Typography
                         variant="h6" >
                         Alchezoomy
