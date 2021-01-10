@@ -29,7 +29,7 @@ export const Bookmark = (props) => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const classes = useStyles();
-    const history = useHistory();
+    // const history = useHistory();
     let fuseBookmarkList = new fuse(store.bookmarkArray, {
         keys: ['text', 'speaker', 'comment'],
         threshold: 0.4,
