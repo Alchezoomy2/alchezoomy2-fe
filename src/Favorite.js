@@ -39,10 +39,10 @@ export const Favorite = (props) => {
         const newFavoriteArray = await fetch
             .delete(store.serverUrl + '/student/favorite/' + favoriteId)
 
-        props.handleFavoriteClick();
+        // props.handleFavoriteClick();
         console.log('afterfetch')
         console.log(newFavoriteArray.body)
-        // await store.changeFavoriteArray(newFavoriteArray.body);
+        await store.changeFavoriteArray(newFavoriteArray.body);
         console.log('before setOpen')
         setOpen(false);
         console.log('after setOpen')
@@ -76,14 +76,14 @@ export const Favorite = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List>
-                    {searchField === '' ?
+                    {//searchField === '' ?
                         store.favoriteArray.map(favorite => FavoriteListItem(favorite,
                             handleDeleteClick,
                             handleOpenMeeting))
-                        :
+                        {/* :
                         fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(item,
                             handleDeleteClick,
-                            handleOpenMeeting))
+                            handleOpenMeeting)) */}
                     }
                 </List>
             </Paper>
