@@ -1,26 +1,25 @@
 import { useObserver } from 'mobx-react';
 import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
-import { Divider, Paper, List, ListItemText, ListItem, Typography, ListItemAvatar, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
+import { Divider, Paper, List, Typography, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
 import fuse from 'fuse.js';
 import fetch from 'superagent';
-import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from "react-router-dom";
+// import { makeStyles } from '@material-ui/core/styles';
+// import { useHistory } from "react-router-dom";
+import BookmarkListItem from './BookmarkListItem.js';
 
 
 import CommentIcon from '@material-ui/icons/Comment';
-import ReplyIcon from '@material-ui/icons/Reply';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles((theme) => ({
-    reply_icon: {
-        transform: 'scaleX(-1)'
-    }
-}))
+// const useStyles = makeStyles((theme) => ({
+//     reply_icon: {
+//         transform: 'scaleX(-1)'
+//     }
+// }))
 
 
 export const Bookmark = (props) => {
@@ -28,7 +27,7 @@ export const Bookmark = (props) => {
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
-    const classes = useStyles();
+    // const classes = useStyles();
     // const history = useHistory();
     let fuseBookmarkList = new fuse(store.bookmarkArray, {
         keys: ['text', 'speaker', 'comment'],
@@ -55,47 +54,8 @@ export const Bookmark = (props) => {
     }
 
     const handleOpenMeeting = async (bookmark) => {
-        // const returnedObject = await fetch
-        //     .get(store.serverUrl + `/student/meetings/${bookmark.meeting_id}`)
-
-        // await fetch.get(store.serverUrl + `/student/view/${bookmark.meeting_id}`)
-        // store.changeMeetingDetails(returnedObject.body.meeting);
-        // store.changeTranscriptArray(returnedObject.body.transcript);
-        // store.changeChatArray(returnedObject.body.chat);
 
         props.handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp)
-        // history.push(`/meeting/${bookmark.parsed_timestamp}`)
-    }
-
-    const listItems = (bookmark) => {
-
-        return <div>
-
-            <ListItem alignItems='flex-start'>
-                <ListItemAvatar>
-                    <Avatar alt={bookmark.user_name} src={bookmark.pic_url} />
-                </ListItemAvatar>
-                <ListItemText
-                    primary={bookmark.topic}
-                    secondary={bookmark.display_time}
-                />
-                <ListItemText
-                    primary={`${bookmark.speaker}:  ${bookmark.text}`}
-                    secondary={bookmark.comment}
-                />
-                <div>
-                    <DeleteIcon
-                        clickable
-                        onClick={() => handleDeleteClick(bookmark)}
-                    />
-                    <ReplyIcon
-                        className={classes.reply_icon}
-                        onClick={() => handleOpenMeeting(bookmark)}
-                    />
-                </div>
-            </ListItem>
-            <Divider variant="middle" component="li" />
-        </div>
     }
 
 
@@ -116,9 +76,13 @@ export const Bookmark = (props) => {
                 />
                 <List>
                     {searchField === '' ?
-                        store.bookmarkArray.map(bookmark => listItems(bookmark))
+                        store.bookmarkArray.map(bookmark => BookmarkListItem(bookmark,
+                            handleDeleteClick,
+                            handleOpenMeeting))
                         :
-                        fuseBookmarkList.search(searchField).map(({ item }) => listItems(item))
+                        fuseBookmarkList.search(searchField).map(({ item }) => BookmarkListItem(item,
+                            handleDeleteClick,
+                            handleOpenMeeting))
                     }
                 </List>
             </Paper>

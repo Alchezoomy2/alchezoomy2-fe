@@ -5,29 +5,35 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 
 
-export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
+
+
+export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting) => {
+
 
     return (
+
         <div>
+
             <ListItem alignItems='flex-start'>
                 <ListItemAvatar>
-                    <Avatar alt={favorite.user_name} src={favorite.pic_url} />
+                    <Avatar alt={bookmark.user_name} src={bookmark.pic_url} />
                 </ListItemAvatar>
                 <ListItemText
-                    primary={favorite.topic}
-                    secondary={favorite.display_time}
+                    primary={bookmark.topic}
+                    secondary={bookmark.display_time}
                 />
                 <ListItemText
-                    primary={favorite.comment}
+                    primary={`${bookmark.speaker}:  ${bookmark.text}`}
+                    secondary={bookmark.comment}
                 />
                 <div>
                     <DeleteIcon
                         clickable
-                        onClick={() => handleDeleteClick(favorite)}
+                        onClick={() => handleDeleteClick(bookmark)}
                     />
                     <ReplyIcon
                         style={{ transform: 'scaleX(-1)' }}
-                        onClick={() => handleOpenMeeting(favorite)}
+                        onClick={() => handleOpenMeeting(bookmark)}
                     />
                 </div>
             </ListItem>
@@ -36,4 +42,4 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
     )
 }
 
-export default FavoriteListItem;
+export default BookmarkListItem;

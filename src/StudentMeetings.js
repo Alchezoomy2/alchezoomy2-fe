@@ -101,8 +101,6 @@ export const Student = (props) => {
     const handleFavoriteChange = async () => {
         let newfavoriteArray = [];
 
-        console.log(favoriteCard)
-
         if (favoriteCard.current) {
 
             newfavoriteArray = await fetch

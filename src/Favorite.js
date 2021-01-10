@@ -22,7 +22,6 @@ export const Favorite = (props) => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     // const classes = useStyles();
-    // const history = useHistory();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
         keys: ['topic', 'comment', 'user_name'],
         threshold: 0.4,
