@@ -1,4 +1,4 @@
-import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, Slide, DialogContentText, TextField, Typography, DialogActions } from '@material-ui/core';
+import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from '@material-ui/core';
 import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
@@ -61,7 +61,6 @@ export const Student = (props) => {
 
 
     useEffect(() => {
-
         async function retrieveFavorites() {
             const newFavoritesArray = await fetch
                 .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
@@ -98,7 +97,6 @@ export const Student = (props) => {
         let newfavoriteArray = [];
 
         if (favoriteCard.current) {
-
             newfavoriteArray = await fetch
                 .delete(store.serverUrl + '/student/favorite/' + favoriteCard.favoriteId)
         } else {
@@ -111,6 +109,13 @@ export const Student = (props) => {
                 })
         }
         setFavoriteArray(newfavoriteArray.body);
+
+
+        const newMeetingArray = await fetch
+            .post(store.serverUrl + '/student/meetings')
+            .send({ student_info: store.studentInfo })
+
+        store.changeMeetingsObj(newMeetingArray.body);
         setOpen(false);
         setCommentField("")
     }
