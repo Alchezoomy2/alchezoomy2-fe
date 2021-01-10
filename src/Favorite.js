@@ -58,7 +58,6 @@ export const Favorite = (props) => {
     }
 
 
-
     return useObserver(() =>
 
         <div>
