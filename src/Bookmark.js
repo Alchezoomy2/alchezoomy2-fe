@@ -99,13 +99,13 @@ export const Bookmark = (props) => {
                     >
                         <DialogContent>
                             <Avatar alt={dialogCard.user_name} src={dialogCard.pic_url} />
-                            <DialogTitle className={classes.dialog_title}>
+                            <DialogTitle >
                                 {dialogCard.topic}
                             </DialogTitle>
-                            <DialogContentText id="speaker" className={classes.dialog_speaker}>
+                            <DialogContentText id="speaker" >
                                 {dialogCard.user_name}
                             </DialogContentText>
-                            <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
+                            <DialogContentText id="timestamp" >
                                 {dialogCard.display_time}
                             </DialogContentText>
                             <Divider />
