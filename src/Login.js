@@ -43,6 +43,8 @@ export const Login = () => {
                 .post(store.serverUrl + '/teacher/oauth')
                 .send({ code: store.code });
 
+            console.log(returnedObject.cookie)
+            console.log(returnedObject.cookies)
             await store.changeTeacherInfo(returnedObject.body);
 
             if (store.teacherInfo.new_user) {
