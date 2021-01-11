@@ -17,7 +17,9 @@ export const Login = () => {
 
             let returnedStudentInfo = await agent
                 .post(store.serverUrl + '/student/oauth')
-                .send({ code: store.code });
+                .send({ code: store.code })
+
+            console.log(returnedStudentInfo)
 
             if (returnedStudentInfo.body.new_user) {
                 returnedStudentInfo = await agent
