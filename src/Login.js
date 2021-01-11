@@ -13,20 +13,21 @@ export const Login = () => {
     useEffect(() => {
 
         async function loginStudent() {
+            const agent = fetch.agent()
 
-            let returnedStudentInfo = await fetch.agent()
+            let returnedStudentInfo = await agent
                 .post(store.serverUrl + '/student/oauth')
                 .send({ code: store.code });
 
             if (returnedStudentInfo.body.new_user) {
-                returnedStudentInfo = await fetch
+                returnedStudentInfo = await agent
                     .post(store.serverUrl + '/student/new')
                     .send({ student_info: returnedStudentInfo.body })
             }
 
             await store.changeStudentInfo(returnedStudentInfo.body);
 
-            const newMeetingObj = await fetch.agent()
+            const newMeetingObj = await agent
                 .post(store.serverUrl + '/student/meetings')
                 .send({ student_info: store.studentInfo })
 
