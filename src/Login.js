@@ -31,6 +31,7 @@ export const Login = () => {
 
             const newMeetingObj = await agent
                 .post(store.serverUrl + '/student/meetings')
+                .withCredentials()
                 .send({ student_info: store.studentInfo })
 
             store.changeMeetingsObj(newMeetingObj.body);
