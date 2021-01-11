@@ -59,7 +59,7 @@ export const Student = () => {
         const returnedObject = await fetch
             .get(store.serverUrl + `/student/meetings/${meetingId}`)
 
-        await fetch.get(store.serverUrl + `/student/view/${meetingId}`)
+        await fetch.get(store.serverUrl + `/student/meetings/view/${meetingId}`)
         store.changeMeetingDetails(returnedObject.body.meeting);
         store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
