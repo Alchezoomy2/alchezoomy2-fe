@@ -58,6 +58,7 @@ export const Login = () => {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/meetings')
                 .send({ teacher_info: store.teacherInfo })
+                .withCredentials()
 
             store.changeMeetingsObj(newMeetingObj.body);
 
