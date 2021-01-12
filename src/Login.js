@@ -45,7 +45,8 @@ export const Login = () => {
             const returnedObject = await agent
                 .post(store.serverUrl + '/teacher/oauth')
                 .send({ code: store.code })
-                .set('cookie')
+                .withCredentials()
+                .set('session')
 
             console.log(returnedObject)
             await store.changeTeacherInfo(returnedObject.body);
