@@ -46,9 +46,7 @@ export const Login = () => {
                 .post(store.serverUrl + '/teacher/oauth')
                 .send({ code: store.code })
                 .withCredentials()
-                .set('session')
 
-            console.log(returnedObject)
             await store.changeTeacherInfo(returnedObject.body);
 
             if (store.teacherInfo.new_user) {
@@ -63,7 +61,7 @@ export const Login = () => {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/meetings')
                 .send({ teacher_info: store.teacherInfo })
-                .withCredentials()
+                .withCredentials('session')
 
 
             store.changeMeetingsObj(newMeetingObj.body);
