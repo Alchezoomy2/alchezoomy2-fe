@@ -19,9 +19,6 @@ export const Login = () => {
                 .post(store.serverUrl + '/student/oauth')
                 .send({ code: store.code })
 
-            console.log('here!')
-            console.log(returnedStudentInfo)
-
             if (returnedStudentInfo.body.new_user) {
                 returnedStudentInfo = await agent
                     .post(store.serverUrl + '/student/new')
@@ -42,17 +39,20 @@ export const Login = () => {
 
 
         async function loginTeacher() {
+            const agent = fetch.agent()
             let newMeetingObj;
 
-            const returnedObject = await fetch
+            const returnedObject = await agent
                 .post(store.serverUrl + '/teacher/oauth')
                 .send({ code: store.code });
 
+            console.log(returnedObject)
             await store.changeTeacherInfo(returnedObject.body);
 
             if (store.teacherInfo.new_user) {
-                const returnedObject = await fetch
+                const returnedObject = await agent
                     .post(store.serverUrl + '/teacher/new')
+                    .withCredentials()
                     .send({ teacher_info: store.teacherInfo });
 
                 store.changeTeacherInfo(returnedObject.body)
