@@ -46,9 +46,6 @@ export const Login = () => {
                 .post(store.serverUrl + '/teacher/oauth')
                 .send({ code: store.code })
 
-            console.log(agent.jar)
-            console.log(agent.jar.getCookie('session'))
-
 
             await store.changeTeacherInfo(returnedObject.body);
 
