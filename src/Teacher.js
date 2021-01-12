@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
 import { AppBar, Typography, Grid, Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider, Backdrop, CircularProgress } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
@@ -10,7 +10,7 @@ import fetch from 'superagent';
 
 
 export const Teacher = () => {
-    // let [loading, setLoading] = useState('true');
+
     let [open, setOpen] = useState(false);
     const store = useStateStore();
 
@@ -22,6 +22,8 @@ export const Teacher = () => {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/unpublish')
                 .send({ meetingId: meeting.id })
+                .withCredentials()
+
         } else {
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/publish')
@@ -29,6 +31,8 @@ export const Teacher = () => {
                     meetingId: meeting.id,
                     access_token: store.teacherInfo.access_token
                 })
+                .withCredentials()
+
         }
         store.changeMeetingsObj(newMeetingObj.body);
         setOpen(false);

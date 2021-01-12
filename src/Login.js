@@ -1,4 +1,4 @@
-import { useObserver } from 'mobx-react';
+// import { useObserver } from 'mobx-react';
 import React, { useEffect } from 'react';
 import { useStateStore } from './StoreProvider';
 import { useHistory } from 'react-router-dom';
@@ -53,8 +53,8 @@ export const Login = () => {
             if (store.teacherInfo.new_user) {
                 const returnedObject = await agent
                     .post(store.serverUrl + '/teacher/new')
+                    .send({ teacher_info: store.teacherInfo })
                     .withCredentials()
-                    .send({ teacher_info: store.teacherInfo });
 
                 store.changeTeacherInfo(returnedObject.body)
             }
