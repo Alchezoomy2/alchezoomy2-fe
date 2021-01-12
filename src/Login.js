@@ -44,7 +44,8 @@ export const Login = () => {
 
             const returnedObject = await agent
                 .post(store.serverUrl + '/teacher/oauth')
-                .send({ code: store.code });
+                .send({ code: store.code })
+                .set('cookie')
 
             console.log(returnedObject)
             await store.changeTeacherInfo(returnedObject.body);
@@ -60,9 +61,9 @@ export const Login = () => {
 
             newMeetingObj = await fetch
                 .post(store.serverUrl + '/teacher/meetings')
+                .send({ teacher_info: store.teacherInfo })
                 .withCredentials()
 
-                .send({ teacher_info: store.teacherInfo })
 
             store.changeMeetingsObj(newMeetingObj.body);
 
