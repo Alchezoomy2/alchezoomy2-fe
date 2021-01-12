@@ -47,6 +47,9 @@ export const Login = () => {
                 .send({ code: store.code })
                 .withCredentials();
 
+            console.log(agent.jar)
+            console.log(agent.jar.getCookie('session'))
+
 
             await store.changeTeacherInfo(returnedObject.body);
 
