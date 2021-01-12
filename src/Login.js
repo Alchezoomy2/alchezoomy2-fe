@@ -45,6 +45,7 @@ export const Login = () => {
             const returnedObject = await fetch
                 .post(store.serverUrl + '/teacher/oauth')
                 .send({ code: store.code })
+                .withCredentials()
 
 
             await store.changeTeacherInfo(returnedObject.body);
