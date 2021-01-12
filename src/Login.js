@@ -19,6 +19,7 @@ export const Login = () => {
                 .post(store.serverUrl + '/student/oauth')
                 .send({ code: store.code })
 
+            console.log('here!')
             console.log(returnedStudentInfo)
 
             if (returnedStudentInfo.body.new_user) {
