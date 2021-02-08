@@ -1,7 +1,6 @@
 import fetch from "superagent";
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
-
 export async function studentAuth(code) {
     try {
         const response = await fetch
