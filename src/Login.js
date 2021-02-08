@@ -39,7 +39,7 @@ export const Login = () => {
             console.log('loginTeacher()')
             const returnedObject = await teacherAuth(store.code);
 
-            await store.changeTeacherInfo(returnedObject.body);
+            await store.changeTeacherInfo(returnedObject);
 
             if (store.teacherInfo.new_user) {
                 const returnedObject = await createTeacher(store.teacherInfo)
