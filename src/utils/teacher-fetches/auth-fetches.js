@@ -6,7 +6,7 @@ export async function teacherAuth(code) {
         const response = await fetch
             .post(serverUrl + '/teacher/oauth')
             .send({ code })
-
+        console.log(response.body)
         return response.body
     } catch (err) {
         throw err;
