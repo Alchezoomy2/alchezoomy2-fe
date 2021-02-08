@@ -6,7 +6,7 @@ const StoreContext = React.createContext();
 export const StoreProvider = ({ children }) => {
     const store = useLocalObservable(() => ({
         code: '',
-        userType: '',
+        userType: localStorage.getItem('USER_TYPE') || '',
         teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
         studentInfo: localStorage.getItem('STUDENT_INFO') || '',
         meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
@@ -24,6 +24,7 @@ export const StoreProvider = ({ children }) => {
 
         changeUserType: newUserType => {
             store.UserType = newUserType;
+            localStorage.setItem('USER_TYPE', newUserType)
         },
 
         changeTeacherInfo: newTeacherInfo => {
