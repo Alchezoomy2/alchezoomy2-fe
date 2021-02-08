@@ -1,5 +1,4 @@
 import fetch from "superagent";
-require('dotenv').config()
 const serverUrl = process.env.REACT_APP_SERVER_URL
 const zoomURL = process.env.REACT_APP_ZOOM_API_URL
 const serverPort = process.env.REACT_APP_SERVER_PORT
@@ -10,6 +9,7 @@ export async function teacherAuth(code) {
     console.log(zoomURL)
     console.log(serverPort)
     console.log(s3)
+    console.log(process.env)
     try {
         const response = await fetch
             .post(serverUrl + '/teacher/oauth')
