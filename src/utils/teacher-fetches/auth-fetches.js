@@ -3,7 +3,7 @@ import fetch from "superagent";
 
 export async function teacherAuth(code) {
     const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
-    console.log('serverUrl')
+    console.log(serverUrl)
     try {
         const response = await fetch
             .post(serverUrl + '/teacher/oauth')
