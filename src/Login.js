@@ -7,6 +7,7 @@ import { studentAuth, createStudent } from './utils/student-fetches/auth-fetches
 import { teacherAuth, createTeacher } from './utils/teacher-fetches/auth-fetches';
 import { fetchAllStudentMeetings } from './utils/student-fetches/meeting-fetches.js'
 import { fetchAllTeacherMeetings } from './utils/teacher-fetches/meeting-fetches.js'
+require('dotenv').config()
 
 export const Login = () => {
     const store = useStateStore();
