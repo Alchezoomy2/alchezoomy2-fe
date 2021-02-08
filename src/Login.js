@@ -16,15 +16,12 @@ export const Login = () => {
 
         async function loginStudent() {
             let returnedStudentInfo = await studentAuth(store.code)
-            console.log('{}{}{}{}{}{}{}{}{}{}{}{}')
-            console.log(returnedStudentInfo)
-            console.log('{}{}{}{}{}{}{}{}{}{}{}{}')
 
             if (returnedStudentInfo.new_user) {
                 returnedStudentInfo = await createStudent(returnedStudentInfo)
             }
 
-            await store.changeStudentInfo(returnedStudentInfo.body);
+            await store.changeStudentInfo(returnedStudentInfo);
 
             const newMeetingObj = await fetchAllStudentMeetings()
 
@@ -35,8 +32,6 @@ export const Login = () => {
 
 
         async function loginTeacher() {
-            let newMeetingObj;
-            console.log('loginTeacher()')
             const returnedObject = await teacherAuth(store.code);
 
             await store.changeTeacherInfo(returnedObject);
@@ -44,19 +39,18 @@ export const Login = () => {
             if (store.teacherInfo.new_user) {
                 const returnedObject = await createTeacher(store.teacherInfo)
 
-                store.changeTeacherInfo(returnedObject.body)
+                store.changeTeacherInfo(returnedObject)
             }
 
-            newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
+            let newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
 
-            store.changeMeetingsObj(newMeetingObj.body);
+            store.changeMeetingsObj(newMeetingObj);
 
             history.push('/teacher/');
 
         }
 
-        console.log('useEffect()')
-        console.log(store.userType)
+
         if (store.userType === 'student') {
             loginStudent();
         } else if (store.userType === 'teacher') {
