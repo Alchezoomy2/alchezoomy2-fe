@@ -22,7 +22,6 @@ export async function teacherAuth(code) {
 }
 
 export async function createTeacher(teacher_info) {
-    const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
     try {
         const response = await fetch
             .post(serverUrl + '/teacher/new')

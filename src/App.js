@@ -19,7 +19,6 @@ function App() {
     return (
         <StoreProvider>
             <Router>
-                {/* <Header /> */}
                 <Switch>
                     <Route exact path="/"
                         component={LandingPage} />
