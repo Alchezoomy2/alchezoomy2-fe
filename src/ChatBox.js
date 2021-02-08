@@ -1,9 +1,8 @@
 import { useObserver } from "mobx-react";
-import React, { useState, useEffect, useRef } from "react";
-import fetch from 'superagent';
+import React, { useState, useEffect } from "react";
 import fuse from 'fuse.js';
 
-import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, FormControlLabel, Switch } from '@material-ui/core';
+import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from '@material-ui/core';
 import { useStateStore } from './StoreProvider.js'
 import { makeStyles } from '@material-ui/core/styles';
 import BookmarkIcon from '@material-ui/icons/Bookmark';

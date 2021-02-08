@@ -1,7 +1,7 @@
 import { useObserver } from 'mobx-react';
 import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
-import { Divider, Paper, List, Typography, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
+import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
 import fuse from 'fuse.js';
 import { deleteBookmark } from './utils/student-fetches/bookmark-fetches.js'
 // import { makeStyles } from '@material-ui/core/styles';

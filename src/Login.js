@@ -56,7 +56,7 @@ export const Login = () => {
         } else if (store.userType === 'teacher') {
             loginTeacher();
         }
-    }, [])
+    })
 
     return (
         <Backdrop open={true}>

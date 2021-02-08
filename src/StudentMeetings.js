@@ -2,7 +2,6 @@ import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, Dialog
 import { useObserver } from 'mobx-react';
 import React, { useEffect, useState } from 'react'
 import { useStateStore } from './StoreProvider.js'
-import fetch from 'superagent';
 import { makeStyles } from '@material-ui/core/styles';
 import fuse from 'fuse.js';
 import MeetingListItem from './MeetingListItem.js';

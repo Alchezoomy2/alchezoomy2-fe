@@ -9,7 +9,6 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 // import { useStateStore } from './StoreProvider.js'
 import { useObserver } from 'mobx-react';
-import { useHistory } from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
