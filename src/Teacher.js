@@ -6,8 +6,7 @@ import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import { useObserver } from 'mobx-react';
-import fetch from 'superagent';
-
+import { publishMeeting, unpublishMeeting } from './utils/teacher-fetches/meeting-fetches.js'
 
 export const Teacher = () => {
 
@@ -19,14 +18,10 @@ export const Teacher = () => {
         setOpen(true);
 
         if (meeting.published) {
-            newMeetingObj = await fetch
-                .post(`${store.serverUrl}/teacher/unpublish${meeting.id}`)
-                .withCredentials()
+            newMeetingObj = await unpublishMeeting(meeting.id)
 
         } else {
-            newMeetingObj = await fetch
-                .post(`${store.serverUrl}/teacher/publish/${meeting.id}`)
-                .withCredentials()
+            newMeetingObj = await publishMeeting(meeting.id)
 
         }
         store.changeMeetingsObj(newMeetingObj.body);

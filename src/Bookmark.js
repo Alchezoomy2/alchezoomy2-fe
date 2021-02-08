@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
 import { Divider, Paper, List, Typography, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
 import fuse from 'fuse.js';
-import fetch from 'superagent';
+import { deleteBookmark } from './utils/student-fetches/bookmark-fetches.js'
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
 import BookmarkListItem from './BookmarkListItem.js';
@@ -19,7 +19,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 // }))
 
 
-export const Bookmark = (props) => {
+export const Bookmark = ({ handleMeetingDetailClick }) => {
     const [searchField, setSearchField] = useState('');
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -38,9 +38,8 @@ export const Bookmark = (props) => {
     }
 
     const handleDeleteBookmark = async (bookmarkId) => {
+        const newBookmarkArray = await deleteBookmark(bookmarkId)
 
-        const newBookmarkArray = await fetch
-            .delete(store.serverUrl + '/student/bookmark/' + bookmarkId)
         store.changeBookmarkArray(newBookmarkArray.body);
         setOpen(false);
     }
@@ -52,7 +51,7 @@ export const Bookmark = (props) => {
 
     const handleOpenMeeting = async (bookmark) => {
 
-        props.handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp)
+        handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp)
     }
 
 

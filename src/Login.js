@@ -2,9 +2,11 @@
 import React, { useEffect } from 'react';
 import { useStateStore } from './StoreProvider';
 import { useHistory } from 'react-router-dom';
-import fetch from 'superagent';
 import { Backdrop, CircularProgress } from '@material-ui/core';
-
+import { studentAuth, createStudent } from './utils/student-fetches/auth-fetches';
+import { teacherAuth, createTeacher } from './utils/teacher-fetches/auth-fetches';
+import { fetchAllStudentMeetings } from './utils/student-fetches/meeting-fetches.js'
+import { fetchAllTeacherMeetings } from './utils/teacher-fetches/meeting-fetches.js'
 
 export const Login = () => {
     const store = useStateStore();
@@ -13,24 +15,15 @@ export const Login = () => {
     useEffect(() => {
 
         async function loginStudent() {
-            const agent = fetch.agent()
+            let returnedStudentInfo = await studentAuth(store.code)
 
-            let returnedStudentInfo = await agent
-                .post(store.serverUrl + '/student/oauth')
-                .send({ code: store.code })
-
-            if (returnedStudentInfo.body.new_user) {
-                returnedStudentInfo = await agent
-                    .post(store.serverUrl + '/student/new')
-                    .send({ student_info: returnedStudentInfo.body })
+            if (returnedStudentInfo.new_user) {
+                returnedStudentInfo = await createStudent(returnedStudentInfo)
             }
 
             await store.changeStudentInfo(returnedStudentInfo.body);
 
-            const newMeetingObj = await agent
-                .post(store.serverUrl + '/student/meetings')
-                .withCredentials()
-                .send({ student_info: store.studentInfo })
+            const newMeetingObj = await fetchAllStudentMeetings()
 
             store.changeMeetingsObj(newMeetingObj.body);
 
@@ -39,30 +32,19 @@ export const Login = () => {
 
 
         async function loginTeacher() {
-            const agent = fetch.agent()
             let newMeetingObj;
 
-            const returnedObject = await fetch
-                .post(store.serverUrl + '/teacher/oauth')
-                .send({ code: store.code })
-                .withCredentials()
-
+            const returnedObject = await teacherAuth(store.code);
 
             await store.changeTeacherInfo(returnedObject.body);
 
             if (store.teacherInfo.new_user) {
-                const returnedObject = await agent
-                    .post(store.serverUrl + '/teacher/new')
-                    .send({ teacher_info: store.teacherInfo })
-                    .withCredentials()
+                const returnedObject = await createTeacher(store.teacherInfo)
 
                 store.changeTeacherInfo(returnedObject.body)
             }
 
-            newMeetingObj = await fetch
-                .post(store.serverUrl + '/teacher/meetings')
-                .send({ teacher_info: store.teacherInfo })
-                .withCredentials()
+            newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
 
             store.changeMeetingsObj(newMeetingObj.body);
 
@@ -74,7 +56,7 @@ export const Login = () => {
         } else if (store.userType === 'teacher') {
             loginTeacher();
         }
-    })
+    }, [])
 
     return (
         <Backdrop open={true}>

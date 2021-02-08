@@ -9,6 +9,8 @@ import MeetingListItem from './MeetingListItem.js';
 import Transition from './DialogTransition.js';
 
 import CommentIcon from '@material-ui/icons/Comment';
+import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from './utils/student-fetches/favorite-fetches.js';
+import { fetchAllStudentMeetings } from './utils/student-fetches/meeting-fetches.js'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,9 +64,7 @@ export const Student = (props) => {
 
     useEffect(() => {
         async function retrieveFavorites() {
-            const newFavoritesArray = await fetch
-                .get(store.serverUrl + '/student/favorite/' + store.studentInfo.id)
-
+            const newFavoritesArray = await fetchAllStudentFavorites();
             await setFavoriteArray(newFavoritesArray.body);
         }
         retrieveFavorites();
@@ -97,23 +97,17 @@ export const Student = (props) => {
         let newfavoriteArray = [];
 
         if (favoriteCard.current) {
-            newfavoriteArray = await fetch
-                .delete(store.serverUrl + '/student/favorite/' + favoriteCard.favoriteId)
+            newfavoriteArray = await deleteFavorite(favoriteCard.id)
         } else {
-            newfavoriteArray = await fetch
-                .post(store.serverUrl + '/student/favorite/')
-                .send({
-                    meetingId: favoriteCard.id,
-                    studentId: store.studentInfo.id,
-                    comment: commentField
-                })
+            newfavoriteArray = await createFavorite({
+                meetingId: favoriteCard.id,
+                studentId: store.studentInfo.id,
+                comment: commentField
+            })
         }
         setFavoriteArray(newfavoriteArray.body);
 
-
-        const newMeetingArray = await fetch
-            .post(store.serverUrl + '/student/meetings')
-            .send({ student_info: store.studentInfo })
+        const newMeetingArray = await fetchAllStudentMeetings();
 
         store.changeMeetingsObj(newMeetingArray.body);
 

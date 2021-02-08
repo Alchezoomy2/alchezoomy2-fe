@@ -10,6 +10,7 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import CommentIcon from '@material-ui/icons/Comment';
 import ReplyIcon from '@material-ui/icons/Reply';
+import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "./utils/student-fetches/bookmark-fetches.js";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -61,9 +62,9 @@ export const ChatBox = (props) => {
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
-    const [chatSync, setChatSync] = useState(true);
+    // const [chatSync, setChatSync] = useState(true);
     const [searchField, setSearchField] = useState('');
-    const selectedChatIndex = useRef(0)
+    // const selectedChatIndex = useRef(0)
     const fuseChatList = new fuse(store.chatArray, {
         keys: ['text', 'speaker'],
         threshold: 0.4,
@@ -71,10 +72,9 @@ export const ChatBox = (props) => {
     })
 
 
-    const handleChatSync = async () => {
-        await chatSync ? setChatSync(false) : setChatSync(true);
-        console.log(chatSync)
-    }
+    // const handleChatSync = async () => {
+    //     await chatSync ? setChatSync(false) : setChatSync(true);
+    // }
 
     const handleBookmark = async (chatItem) => {
         setCommentField("")
@@ -99,18 +99,14 @@ export const ChatBox = (props) => {
     const handleBookmarkChange = async () => {
         let newBookmarkArray = [];
         if (bookmarkCard.current) {
-
             const bookmarkId = bookmarkArray.find(bookmark => bookmark['chat_id'] === bookmarkCard.id)
-            newBookmarkArray = await fetch
-                .delete(store.serverUrl + '/student/bookmark/' + bookmarkId.id)
+            newBookmarkArray = await deleteBookmark(bookmarkId.id)
         } else {
-            newBookmarkArray = await fetch
-                .post(store.serverUrl + '/student/bookmark')
-                .send({
-                    chatId: bookmarkCard.id,
-                    studentId: store.studentInfo.id,
-                    comment: commentField
-                })
+            newBookmarkArray = await createBookmark({
+                chatId: bookmarkCard.id,
+                studentId: store.studentInfo.id,
+                comment: commentField
+            })
         }
         setBookmarkArray(newBookmarkArray.body);
         setOpen(false);
@@ -127,8 +123,7 @@ export const ChatBox = (props) => {
 
     useEffect(() => {
         async function retrieveBookmarks() {
-            const bookmarkArray = await fetch
-                .get(store.serverUrl + '/student/bookmark/' + store.studentInfo.id)
+            const bookmarkArray = await fetchAllStudentBookmarks();
 
             await setBookmarkArray(bookmarkArray.body);
         }
@@ -190,7 +185,7 @@ export const ChatBox = (props) => {
                     variant='h5'>
                     CHAT
                 </Typography>
-                <FormControlLabel
+                {/* <FormControlLabel
                     control={
                         <Switch
                             checked={chatSync}
@@ -200,7 +195,7 @@ export const ChatBox = (props) => {
                         />
                     }
                     label="sync chat"
-                />
+                /> */}
                 <TextField
                     id="search"
                     label="search"

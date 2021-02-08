@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider.js'
 import { Divider, Paper, List, Typography, Avatar, TextField, Slide, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
 import fuse from 'fuse.js';
-import fetch from 'superagent';
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
 import FavoriteListItem from './FavoriteListItem.js'
@@ -11,8 +10,9 @@ import Transition from './DialogTransition.js';
 
 
 import CommentIcon from '@material-ui/icons/Comment';
+import { deleteFavorite } from './utils/student-fetches/favorite-fetches.js';
 
-export const Favorite = (props) => {
+export const Favorite = ({ handleMeetingDetailClick }) => {
     const [searchField, setSearchField] = useState('');
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -30,8 +30,7 @@ export const Favorite = (props) => {
     }
 
     const handleDeleteFavorite = async (favoriteId) => {
-        const newFavoriteArray = await fetch
-            .delete(store.serverUrl + '/student/favorite/' + favoriteId)
+        const newFavoriteArray = await deleteFavorite(favoriteId);
 
         await store.changeFavoriteArray(newFavoriteArray.body);
         setOpen(false);
@@ -43,7 +42,7 @@ export const Favorite = (props) => {
     }
 
     const handleOpenMeeting = async (favorite) => {
-        props.handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp)
+        handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp)
     }
 
 

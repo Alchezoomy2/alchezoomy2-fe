@@ -9,7 +9,10 @@ import StudentMeetings from "./StudentMeetings.js"
 import StudentHeader from "./StudentHeader.js";
 import Bookmark from "./Bookmark.js";
 import Favorite from "./Favorite.js";
-import fetch from "superagent";
+// import fetch from "superagent";
+import { fetchAllStudentMeetings, getMeetingDetails } from './utils/student-fetches/meeting-fetches.js'
+import { fetchAllStudentBookmarks } from './utils/student-fetches/bookmark-fetches.js'
+import { fetchAllStudentFavorites } from './utils/student-fetches/favorite-fetches.js';
 
 
 
@@ -17,12 +20,9 @@ export const Student = () => {
     const [displayedPage, setDisplayedPage] = useState();
     const [pageIcon, setPageIcon] = useState('meeting');
     const store = useStateStore();
-    // const history = useHistory();
-
 
     const handleBookmarkClick = async () => {
-        const returnedBookmarkArray = await fetch
-            .get(store.serverUrl + `/student/bookmark/` + store.studentInfo.id);
+        const returnedBookmarkArray = await fetchAllStudentBookmarks();
 
         await store.changeBookmarkArray(returnedBookmarkArray.body)
         setPageIcon('bookmark')
@@ -32,8 +32,7 @@ export const Student = () => {
     }
 
     const handleFavoriteClick = async () => {
-        const returnedFavoriteArray = await fetch
-            .get(store.serverUrl + `/student/favorite/` + store.studentInfo.id);
+        const returnedFavoriteArray = await fetchAllStudentFavorites
 
         await store.changeFavoriteArray(returnedFavoriteArray.body)
         setPageIcon('favorite')
@@ -44,10 +43,7 @@ export const Student = () => {
     }
 
     const handleMeetingsClick = async () => {
-        const newMeetingArray = await fetch
-            .post(store.serverUrl + '/student/meetings')
-            .send({ student_info: store.studentInfo })
-
+        const newMeetingArray = await fetchAllStudentMeetings();
         store.changeMeetingsObj(newMeetingArray.body);
         setPageIcon('meeting')
         setDisplayedPage(<StudentMeetings
@@ -56,10 +52,8 @@ export const Student = () => {
 
     const handleMeetingDetailClick = useCallback(async (meetingId, startTime = 0) => {
 
-        const returnedObject = await fetch
-            .get(store.serverUrl + `/student/meetings/${meetingId}`)
+        const returnedObject = await getMeetingDetails(meetingId)
 
-        await fetch.get(store.serverUrl + `/student/meetings/view/${meetingId}`)
         store.changeMeetingDetails(returnedObject.body.meeting);
         store.changeTranscriptArray(returnedObject.body.transcript);
         store.changeChatArray(returnedObject.body.chat);
