@@ -1,7 +1,8 @@
 import fetch from "superagent";
-const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
+
 
 export async function teacherAuth(code) {
+    const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
     console.log('teacherAuth()')
     try {
         const response = await fetch
@@ -15,6 +16,7 @@ export async function teacherAuth(code) {
 }
 
 export async function createTeacher(teacher_info) {
+    const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
     try {
         const response = await fetch
             .post(serverUrl + '/teacher/new')
