@@ -51,6 +51,9 @@ export const Login = () => {
             history.push('/teacher/');
 
         }
+
+        console.log('useEffect()')
+        console.log(store.userType)
         if (store.userType === 'student') {
             loginStudent();
         } else if (store.userType === 'teacher') {
