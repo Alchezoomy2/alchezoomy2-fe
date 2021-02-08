@@ -13,6 +13,7 @@ import AutoRedirect from './Redirect.js';
 import Login from './Login.js';
 import Teacher from './Teacher.js';
 import Student from './Student.js';
+require('dotenv').config()
 // import Header from './Header.js';
 // import Bookmark from './Bookmark.js';
 // import Favorite from './Favorite.js';
