@@ -7,6 +7,7 @@ import { Paper, Button } from '@material-ui/core';
 export const LandingPage = () => {
     const store = useStateStore();
     const zoomAPIurl = process.env.ZOOM_API_URL
+    console.log(zoomAPIurl)
     return useObserver(() =>
         <Paper elevation={3} >
             <Button
