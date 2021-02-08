@@ -1,5 +1,5 @@
 import fetch from "superagent";
-
+require('dotenv').config()
 const serverUrl = process.env.REACT_APP_SERVER_URL
 const zoomURL = process.env.REACT_APP_ZOOM_API_URL
 const serverPort = process.env.REACT_APP_SERVER_PORT
