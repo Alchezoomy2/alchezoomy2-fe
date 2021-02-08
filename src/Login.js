@@ -16,6 +16,9 @@ export const Login = () => {
 
         async function loginStudent() {
             let returnedStudentInfo = await studentAuth(store.code)
+            console.log('{}{}{}{}{}{}{}{}{}{}{}{}')
+            console.log(returnedStudentInfo)
+            console.log('{}{}{}{}{}{}{}{}{}{}{}{}')
 
             if (returnedStudentInfo.new_user) {
                 returnedStudentInfo = await createStudent(returnedStudentInfo)
