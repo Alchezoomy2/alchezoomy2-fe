@@ -33,7 +33,7 @@ export const Login = () => {
 
         async function loginTeacher() {
             let newMeetingObj;
-
+            console.log('loginTeacher()')
             const returnedObject = await teacherAuth(store.code);
 
             await store.changeTeacherInfo(returnedObject.body);

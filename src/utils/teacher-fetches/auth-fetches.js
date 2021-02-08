@@ -2,6 +2,7 @@ import fetch from "superagent";
 const serverUrl = process.env.SERVER_URL
 
 export async function teacherAuth(code) {
+    console.log('teacherAuth()')
     try {
         const response = await fetch
             .post(serverUrl + '/teacher/oauth')
