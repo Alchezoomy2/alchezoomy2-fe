@@ -20,17 +20,12 @@ export const Teacher = () => {
 
         if (meeting.published) {
             newMeetingObj = await fetch
-                .post(store.serverUrl + '/teacher/unpublish')
-                .send({ meetingId: meeting.id })
+                .post(`${store.serverUrl}/teacher/unpublish${meeting.id}`)
                 .withCredentials()
 
         } else {
             newMeetingObj = await fetch
-                .post(store.serverUrl + '/teacher/publish')
-                .send({
-                    meetingId: meeting.id,
-                    access_token: store.teacherInfo.access_token
-                })
+                .post(`${store.serverUrl}/teacher/publish/${meeting.id}`)
                 .withCredentials()
 
         }
