@@ -1,10 +1,8 @@
 import fetch from "superagent";
 
-const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
-const zoomAPIurl = process.env.ZOOM_API_URL
+const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export async function teacherAuth(code) {
-    window.alert(zoomAPIurl)
     console.log(serverUrl)
     try {
         const response = await fetch

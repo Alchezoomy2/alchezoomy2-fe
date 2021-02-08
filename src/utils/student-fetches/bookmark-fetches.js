@@ -1,5 +1,5 @@
 import fetch from "superagent";
-const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
+const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export async function fetchAllStudentBookmarks() {
     try {

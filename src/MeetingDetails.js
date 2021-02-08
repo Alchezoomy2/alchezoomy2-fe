@@ -9,7 +9,7 @@ import ChatBox from './ChatBox.js';
 
 
 export const MeetingDetails = ({ startTime }) => {
-    const s3VideoUrl = process.env.S3_VIDEO_URL;
+    const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
     const store = useStateStore();
     // const startingTimestamp = useRef(props.match.params.timestamp)
     let player = useRef();
