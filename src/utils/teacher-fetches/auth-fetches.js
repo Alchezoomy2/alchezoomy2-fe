@@ -1,5 +1,5 @@
 import fetch from "superagent";
-const serverUrl = process.env.SERVER_URL
+const serverUrl = `${process.env.SERVER_URL}:${process.env.SERVER_PORT}`
 
 export async function teacherAuth(code) {
     console.log('teacherAuth()')
