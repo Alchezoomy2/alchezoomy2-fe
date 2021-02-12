@@ -24,7 +24,8 @@ export const Teacher = () => {
             newMeetingObj = await publishMeeting(meeting.id)
 
         }
-        store.changeMeetingsObj(newMeetingObj.body);
+
+        store.changeMeetingsObj(newMeetingObj);
         setOpen(false);
     })
 
