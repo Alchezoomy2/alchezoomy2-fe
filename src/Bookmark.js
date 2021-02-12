@@ -40,7 +40,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
     const handleDeleteBookmark = async (bookmarkId) => {
         const newBookmarkArray = await deleteBookmark(bookmarkId)
 
-        store.changeBookmarkArray(newBookmarkArray.body);
+        store.changeBookmarkArray(newBookmarkArray);
         setOpen(false);
     }
 
