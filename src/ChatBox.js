@@ -107,7 +107,7 @@ export const ChatBox = (props) => {
                 comment: commentField
             })
         }
-        setBookmarkArray(newBookmarkArray.body);
+        setBookmarkArray(newBookmarkArray);
         setOpen(false);
         setCommentField("")
     }
@@ -124,7 +124,7 @@ export const ChatBox = (props) => {
         async function retrieveBookmarks() {
             const fetchedBookmarkArray = await fetchAllStudentBookmarks();
 
-            await setBookmarkArray(fetchedBookmarkArray.body);
+            await setBookmarkArray(fetchedBookmarkArray);
         }
 
         // function selectedChat() {
