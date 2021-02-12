@@ -6,7 +6,7 @@ export async function fetchAllStudentFavorites() {
         const response = await fetch
             .get(`${serverUrl}/student/favorite/`)
             .withCredentials();
-
+        console.log(response.body)
         return response.body
     } catch (err) {
         throw err;

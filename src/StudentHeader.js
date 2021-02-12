@@ -13,12 +13,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
 
-export const StudentHeader = (props) => {
-    // const store = useStateStore();
-    // const history = useHistory();
-
-
-
+export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkClick, handleFavoriteClick }) => {
     return useObserver(() =>
         <AppBar position="static" style={{ width: '100%' }}>
             <Toolbar>
@@ -26,36 +21,36 @@ export const StudentHeader = (props) => {
                     variant="h6" >
                     Alchezoomy
                 </Typography>
-                {props.pageIcon === 'meeting' ?
+                {pageIcon === 'meeting' ?
                     <HomeOutlinedIcon />
                     :
                     <IconButton
                         edge="end"
                         color="inherit"
                         aria-label="home"
-                        onClick={props.handleMeetingsClick}>
+                        onClick={handleMeetingsClick}>
                         <HomeIcon />
                     </IconButton>
                 }
-                {props.pageIcon === 'bookmark' ?
+                {pageIcon === 'bookmark' ?
                     <BookmarkBorderIcon />
                     :
                     <IconButton
                         edge="end"
                         color="inherit"
                         aria-label="home"
-                        onClick={props.handleBookmarkClick}>
+                        onClick={handleBookmarkClick}>
                         <BookmarkIcon />
                     </IconButton>
                 }
-                {props.pageIcon === 'favorite' ?
+                {pageIcon === 'favorite' ?
                     <StarBorderIcon />
                     :
                     <IconButton
                         edge="end"
                         color="inherit"
                         aria-label="home"
-                        onClick={props.handleFavoriteClick}>
+                        onClick={handleFavoriteClick}>
                         <StarIcon />
                     </IconButton>
                 }
@@ -63,6 +58,5 @@ export const StudentHeader = (props) => {
         </AppBar>
     )
 }
-
 
 export default StudentHeader;
