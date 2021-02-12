@@ -6,6 +6,7 @@ export async function studentAuth(code) {
         const response = await fetch
             .post(serverUrl + '/student/oauth')
             .send({ code })
+            .withCredentials();
         return response.body
     } catch (err) {
         throw err;
