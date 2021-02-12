@@ -8,7 +8,7 @@ import { publishMeeting, unpublishMeeting } from './utils/teacher-fetches/meetin
 import { useStateStore } from './StoreProvider';
 
 
-export const TeacherMeetingItem = ({ meeting, setOpen }) => {
+export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) => {
     const store = useStateStore()
 
     const handlePublish = (async (meeting) => {
@@ -20,10 +20,9 @@ export const TeacherMeetingItem = ({ meeting, setOpen }) => {
 
         } else {
             newMeetingObj = await publishMeeting(meeting.id)
-
         }
 
-        store.changeMeetingsObj(newMeetingObj);
+        setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
     })
 

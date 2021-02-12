@@ -9,8 +9,8 @@ export const TeacherDashboard = ({ setOpen }) => {
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
     useEffect(() => {
-        setMeetingsToDisplay(store.meetingsObj)
-    }, [store.meetingsObj])
+        store.changeMeetingsObj(setMeetingsToDisplay)
+    }, [meetingsToDisplay])
 
     return (
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
@@ -18,7 +18,10 @@ export const TeacherDashboard = ({ setOpen }) => {
                 {
                     meetingsToDisplay.map(meeting =>
                         <div>
-                            <TeacherMeetingItem meeting={meeting} setOpen={setOpen} />
+                            <TeacherMeetingItem
+                                meeting={meeting}
+                                setOpen={setOpen}
+                                setMeetingsToDisplay={setMeetingsToDisplay} />
                             <Divider variant="middle" component="li" />
                         </div>
 
