@@ -13,7 +13,7 @@ export const TeacherDashboard = ({ setOpen }) => {
                 {
                     store.meetingsObj.map(meeting =>
                         <div>
-                            <TeacherMeetingItem meeting={meeting} />
+                            <TeacherMeetingItem meeting={meeting} setOpen={setOpen} />
                             <Divider variant="middle" component="li" />
                         </div>
 

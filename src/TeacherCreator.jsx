@@ -6,7 +6,9 @@ export const TeacherCreator = () => {
     const store = useStateStore()
 
     return (
-        <p>HELLO!</p>
+        <Container>
+            <p>HI!</p>
+        </Container>
     )
 }
 

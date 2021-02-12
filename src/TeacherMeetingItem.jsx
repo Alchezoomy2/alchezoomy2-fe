@@ -8,6 +8,7 @@ import { publishMeeting, unpublishMeeting } from './utils/teacher-fetches/meetin
 
 
 export const TeacherMeetingItem = ({ meeting }) => {
+    const store = useStateStore()
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
