@@ -17,7 +17,7 @@ export const Teacher = () => {
         setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
         setOpen(false)
         console.log('FALSE')
-    }, [open])
+    }, [])
 
     return useObserver(() =>
         <div>

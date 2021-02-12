@@ -11,7 +11,7 @@ export const TeacherDashboard = ({ setOpen }) => {
     useEffect(() => {
         store.changeMeetingsObj(setMeetingsToDisplay)
         // setOpen(false);
-        console.log(TeacherDashboard)
+        console.log('TeacherDashboard')
     }, [meetingsToDisplay])
 
     return (
