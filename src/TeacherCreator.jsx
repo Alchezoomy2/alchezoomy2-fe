@@ -8,7 +8,9 @@ export const TeacherCreator = () => {
 
     return (
         <Container>
-            <p>HI!</p>
+            <Paper elevation={3} >
+
+            </Paper>
         </Container>
     )
 }

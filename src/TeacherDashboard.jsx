@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStateStore } from './StoreProvider'
 import { Container, List, Divider } from '@material-ui/core';
 import { TeacherMeetingItem } from './TeacherMeetingItem'
@@ -6,12 +6,17 @@ import { TeacherMeetingItem } from './TeacherMeetingItem'
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore()
+    const [meetingsToDisplay, setMeetingsToDisplay] = useState();
+
+    useEffect(() => {
+        setMeetingsToDisplay(store.meetingsObj)
+    }, [store])
 
     return (
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
             <List style={{ width: '90%' }}>
                 {
-                    store.meetingsObj.map(meeting =>
+                    meetingsToDisplay.map(meeting =>
                         <div>
                             <TeacherMeetingItem meeting={meeting} setOpen={setOpen} />
                             <Divider variant="middle" component="li" />
