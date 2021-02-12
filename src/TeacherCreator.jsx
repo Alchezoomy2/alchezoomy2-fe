@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStateStore } from './StoreProvider';
-import { Container, Typography } from '@material-ui/core';
+import { Container, Typography, Paper } from '@material-ui/core';
 
 
 export const TeacherCreator = () => {
