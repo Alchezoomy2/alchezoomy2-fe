@@ -24,7 +24,7 @@ export const Student = () => {
     const handleBookmarkClick = async () => {
         const returnedBookmarkArray = await fetchAllStudentBookmarks();
 
-        await store.changeBookmarkArray(returnedBookmarkArray.body)
+        await store.changeBookmarkArray(returnedBookmarkArray)
         setPageIcon('bookmark')
         setDisplayedPage(<Bookmark
             handleMeetingDetailClick={handleMeetingDetailClick}
@@ -34,7 +34,7 @@ export const Student = () => {
     const handleFavoriteClick = async () => {
         const returnedFavoriteArray = await fetchAllStudentFavorites
 
-        await store.changeFavoriteArray(returnedFavoriteArray.body)
+        await store.changeFavoriteArray(returnedFavoriteArray)
         setPageIcon('favorite')
         setDisplayedPage(<Favorite
             handleMeetingDetailClick={handleMeetingDetailClick}
@@ -44,7 +44,7 @@ export const Student = () => {
 
     const handleMeetingsClick = async () => {
         const newMeetingArray = await fetchAllStudentMeetings();
-        store.changeMeetingsObj(newMeetingArray.body);
+        store.changeMeetingsObj(newMeetingArray);
         setPageIcon('meeting')
         setDisplayedPage(<StudentMeetings
             handleMeetingDetailClick={handleMeetingDetailClick} />)
@@ -54,9 +54,9 @@ export const Student = () => {
 
         const returnedObject = await getMeetingDetails(meetingId)
 
-        store.changeMeetingDetails(returnedObject.body.meeting);
-        store.changeTranscriptArray(returnedObject.body.transcript);
-        store.changeChatArray(returnedObject.body.chat);
+        store.changeMeetingDetails(returnedObject.meeting);
+        store.changeTranscriptArray(returnedObject.transcript);
+        store.changeChatArray(returnedObject.chat);
         setPageIcon("")
         setDisplayedPage(<MeetingDetails startTime={startTime} />);
     }, [store])

@@ -108,7 +108,7 @@ export const Student = (props) => {
 
         const newMeetingArray = await fetchAllStudentMeetings();
 
-        store.changeMeetingsObj(newMeetingArray.body);
+        store.changeMeetingsObj(newMeetingArray);
 
         setOpen(false);
         setCommentField("")
