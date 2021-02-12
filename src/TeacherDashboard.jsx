@@ -10,7 +10,7 @@ export const TeacherDashboard = ({ setOpen }) => {
 
     useEffect(() => {
         setMeetingsToDisplay(store.meetingsObj)
-    }, [store])
+    }, [store.meetingsObj])
 
     return (
         <Container maxWidth="xl" style={{ display: 'flex', justifyItems: 'center' }}>
