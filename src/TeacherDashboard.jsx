@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStateStore } from './StoreProvider'
-import { publishMeeting, unpublishMeeting } from './utils/teacher-fetches/meeting-fetches.js'
 import { Container, List, Divider } from '@material-ui/core';
+import { TeacherMeetingItem } from './TeacherMeetingItem'
 
 
 export const TeacherDashboard = ({ setOpen }) => {
