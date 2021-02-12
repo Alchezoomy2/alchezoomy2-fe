@@ -32,10 +32,13 @@ export const Student = () => {
     }
 
     const handleFavoriteClick = async () => {
+        console.log('[][][][][][][][][][][][][]')
         console.log('hello!')
-        // const returnedFavoriteArray = await fetchAllStudentFavorites
-        // console.log(returnFavoriteArray);
-        // await store.changeFavoriteArray(returnedFavoriteArray)
+        console.log('[][][][][][][][][][][][][]')
+
+        const returnedFavoriteArray = await fetchAllStudentFavorites
+        console.log(returnFavoriteArray);
+        await store.changeFavoriteArray(returnedFavoriteArray)
         setPageIcon('favorite')
         setDisplayedPage(<Favorite
             handleMeetingDetailClick={handleMeetingDetailClick}

@@ -4,8 +4,9 @@ const serverUrl = process.env.REACT_APP_SERVER_URL
 export async function fetchAllStudentFavorites() {
     try {
         const response = await fetch
-            .get(`${serverUrl}/student/favorite/`)
+            .get(`${serverUrl}/student/favorite`)
             .withCredentials();
+
         console.log(response.body)
         return response.body
     } catch (err) {
