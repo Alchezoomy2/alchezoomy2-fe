@@ -4,6 +4,9 @@ import { useObserver } from 'mobx-react';
 import { TeacherCreator } from './TeacherCreator'
 import { TeacherDashboard } from './TeacherDashboard'
 
+import { AppBar, Typography, Grid, Backdrop, CircularProgress } from '@material-ui/core';
+
+
 export const Teacher = () => {
     const [displayModule, setDisplayModule] = useState(null);
     let [open, setOpen] = useState(true);
@@ -11,7 +14,7 @@ export const Teacher = () => {
 
     useEffect(() => {
         if (store.TeacherInfo.new) setDisplayModule(<TeacherCreator />)
-        setDisplayModule(<TeacherDashboard />)
+        setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
         setOpen(false)
     })
 

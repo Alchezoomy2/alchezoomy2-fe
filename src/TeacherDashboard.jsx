@@ -8,7 +8,7 @@ import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 
-export const TeacherDashboard = () => {
+export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore()
 
 
