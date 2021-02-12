@@ -34,7 +34,7 @@ export const Student = () => {
     const handleFavoriteClick = async () => {
         console.log('hello!')
         // const returnedFavoriteArray = await fetchAllStudentFavorites
-        console.log(returnFavoriteArray);
+        // console.log(returnFavoriteArray);
         // await store.changeFavoriteArray(returnedFavoriteArray)
         setPageIcon('favorite')
         setDisplayedPage(<Favorite
