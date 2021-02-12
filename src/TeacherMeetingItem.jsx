@@ -22,7 +22,6 @@ export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) =
         }
 
         setMeetingsToDisplay(newMeetingObj);
-        setOpen(false);
     })
 
     return (
