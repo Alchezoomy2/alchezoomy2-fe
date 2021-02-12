@@ -5,11 +5,10 @@ import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import { publishMeeting, unpublishMeeting } from './utils/teacher-fetches/meeting-fetches.js'
-import { useStateStore } from './StoreProvider';
+
 
 
 export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) => {
-    const store = useStateStore()
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
