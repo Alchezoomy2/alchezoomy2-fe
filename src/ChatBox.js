@@ -139,6 +139,7 @@ export const ChatBox = (props) => {
 
         retrieveBookmarks();
         // selectedChat();
+        console.log(bookmarkArray)
     }, [store, props])
 
     const chatListItems = (chat) => {
