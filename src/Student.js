@@ -36,7 +36,7 @@ export const Student = () => {
         console.log('hello!')
         console.log('[][][][][][][][][][][][][]')
 
-        const returnedFavoriteArray = await fetchAllStudentFavorites
+        const returnedFavoriteArray = await fetchAllStudentFavorites();
         console.log(returnedFavoriteArray);
         await store.changeFavoriteArray(returnedFavoriteArray)
         setPageIcon('favorite')
