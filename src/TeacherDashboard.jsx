@@ -6,7 +6,7 @@ import { TeacherMeetingItem } from './TeacherMeetingItem'
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore()
-    const [meetingsToDisplay, setMeetingsToDisplay] = useState();
+    const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
     useEffect(() => {
         setMeetingsToDisplay(store.meetingsObj)
