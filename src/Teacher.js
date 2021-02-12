@@ -13,7 +13,7 @@ export const Teacher = () => {
     const store = useStateStore();
 
     useEffect(() => {
-        if (store.TeacherInfo.new_user) setDisplayModule(<TeacherCreator />)
+        if (store.teacherInfo.new_user) setDisplayModule(<TeacherCreator />)
         setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
         setOpen(false)
     }, [])
