@@ -25,7 +25,7 @@ export const Login = () => {
 
             const newMeetingObj = await fetchAllStudentMeetings()
 
-            store.changeMeetingsObj(newMeetingObj.body);
+            store.changeMeetingsObj(newMeetingObj);
 
             history.push('/student/');
         }

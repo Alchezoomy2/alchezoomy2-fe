@@ -64,7 +64,7 @@ export const Student = (props) => {
     useEffect(() => {
         async function retrieveFavorites() {
             const newFavoritesArray = await fetchAllStudentFavorites();
-            await setFavoriteArray(newFavoritesArray.body);
+            await setFavoriteArray(newFavoritesArray);
         }
         retrieveFavorites();
     }, [store]);
@@ -104,7 +104,7 @@ export const Student = (props) => {
                 comment: commentField
             })
         }
-        setFavoriteArray(newfavoriteArray.body);
+        setFavoriteArray(newfavoriteArray);
 
         const newMeetingArray = await fetchAllStudentMeetings();
 
