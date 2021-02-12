@@ -122,9 +122,10 @@ export const ChatBox = (props) => {
 
     useEffect(() => {
         async function retrieveBookmarks() {
+            console.log('inside function')
             const fetchedBookmarkArray = await fetchAllStudentBookmarks();
 
-            await setBookmarkArray(fetchedBookmarkArray);
+            setBookmarkArray(fetchedBookmarkArray);
         }
 
         // function selectedChat() {
@@ -136,7 +137,7 @@ export const ChatBox = (props) => {
         //     }, 500
         //     )
         // }
-
+        console.log('first thing?')
         retrieveBookmarks();
         // selectedChat();
         console.log(bookmarkArray)
