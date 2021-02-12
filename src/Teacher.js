@@ -16,7 +16,7 @@ export const Teacher = () => {
         if (store.TeacherInfo.new) setDisplayModule(<TeacherCreator />)
         setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
         setOpen(false)
-    })
+    }, [])
 
     return useObserver(() =>
         <div>

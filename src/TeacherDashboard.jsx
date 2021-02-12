@@ -2,7 +2,7 @@ import React from 'react'
 import { useStateStore } from './StoreProvider'
 
 import { publishMeeting, unpublishMeeting } from './utils/teacher-fetches/meeting-fetches.js'
-import { AppBar, Typography, Grid, Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider, Backdrop, CircularProgress } from '@material-ui/core';
+import { Container, List, Chip, ListItem, ListItemText, FormControlLabel, Switch, Divider } from '@material-ui/core';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import ChatIcon from '@material-ui/icons/Chat';
