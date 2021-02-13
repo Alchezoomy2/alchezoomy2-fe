@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useStateStore } from './StoreProvider';
-import { Container, Typography, Paper, Avatar } from '@material-ui/core';
+import { Container, Typography, Paper, Avatar, Card, CardContent } from '@material-ui/core';
 
 
 export const TeacherCreator = () => {
@@ -21,7 +21,7 @@ export const TeacherCreator = () => {
                 </Typography>
                 <Card>
                     <CardContent>
-                        <Avatar alt={teacherInfo.user_name} src={pic_url} />
+                        <Avatar alt={teacherInfo.user_name} src={teacherInfo.pic_url} />
                         <Typography>
                             {`Name: ${teacherInfo.user_name}`}
                         </Typography>
