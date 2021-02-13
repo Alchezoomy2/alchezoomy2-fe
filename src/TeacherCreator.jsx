@@ -5,6 +5,7 @@ import ColorPicker from 'material-ui-color-picker'
 
 export const TeacherCreator = () => {
     const store = useStateStore()
+    const [selectedColor, setSelectedColor] = useStateStore('#000')
     const [teacherInfo, setTeacherInfo] = useState(store.teacherInfo);
 
     return (
@@ -16,7 +17,7 @@ export const TeacherCreator = () => {
                 <Typography>
                     This appears to be your first visit!  You'll need to create an account to continue.  Is this you?
                 </Typography>
-                <Card style={{ height: '800px' }}>
+                <Card style={{ height: '800px', backgroundColor: selectedColor, mixBlendMode: 'difference' }}>
                     <CardContent>
                         <Avatar alt={teacherInfo.user_name} src={teacherInfo.pic_url} />
                         <Typography>
@@ -26,14 +27,13 @@ export const TeacherCreator = () => {
                             {`Email: ${teacherInfo.email}`}
                         </Typography>
                         <Typography>
-                            {`Post Color: ${teacherInfo.color}`}
+                            Post Color:
                             <ColorPicker
                                 name='color'
-                                defaultValue='#000'
+                                defaultValue={selectedColor}
                                 // value={this.state.color} - for controlled component
                                 onChange={color => {
-                                    console.log(color)
-                                    setTeacherInfo({ ...teacherInfo, color })
+                                    setSelectedColor(color)
                                 }
                                 }
                             />
