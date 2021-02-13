@@ -35,7 +35,7 @@ export const TeacherCreator = () => {
                             <ColorPicker
                                 name='color'
                                 value={selectedColor}
-                                onChange={color => setSelectedColor(color)}
+                                onChange={color => setSelectedColor(color.hex)}
                             />
                         </Typography>
                     </CardContent>
