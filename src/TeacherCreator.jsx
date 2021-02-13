@@ -27,15 +27,15 @@ export const TeacherCreator = () => {
                             {`Email: ${teacherInfo.email}`}
                         </Typography>
                         <Typography>
-                            {'Post Color:'}
+                            Post Color:
                             <ColorPicker
                                 name='color'
-                                defaultValue={'#000'}
-                            // value={this.state.color} - for controlled component
-                            // onChange={color => {
-                            //     setSelectedColor(color)
-                            // }
-                            // }
+                                defaultValue={selectedColor}
+                                // value={this.state.color} - for controlled component
+                                onChange={color => {
+                                    setSelectedColor(color)
+                                }
+                                }
                             />
                         </Typography>
                     </CardContent>
