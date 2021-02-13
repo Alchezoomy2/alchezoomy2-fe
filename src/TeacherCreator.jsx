@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider';
 import { Container, Typography, Paper, Avatar, Card, CardContent } from '@material-ui/core';
 import { ColorPicker } from "material-ui-color";
@@ -7,14 +7,6 @@ export const TeacherCreator = () => {
     const store = useStateStore()
     const [selectedColor, setSelectedColor] = useState('#FFFFFF')
     const [teacherInfo, setTeacherInfo] = useState(store.teacherInfo);
-
-
-
-    function padZero(str, len) {
-        len = len || 2;
-        var zeros = new Array(len).join('0');
-        return (zeros + str).slice(-len);
-    }
 
     return (
         <Container>
@@ -25,7 +17,7 @@ export const TeacherCreator = () => {
                 <Typography>
                     This appears to be your first visit!  You'll need to create an account to continue.  Is this you?
                 </Typography>
-                <Card style={{ height: '800px', backgroundColor: selectedColor }}>
+                <Card style={{ height: '800px' }}>
                     <CardContent>
                         <Avatar alt={teacherInfo.user_name} src={teacherInfo.pic_url} />
                         <Typography>
@@ -34,12 +26,11 @@ export const TeacherCreator = () => {
                         <Typography>
                             {`Email: ${teacherInfo.email}`}
                         </Typography>
-                        <Typography>
+                        <Typography style={{ backgroundColor: selectedColor }}>
                             Post Color:
                             <ColorPicker
                                 name='color'
                                 value={selectedColor}
-                                // value={this.state.color} - for controlled component
                                 onChange={color => {
                                     setSelectedColor(color)
                                 }}
