@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useStateStore } from './StoreProvider';
 import { Container, Typography, Paper, Avatar, Card, CardContent } from '@material-ui/core';
 import ColorPicker from 'material-ui-color-picker'
