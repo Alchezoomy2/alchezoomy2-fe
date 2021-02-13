@@ -36,11 +36,11 @@ export const Login = () => {
 
             await store.changeTeacherInfo(returnedObject);
 
-            if (store.teacherInfo.new_user) {
-                const returnedObject = await createTeacher(store.teacherInfo)
+            // if (store.teacherInfo.new_user) {
+            //     const returnedObject = await createTeacher(store.teacherInfo)
 
-                store.changeTeacherInfo(returnedObject)
-            }
+            //     store.changeTeacherInfo(returnedObject)
+            // }
 
             let newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
 
