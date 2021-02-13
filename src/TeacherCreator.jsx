@@ -4,12 +4,9 @@ import { Container, Typography, Paper, Avatar, Card, CardContent } from '@materi
 import ColorPicker from 'material-ui-color-picker'
 
 export const TeacherCreator = () => {
-    const [teacherInfo, setTeacherInfo] = useState();
     const store = useStateStore()
+    const [teacherInfo, setTeacherInfo] = useState(store.teacherInfo);
 
-    useEffect(() => {
-        setTeacherInfo(store.teacherInfo)
-    }, [])
     return (
         <Container>
             <Paper elevation={3} >
