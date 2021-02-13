@@ -4,13 +4,13 @@ import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from 
 import { ColorPicker } from "material-ui-color";
 import { createTeacher } from './utils/teacher-fetches/auth-fetches'
 
-export const TeacherCreator = (setOpen) => {
+export const TeacherCreator = ({ setOpen }) => {
     const store = useStateStore()
     const [selectedColor, setSelectedColor] = useState('#FFFFFF')
     const { user_name, pic_url, email } = store.teacherInfo;
 
     const handleClick = async () => {
-        console.log('handleClick')
+        console.log("handleClick")
         setOpen(true)
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor })
         await store.changeTeacherInfo(returnedTeacherInfo)
