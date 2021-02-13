@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStateStore } from './StoreProvider';
 import { Container, Typography, Paper, Avatar, Card, CardContent } from '@material-ui/core';
 import ColorPicker from 'material-ui-color-picker'
@@ -11,6 +11,7 @@ export const TeacherCreator = () => {
 
     useEffect(() => {
         console.log(selectedColor)
+
     }, [selectedColor])
 
     return (
