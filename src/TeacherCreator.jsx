@@ -30,7 +30,7 @@ export const TeacherCreator = () => {
                             {'Post Color:'}
                             <ColorPicker
                                 name='color'
-                                defaultValue={selectedColor}
+                                defaultValue={'#000'}
                                 // value={this.state.color} - for controlled component
                                 onChange={color => {
                                     setSelectedColor(color)
