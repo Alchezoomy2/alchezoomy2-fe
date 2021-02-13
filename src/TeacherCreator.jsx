@@ -31,11 +31,11 @@ export const TeacherCreator = () => {
                             <ColorPicker
                                 name='color'
                                 defaultValue={'#000'}
-                                // value={this.state.color} - for controlled component
-                                onChange={color => {
-                                    setSelectedColor(color)
-                                }
-                                }
+                            // value={this.state.color} - for controlled component
+                            // onChange={color => {
+                            //     setSelectedColor(color)
+                            // }
+                            // }
                             />
                         </Typography>
                     </CardContent>
