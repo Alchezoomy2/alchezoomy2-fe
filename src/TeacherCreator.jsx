@@ -17,7 +17,7 @@ export const TeacherCreator = () => {
                 <Typography>
                     This appears to be your first visit!  You'll need to create an account to continue.  Is this you?
                 </Typography>
-                <Card style={{ height: '800px', backgroundColor: selectedColor, mixBlendMode: 'difference' }}>
+                <Card style={{ height: '800px', backgroundColor: selectedColor, color: selectedColor, webkitFilter: 'invert(100%)', filter: 'invert(100%' }}>
                     <CardContent>
                         <Avatar alt={teacherInfo.user_name} src={teacherInfo.pic_url} />
                         <Typography>
@@ -30,12 +30,11 @@ export const TeacherCreator = () => {
                             Post Color:
                             <ColorPicker
                                 name='color'
-                                defaultValue={selectedColor}
+                                defaultValue={'#000'}
                                 // value={this.state.color} - for controlled component
                                 onChange={color => {
                                     setSelectedColor(color)
-                                }
-                                }
+                                }}
                             />
                         </Typography>
                     </CardContent>
