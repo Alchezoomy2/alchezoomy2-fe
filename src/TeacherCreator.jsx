@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStateStore } from './StoreProvider';
 import { Container, Typography, Paper, Avatar, Card, CardContent } from '@material-ui/core';
-import ColorPicker from 'material-ui-color-picker'
+import { ColorPicker } from "material-ui-color";
 
 export const TeacherCreator = () => {
     const store = useStateStore()
@@ -38,7 +38,7 @@ export const TeacherCreator = () => {
                             Post Color:
                             <ColorPicker
                                 name='color'
-                                defaultValue={selectedColor}
+                                value={selectedColor}
                                 // value={this.state.color} - for controlled component
                                 onChange={color => {
                                     setSelectedColor(color)
