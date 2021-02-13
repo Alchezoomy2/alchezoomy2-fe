@@ -10,6 +10,7 @@ export const TeacherCreator = (setOpen) => {
     const { user_name, pic_url, email } = store.teacherInfo;
 
     const handleClick = async () => {
+        console.log('handleClick')
         setOpen(true)
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor })
         await store.changeTeacherInfo(returnedTeacherInfo)
