@@ -15,7 +15,7 @@ export const Teacher = () => {
     useEffect(() => {
         console.log(store.teacherInfo.new_user)
         // if (store.teacherInfo.new_user) 
-        // setDisplayModule(<TeacherCreator />)
+        setDisplayModule(<TeacherCreator />)
         // setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
         setOpen(false)
         console.log('FALSE')
