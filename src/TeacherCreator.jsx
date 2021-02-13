@@ -5,7 +5,7 @@ import ColorPicker from 'material-ui-color-picker'
 
 export const TeacherCreator = () => {
     const store = useStateStore()
-    const [selectedColor, setSelectedColor] = useStateStore('#000')
+    const [selectedColor, setSelectedColor] = useState('#000')
     const [teacherInfo, setTeacherInfo] = useState(store.teacherInfo);
 
     return (
@@ -28,7 +28,7 @@ export const TeacherCreator = () => {
                         </Typography>
                         <Typography>
                             Post Color:
-                            {/* <ColorPicker
+                            <ColorPicker
                                 name='color'
                                 defaultValue={selectedColor}
                                 // value={this.state.color} - for controlled component
@@ -36,7 +36,7 @@ export const TeacherCreator = () => {
                                     setSelectedColor(color)
                                 }
                                 }
-                            /> */}
+                            />
                         </Typography>
                     </CardContent>
                 </Card>
