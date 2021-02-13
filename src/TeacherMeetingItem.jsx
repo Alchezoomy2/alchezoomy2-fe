@@ -12,7 +12,7 @@ export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) =
 
     const handlePublish = (async (meeting) => {
         let newMeetingObj;
-        setOpen(true);
+        await setOpen(true);
         console.log('handlePublish')
         if (meeting.published) {
             newMeetingObj = await unpublishMeeting(meeting.id)
