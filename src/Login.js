@@ -31,8 +31,8 @@ export const Login = () => {
 
 
         async function loginTeacher() {
-            const returnedObject = await teacherAuth(store.code)
-                .then(store.changeTeacherInfo(returnedObject));
+            teacherAuth(store.code)
+                .then(res => store.changeTeacherInfo(res));
 
             // if (!store.teacherInfo.new_user) {
 
