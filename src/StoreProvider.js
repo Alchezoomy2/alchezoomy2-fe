@@ -1,71 +1,73 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import { useLocalObservable } from "mobx-react";
+import PropTypes from "prop-types";
+
 
 const StoreContext = React.createContext();
 
 export const StoreProvider = ({ children }) => {
     const store = useLocalObservable(() => ({
-        code: localStorage.getItem('CODE') || '',
-        userType: localStorage.getItem('USER_TYPE') || '',
-        teacherInfo: localStorage.getItem('TEACHER_INFO') || '',
-        studentInfo: localStorage.getItem('STUDENT_INFO') || '',
-        meetingsObj: localStorage.getItem('MEETINGSOBJ') || '',
-        chatArray: localStorage.getItem('CHAT_ARRAY') || '',
-        bookmarkArray: localStorage.getItem('BOOKMARK_ARRAY') || '',
-        transcriptArray: localStorage.getItem('TRANSCRIPT_ARRAY' || ''),
-        favoriteArray: localStorage.getItem('FAVORITE_ARRAY') || [],
-        meetingDetails: localStorage.getItem('MEETING_DETAILS' || ''),
-        loading: localStorage.getItem('LOADING' || true),
+        code: localStorage.getItem("CODE") || "",
+        userType: localStorage.getItem("USER_TYPE") || "",
+        teacherInfo: localStorage.getItem("TEACHER_INFO") || "",
+        studentInfo: localStorage.getItem("STUDENT_INFO") || "",
+        meetingsObj: localStorage.getItem("MEETINGSOBJ") || "",
+        chatArray: localStorage.getItem("CHAT_ARRAY") || "",
+        bookmarkArray: localStorage.getItem("BOOKMARK_ARRAY") || "",
+        transcriptArray: localStorage.getItem("TRANSCRIPT_ARRAY" || ""),
+        favoriteArray: localStorage.getItem("FAVORITE_ARRAY") || [],
+        meetingDetails: localStorage.getItem("MEETING_DETAILS" || ""),
+        loading: localStorage.getItem("LOADING" || true),
         videoTimestamp: 0,
 
         changeCode: newCode => {
             store.code = newCode;
-            localStorage.setItem('CODE', newCode);
+            localStorage.setItem("CODE", newCode);
         },
 
         changeUserType: newUserType => {
             store.UserType = newUserType;
-            localStorage.setItem('USER_TYPE', newUserType);
+            localStorage.setItem("USER_TYPE", newUserType);
         },
 
         changeTeacherInfo: newTeacherInfo => {
             store.teacherInfo = newTeacherInfo;
-            localStorage.setItem('TEACHER_INFO', newTeacherInfo);
+            localStorage.setItem("TEACHER_INFO", newTeacherInfo);
         },
 
         changeStudentInfo: newStudentInfo => {
             store.studentInfo = newStudentInfo;
-            localStorage.setItem('STUDENT_INFO', newStudentInfo);
+            localStorage.setItem("STUDENT_INFO", newStudentInfo);
         },
 
         changeMeetingsObj: newMeetingsObj => {
             store.meetingsObj = newMeetingsObj;
-            localStorage.setItem('MEETINGSOBJ', newMeetingsObj);
+            localStorage.setItem("MEETINGSOBJ", newMeetingsObj);
         },
 
         changeLoading: newLoadingState => {
             store.loading = newLoadingState;
-            localStorage.setItem('LOADING', newLoadingState);
+            localStorage.setItem("LOADING", newLoadingState);
         },
 
         changeChatArray: newChatArray => {
             store.chatArray = newChatArray;
-            localStorage.setItem('CHAT_ARRAY', newChatArray)
+            localStorage.setItem("CHAT_ARRAY", newChatArray);
         },
 
         changeTranscriptArray: newTranscriptArray => {
             store.transcriptArray = newTranscriptArray;
-            localStorage.setItem('TRANSCRIPT_ARRAY', newTranscriptArray)
+            localStorage.setItem("TRANSCRIPT_ARRAY", newTranscriptArray);
         },
 
         changeFavoriteArray: newFavoriteArray => {
             store.favoriteArray = newFavoriteArray;
-            localStorage.setItem('FAVORITE_ARRAY', newFavoriteArray)
+            localStorage.setItem("FAVORITE_ARRAY", newFavoriteArray);
         },
 
         changeMeetingDetails: newMeetingsDetails => {
             store.meetingDetails = newMeetingsDetails;
-            localStorage.setItem('MEETING_DETAILS', newMeetingsDetails)
+            localStorage.setItem("MEETING_DETAILS", newMeetingsDetails);
         },
 
         changeVideoTimestamp: newTimestamp => {
@@ -74,7 +76,7 @@ export const StoreProvider = ({ children }) => {
 
         changeBookmarkArray: newBookmarkArray => {
             store.bookmarkArray = newBookmarkArray;
-            localStorage.setItem('BOOKMARK_ARRAY', newBookmarkArray)
+            localStorage.setItem("BOOKMARK_ARRAY", newBookmarkArray);
         }
 
     }));
@@ -82,7 +84,11 @@ export const StoreProvider = ({ children }) => {
         <StoreContext.Provider
             value={store}> {children}
         </StoreContext.Provider>
-    )
+    );
+};
+
+useStateStore.propTypes = {
+    children: PropTypes.object
 };
 
 export const useStateStore = () => useContext(StoreContext);

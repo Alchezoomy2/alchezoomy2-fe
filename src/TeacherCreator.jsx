@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
-import { useStateStore } from './StoreProvider';
-import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from '@material-ui/core';
+import React, { useState } from "react";
+import { useStateStore } from "./StoreProvider";
+import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
 import { ColorPicker } from "material-ui-color";
-import { createTeacher } from './utils/teacher-fetches/auth-fetches'
+import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
+import PropTypes from "prop-types";
+
 
 export const TeacherCreator = ({ setOpen }) => {
-    const store = useStateStore()
-    const [selectedColor, setSelectedColor] = useState('#FFFFFF')
+    const store = useStateStore();
+    const [selectedColor, setSelectedColor] = useState("#FFFFFF");
     const { user_name, pic_url, email } = store.teacherInfo;
 
     const handleClick = async () => {
-        console.log("handleClick")
-        setOpen(true)
-        const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor })
-        await store.changeTeacherInfo(returnedTeacherInfo)
-        setOpen(false)
-    }
+        console.log("handleClick");
+        setOpen(true);
+        const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
+        await store.changeTeacherInfo(returnedTeacherInfo);
+        setOpen(false);
+    };
 
     return (
         <Container>
@@ -24,9 +26,9 @@ export const TeacherCreator = ({ setOpen }) => {
                     {`WELCOME TO ALCHEMZOOMY ${user_name}!`}
                 </Typography>
                 <Typography>
-                    This appears to be your first visit!  You'll need to create an account to continue.  Is this you?
+                    {"This appears to be your first visit!  You'll need to create an account to continue.  Is this you?"}
                 </Typography>
-                <Card style={{ height: '800px' }}>
+                <Card style={{ height: "800px" }}>
                     <CardContent>
                         <Avatar alt={user_name} src={pic_url} />
                         <Typography>
@@ -53,7 +55,9 @@ export const TeacherCreator = ({ setOpen }) => {
                 </Card>
             </Paper>
         </Container>
-    )
-}
+    );
+};
 
-
+TeacherCreator.propTypes = {
+    setOpen: PropTypes.func
+};

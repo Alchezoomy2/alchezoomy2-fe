@@ -4,7 +4,7 @@ import { useStateStore } from "./StoreProvider";
 import { useHistory } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import { studentAuth, createStudent } from "./utils/student-fetches/auth-fetches";
-import { teacherAuth, createTeacher } from "./utils/teacher-fetches/auth-fetches";
+import { teacherAuth } from "./utils/teacher-fetches/auth-fetches";
 import { fetchAllStudentMeetings } from "./utils/student-fetches/meeting-fetches.js";
 
 export const Login = () => {

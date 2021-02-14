@@ -1,6 +1,7 @@
 
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const PrivateRoute = ({ render: Component, ...rest }) => {
     return (
@@ -8,7 +9,11 @@ const PrivateRoute = ({ render: Component, ...rest }) => {
             {...rest}
             render={props => (rest.token ? <Component {...props} {...rest} /> : <Redirect to="/" />)}
         />
-    )
-}
+    );
+};
 
-export default PrivateRoute
+PrivateRoute.propTypes = {
+    render: PropTypes.object
+};
+
+export default PrivateRoute;

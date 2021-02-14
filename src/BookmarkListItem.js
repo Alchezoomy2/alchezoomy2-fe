@@ -1,7 +1,7 @@
-import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar } from '@material-ui/core';
-
-import ReplyIcon from '@material-ui/icons/Reply';
-import DeleteIcon from '@material-ui/icons/Delete';
+import React from "react";
+import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar } from "@material-ui/core";
+import ReplyIcon from "@material-ui/icons/Reply";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 
 
@@ -32,14 +32,14 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting)
                         onClick={() => handleDeleteClick(bookmark)}
                     />
                     <ReplyIcon
-                        style={{ transform: 'scaleX(-1)' }}
+                        style={{ transform: "scaleX(-1)" }}
                         onClick={() => handleOpenMeeting(bookmark)}
                     />
                 </div>
             </ListItem>
             <Divider variant="middle" component="li" />
         </div>
-    )
-}
+    );
+};
 
 export default BookmarkListItem;

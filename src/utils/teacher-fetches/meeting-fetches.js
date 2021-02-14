@@ -1,39 +1,30 @@
 import request from "superagent";
-const serverUrl = process.env.REACT_APP_SERVER_URL
+const serverUrl = process.env.REACT_APP_SERVER_URL;
 
 export async function fetchAllTeacherMeetings(teacher_info) {
-    try {
-        const response = await request
-            .post(`${serverUrl}/teacher/meetings`)
-            .send({ teacher_info })
-            .withCredentials()
+    const response = await request
+        .post(`${serverUrl}/teacher/meetings`)
+        .send({ teacher_info })
+        .withCredentials();
 
-        return response.body
-    } catch (err) {
-        throw err;
-    }
+    return response.body;
+
 }
 
 export async function publishMeeting(meetingId) {
-    try {
-        const response = await request
-            .post(`${serverUrl}/teacher/publish/${meetingId}`)
-            .withCredentials()
+    const response = await request
+        .post(`${serverUrl}/teacher/publish/${meetingId}`)
+        .withCredentials();
 
-        return response.body
-    } catch (err) {
-        throw err;
-    }
+    return response.body;
+
 }
 
 export async function unpublishMeeting(meetingId) {
-    try {
-        const response = await request
-            .post(`${serverUrl}/teacher/unpublish/${meetingId}`)
-            .withCredentials()
+    const response = await request
+        .post(`${serverUrl}/teacher/unpublish/${meetingId}`)
+        .withCredentials();
 
-        return response.body
-    } catch (err) {
-        throw err;
-    }
+    return response.body;
+
 }
