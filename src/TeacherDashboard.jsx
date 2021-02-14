@@ -8,12 +8,13 @@ import PropTypes from "prop-types";
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
+    console.log(meetingsToDisplay[0]);
 
-    useEffect(() => {
-        store.changeMeetingsObj(setMeetingsToDisplay);
-        setOpen(false);
-        console.log("TeacherDashboard");
-    }, [meetingsToDisplay]);
+    // useEffect(() => {
+    //     store.changeMeetingsObj(setMeetingsToDisplay);
+    //     setOpen(false);
+    //     console.log("TeacherDashboard");
+    // }, [meetingsToDisplay]);
 
     return (
         <Container maxWidth="xl" style={{ display: "flex", justifyItems: "center" }}>
