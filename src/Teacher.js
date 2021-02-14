@@ -17,6 +17,9 @@ export const Teacher = () => {
         if (store.teacherInfo.new_user) {
             setDisplayModule(<TeacherCreator setOpen={setOpen} />)
         } else {
+            let newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
+
+            store.changeMeetingsObj(newMeetingObj);
             setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
         }
 
