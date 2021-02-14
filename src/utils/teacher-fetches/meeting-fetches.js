@@ -1,10 +1,10 @@
 import request from "superagent";
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 
-export async function fetchAllTeacherMeetings(teacher_info) {
+export async function fetchAllTeacherMeetings(teacherInfo) {
     const response = await request
         .post(`${serverUrl}/teacher/meetings`)
-        .send({ teacher_info })
+        .send({ teacherInfo })
         .withCredentials();
 
     return response.body;

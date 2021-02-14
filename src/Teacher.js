@@ -21,8 +21,8 @@ export const Teacher = () => {
         } else {
             fetchAllTeacherMeetings(store.teacherInfo)
                 .then(res => store.changeMeetingsObj(res));
-
-            // store.changeMeetingsObj(newMeetingObj);
+            console.log(store.meetingsObj);
+            console.log("retrieved!");
             setDisplayModule(<TeacherDashboard setOpen={setOpen} />);
         }
 
