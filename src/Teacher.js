@@ -14,14 +14,14 @@ export const Teacher = () => {
     let [open, setOpen] = useState(true);
     const store = useStateStore();
 
-    useEffect(() => {
+    useEffect(async () => {
         console.log(store.teacherInfo.new_user);
         if (store.teacherInfo.new_user) {
             setDisplayModule(<TeacherCreator setOpen={setOpen} />);
         } else {
-            fetchAllTeacherMeetings(store.teacherInfo)
-                .then(res => store.changeMeetingsObj(res));
-            console.log(store.meetingsObj[0]);
+            const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
+            store.changeMeetingsObj(returnedMeetingArray);
+            console.log(JSON.parse(store.meetingsObj[0]));
             console.log("retrieved!");
             setDisplayModule(<TeacherDashboard setOpen={setOpen} />);
         }
