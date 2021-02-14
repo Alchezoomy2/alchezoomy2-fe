@@ -1,31 +1,31 @@
-import React from 'react';
+import React from "react";
 import { useObserver } from "mobx-react";
-import { useStateStore } from './StoreProvider.js'
-import { Paper, Button } from '@material-ui/core';
+import { useStateStore } from "./StoreProvider.js";
+import { Paper, Button } from "@material-ui/core";
 
 
 export const LandingPage = () => {
     const store = useStateStore();
-    const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL
+    const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
     return useObserver(() =>
         <Paper elevation={3} >
             <Button
                 onClick={() => {
-                    store.changeUserType('teacher')
+                    store.changeUserType("teacher");
                     window.location.href = zoomAPIurl;
                 }}>
                 Teacher
             </Button>
             <Button
                 onClick={() => {
-                    store.changeUserType('student')
+                    store.changeUserType("student");
                     window.location.href = zoomAPIurl;
                 }}>
                 Student
             </Button>
         </Paper>
-    )
-}
+    );
+};
 
-export default LandingPage
+export default LandingPage;

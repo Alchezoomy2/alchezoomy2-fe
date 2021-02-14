@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import ReactPlayer from "react-player";
-import { useObserver } from 'mobx-react';
-import { useStateStore } from './StoreProvider.js'
+import { useObserver } from "mobx-react";
+import { useStateStore } from "./StoreProvider.js";
 // import fetch from 'superagent';
-import { Container } from '@material-ui/core';
-import ChatBox from './ChatBox.js';
+import { Container } from "@material-ui/core";
+import ChatBox from "./ChatBox.js";
 
 
 
@@ -19,7 +19,7 @@ export const MeetingDetails = ({ startTime }) => {
 
     useEffect(() => {
         async function startAtTimestamp() {
-            if (startTime) player.current.seekTo(startTime, 'seconds')
+            if (startTime) player.current.seekTo(startTime, "seconds");
         }
         // function videoProgression() {
         //     setInterval(() => {
@@ -29,20 +29,20 @@ export const MeetingDetails = ({ startTime }) => {
 
         // videoProgression();
         startAtTimestamp();
-    })
+    });
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
-    }
+    };
 
     const handleChatSeek = (newTimestamp) => {
-        player.current.seekTo(newTimestamp, 'seconds')
-    }
+        player.current.seekTo(newTimestamp, "seconds");
+    };
 
     return useObserver(() =>
         <Container
             maxWidth="xl"
-            style={{ display: 'flex', justifyItems: 'center' }}>
+            style={{ display: "flex", justifyItems: "center" }}>
             <div>
                 <ReactPlayer
                     ref={player}
@@ -59,7 +59,7 @@ export const MeetingDetails = ({ startTime }) => {
                 }
             </div>
         </Container >
-    )
-}
+    );
+};
 
 export default MeetingDetails;

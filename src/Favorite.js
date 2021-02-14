@@ -1,49 +1,49 @@
-import { useObserver } from 'mobx-react';
-import React, { useState } from 'react';
-import { useStateStore } from './StoreProvider.js'
-import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
-import fuse from 'fuse.js';
+import { useObserver } from "mobx-react";
+import React, { useState } from "react";
+import { useStateStore } from "./StoreProvider.js";
+import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
+import fuse from "fuse.js";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import FavoriteListItem from './FavoriteListItem.js'
-import Transition from './DialogTransition.js';
+import FavoriteListItem from "./FavoriteListItem.js";
+import Transition from "./DialogTransition.js";
 
 
-import CommentIcon from '@material-ui/icons/Comment';
-import { deleteFavorite } from './utils/student-fetches/favorite-fetches.js';
+import CommentIcon from "@material-ui/icons/Comment";
+import { deleteFavorite } from "./utils/student-fetches/favorite-fetches.js";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
-    const [searchField, setSearchField] = useState('');
+    const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     // const classes = useStyles();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
-        keys: ['topic', 'comment', 'user_name'],
+        keys: ["topic", "comment", "user_name"],
         threshold: 0.4,
         ignoreLocation: true
-    })
+    });
 
 
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
-    }
+    };
 
     const handleDeleteFavorite = async (favoriteId) => {
         const newFavoriteArray = await deleteFavorite(favoriteId);
 
         await store.changeFavoriteArray(newFavoriteArray);
         setOpen(false);
-    }
+    };
 
     const handleDeleteClick = async (favorite) => {
-        setDialogCard(favorite)
+        setDialogCard(favorite);
         setOpen(true);
-    }
+    };
 
     const handleOpenMeeting = async (favorite) => {
-        handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp)
-    }
+        handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp);
+    };
 
 
     return useObserver(() =>
@@ -62,7 +62,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                     onChange={handleSearchChange}
                 />
                 <List>
-                    {searchField === '' ?
+                    {searchField === "" ?
                         store.favoriteArray.map(favorite => FavoriteListItem(favorite,
                             handleDeleteClick,
                             handleOpenMeeting))
@@ -109,7 +109,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                                 Cancel
                                 </Button>
                             <Button
-                                onClick={() => { handleDeleteFavorite(dialogCard.id) }}
+                                onClick={() => { handleDeleteFavorite(dialogCard.id); }}
                                 color="primary">
                                 Delete
                             </Button>
@@ -123,7 +123,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
 
         </div >
 
-    )
-}
+    );
+};
 
 export default Favorite;

@@ -1,9 +1,9 @@
-import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
-import MenuIcon from '@material-ui/icons/Menu';
-import HomeIcon from '@material-ui/icons/Home';
+import React from "react";
+import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/Home";
 // import { useStateStore } from './StoreProvider.js'
-import { useObserver } from 'mobx-react';
+import { useObserver } from "mobx-react";
 // import classes from '*.module.css';
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +15,7 @@ export const Header = () => {
 
 
     return useObserver(() =>
-        <AppBar position="static" style={{ width: '100%' }}>
+        <AppBar position="static" style={{ width: "100%" }}>
             <Toolbar>
                 <IconButton
                     edge="start"
@@ -31,12 +31,12 @@ export const Header = () => {
                     edge="end"
                     color="inherit"
                     aria-label="home"
-                    onClick={() => history.push('/')}>
+                    onClick={() => history.push("/")}>
                     <HomeIcon />
                 </IconButton>
             </Toolbar>
         </AppBar>
-    )
-}
+    );
+};
 
 export default Header;

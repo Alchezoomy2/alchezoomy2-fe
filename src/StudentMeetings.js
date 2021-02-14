@@ -1,64 +1,64 @@
-import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from '@material-ui/core';
-import { useObserver } from 'mobx-react';
-import React, { useEffect, useState } from 'react'
-import { useStateStore } from './StoreProvider.js'
-import { makeStyles } from '@material-ui/core/styles';
-import fuse from 'fuse.js';
-import MeetingListItem from './MeetingListItem.js';
-import Transition from './DialogTransition.js';
+import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from "@material-ui/core";
+import { useObserver } from "mobx-react";
+import React, { useEffect, useState } from "react";
+import { useStateStore } from "./StoreProvider.js";
+import { makeStyles } from "@material-ui/core/styles";
+import fuse from "fuse.js";
+import MeetingListItem from "./MeetingListItem.js";
+import Transition from "./DialogTransition.js";
 
-import CommentIcon from '@material-ui/icons/Comment';
-import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from './utils/student-fetches/favorite-fetches.js';
-import { fetchAllStudentMeetings } from './utils/student-fetches/meeting-fetches.js'
+import CommentIcon from "@material-ui/icons/Comment";
+import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "./utils/student-fetches/favorite-fetches.js";
+import { fetchAllStudentMeetings } from "./utils/student-fetches/meeting-fetches.js";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxHeight: '90vh',
-        maxWidth: '80vw',
-        overflow: 'scroll',
+        maxHeight: "90vh",
+        maxWidth: "80vw",
+        overflow: "scroll",
     },
     list: {
-        width: '90%'
+        width: "90%"
     },
     list_item: {
-        width: '650px',
+        width: "650px",
     },
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
-        color: '#fff',
+        color: "#fff",
     },
     dialog_title: {
-        fontWeight: 'bold',
+        fontWeight: "bold",
         color: "black"
     },
     dialog_speaker: {
-        fontWeight: 'bold',
-        fontSize: '1.1em',
-        margin: '3px'
+        fontWeight: "bold",
+        fontSize: "1.1em",
+        margin: "3px"
     },
     dialog_timestamp: {
-        fontSize: '.9em',
-        margin: '3px',
+        fontSize: ".9em",
+        margin: "3px",
         color: "secondary"
     },
     dialog_text: {
-        margin: '3px'
+        margin: "3px"
     },
 }));
 
 export const Student = (props) => {
     const store = useStateStore();
-    const [searchField, setSearchField] = useState('');
-    const [commentField, setCommentField] = useState('');
-    const [favoriteCard, setFavoriteCard] = useState('');
+    const [searchField, setSearchField] = useState("");
+    const [commentField, setCommentField] = useState("");
+    const [favoriteCard, setFavoriteCard] = useState("");
     const [favoriteArray, setFavoriteArray] = useState();
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     let fuseMeetingList = new fuse(store.meetingsObj, {
-        keys: ['topic', 'user_name', 'display_time'],
+        keys: ["topic", "user_name", "display_time"],
         threshold: 0.4,
         ignoreLocation: true
-    })
+    });
 
 
     useEffect(() => {
@@ -71,17 +71,17 @@ export const Student = (props) => {
 
 
     const handleFavorite = async (meetingObj) => {
-        setCommentField('');
+        setCommentField("");
         setFavoriteCard({
             ...meetingObj,
             title: "FAVORITE",
             current: false
         });
         setOpen(true);
-    }
+    };
 
     const handleUnfavorite = async (favoriteObj, meetingObj) => {
-        setCommentField('');
+        setCommentField("");
         setFavoriteCard({
             ...meetingObj,
             comment: favoriteObj.comment,
@@ -90,19 +90,19 @@ export const Student = (props) => {
             current: true
         });
         setOpen(true);
-    }
+    };
 
     const handleFavoriteChange = async () => {
         let newfavoriteArray = [];
 
         if (favoriteCard.current) {
-            newfavoriteArray = await deleteFavorite(favoriteCard.id)
+            newfavoriteArray = await deleteFavorite(favoriteCard.id);
         } else {
             newfavoriteArray = await createFavorite({
                 meetingId: favoriteCard.id,
                 studentId: store.studentInfo.id,
                 comment: commentField
-            })
+            });
         }
         setFavoriteArray(newfavoriteArray);
 
@@ -111,16 +111,16 @@ export const Student = (props) => {
         store.changeMeetingsObj(newMeetingArray);
 
         setOpen(false);
-        setCommentField("")
-    }
+        setCommentField("");
+    };
 
     const handleCommentChange = async (e) => {
         setCommentField(e.target.value);
-    }
+    };
 
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
-    }
+    };
 
 
 
@@ -136,20 +136,20 @@ export const Student = (props) => {
                 />
                 <List className={classes.list}>
 
-                    {searchField === '' ?
+                    {searchField === "" ?
                         store.meetingsObj.map(meeting => MeetingListItem(
                             meeting,
                             favoriteArray,
                             handleUnfavorite,
                             handleFavorite,
-                            () => { props.handleMeetingDetailClick(meeting.id) }))
+                            () => { props.handleMeetingDetailClick(meeting.id); }))
                         :
                         fuseMeetingList.search(searchField).map(({ item }) => MeetingListItem(
                             item,
                             favoriteArray,
                             handleUnfavorite,
                             handleFavorite,
-                            () => { props.handleMeetingDetailClick(item.id) }))
+                            () => { props.handleMeetingDetailClick(item.id); }))
                     }
                 </List>
 
@@ -212,7 +212,7 @@ export const Student = (props) => {
                     <></>
             }
         </div >
-    )
-}
+    );
+};
 
 export default Student;

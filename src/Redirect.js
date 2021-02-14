@@ -1,8 +1,8 @@
-import { useObserver } from 'mobx-react';
-import React from 'react';
-import { useStateStore } from "./StoreProvider"
+import { useObserver } from "mobx-react";
+import React from "react";
+import { useStateStore } from "./StoreProvider";
 import { useHistory } from "react-router-dom";
-import { Backdrop, CircularProgress } from '@material-ui/core';
+import { Backdrop, CircularProgress } from "@material-ui/core";
 
 
 export const AutoRedirect = ({ location }) => {
@@ -10,16 +10,16 @@ export const AutoRedirect = ({ location }) => {
     const history = useHistory();
 
     let code = new URLSearchParams(location.search);
-    store.changeCode(code.get('code'));
+    store.changeCode(code.get("code"));
 
-    history.push('/login')
+    history.push("/login");
 
     return useObserver(() =>
         <Backdrop open={true}>
             <CircularProgress />
         </Backdrop>
-    )
+    );
 
-}
+};
 
-export default AutoRedirect
+export default AutoRedirect;

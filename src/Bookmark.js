@@ -1,15 +1,15 @@
-import { useObserver } from 'mobx-react';
-import React, { useState } from 'react';
-import { useStateStore } from './StoreProvider.js'
-import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from '@material-ui/core';
-import fuse from 'fuse.js';
-import { deleteBookmark } from './utils/student-fetches/bookmark-fetches.js'
+import { useObserver } from "mobx-react";
+import React, { useState } from "react";
+import { useStateStore } from "./StoreProvider.js";
+import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
+import fuse from "fuse.js";
+import { deleteBookmark } from "./utils/student-fetches/bookmark-fetches.js";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import BookmarkListItem from './BookmarkListItem.js';
-import Transition from './DialogTransition.js';
+import BookmarkListItem from "./BookmarkListItem.js";
+import Transition from "./DialogTransition.js";
 
-import CommentIcon from '@material-ui/icons/Comment';
+import CommentIcon from "@material-ui/icons/Comment";
 
 
 // const useStyles = makeStyles((theme) => ({
@@ -20,39 +20,39 @@ import CommentIcon from '@material-ui/icons/Comment';
 
 
 export const Bookmark = ({ handleMeetingDetailClick }) => {
-    const [searchField, setSearchField] = useState('');
+    const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     // const classes = useStyles();
     // const history = useHistory();
     let fuseBookmarkList = new fuse(store.bookmarkArray, {
-        keys: ['text', 'speaker', 'comment'],
+        keys: ["text", "speaker", "comment"],
         threshold: 0.4,
         ignoreLocation: true
-    })
+    });
 
 
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
-    }
+    };
 
     const handleDeleteBookmark = async (bookmarkId) => {
-        const newBookmarkArray = await deleteBookmark(bookmarkId)
+        const newBookmarkArray = await deleteBookmark(bookmarkId);
 
         store.changeBookmarkArray(newBookmarkArray);
         setOpen(false);
-    }
+    };
 
     const handleDeleteClick = async (bookmark) => {
-        setDialogCard(bookmark)
+        setDialogCard(bookmark);
         setOpen(true);
-    }
+    };
 
     const handleOpenMeeting = async (bookmark) => {
 
-        handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp)
-    }
+        handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp);
+    };
 
 
     return useObserver(() =>
@@ -71,7 +71,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
                     onChange={handleSearchChange}
                 />
                 <List>
-                    {searchField === '' ?
+                    {searchField === "" ?
                         store.bookmarkArray.map(bookmark => BookmarkListItem(bookmark,
                             handleDeleteClick,
                             handleOpenMeeting))
@@ -118,7 +118,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
                                 Cancel
                                 </Button>
                             <Button
-                                onClick={() => { handleDeleteBookmark(dialogCard.id) }}
+                                onClick={() => { handleDeleteBookmark(dialogCard.id); }}
                                 color="primary">
                                 Delete
                             </Button>
@@ -132,7 +132,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
 
         </div >
 
-    )
-}
+    );
+};
 
 export default Bookmark;

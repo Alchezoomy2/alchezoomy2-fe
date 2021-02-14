@@ -3,10 +3,6 @@ import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar } from "@materi
 import ReplyIcon from "@material-ui/icons/Reply";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-
-
-
-
 export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting) => {
 
 

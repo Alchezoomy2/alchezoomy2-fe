@@ -1,5 +1,5 @@
-import React from 'react'
-import { StoreProvider } from './StoreProvider.js'
+import React from "react";
+import { StoreProvider } from "./StoreProvider.js";
 
 import {
     BrowserRouter as Router,
@@ -7,13 +7,13 @@ import {
     Switch
 } from "react-router-dom";
 
-import PrivateRoute from './PrivateRoute.js';
-import LandingPage from './LandingPage.js';
-import AutoRedirect from './Redirect.js';
-import Login from './Login.js';
-import Teacher from './Teacher.js';
-import Student from './Student.js';
-require('dotenv').config()
+import PrivateRoute from "./PrivateRoute.js";
+import LandingPage from "./LandingPage.js";
+import AutoRedirect from "./Redirect.js";
+import Login from "./Login.js";
+import Teacher from "./Teacher.js";
+import Student from "./Student.js";
+require("dotenv").config();
 
 function App() {
     return (

@@ -1,14 +1,14 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
-import fuse from 'fuse.js';
+import fuse from "fuse.js";
 
-import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from '@material-ui/core';
-import { useStateStore } from './StoreProvider.js'
-import { makeStyles } from '@material-ui/core/styles';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import CommentIcon from '@material-ui/icons/Comment';
-import ReplyIcon from '@material-ui/icons/Reply';
+import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
+import { useStateStore } from "./StoreProvider.js";
+import { makeStyles } from "@material-ui/core/styles";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
+import CommentIcon from "@material-ui/icons/Comment";
+import ReplyIcon from "@material-ui/icons/Reply";
 import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "./utils/student-fetches/bookmark-fetches.js";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -21,36 +21,36 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 752,
     },
     list: {
-        height: '200px',
-        overflow: 'scroll',
-        width: '90%'
+        height: "200px",
+        overflow: "scroll",
+        width: "90%"
     },
     list_item: {
-        width: '650px',
+        width: "650px",
     },
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
-        color: '#fff',
+        color: "#fff",
     },
     dialog_title: {
-        fontWeight: 'bold',
+        fontWeight: "bold",
         color: "black"
     },
     dialog_speaker: {
-        fontWeight: 'bold',
-        fontSize: '1.1em',
-        margin: '3px'
+        fontWeight: "bold",
+        fontSize: "1.1em",
+        margin: "3px"
     },
     dialog_timestamp: {
-        fontSize: '.9em',
-        margin: '3px',
+        fontSize: ".9em",
+        margin: "3px",
         color: "secondary"
     },
     dialog_text: {
-        margin: '3px'
+        margin: "3px"
     },
     reply_icon: {
-        transform: 'scaleX(-1)'
+        transform: "scaleX(-1)"
     }
 }));
 
@@ -62,13 +62,13 @@ export const ChatBox = (props) => {
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
     // const [chatSync, setChatSync] = useState(true);
-    const [searchField, setSearchField] = useState('');
+    const [searchField, setSearchField] = useState("");
     // const selectedChatIndex = useRef(0)
     const fuseChatList = new fuse(store.chatArray, {
-        keys: ['text', 'speaker'],
+        keys: ["text", "speaker"],
         threshold: 0.4,
         ignoreLocation: true
-    })
+    });
 
 
     // const handleChatSync = async () => {
@@ -76,14 +76,14 @@ export const ChatBox = (props) => {
     // }
 
     const handleBookmark = async (chatItem) => {
-        setCommentField("")
+        setCommentField("");
         setBookmarkCard({
             ...chatItem,
             title: "BOOKMARK",
             current: false
         });
         setOpen(true);
-    }
+    };
 
     const handleUnbookmark = async (bookmarkItem, chatItem) => {
         setBookmarkCard({
@@ -93,33 +93,33 @@ export const ChatBox = (props) => {
             current: true
         });
         setOpen(true);
-    }
+    };
 
     const handleBookmarkChange = async () => {
         let newBookmarkArray = [];
         if (bookmarkCard.current) {
-            const bookmarkId = bookmarkArray.find(bookmark => bookmark['chat_id'] === bookmarkCard.id)
-            newBookmarkArray = await deleteBookmark(bookmarkId.id)
+            const bookmarkId = bookmarkArray.find(bookmark => bookmark["chat_id"] === bookmarkCard.id);
+            newBookmarkArray = await deleteBookmark(bookmarkId.id);
         } else {
             newBookmarkArray = await createBookmark({
                 chatId: bookmarkCard.id,
                 studentId: store.studentInfo.id,
                 comment: commentField
-            })
+            });
         }
-        console.log(newBookmarkArray)
+        console.log(newBookmarkArray);
         setBookmarkArray(newBookmarkArray);
         setOpen(false);
-        setCommentField("")
-    }
+        setCommentField("");
+    };
 
     const handleCommentChange = async (e) => {
         setCommentField(e.target.value);
-    }
+    };
 
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
-    }
+    };
 
     useEffect(() => {
         async function retrieveBookmarks() {
@@ -139,7 +139,7 @@ export const ChatBox = (props) => {
         // }
         retrieveBookmarks();
         // selectedChat();
-    }, [bookmarkArray])
+    }, [bookmarkArray]);
 
     const chatListItems = (chat) => {
 
@@ -172,8 +172,8 @@ export const ChatBox = (props) => {
                 </ListItem>
             </div>
 
-        )
-    }
+        );
+    };
 
 
 
@@ -203,7 +203,7 @@ export const ChatBox = (props) => {
                     onChange={handleSearchChange}
                 />
                 <List className={classes.list}>
-                    {searchField === '' ?
+                    {searchField === "" ?
                         store.chatArray.map(chat => chatListItems(chat))
                         :
                         fuseChatList.search(searchField).map(({ item }) => chatListItems(item))
@@ -269,8 +269,8 @@ export const ChatBox = (props) => {
                 <></>
             }
         </div>
-    )
-}
+    );
+};
 
 
 export default ChatBox;

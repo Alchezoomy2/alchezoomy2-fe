@@ -1,27 +1,27 @@
-import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core'
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import React from "react";
+import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from "@material-ui/icons/Star";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 
 
 // import { useStateStore } from './StoreProvider.js'
-import { useObserver } from 'mobx-react';
-import HomeIcon from '@material-ui/icons/Home';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import { useObserver } from "mobx-react";
+import HomeIcon from "@material-ui/icons/Home";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 
 
 export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkClick, handleFavoriteClick }) => {
     return useObserver(() =>
-        <AppBar position="static" style={{ width: '100%' }}>
+        <AppBar position="static" style={{ width: "100%" }}>
             <Toolbar>
                 <Typography
                     variant="h6" >
                     Alchezoomy
                 </Typography>
-                {pageIcon === 'meeting' ?
+                {pageIcon === "meeting" ?
                     <HomeOutlinedIcon />
                     :
                     <IconButton
@@ -32,7 +32,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                         <HomeIcon />
                     </IconButton>
                 }
-                {pageIcon === 'bookmark' ?
+                {pageIcon === "bookmark" ?
                     <BookmarkBorderIcon />
                     :
                     <IconButton
@@ -43,7 +43,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                         <BookmarkIcon />
                     </IconButton>
                 }
-                {pageIcon === 'favorite' ?
+                {pageIcon === "favorite" ?
                     <StarBorderIcon />
                     :
                     <IconButton
@@ -56,7 +56,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 }
             </Toolbar>
         </AppBar>
-    )
-}
+    );
+};
 
 export default StudentHeader;
