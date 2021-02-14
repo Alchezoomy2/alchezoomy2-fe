@@ -41,7 +41,7 @@
             "error"
         ],
         "space-infix-ops": "error",
-        "object-curly-spacing": [],
+        "object-curly-spacing": 1,
         "comma-spacing": "error",
         "space-before-function-paren": [
             "error",
