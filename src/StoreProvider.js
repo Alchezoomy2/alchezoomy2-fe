@@ -87,8 +87,8 @@ export const StoreProvider = ({ children }) => {
     );
 };
 
-useStateStore.propTypes = {
-    children: PropTypes.object
+StoreProvider.propTypes = {
+    children: PropTypes.element
 };
 
 export const useStateStore = () => useContext(StoreContext);
