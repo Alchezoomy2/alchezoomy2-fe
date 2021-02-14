@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { useStateStore } from './StoreProvider.js'
-import { useObserver } from 'mobx-react';
-import { TeacherCreator } from './TeacherCreator'
-import { TeacherDashboard } from './TeacherDashboard'
+import React, { useState, useEffect } from "react";
+import { useStateStore } from "./StoreProvider.js";
+import { useObserver } from "mobx-react";
+import { TeacherCreator } from "./TeacherCreator";
+import { TeacherDashboard } from "./TeacherDashboard";
+import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches.js";
 
-import { AppBar, Typography, Grid, Backdrop, CircularProgress } from '@material-ui/core';
+
+import { AppBar, Typography, Grid, Backdrop, CircularProgress } from "@material-ui/core";
 
 
 export const Teacher = () => {
@@ -13,24 +15,25 @@ export const Teacher = () => {
     const store = useStateStore();
 
     useEffect(() => {
-        console.log(store.teacherInfo.new_user)
+        console.log(store.teacherInfo.new_user);
         if (store.teacherInfo.new_user) {
-            setDisplayModule(<TeacherCreator setOpen={setOpen} />)
+            setDisplayModule(<TeacherCreator setOpen={setOpen} />);
         } else {
-            let newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
+            fetchAllTeacherMeetings(store.teacherInfo)
+                .then(res => store.changeMeetingsObj(res));
 
-            store.changeMeetingsObj(newMeetingObj);
-            setDisplayModule(<TeacherDashboard setOpen={setOpen} />)
+            // store.changeMeetingsObj(newMeetingObj);
+            setDisplayModule(<TeacherDashboard setOpen={setOpen} />);
         }
 
-        setOpen(false)
-        console.log('FALSE')
-    }, [])
+        setOpen(false);
+        console.log("FALSE");
+    }, []);
 
     return useObserver(() =>
         <div>
             <Grid>
-                <AppBar position="static" style={{ width: '100%' }}>
+                <AppBar position="static" style={{ width: "100%" }}>
                     <Typography
                         variant="h6" >
                         Alchezoomy
@@ -43,7 +46,7 @@ export const Teacher = () => {
             </Grid>
         </div>
 
-    )
-}
+    );
+};
 
 export default Teacher;
