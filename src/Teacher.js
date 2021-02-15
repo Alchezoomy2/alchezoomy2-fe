@@ -20,9 +20,10 @@ export const Teacher = () => {
         console.log("handleClick");
         setOpen(true);
         createTeacher({ ...store.teacherInfo, color: selectedColor })
-            .then(res => store.changeTeacherInfo(res));
+            .then(res => store.changeTeacherInfo(res))
+            .then(setOpen(false));
         console.log("WAIT!!!!");
-        setOpen(false);
+        // setOpen(false);
     };
 
 
