@@ -22,7 +22,11 @@ export const Teacher = () => {
         createTeacher({ ...store.teacherInfo, color: selectedColor })
             .then(res => store.changeTeacherInfo(res))
             .then(setOpen(false));
-        console.log("WAIT!!!!");
+
+        const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
+        store.changeMeetingsObj(returnedMeetingArray);
+        setDisplayModule(<TeacherDashboard
+        />);
         // setOpen(false);
     };
 
