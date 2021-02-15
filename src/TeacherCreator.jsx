@@ -10,8 +10,6 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
     const [selectedColor, setSelectedColor] = useState("#FFFFFF");
     const { userName, picUrl, email } = store.teacherInfo;
 
-
-
     return (
         <Container>
             <Paper elevation={3} >

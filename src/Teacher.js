@@ -19,9 +19,10 @@ export const Teacher = () => {
     const handleCreateTeacher = async (selectedColor) => {
         console.log("handleClick");
         setOpen(true);
-        const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
-        console.log(returnedTeacherInfo);
-        await store.changeTeacherInfo(returnedTeacherInfo);
+        createTeacher({ ...store.teacherInfo, color: selectedColor })
+            .then(res => store.changeTeacherInfo(res));
+        // console.log(returnedTeacherInfo);
+        // await store.changeTeacherInfo(returnedTeacherInfo);
         setOpen(false);
     };
 
