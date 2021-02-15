@@ -12,7 +12,9 @@ export const TeacherDashboard = ({ setOpen }) => {
     console.log(meetingsToDisplay[0]);
 
 
-    const handlePublish = (async (meeting) => {
+    const handlePublish = (async meeting => {
+
+        console.log("hi!");
         let newMeetingObj;
         await setOpen(true);
         console.log("handlePublish");
