@@ -16,7 +16,7 @@ export const Login = () => {
         async function loginStudent() {
             let returnedStudentInfo = await studentAuth(store.code);
 
-            if (returnedStudentInfo.new_user) {
+            if (returnedStudentInfo.newUser) {
                 returnedStudentInfo = await createStudent(returnedStudentInfo);
             }
 
