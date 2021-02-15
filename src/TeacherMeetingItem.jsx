@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 });
 
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
-    const props = { backgroundColor: meeting.color };
+    const props = meeting.published ? meeting.color : "#FFF";
     const classes = useStyles(props);
 
     return (
