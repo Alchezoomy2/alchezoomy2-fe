@@ -3,10 +3,14 @@ import { AppBar, Avatar, Typography, Toolbar, IconButton, InputBase } from "@mat
 import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
+import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
+    },
+    input: {
+        color: "white"
     }
 }));
 
@@ -18,13 +22,11 @@ export const TeacherAppBar = () => {
 
     const handleEmailChange = (value) => {
         setStudentEmail(value);
-        console.log(value);
     };
 
-    const handleStudentInvite = () => {
+    const handleStudentInvite = async () => {
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
-            console.log("CLICK");
-            console.log(studentEmail);
+            await inviteStudent(studentEmail);
         } else {
             setValidInput(false);
         }
@@ -42,6 +44,7 @@ export const TeacherAppBar = () => {
                     {store.teacherInfo.userName}
                 </Typography>
                 <InputBase
+                    className={classes.input}
                     error={!validInput}
                     variant="outlined"
                     placeholder="Invite student via email"

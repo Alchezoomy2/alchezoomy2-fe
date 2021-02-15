@@ -18,3 +18,11 @@ export async function createTeacher(teacherInfo) {
 
     return response.body;
 }
+
+export async function inviteStudent(email) {
+    const response = await request
+        .get(`${serverUrl}/teacher/invite${email}`)
+        .withCredentials();
+
+    return response.body;
+}
