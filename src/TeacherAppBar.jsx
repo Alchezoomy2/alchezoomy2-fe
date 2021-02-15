@@ -8,10 +8,10 @@ export const TeacherAppBar = () => {
 
     return (
         <AppBar position="static" style={{ width: "100%" }}>
-            <Typography
+            {/* <Typography
                 variant="h6" >
                 Alchezoomy
-            </Typography>
+            </Typography> */}
             <Typography>
                 {store.teacherInfo.userName}
             </Typography>
