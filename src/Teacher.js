@@ -43,7 +43,7 @@ export const Teacher = () => {
 
         setOpen(false);
         console.log("FALSE");
-    }, [open]);
+    }, [setOpen]);
 
 
 
