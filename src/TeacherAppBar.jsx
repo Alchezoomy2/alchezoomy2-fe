@@ -1,13 +1,13 @@
 import React from "react";
-import { AppBar, Avatar, Typography, Toolbar } from "@material-ui/core";
+import { AppBar, Avatar, Typography, Toolbar, IconButton } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
-
+import MailIcon from "@material-ui/icons/Mail";
 
 export const TeacherAppBar = () => {
     const store = useStateStore();
 
     return (
-        <AppBar position="static" style={{ width: "100%", height: "75px" }}>
+        <AppBar position="static" style={{ width: "100%", height: "65px" }}>
             <Toolbar>
                 <Avatar
                     alt={store.teacherInfo.userName}
@@ -17,6 +17,9 @@ export const TeacherAppBar = () => {
                 <Typography>
                     {store.teacherInfo.userName}
                 </Typography>
+                <IconButton edge="end" color="inherit">
+                    <MailIcon />
+                </IconButton>
             </Toolbar>
         </AppBar>
     );
