@@ -26,6 +26,7 @@ export const Teacher = () => {
     };
 
     useEffect(async () => {
+        console.log("useEffect");
         console.log(store.teacherInfo.newUser);
         if (store.teacherInfo.newUser) {
             setDisplayModule(<TeacherCreator
