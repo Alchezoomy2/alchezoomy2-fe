@@ -48,19 +48,19 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                             <Chip
                                 size="small"
                                 color="secondary"
-                                label={"views: " + meeting.meeting_views} />
+                                label={"views: " + meeting.meetingViews} />
                             <Chip
                                 size="small"
                                 color="secondary"
-                                label={"favorites " + meeting.meeting_favs} />
+                                label={"favorites " + meeting.meetingFavs} />
                         </div>
                         <div>
                             {
                                 favoriteArray &&
-                                    favoriteArray.some(favorite => favorite.meeting_id === meeting.id) ?
+                                    favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
                                     <StarIcon
                                         clickable
-                                        onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meeting_id === meeting.id), meeting)}
+                                        onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
                                     />
                                     :
                                     <StarBorderIcon
@@ -85,13 +85,13 @@ MeetingListItem.propTypes = {
     meeting: PropTypes.object(PropTypes.shape({
         id: PropTypes.number.isRequired,
         topic: PropTypes.string.isRequired,
-        display_time: PropTypes.string.isRequired,
-        video_url: PropTypes.string.isRequired,
-        chat_url: PropTypes.string.isRequired,
-        transcript_url: PropTypes.string.isRequired,
+        displayTime: PropTypes.string.isRequired,
+        videoUrl: PropTypes.string.isRequired,
+        chatUrl: PropTypes.string.isRequired,
+        transcriptUrl: PropTypes.string.isRequired,
         published: PropTypes.bool.isRequired,
-        meeting_views: PropTypes.number.isRequired,
-        meeting_favs: PropTypes.number.isRequired
+        meetingViews: PropTypes.number.isRequired,
+        meetingFavs: PropTypes.number.isRequired
     })
     ),
     favoriteArray: PropTypes.array,
