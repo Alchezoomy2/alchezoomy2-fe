@@ -33,13 +33,6 @@ export const Login = () => {
         async function loginTeacher() {
             const returnedObject = await teacherAuth(store.code);
             await store.changeTeacherInfo(returnedObject);
-
-            // if (!store.teacherInfo.new_user) {
-
-            //     let newMeetingObj = await fetchAllTeacherMeetings(store.teacherInfo)
-
-            //     store.changeMeetingsObj(newMeetingObj);
-            // }
             history.push("/teacher/");
 
         }

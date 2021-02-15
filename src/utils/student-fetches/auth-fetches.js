@@ -12,7 +12,7 @@ export async function studentAuth(code) {
 export async function createStudent(studentInfo) {
     const response = await fetch
         .post(serverUrl + "/student/new")
-        .send({ student_info: studentInfo })
+        .send({ studentInfo })
         .withCredentials();
 
     return response.body;
