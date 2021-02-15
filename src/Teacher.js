@@ -15,14 +15,12 @@ export const Teacher = () => {
     const store = useStateStore();
 
     useEffect(async () => {
-        console.log(store.teacherInfo.new_user);
-        if (store.teacherInfo.new_user) {
+        console.log(store.teacherInfo.newUser);
+        if (store.teacherInfo.newUser) {
             setDisplayModule(<TeacherCreator setOpen={setOpen} />);
         } else {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
-            console.log(returnedMeetingArray);
-            console.log("retrieved!");
             setDisplayModule(<TeacherDashboard setOpen={setOpen} />);
         }
 

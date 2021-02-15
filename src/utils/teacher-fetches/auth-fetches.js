@@ -10,10 +10,10 @@ export async function teacherAuth(code) {
     return response.body;
 }
 
-export async function createTeacher(teacher_info) {
+export async function createTeacher(teacherInfo) {
     const response = await request
         .post(serverUrl + "/teacher/new")
-        .send({ teacher_info })
+        .send({ teacherInfo })
         .withCredentials();
 
     return response.body;

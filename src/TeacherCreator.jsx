@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 export const TeacherCreator = ({ setOpen }) => {
     const store = useStateStore();
     const [selectedColor, setSelectedColor] = useState("#FFFFFF");
-    const { user_name, pic_url, email } = store.teacherInfo;
+    const { userName, picUrl, email } = store.teacherInfo;
 
     const handleClick = async () => {
         console.log("handleClick");
@@ -23,16 +23,16 @@ export const TeacherCreator = ({ setOpen }) => {
         <Container>
             <Paper elevation={3} >
                 <Typography>
-                    {`WELCOME TO ALCHEMZOOMY ${user_name}!`}
+                    {`WELCOME TO ALCHEMZOOMY ${userName}!`}
                 </Typography>
                 <Typography>
                     {"This appears to be your first visit!  You'll need to create an account to continue.  Is this you?"}
                 </Typography>
                 <Card style={{ height: "800px" }}>
                     <CardContent>
-                        <Avatar alt={user_name} src={pic_url} />
+                        <Avatar alt={userName} src={picUrl} />
                         <Typography>
-                            {`Name: ${user_name}`}
+                            {`Name: ${userName}`}
                         </Typography>
                         <Typography>
                             {`Email: ${email}`}
