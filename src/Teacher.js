@@ -25,6 +25,7 @@ export const Teacher = () => {
         setOpen(false);
     };
 
+
     useEffect(async () => {
         console.log("useEffect");
         console.log(store.teacherInfo.newUser);
@@ -35,7 +36,9 @@ export const Teacher = () => {
         } else {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
-            setDisplayModule(<TeacherDashboard setOpen={setOpen} />);
+            setDisplayModule(<TeacherDashboard
+                handlePublish={handlePublish}
+            />);
         }
 
         setOpen(false);

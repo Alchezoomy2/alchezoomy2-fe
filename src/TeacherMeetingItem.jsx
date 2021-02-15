@@ -4,27 +4,11 @@ import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
-import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
 import PropTypes from "prop-types";
 
 
 
-export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) => {
-
-    const handlePublish = (async (meeting) => {
-        let newMeetingObj;
-        await setOpen(true);
-        console.log("handlePublish");
-        if (meeting.published) {
-            newMeetingObj = await unpublishMeeting(meeting.id);
-
-        } else {
-            newMeetingObj = await publishMeeting(meeting.id);
-        }
-
-        setMeetingsToDisplay(newMeetingObj);
-        setOpen(false);
-    });
+export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
 
     return (
         <ListItem alignItems="flex-start" styles={{ backgroundColor: meeting.color }}>
@@ -33,10 +17,10 @@ export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) =
                 secondary={meeting.display_time}
             />
             <div>
-                <Chip size="small" color={meeting.video_url ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
-                <Chip size="small" color={meeting.audio_url ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
-                <Chip size="small" color={meeting.chat_url ? "primary" : ""} icon={<ChatIcon />} label="chat" />
-                <Chip size="small" color={meeting.transcript_url ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
+                <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
+                <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
+                <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />
+                <Chip size="small" color={meeting.transcriptUrl ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
             </div>
             <FormControlLabel
                 control={<Switch checked={meeting.published}
@@ -57,15 +41,14 @@ TeacherMeetingItem.propTypes = {
     meeting: PropTypes.object(PropTypes.shape({
         id: PropTypes.number.isRequired,
         topic: PropTypes.string.isRequired,
-        display_time: PropTypes.string.isRequired,
-        video_url: PropTypes.string.isRequired,
-        chat_url: PropTypes.string.isRequired,
-        transcript_url: PropTypes.string.isRequired,
+        displayTime: PropTypes.string.isRequired,
+        videoUrl: PropTypes.string.isRequired,
+        chatUrl: PropTypes.string.isRequired,
+        transcriptUrl: PropTypes.string.isRequired,
         published: PropTypes.bool.isRequired,
-        meeting_views: PropTypes.number.isRequired,
-        meeting_favs: PropTypes.number.isRequired
+        meetingViews: PropTypes.number.isRequired,
+        meetingFavs: PropTypes.number.isRequired
     })
     ),
-    setOpen: PropTypes.func,
-    setMeetingsToDisplay: PropTypes.func
+    handlePublish: PropTypes.func
 };

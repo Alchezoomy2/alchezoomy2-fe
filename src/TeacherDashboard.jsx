@@ -3,12 +3,29 @@ import { useStateStore } from "./StoreProvider";
 import { Container, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
+import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
 
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
     console.log(meetingsToDisplay[0]);
+
+
+    const handlePublish = (async (meeting) => {
+        let newMeetingObj;
+        await setOpen(true);
+        console.log("handlePublish");
+        if (meeting.published) {
+            newMeetingObj = await unpublishMeeting(meeting.id);
+
+        } else {
+            newMeetingObj = await publishMeeting(meeting.id);
+        }
+
+        setMeetingsToDisplay(newMeetingObj);
+        setOpen(false);
+    });
 
     // useEffect(() => {
     //     store.changeMeetingsObj(setMeetingsToDisplay);
@@ -24,7 +41,7 @@ export const TeacherDashboard = ({ setOpen }) => {
                         <div key={index}>
                             <TeacherMeetingItem
                                 meeting={meeting}
-                                setOpen={setOpen}
+                                handlePublish={handlePublish}
                                 setMeetingsToDisplay={setMeetingsToDisplay} />
                             <Divider variant="middle" component="li" />
                         </div>
