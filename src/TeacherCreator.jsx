@@ -15,6 +15,7 @@ export const TeacherCreator = ({ setOpen }) => {
         console.log("handleClick");
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
+        console.log(returnedTeacherInfo);
         await store.changeTeacherInfo(returnedTeacherInfo);
         setOpen(false);
     };
