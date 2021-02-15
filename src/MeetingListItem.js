@@ -17,32 +17,32 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
             <div>
                 <ListItem alignItems="flex-start" >
                     <ListItemAvatar>
-                        <Avatar alt={meeting.user_name} src={meeting.pic_url} />
+                        <Avatar alt={meeting.userName} src={meeting.picUrl} />
                     </ListItemAvatar>
                     <ListItemText
                         primary={meeting.topic}
-                        secondary={meeting.display_time}
+                        secondary={meeting.displayTime}
                     />
                     <div>
                         <div>
                             <Chip
                                 size="small"
-                                color={meeting.video_url ? "primary" : ""}
+                                color={meeting.videoUrl ? "primary" : ""}
                                 icon={<VideoLabelIcon />}
                                 label="video" />
                             <Chip
                                 size="small"
-                                color={meeting.audio_url ? "primary" : ""}
+                                color={meeting.audioUrl ? "primary" : ""}
                                 icon={<VolumeUpIcon />}
                                 label="audio" />
                             <Chip
                                 size="small"
-                                color={meeting.chat_url ? "primary" : ""}
+                                color={meeting.chatUrl ? "primary" : ""}
                                 icon={<ChatIcon />}
                                 label="chat" />
                             <Chip
                                 size="small"
-                                color={meeting.transcript_url ? "primary" : ""}
+                                color={meeting.transcriptUrl ? "primary" : ""}
                                 icon={<RecordVoiceOverIcon />} label="transcript" />
 
                             <Chip

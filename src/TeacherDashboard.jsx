@@ -13,10 +13,10 @@ export const TeacherDashboard = ({ setOpen }) => {
 
 
     const handlePublish = (async meeting => {
+        console.log("hi!");
 
         let newMeetingObj;
         await setOpen(true);
-        console.log("hi!");
         console.log("handlePublish");
         if (meeting.published) {
             newMeetingObj = await unpublishMeeting(meeting.id);
