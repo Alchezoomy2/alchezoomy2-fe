@@ -19,15 +19,12 @@ export const Teacher = () => {
     const handleCreateTeacher = async (selectedColor) => {
         console.log("handleClick");
         setOpen(true);
-        createTeacher({ ...store.teacherInfo, color: selectedColor })
-            .then(res => store.changeTeacherInfo(res))
-            .then(setOpen(false));
-
-        const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
+        const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
+        store.changeTeacherInfo(returnedTeacherInfo);
+        const returnedMeetingArray = await fetchAllTeacherMeetings(returnedTeacherInfo);
         store.changeMeetingsObj(returnedMeetingArray);
-        setDisplayModule(<TeacherDashboard
-        />);
-        // setOpen(false);
+        setDisplayModule(<TeacherDashboard />);
+        setOpen(false);
     };
 
 
