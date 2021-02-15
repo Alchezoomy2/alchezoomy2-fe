@@ -26,7 +26,7 @@ export const Teacher = () => {
 
         setOpen(false);
         console.log("FALSE");
-    }, []);
+    }, [store]);
 
     return useObserver(() =>
         <div>
