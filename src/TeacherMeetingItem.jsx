@@ -27,7 +27,7 @@ export const TeacherMeetingItem = ({ meeting, setOpen, setMeetingsToDisplay }) =
     });
 
     return (
-        < ListItem alignItems="flex-start" >
+        <ListItem alignItems="flex-start" styles={{ backgroundColor: meeting.color }}>
             <ListItemText
                 primary={meeting.topic}
                 secondary={meeting.display_time}
