@@ -5,9 +5,9 @@ import { TeacherCreator } from "./TeacherCreator";
 import { TeacherDashboard } from "./TeacherDashboard";
 import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
+import { TeacherAppBar } from "./TeacherAppBar";
 
-
-import { AppBar, Typography, Grid, Backdrop, CircularProgress } from "@material-ui/core";
+import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 
 
 export const Teacher = () => {
@@ -17,7 +17,6 @@ export const Teacher = () => {
 
 
     const handleCreateTeacher = async (selectedColor) => {
-        console.log("handleClick");
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
         store.changeTeacherInfo(returnedTeacherInfo);
@@ -53,12 +52,7 @@ export const Teacher = () => {
     return useObserver(() =>
         <div>
             <Grid>
-                <AppBar position="static" style={{ width: "100%" }}>
-                    <Typography
-                        variant="h6" >
-                        Alchezoomy
-                </Typography>
-                </AppBar>
+                <TeacherAppBar />
                 {displayModule}
                 <Backdrop open={open}>
                     <CircularProgress />
