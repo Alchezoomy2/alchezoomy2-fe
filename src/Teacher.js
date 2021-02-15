@@ -21,7 +21,7 @@ export const Teacher = () => {
         setOpen(true);
         createTeacher({ ...store.teacherInfo, color: selectedColor })
             .then(res => store.changeTeacherInfo(res));
-        // console.log(returnedTeacherInfo);
+        console.log(store.teacherInfo);
         // await store.changeTeacherInfo(returnedTeacherInfo);
         setOpen(false);
     };
@@ -43,7 +43,7 @@ export const Teacher = () => {
 
         setOpen(false);
         console.log("FALSE");
-    }, [open, store]);
+    }, [store.teacherInfo]);
 
 
 
