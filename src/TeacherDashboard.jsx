@@ -23,7 +23,7 @@ export const TeacherDashboard = ({ setOpen }) => {
             newMeetingObj = await publishMeeting(meeting.id);
         }
 
-        setMeetingsToDisplay(newMeetingObj);
+        await setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
     });
 
