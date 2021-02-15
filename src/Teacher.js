@@ -21,7 +21,7 @@ export const Teacher = () => {
         } else {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
-            console.log(JSON.parse(store.meetingsObj[0]));
+            console.log(returnedMeetingArray);
             console.log("retrieved!");
             setDisplayModule(<TeacherDashboard setOpen={setOpen} />);
         }
