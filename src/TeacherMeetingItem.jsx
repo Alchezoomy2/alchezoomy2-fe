@@ -14,8 +14,9 @@ const useStyles = makeStyles({
 });
 
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
-    const props = meeting.published ? meeting.color : "#FFF";
-    const classes = useStyles(props);
+    let meetingColor = "#FFF";
+    if (meeting.published) meetingColor = meeting.color;
+    const classes = useStyles({ backgroundColor: meetingColor });
 
     return (
         <ListItem alignItems="flex-start" className={classes.listItem}>
