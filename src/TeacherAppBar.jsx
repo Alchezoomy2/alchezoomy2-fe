@@ -17,11 +17,10 @@ export const TeacherAppBar = () => {
                 <Typography>
                     {store.teacherInfo.userName}
                 </Typography>
+                <IconButton color="inherit">
+                    <MailIcon />
+                </IconButton>
             </Toolbar>
-            <IconButton edge="end" color="inherit">
-                <MailIcon />
-            </IconButton>
-
         </AppBar>
     );
 };
