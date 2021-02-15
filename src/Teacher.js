@@ -37,7 +37,6 @@ export const Teacher = () => {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
             setDisplayModule(<TeacherDashboard
-                handlePublish={handlePublish}
             />);
         }
 
