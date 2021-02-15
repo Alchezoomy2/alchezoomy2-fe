@@ -2,23 +2,15 @@ import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
 import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
 import { ColorPicker } from "material-ui-color";
-import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
 
 
-export const TeacherCreator = ({ setOpen }) => {
+export const TeacherCreator = ({ handleCreateTeacher }) => {
     const store = useStateStore();
     const [selectedColor, setSelectedColor] = useState("#FFFFFF");
     const { userName, picUrl, email } = store.teacherInfo;
 
-    const handleClick = async () => {
-        console.log("handleClick");
-        setOpen(true);
-        const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
-        console.log(returnedTeacherInfo);
-        await store.changeTeacherInfo(returnedTeacherInfo);
-        setOpen(false);
-    };
+
 
     return (
         <Container>
@@ -49,7 +41,7 @@ export const TeacherCreator = ({ setOpen }) => {
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={() => handleClick()}
+                            onClick={() => handleCreateTeacher(selectedColor)}
                         >CREATE USER
                         </Button>
                     </CardContent>
@@ -60,5 +52,6 @@ export const TeacherCreator = ({ setOpen }) => {
 };
 
 TeacherCreator.propTypes = {
-    setOpen: PropTypes.func
+    setOpen: PropTypes.func,
+    handleCreateTeacher: PropTypes.func
 };

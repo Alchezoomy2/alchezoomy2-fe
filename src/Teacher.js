@@ -4,6 +4,7 @@ import { useObserver } from "mobx-react";
 import { TeacherCreator } from "./TeacherCreator";
 import { TeacherDashboard } from "./TeacherDashboard";
 import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches.js";
+import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
 
 
 import { AppBar, Typography, Grid, Backdrop, CircularProgress } from "@material-ui/core";
@@ -14,10 +15,22 @@ export const Teacher = () => {
     let [open, setOpen] = useState(true);
     const store = useStateStore();
 
+
+    const handleCreateTeacher = async (selectedColor) => {
+        console.log("handleClick");
+        setOpen(true);
+        const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
+        console.log(returnedTeacherInfo);
+        await store.changeTeacherInfo(returnedTeacherInfo);
+        setOpen(false);
+    };
+
     useEffect(async () => {
         console.log(store.teacherInfo.newUser);
         if (store.teacherInfo.newUser) {
-            setDisplayModule(<TeacherCreator setOpen={setOpen} />);
+            setDisplayModule(<TeacherCreator
+                handleCreateTeacher={handleCreateTeacher}
+            />);
         } else {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
@@ -27,6 +40,8 @@ export const Teacher = () => {
         setOpen(false);
         console.log("FALSE");
     }, [open]);
+
+
 
     return useObserver(() =>
         <div>
