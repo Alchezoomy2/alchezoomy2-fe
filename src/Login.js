@@ -37,7 +37,6 @@ export const Login = () => {
 
         }
 
-
         if (store.userType === "student") {
             loginStudent();
         } else if (store.userType === "teacher") {

@@ -124,7 +124,6 @@ export const ChatBox = (props) => {
     useEffect(() => {
         async function retrieveBookmarks() {
             const fetchedBookmarkArray = await fetchAllStudentBookmarks();
-
             setBookmarkArray(fetchedBookmarkArray);
         }
 
@@ -139,7 +138,7 @@ export const ChatBox = (props) => {
         // }
         retrieveBookmarks();
         // selectedChat();
-    }, [bookmarkArray]);
+    }, []);
 
     const chatListItems = (chat) => {
 

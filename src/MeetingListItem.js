@@ -52,7 +52,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                             <Chip
                                 size="small"
                                 color="secondary"
-                                label={"favorites " + meeting.meetingFavs} />
+                                label={"favorites: " + meeting.meetingFavs} />
                         </div>
                         <div>
                             {

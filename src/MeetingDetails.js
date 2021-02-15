@@ -29,7 +29,7 @@ export const MeetingDetails = ({ startTime }) => {
 
         // videoProgression();
         startAtTimestamp();
-    });
+    }, []);
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
