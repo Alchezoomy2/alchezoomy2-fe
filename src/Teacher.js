@@ -21,8 +21,7 @@ export const Teacher = () => {
         setOpen(true);
         createTeacher({ ...store.teacherInfo, color: selectedColor })
             .then(res => store.changeTeacherInfo(res));
-        console.log(store.teacherInfo);
-        // await store.changeTeacherInfo(returnedTeacherInfo);
+        console.log(open);
         setOpen(false);
     };
 
