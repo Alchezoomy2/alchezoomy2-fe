@@ -4,11 +4,11 @@ import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import makeStyles from "@material-ui/styles";
 
-const useStyles = makeStyles(() => {
-    {
-        1;
+const useStyles = makeStyles(() => ({
+    root: {
+        flexGrow: 1,
     }
-});
+}));
 
 export const TeacherAppBar = () => {
     const store = useStateStore();
