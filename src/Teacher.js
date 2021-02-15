@@ -18,10 +18,11 @@ export const Teacher = () => {
 
     const handleCreateTeacher = async (selectedColor) => {
         console.log("handleClick");
-        await setOpen(true);
+        setOpen(true);
         createTeacher({ ...store.teacherInfo, color: selectedColor })
             .then(res => store.changeTeacherInfo(res));
-        await setOpen(false);
+        console.log("WAIT!!!!");
+        setOpen(false);
     };
 
 
