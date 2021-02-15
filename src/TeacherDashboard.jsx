@@ -14,7 +14,6 @@ export const TeacherDashboard = ({ setOpen }) => {
 
     const handlePublish = (async meeting => {
 
-
         let newMeetingObj;
         await setOpen(true);
         console.log("hi!");
