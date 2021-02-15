@@ -166,15 +166,15 @@ export const Student = (props) => {
                         maxWidth="xl"
                     >
                         <DialogContent>
-                            <Avatar alt={favoriteCard.user_name} src={favoriteCard.pic_url} />
+                            <Avatar alt={favoriteCard.userName} src={favoriteCard.picUrl} />
                             <DialogTitle className={classes.dialog_title}>
                                 {favoriteCard.topic}
                             </DialogTitle>
                             <DialogContentText id="speaker" className={classes.dialog_speaker}>
-                                {favoriteCard.user_name}
+                                {favoriteCard.userName}
                             </DialogContentText>
                             <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
-                                {favoriteCard.display_time}
+                                {favoriteCard.displayTime}
                             </DialogContentText>
                             <Divider />
                             {!favoriteCard.current ?
