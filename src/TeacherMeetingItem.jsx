@@ -1,4 +1,5 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import { Chip, ListItem, ListItemText, FormControlLabel, Switch } from "@material-ui/core";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
@@ -6,12 +7,18 @@ import ChatIcon from "@material-ui/icons/Chat";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
-
+const useStyles = makeStyles({
+    listItem: props => ({
+        backgroundColor: props.backgroundColor
+    })
+});
 
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
+    const props = { backgroundColor: meeting.color };
+    const classes = useStyles(props);
 
     return (
-        <ListItem alignItems="flex-start" styles={{ backgroundColor: meeting.color }}>
+        <ListItem alignItems="flex-start" className={classes.listItem}>
             <ListItemText
                 primary={meeting.topic}
                 secondary={meeting.displayTime}
