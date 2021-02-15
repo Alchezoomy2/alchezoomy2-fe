@@ -14,6 +14,7 @@ export const TeacherAppBar = () => {
     const store = useStateStore();
     const classes = useStyles();
     const [studentEmail, setStudentEmail] = useState("");
+    const [validInput, setValidInput] = useState(true);
 
     const handleEmailChange = (value) => {
         setStudentEmail(value);
@@ -21,8 +22,12 @@ export const TeacherAppBar = () => {
     };
 
     const handleStudentInvite = () => {
-        console.log("CLICK");
-        console.log(studentEmail);
+        if (studentEmail.includes("@") && studentEmail.includes(".")) {
+            console.log("CLICK");
+            console.log(studentEmail);
+        } else {
+            setValidInput(false);
+        }
     };
 
     return (
@@ -37,7 +42,10 @@ export const TeacherAppBar = () => {
                     {store.teacherInfo.userName}
                 </Typography>
                 <InputBase
+                    error={!validInput}
+                    variant="outlined"
                     placeholder="Invite student via email"
+                    helperText="invalid email format"
                     onChange={({ target }) => handleEmailChange(target.value)}
                 />
                 <IconButton
