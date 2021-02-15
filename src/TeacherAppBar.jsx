@@ -26,7 +26,7 @@ export const TeacherAppBar = () => {
 
     const handleStudentInvite = async () => {
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
-            await inviteStudent(studentEmail);
+            await inviteStudent(studentEmail, store.teacherInfo);
         } else {
             setValidInput(false);
         }

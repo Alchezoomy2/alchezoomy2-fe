@@ -19,9 +19,10 @@ export async function createTeacher(teacherInfo) {
     return response.body;
 }
 
-export async function inviteStudent(email) {
+export async function inviteStudent(email, teacherInfo) {
     const response = await request
-        .get(`${serverUrl}/teacher/invite${email}`)
+        .get(`${serverUrl}/teacher/invite/${email}`)
+        .send(teacherInfo)
         .withCredentials();
 
     return response.body;
