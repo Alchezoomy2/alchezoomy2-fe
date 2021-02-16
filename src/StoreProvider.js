@@ -7,6 +7,7 @@ const StoreContext = React.createContext();
 
 export const StoreProvider = ({ children }) => {
     const store = useLocalObservable(() => ({
+        JWT: localStorage.getItem("JWT") || "",
         code: localStorage.getItem("CODE") || "",
         userType: localStorage.getItem("USER_TYPE") || "",
         teacherInfo: localStorage.getItem("TEACHER_INFO") || "",
@@ -77,7 +78,13 @@ export const StoreProvider = ({ children }) => {
         changeBookmarkArray: newBookmarkArray => {
             store.bookmarkArray = newBookmarkArray;
             localStorage.setItem("BOOKMARK_ARRAY", newBookmarkArray);
+        },
+
+        changeJWT: newJWT => {
+            store.JWT = newJWT;
+            localStorage.setItem("JWT", newJWT);
         }
+
 
     }));
     return (

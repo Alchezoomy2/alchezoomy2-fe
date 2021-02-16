@@ -18,3 +18,12 @@ export async function createStudent(studentInfo) {
     return response.body;
 }
 
+export async function validateJWT(JWT, studentEmail) {
+    const response = await fetch
+        .post(serverUrl + "/student/invite")
+        .send({ JWT, studentEmail })
+        .withCredentials();
+
+    return response.body;
+}
+

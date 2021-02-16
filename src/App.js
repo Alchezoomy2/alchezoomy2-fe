@@ -13,6 +13,7 @@ import AutoRedirect from "./Redirect.js";
 import Login from "./Login.js";
 import Teacher from "./Teacher.js";
 import Student from "./Student.js";
+import InvitePage from "./InvitePage.js";
 require("dotenv").config();
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
                         component={Teacher} />
                     <PrivateRoute path="/student"
                         component={Student} />
+                    <Route path="/invite/:jwt"
+                        component={InvitePage} />
                 </Switch >
             </Router >
         </StoreProvider >
