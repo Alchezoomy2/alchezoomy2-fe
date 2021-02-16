@@ -37,3 +37,5 @@ export const InvitePage = () => {
     );
 
 };
+
+export default InvitePage;
