@@ -13,7 +13,7 @@ import AutoRedirect from "./Redirect.js";
 import Login from "./Login.js";
 import Teacher from "./Teacher.js";
 import Student from "./Student.js";
-import InvitePage from "./InvitePage.js";
+import InvitePage from "./InvitePage.jsx";
 require("dotenv").config();
 
 function App() {
