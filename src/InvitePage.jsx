@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useStateStore } from "./StoreProvider.js";
-import { useProps } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Paper, Typography, Button } from "@material-ui/core";
 import { useObserver } from "mobx-react";
 
@@ -9,7 +9,7 @@ const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
 export const InvitePage = () => {
     const store = useStateStore();
-    const { jwt } = useProps();
+    const { jwt } = useParams();
 
     useEffect(() => {
         store.changeJWT(jwt);
