@@ -13,22 +13,27 @@ export const LandingPage = () => {
 
     return useObserver(() =>
         <Paper elevation={3} className={classes.root}>
-            <Button
-                className={classes.button}
-                onClick={() => {
-                    store.changeUserType("teacher");
-                    window.location.href = zoomAPIurl;
-                }}>
-                Teacher
+            <div>
+                <img src="%PUBLIC_URL%/images/alchezoomy-logo.png" alt="logo image" />
+            </div>
+            <div>
+                <Button
+                    className={classes.button}
+                    onClick={() => {
+                        store.changeUserType("teacher");
+                        window.location.href = zoomAPIurl;
+                    }}>
+                    Teacher
+                </Button>
+                <Button
+                    className={classes.button}
+                    onClick={() => {
+                        store.changeUserType("student");
+                        window.location.href = zoomAPIurl;
+                    }}>
+                    Student
             </Button>
-            <Button
-                className={classes.button}
-                onClick={() => {
-                    store.changeUserType("student");
-                    window.location.href = zoomAPIurl;
-                }}>
-                Student
-            </Button>
+            </div>
         </Paper>
     );
 };

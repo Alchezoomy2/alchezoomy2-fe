@@ -2,7 +2,7 @@ import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
-import fuse from "fuse.js";
+import Fuse from "fuse.js";
 import { deleteBookmark } from "./utils/student-fetches/bookmark-fetches.js";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
@@ -26,7 +26,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
     const store = useStateStore();
     // const classes = useStyles();
     // const history = useHistory();
-    let fuseBookmarkList = new fuse(store.bookmarkArray, {
+    let fuseBookmarkList = new Fuse(store.bookmarkArray, {
         keys: ["text", "speaker", "comment"],
         threshold: 0.4,
         ignoreLocation: true

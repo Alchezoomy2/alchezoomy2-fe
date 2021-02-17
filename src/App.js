@@ -1,6 +1,7 @@
+require("dotenv").config();
 import React from "react";
 import { StoreProvider } from "./StoreProvider.js";
-
+import { ThemeProvider } from "@material-ui/core";
 import {
     BrowserRouter as Router,
     Route,
@@ -14,29 +15,29 @@ import Login from "./Login.js";
 import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 import InvitePage from "./InvitePage.jsx";
-require("dotenv").config();
 
 function App() {
     return (
-        <StoreProvider>
-            <Router>
-                <Switch>
-                    <Route exact path="/"
-                        component={LandingPage} />
-                    <Route path="/redirect/"
-                        component={AutoRedirect} />
-                    <Route path="/login/"
-                        component={Login} />
-                    <PrivateRoute path="/teacher"
-                        component={Teacher} />
-                    <PrivateRoute path="/student"
-                        component={Student} />
-                    <Route path="/invite/:jwt"
-                        component={InvitePage} />
-                </Switch >
-            </Router >
-        </StoreProvider >
-
+        <ThemeProvider>
+            <StoreProvider>
+                <Router>
+                    <Switch>
+                        <Route exact path="/"
+                            component={LandingPage} />
+                        <Route path="/redirect/"
+                            component={AutoRedirect} />
+                        <Route path="/login/"
+                            component={Login} />
+                        <PrivateRoute path="/teacher"
+                            component={Teacher} />
+                        <PrivateRoute path="/student"
+                            component={Student} />
+                        <Route path="/invite/:jwt"
+                            component={InvitePage} />
+                    </Switch >
+                </Router >
+            </StoreProvider >
+        </ThemeProvider>
     );
 }
 
