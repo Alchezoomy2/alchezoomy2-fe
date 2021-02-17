@@ -14,6 +14,7 @@ export const LandingPage = () => {
     return useObserver(() =>
         <Paper elevation={3} className={classes.root}>
             <Button
+                className={classes.button}
                 onClick={() => {
                     store.changeUserType("teacher");
                     window.location.href = zoomAPIurl;
@@ -21,6 +22,7 @@ export const LandingPage = () => {
                 Teacher
             </Button>
             <Button
+                className={classes.button}
                 onClick={() => {
                     store.changeUserType("student");
                     window.location.href = zoomAPIurl;

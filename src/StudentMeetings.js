@@ -20,18 +20,18 @@ const useStyles = makeStyles((theme) => ({
     list: {
         width: "90%"
     },
-    list_item: {
+    listItem: {
         width: "650px",
     },
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
         color: "#fff",
     },
-    dialog_title: {
+    dialogTitle: {
         fontWeight: "bold",
         color: "black"
     },
-    dialog_speaker: {
+    dialogSpeaker: {
         fontWeight: "bold",
         fontSize: "1.1em",
         margin: "3px"
@@ -167,10 +167,10 @@ export const Student = (props) => {
                     >
                         <DialogContent>
                             <Avatar alt={favoriteCard.userName} src={favoriteCard.picUrl} />
-                            <DialogTitle className={classes.dialog_title}>
+                            <DialogTitle className={classes.dialogTitle}>
                                 {favoriteCard.topic}
                             </DialogTitle>
-                            <DialogContentText id="speaker" className={classes.dialog_speaker}>
+                            <DialogContentText id="speaker" className={classes.dialogSpeaker}>
                                 {favoriteCard.userName}
                             </DialogContentText>
                             <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
