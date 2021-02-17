@@ -36,12 +36,12 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "1.1em",
         margin: "3px"
     },
-    dialog_timestamp: {
+    dialogTimestamp: {
         fontSize: ".9em",
         margin: "3px",
         color: "secondary"
     },
-    dialog_text: {
+    dialogText: {
         margin: "3px"
     },
 }));
@@ -173,7 +173,7 @@ export const Student = (props) => {
                             <DialogContentText id="speaker" className={classes.dialogSpeaker}>
                                 {favoriteCard.userName}
                             </DialogContentText>
-                            <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
+                            <DialogContentText id="timestamp" className={classes.dialogTimestamp}>
                                 {favoriteCard.displayTime}
                             </DialogContentText>
                             <Divider />
