@@ -4,6 +4,7 @@ import { primaryColor, textColor } from "./constants.js";
 export const useStyles = makeStyles({
     root: {
         height: "100vh",
+        flexDirection: "column",
         display: "flex",
         justifyContent: "center",
         alignContent: "center"
@@ -13,6 +14,9 @@ export const useStyles = makeStyles({
         width: "150px",
         backgroundColor: primaryColor,
         color: textColor
+    },
+    mainLogo: {
+        height: "500px",
     }
 });
 
