@@ -9,8 +9,8 @@ export const useStyles = makeStyles({
         alignContent: "center"
     },
     button: {
-        height: "15px",
-        width: "75px",
+        height: "50px",
+        width: "150px",
         backgroundColor: primaryColor,
         color: textColor
     }

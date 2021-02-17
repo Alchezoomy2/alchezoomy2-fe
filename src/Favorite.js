@@ -5,7 +5,7 @@ import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogCont
 import Fuse from "fuse.js";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import FavoriteListItem from "./FavoriteListItem.js";
+import favoriteListItem from "./favoriteListItem.js";
 import Transition from "./DialogTransition.js";
 
 
@@ -17,7 +17,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
-    // const classes = useStyles();
+
     let fuseFavoriteList = new Fuse(store.favoriteArray, {
         keys: ["topic", "comment", "user_name"],
         threshold: 0.4,
@@ -63,12 +63,12 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                 />
                 <List>
                     {searchField === "" ?
-                        store.favoriteArray.map(favorite => FavoriteListItem(
+                        store.favoriteArray.map(favorite => favoriteListItem(
                             favorite,
                             handleDeleteClick,
                             handleOpenMeeting))
                         :
-                        fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(
+                        fuseFavoriteList.search(searchField).map(({ item }) => favoriteListItem(
                             item,
                             handleDeleteClick,
                             handleOpenMeeting))
