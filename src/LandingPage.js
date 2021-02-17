@@ -14,7 +14,10 @@ export const LandingPage = () => {
     return useObserver(() =>
         <Paper elevation={3} className={classes.root}>
             <div>
-                <img src="/images/alchezoomy-logo.png" alt="logo image" />
+                <img
+                    className={classes.mainLogo}
+                    src="/images/alchezoomy-logo.png"
+                    alt="logo image" />
             </div>
             <div>
                 <Button
