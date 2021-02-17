@@ -11,7 +11,7 @@ import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 
 const useStyles = makeStyles({
     backdrop: {
-        zIndex: -1
+        zIndex: 5
     }
 });
 
