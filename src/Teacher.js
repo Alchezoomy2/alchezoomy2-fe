@@ -6,11 +6,17 @@ import { TeacherDashboard } from "./TeacherDashboard";
 import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
 import { TeacherAppBar } from "./TeacherAppBar";
-
+import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 
+const useStyles = makeStyles({
+    backdrop: {
+        zIndex: -1
+    }
+});
 
 export const Teacher = () => {
+    const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
     let [open, setOpen] = useState(true);
     const store = useStateStore();
@@ -52,7 +58,9 @@ export const Teacher = () => {
         <div>
             <Grid>
                 <TeacherAppBar />
-                <Backdrop open={open}>
+                <Backdrop
+                    className={classes.backdrop}
+                    open={open}>
                     <CircularProgress />
                 </Backdrop>
                 {displayModule}
