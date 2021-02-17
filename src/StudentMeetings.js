@@ -119,6 +119,8 @@ export const Student = (props) => {
     };
 
     const handleSearchChange = async (e) => {
+        console.log("handleSearchChange");
+        console.log(store.meetingsObj);
         setSearchField(e.target.value);
     };
 
