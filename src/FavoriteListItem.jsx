@@ -5,7 +5,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 
 
-export const favoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
+export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
 
     return (
         <div>
@@ -36,4 +36,4 @@ export const favoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
     );
 };
 
-export default favoriteListItem;
+export default FavoriteListItem;
