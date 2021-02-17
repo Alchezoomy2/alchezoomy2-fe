@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
         height: "100vh",
         flexDirection: "column",
         display: "flex",
-        justifyContent: "center",
+        justifyItems: "center",
         alignContent: "center"
     },
     button: {
