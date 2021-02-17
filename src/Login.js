@@ -40,9 +40,15 @@ export const Login = () => {
         async function handleInvite() {
             let returnedStudentInfo = await studentAuth(store.code);
 
-            let returnedValidation = await validateJWT(store.JWT, returnedStudentInfo.email);
+            if (returnedStudentInfo.newUser) {
+                returnedStudentInfo = await createStudent(returnedStudentInfo);
+            }
 
-            console.log(returnedValidation);
+            let newMeetingArray = await validateJWT(store.JWT, returnedStudentInfo.email);
+
+            store.changeMeetingsObj(newMeetingArray);
+
+            history.push("/student/");
         }
 
         if (store.userType === "student") {
