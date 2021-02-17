@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { primaryColor, secondaryColor, textColor } from "./constants.js";
+import { primaryColor, textColor } from "./constants.js";
 
 export const useStyles = makeStyles({
     root: {

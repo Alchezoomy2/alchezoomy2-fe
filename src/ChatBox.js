@@ -25,31 +25,31 @@ const useStyles = makeStyles((theme) => ({
         overflow: "scroll",
         width: "90%"
     },
-    list_item: {
+    listItem: {
         width: "650px",
     },
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
         color: "#fff",
     },
-    dialog_title: {
+    dialogTitle: {
         fontWeight: "bold",
         color: "black"
     },
-    dialog_speaker: {
+    dialogSpeaker: {
         fontWeight: "bold",
         fontSize: "1.1em",
         margin: "3px"
     },
-    dialog_timestamp: {
+    dialogTimestamp: {
         fontSize: ".9em",
         margin: "3px",
         color: "secondary"
     },
-    dialog_text: {
+    dialogText: {
         margin: "3px"
     },
-    reply_icon: {
+    replyIcon: {
         transform: "scaleX(-1)"
     }
 }));
@@ -146,7 +146,7 @@ export const ChatBox = (props) => {
             <div>
                 <Divider />
                 <ListItem
-                    className={classes.list_item}
+                    className={classes.listItem}
                 >
                     {(bookmarkArray &&
                         bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
@@ -164,7 +164,7 @@ export const ChatBox = (props) => {
                         primary={`${chat.speaker} ${chat.text}`}
                         secondary={chat.timestamp} />
                     <ReplyIcon
-                        className={classes.reply_icon}
+                        className={classes.replyIcon}
                         clickable
                         onClick={() => props.handleChatSeek(chat.parsed_timestamp)}
                     />
@@ -220,16 +220,16 @@ export const ChatBox = (props) => {
                     maxWidth="xl"
                 >
                     <DialogContent>
-                        <DialogTitle className={classes.dialog_title}>
+                        <DialogTitle className={classes.dialogTitle}>
                             {bookmarkCard.title}
                         </DialogTitle>
-                        <DialogContentText id="speaker" className={classes.dialog_speaker}>
+                        <DialogContentText id="speaker" className={classes.dialogSpeaker}>
                             {bookmarkCard.speaker}
                         </DialogContentText>
-                        <DialogContentText id="timestamp" className={classes.dialog_timestamp}>
+                        <DialogContentText id="timestamp" className={classes.dialogTimestamp}>
                             {bookmarkCard.timestamp}
                         </DialogContentText>
-                        <DialogContentText id="text" className={classes.dialog_text}>
+                        <DialogContentText id="text" className={classes.dialogText}>
                             {bookmarkCard.text}
                         </DialogContentText>
                         <Divider />
