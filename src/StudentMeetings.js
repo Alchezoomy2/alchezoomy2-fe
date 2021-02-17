@@ -120,7 +120,7 @@ export const Student = (props) => {
 
     const handleSearchChange = async (e) => {
         console.log("handleSearchChange");
-        console.log(store.meetingsObj);
+        console.log(e.target.value);
         setSearchField(e.target.value);
     };
 
