@@ -2,7 +2,7 @@ import React from "react";
 import { useObserver } from "mobx-react";
 import { useStateStore } from "./StoreProvider.js";
 import { Paper, Button } from "@material-ui/core";
-import { useStyles } from "./styles/page.js";
+import { useStyles } from "./styles/landingPage.js";
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
 
