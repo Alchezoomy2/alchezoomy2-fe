@@ -11,11 +11,11 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
         <div>
             <ListItem alignItems='flex-start'>
                 <ListItemAvatar>
-                    <Avatar alt={favorite.user_name} src={favorite.pic_url} />
+                    <Avatar alt={favorite.userName} src={favorite.picUrl} />
                 </ListItemAvatar>
                 <ListItemText
                     primary={favorite.topic}
-                    secondary={favorite.display_time}
+                    secondary={favorite.displayTime}
                 />
                 <ListItemText
                     primary={favorite.comment}
