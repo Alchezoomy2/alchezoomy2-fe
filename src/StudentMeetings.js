@@ -55,7 +55,7 @@ export const Student = (props) => {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     let fuseMeetingList = new fuse(store.meetingsObj, {
-        keys: ["topic", "user_name", "display_time"],
+        keys: ["topic", "userName", "displayTime"],
         threshold: 0.4,
         ignoreLocation: true
     });
@@ -121,8 +121,6 @@ export const Student = (props) => {
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
     };
-
-
 
     return useObserver(() =>
         <div>

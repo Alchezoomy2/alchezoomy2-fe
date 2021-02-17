@@ -27,7 +27,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
     // const classes = useStyles();
     // const history = useHistory();
     let fuseBookmarkList = new fuse(store.bookmarkArray, {
-        keys: ["text", "speaker", "comment"],
+        keys: ["text", "speaker", "comment", "topic"],
         threshold: 0.4,
         ignoreLocation: true
     });

@@ -19,7 +19,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     const store = useStateStore();
     // const classes = useStyles();
     let fuseFavoriteList = new fuse(store.favoriteArray, {
-        keys: ["topic", "comment", "user_name"],
+        keys: ["topic", "comment", "userName"],
         threshold: 0.4,
         ignoreLocation: true
     });
