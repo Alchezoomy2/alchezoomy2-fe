@@ -1,6 +1,6 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
-import Fuse from "fuse.js";
+import fuse from "fuse.js";
 
 import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
@@ -64,7 +64,7 @@ export const ChatBox = (props) => {
     // const [chatSync, setChatSync] = useState(true);
     const [searchField, setSearchField] = useState("");
     // const selectedChatIndex = useRef(0)
-    const FuseChatList = new Fuse(store.chatArray, {
+    const FuseChatList = new fuse(store.chatArray, {
         keys: ["text", "speaker"],
         threshold: 0.4,
         ignoreLocation: true
