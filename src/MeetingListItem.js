@@ -19,6 +19,10 @@ const useStyles = makeStyles({
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
 
+    useEffect(() => {
+        console.log(meeting);
+    }, []);
+
     const classes = useStyles({ backgroundColor: meeting.color });
     return (
         <div>
