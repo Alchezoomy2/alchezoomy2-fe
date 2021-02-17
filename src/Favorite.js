@@ -42,7 +42,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     };
 
     const handleOpenMeeting = async (favorite) => {
-        handleMeetingDetailClick(favorite.meeting_id, favorite.parsed_timestamp);
+        handleMeetingDetailClick(favorite.meetingId, favorite.parsed_timestamp);
     };
 
 
@@ -63,11 +63,13 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                 />
                 <List>
                     {searchField === "" ?
-                        store.favoriteArray.map(favorite => FavoriteListItem(favorite,
+                        store.favoriteArray.map(favorite => FavoriteListItem(
+                            favorite,
                             handleDeleteClick,
                             handleOpenMeeting))
                         :
-                        fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(item,
+                        fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(
+                            item,
                             handleDeleteClick,
                             handleOpenMeeting))
                     }
