@@ -44,7 +44,6 @@ export const Teacher = () => {
         }
 
         setOpen(false);
-        console.log("FALSE");
     }, [setOpen]);
 
 
@@ -53,10 +52,10 @@ export const Teacher = () => {
         <div>
             <Grid>
                 <TeacherAppBar />
-                {displayModule}
                 <Backdrop open={open}>
                     <CircularProgress />
                 </Backdrop>
+                {displayModule}
             </Grid>
         </div>
 
