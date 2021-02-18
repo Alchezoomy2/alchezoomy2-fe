@@ -25,7 +25,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     return (
         <div>
             <ListItem
-                alignItems="flex-start"
+                // alignItems="flex-start"
                 // className={classes.listItem}
                 divider={true}
             >
