@@ -12,9 +12,9 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
-    listItem: props => ({
+    listItem: {
         gutters: "magenta"
-    })
+    }
 });
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
