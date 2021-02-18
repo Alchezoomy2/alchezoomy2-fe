@@ -14,9 +14,8 @@ import PropTypes from "prop-types";
 const useStyles = makeStyles({
     tag: {
         backgroundColor: "red",
-        width: "25px",
-        height: "100%",
-        opacity: "50%"
+        height: "15px",
+        width: "100%"
     }
 });
 
@@ -25,72 +24,71 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     const classes = useStyles({ meetingColor: meeting.color });
     return (
         <div>
-            <div className={classes.tag}>
-                <ListItem
-                    alignItems="flex-start"
-                    // className={classes.listItem}
-                    divider={true}
-                >
-                    <ListItemAvatar>
-                        <Avatar alt={meeting.userName} src={meeting.picUrl} />
-                    </ListItemAvatar>
-                    <ListItemText
-                        primary={meeting.topic}
-                        secondary={meeting.displayTime}
-                    />
-                    <div >
+            <ListItem
+                alignItems="flex-start"
+                // className={classes.listItem}
+                divider={true}
+            >
+                <div className={classes.tag}></div>
+                <ListItemAvatar>
+                    <Avatar alt={meeting.userName} src={meeting.picUrl} />
+                </ListItemAvatar>
+                <ListItemText
+                    primary={meeting.topic}
+                    secondary={meeting.displayTime}
+                />
+                <div >
+                    <div>
+                        <Chip
+                            size="small"
+                            color={meeting.videoUrl ? "primary" : ""}
+                            icon={<VideoLabelIcon />}
+                            label="video" />
+                        <Chip
+                            size="small"
+                            color={meeting.audioUrl ? "primary" : ""}
+                            icon={<VolumeUpIcon />}
+                            label="audio" />
+                        <Chip
+                            size="small"
+                            color={meeting.chatUrl ? "primary" : ""}
+                            icon={<ChatIcon />}
+                            label="chat" />
+                        <Chip
+                            size="small"
+                            color={meeting.transcriptUrl ? "primary" : ""}
+                            icon={<RecordVoiceOverIcon />} label="transcript" />
+
+                        <Chip
+                            size="small"
+                            color="secondary"
+                            label={"views: " + meeting.meetingViews} />
+                        <Chip
+                            size="small"
+                            color="secondary"
+                            label={"favorites: " + meeting.meetingFavs} />
+
                         <div>
-                            <Chip
-                                size="small"
-                                color={meeting.videoUrl ? "primary" : ""}
-                                icon={<VideoLabelIcon />}
-                                label="video" />
-                            <Chip
-                                size="small"
-                                color={meeting.audioUrl ? "primary" : ""}
-                                icon={<VolumeUpIcon />}
-                                label="audio" />
-                            <Chip
-                                size="small"
-                                color={meeting.chatUrl ? "primary" : ""}
-                                icon={<ChatIcon />}
-                                label="chat" />
-                            <Chip
-                                size="small"
-                                color={meeting.transcriptUrl ? "primary" : ""}
-                                icon={<RecordVoiceOverIcon />} label="transcript" />
-
-                            <Chip
-                                size="small"
-                                color="secondary"
-                                label={"views: " + meeting.meetingViews} />
-                            <Chip
-                                size="small"
-                                color="secondary"
-                                label={"favorites: " + meeting.meetingFavs} />
-
-                            <div>
-                                {
-                                    favoriteArray &&
-                                        favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
-                                        <StarIcon
-                                            clickable
-                                            onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
-                                        />
-                                        :
-                                        <StarBorderIcon
-                                            clickable
-                                            onClick={() => handleFavorite(meeting)}
-                                        />
-                                }
-                                <PlayArrowIcon
-                                    onClick={handleMeetingClick}
-                                />
-                            </div>
+                            {
+                                favoriteArray &&
+                                    favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
+                                    <StarIcon
+                                        clickable
+                                        onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
+                                    />
+                                    :
+                                    <StarBorderIcon
+                                        clickable
+                                        onClick={() => handleFavorite(meeting)}
+                                    />
+                            }
+                            <PlayArrowIcon
+                                onClick={handleMeetingClick}
+                            />
                         </div>
                     </div>
-                </ListItem>
-            </div>
+                </div>
+            </ListItem>
             <Divider variant="middle" component="li" />
         </div>
     );
