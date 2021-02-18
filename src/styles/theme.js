@@ -1,4 +1,6 @@
-export const theme = {
+import { createMuiTheme } from "@material-ui/core/styles";
+
+export const theme = createMuiTheme({
     "palette": {
         "accent2Color": "#c51162",
         "primary1Color": "#1976d2",
@@ -16,4 +18,4 @@ export const theme = {
     "toggle": {
         "thumbOffColor": "#f50057"
     }
-};
+});
