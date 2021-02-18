@@ -15,7 +15,8 @@ const useStyles = makeStyles({
     tag: {
         backgroundColor: "red",
         width: "25px",
-        height: "100%"
+        height: "100%",
+        opacity: "50%"
     }
 });
 
@@ -24,15 +25,12 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     const classes = useStyles({ meetingColor: meeting.color });
     return (
         <div>
-            <div>
+            <div className={classes.tag}>
                 <ListItem
                     alignItems="flex-start"
                     // className={classes.listItem}
                     divider={true}
                 >
-                    <div className={classes.tag}>
-
-                    </div>
                     <ListItemAvatar>
                         <Avatar alt={meeting.userName} src={meeting.picUrl} />
                     </ListItemAvatar>

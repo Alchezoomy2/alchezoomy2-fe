@@ -142,13 +142,14 @@ export const ChatBox = (props) => {
         <Paper
             elevation={3}
             className={classes.root}>
-            <Typography
-                className={classes.header}
-                variant='h5'
-                color="primary"
-            >
-                CHAT
+            <div className={classes.header}>
+                <Typography
+                    variant='h5'
+                    color="primary"
+                >
+                    CHAT
                 </Typography>
+            </div>
             {/* <FormControlLabel
                     control={
                         <Switch
