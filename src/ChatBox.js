@@ -140,10 +140,6 @@ export const ChatBox = (props) => {
 
     return useObserver(() =>
         <div className={classes.root}>
-            {/* <Paper
-                elevation={3}
-                className={classes.paper}
-            > */}
             <Typography
                 variant='h5'>
                 CHAT
@@ -173,7 +169,6 @@ export const ChatBox = (props) => {
                     FuseChatList.search(searchField).map(({ item }) => chatListItems(item))
                 }
             </List>
-            {/* </Paper> */}
             {bookmarkCard ?
                 <Dialog
                     open={open}
