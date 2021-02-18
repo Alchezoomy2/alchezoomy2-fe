@@ -12,8 +12,10 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
-    avatar: {
-        backgroundColor: "red"
+    tag: {
+        backgroundColor: "red",
+        width: "25px",
+        height: "100%"
     }
 });
 
@@ -28,8 +30,10 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     // className={classes.listItem}
                     divider={true}
                 >
-                    <ListItemAvatar
-                        className={classes.avatar}>
+                    <div className={classes.tag}>
+
+                    </div>
+                    <ListItemAvatar>
                         <Avatar alt={meeting.userName} src={meeting.picUrl} />
                     </ListItemAvatar>
                     <ListItemText
