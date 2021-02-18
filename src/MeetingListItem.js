@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
     listItem: props => ({
-        backgroundColor: props.backgroundColor
+        border: props.backgroundColor
     })
 });
 
