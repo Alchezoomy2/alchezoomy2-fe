@@ -46,11 +46,14 @@ export const MeetingDetails = ({ startTime }) => {
             maxWidth="xl"
             style={{ display: "flex", justifyItems: "center" }}>
             <div className={classes.root}>
-                <ReactPlayer
-                    ref={player}
-                    url={`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
-                    controls
-                />
+                <div className={classes.playerWrapper}>
+                    <ReactPlayer
+                        className={classes.reactPlayer}
+                        ref={player}
+                        url={`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
+                        controls
+                    />
+                </div>
                 {store.meetingDetails.chat_url ?
                     <ChatBox
                         returnVideoTimestamp={returnVideoTimestamp}

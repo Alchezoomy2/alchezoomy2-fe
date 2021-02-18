@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "./styles/chatbox";
 
-import { Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
+import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
@@ -139,7 +139,7 @@ export const ChatBox = (props) => {
 
 
     return useObserver(() =>
-        <div className={classes.root}>
+        <Paper className={classes.root}>
             <Typography
                 variant='h5'>
                 CHAT
@@ -227,7 +227,7 @@ export const ChatBox = (props) => {
                 :
                 <></>
             }
-        </div>
+        </Paper>
     );
 };
 
