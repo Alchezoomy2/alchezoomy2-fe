@@ -13,17 +13,20 @@ import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
     listItem: props => ({
-        border: props.backgroundColor
+        gutters: props.meetingColor
     })
 });
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
 
-    const classes = useStyles({ backgroundColor: meeting.color });
+    const classes = useStyles({ meetingColor: meeting.color });
     return (
         <div>
             <div>
-                <ListItem alignItems="flex-start" className={classes.listItem}>
+                <ListItem
+                    alignItems="flex-start"
+                    className={classes.listItem}
+                    divider={true}>
                     <ListItemAvatar>
                         <Avatar alt={meeting.userName} src={meeting.picUrl} />
                     </ListItemAvatar>
