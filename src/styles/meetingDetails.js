@@ -8,12 +8,12 @@ const useStyles = makeStyles(() => ({
         alignItems: "space-around"
     },
     playerWrapper: {
-        width: auto, // Reset width
-        height: auto, // Reset height
+        width: "auto", // Reset width
+        height: "auto", // Reset height
     },
     reactPlayer: {
-        paddingTop: 56.25 %, // Percentage ratio for 16:9
-        position: relative // Set to relative
+        paddingTop: "56.25 %", // Percentage ratio for 16:9
+        position: "relative" // Set to relative
     }
 }));
 
