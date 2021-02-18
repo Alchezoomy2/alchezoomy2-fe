@@ -50,6 +50,8 @@ export const MeetingDetails = ({ startTime }) => {
                     <ReactPlayer
                         className={classes.reactPlayer}
                         ref={player}
+                        width="100%"
+                        height="100%"
                         url={`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
                         controls
                     />
