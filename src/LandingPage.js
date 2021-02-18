@@ -15,13 +15,15 @@ export const LandingPage = () => {
         <Paper elevation={3} className={classes.root}>
             <div>
                 <img
-                    theme={classes.mainLogo}
+                    className={classes.mainLogo}
                     src="/images/alchezoomy-logo.png"
                     alt="logo image" />
             </div>
             <div>
                 <Button
                     // className={classes.button}
+                    color="primary"
+                    variant="contained"
                     onClick={() => {
                         store.changeUserType("teacher");
                         window.location.href = zoomAPIurl;
@@ -29,7 +31,9 @@ export const LandingPage = () => {
                     Teacher
                 </Button>
                 <Button
-                    className={classes.button}
+                    // className={classes.button}
+                    variant="contained"
+                    color="secondary"
                     onClick={() => {
                         store.changeUserType("student");
                         window.location.href = zoomAPIurl;
