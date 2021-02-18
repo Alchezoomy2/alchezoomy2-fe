@@ -14,8 +14,12 @@ import PropTypes from "prop-types";
 const useStyles = makeStyles({
     tag: {
         backgroundColor: "red",
-        height: "15px",
-        width: "100%"
+        height: "100%",
+        width: "15px"
+    },
+    listItem: {
+        display: "flex",
+        flexDirection: "column"
     }
 });
 
@@ -26,7 +30,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
         <div>
             <ListItem
                 // alignItems="flex-start"
-                // className={classes.listItem}
+                className={classes.listItem}
                 divider={true}
             >
                 <div className={classes.tag}></div>
