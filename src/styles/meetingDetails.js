@@ -11,7 +11,8 @@ const useStyles = makeStyles(() => ({
     },
     playerWrapper: {
         width: "100%",
-        maxWidth: "1000px", // Reset width
+        maxWidth: "1000px",
+        paddingTop: "56.25%", /* 720 / 1280 = 0.5625 */
         height: "auto", // Reset height
     },
     reactPlayer: {
