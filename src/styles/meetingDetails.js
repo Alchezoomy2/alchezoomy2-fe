@@ -4,8 +4,8 @@ const useStyles = makeStyles(() => ({
     root: {
         display: "flex",
         justifyItems: "space-around",
-        width: "100vw"
-
+        width: "100vw",
+        alignItems: "center"
     }
 }));
 

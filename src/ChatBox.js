@@ -107,9 +107,9 @@ export const ChatBox = (props) => {
 
         return (
             <div>
-                <Divider />
                 <ListItem
                     className={classes.listItem}
+                    divider={true}
                 >
                     {(bookmarkArray &&
                         bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
