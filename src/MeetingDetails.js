@@ -56,7 +56,7 @@ export const MeetingDetails = ({ startTime }) => {
                         controls
                     />
                 </div>
-                <div>
+                <div className={classes.boxDiv}>
                     {store.meetingDetails.chat_url ?
                         <ChatBox
                             returnVideoTimestamp={returnVideoTimestamp}

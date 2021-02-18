@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
     listItem: {
-        gutters: "magenta"
+        border: "2px solid red"
     }
 });
 

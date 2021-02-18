@@ -9,10 +9,12 @@ const useStyles = makeStyles(() => ({
         marginTop: "50px",
         alignItems: "center"
     },
+    boxDiv: {
+        marginTop: "50px"
+    },
     playerWrapper: {
         width: "100%",
         maxWidth: "1000px",
-        paddingTop: "56.25%", /* 720 / 1280 = 0.5625 */
         height: "auto", // Reset height
     },
     reactPlayer: {
