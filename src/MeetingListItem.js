@@ -11,26 +11,26 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
-const useStyles = makeStyles({
-    tag: {
-        backgroundColor: "red",
-        height: "100%",
-        width: "15px"
-    },
-    listItem: {
-        display: "flex",
-        flexDirection: "column"
-    }
-});
+// const useStyles = makeStyles({
+//     tag: {
+//         backgroundColor: "red",
+//         height: "100%",
+//         width: "15px"
+//     },
+//     listItem: {
+//         display: "flex",
+//         flexDirection: "column"
+//     }
+// });
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
 
-    const classes = useStyles({ meetingColor: meeting.color });
+    // const classes = useStyles({ meetingColor: meeting.color });
     return (
         <div>
             <ListItem
-                // alignItems="flex-start"
-                className={classes.listItem}
+                alignItems="flex-start"
+                // className={classes.listItem}
                 divider={true}
             >
                 <ListItemAvatar>
