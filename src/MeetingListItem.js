@@ -12,9 +12,9 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
-    listItem: props => { }
-        "backgroundColor": props.meetingColor;
-}
+    avatar: {
+        backgroundColor: "red"
+    }
 });
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
@@ -25,10 +25,11 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
             <div>
                 <ListItem
                     alignItems="flex-start"
-                    className={classes.listItem}
+                    // className={classes.listItem}
                     divider={true}
                 >
-                    <ListItemAvatar>
+                    <ListItemAvatar
+                        className={classes.avatar}>
                         <Avatar alt={meeting.userName} src={meeting.picUrl} />
                     </ListItemAvatar>
                     <ListItemText
