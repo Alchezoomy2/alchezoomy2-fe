@@ -4,14 +4,14 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         width: "75%",
-        overflow: "scroll"
     },
     paper: {
         height: "100%",
-        width: "100%"
+        width: "100%",
+        overflow: "scroll"
     },
     list: {
-        height: "200px",
+        height: "100%",
         width: "90%"
     },
     listItem: {
