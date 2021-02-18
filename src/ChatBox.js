@@ -1,10 +1,10 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
+import { useStyles } from "./styles/chatbox";
 
 import { Divider, Paper, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
-import { makeStyles } from "@material-ui/core/styles";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CommentIcon from "@material-ui/icons/Comment";
@@ -15,44 +15,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        maxWidth: 752,
-    },
-    list: {
-        height: "200px",
-        overflow: "scroll",
-        width: "90%"
-    },
-    listItem: {
-        width: "650px",
-    },
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: "#fff",
-    },
-    dialogTitle: {
-        fontWeight: "bold",
-        color: "black"
-    },
-    dialogSpeaker: {
-        fontWeight: "bold",
-        fontSize: "1.1em",
-        margin: "3px"
-    },
-    dialogTimestamp: {
-        fontSize: ".9em",
-        margin: "3px",
-        color: "secondary"
-    },
-    dialogText: {
-        margin: "3px"
-    },
-    replyIcon: {
-        transform: "scaleX(-1)"
-    }
-}));
+
 
 export const ChatBox = (props) => {
     const store = useStateStore();
@@ -143,7 +106,7 @@ export const ChatBox = (props) => {
     const chatListItems = (chat) => {
 
         return (
-            <div>
+            <div className={classes.root}>
                 <Divider />
                 <ListItem
                     className={classes.listItem}

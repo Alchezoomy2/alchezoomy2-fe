@@ -5,12 +5,14 @@ import { useStateStore } from "./StoreProvider.js";
 // import fetch from 'superagent';
 import { Container } from "@material-ui/core";
 import ChatBox from "./ChatBox.js";
+import { useStyles } from "./styles/chatbox";
+const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
 
 
 
 export const MeetingDetails = ({ startTime }) => {
-    const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
     const store = useStateStore();
+    const classes = useStyles();
     // const startingTimestamp = useRef(props.match.params.timestamp)
     let player = useRef();
     let videoTimestamp = useRef();
@@ -43,7 +45,7 @@ export const MeetingDetails = ({ startTime }) => {
         <Container
             maxWidth="xl"
             style={{ display: "flex", justifyItems: "center" }}>
-            <div>
+            <div className={classes.root}>
                 <ReactPlayer
                     ref={player}
                     url={`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
