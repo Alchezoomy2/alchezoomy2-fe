@@ -6,13 +6,13 @@ const useStyles = makeStyles((theme) => ({
         width: "75%",
     },
     paper: {
-        height: "100%",
-        width: "100%",
-        overflow: "scroll"
+        // height: "100%",
+        // width: "100%",
     },
     list: {
         height: "100%",
-        width: "90%"
+        width: "90%",
+        overflow: "scroll"
     },
     listItem: {
         width: "100%",

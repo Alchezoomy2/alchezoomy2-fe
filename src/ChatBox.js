@@ -140,15 +140,15 @@ export const ChatBox = (props) => {
 
     return useObserver(() =>
         <div className={classes.root}>
-            <Paper
+            {/* <Paper
                 elevation={3}
                 className={classes.paper}
-            >
-                <Typography
-                    variant='h5'>
-                    CHAT
+            > */}
+            <Typography
+                variant='h5'>
+                CHAT
                 </Typography>
-                {/* <FormControlLabel
+            {/* <FormControlLabel
                     control={
                         <Switch
                             checked={chatSync}
@@ -159,21 +159,21 @@ export const ChatBox = (props) => {
                     }
                     label="sync chat"
                 /> */}
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                />
-                <List className={classes.list}>
-                    {searchField === "" ?
-                        store.chatArray.map(chat => chatListItems(chat))
-                        :
-                        FuseChatList.search(searchField).map(({ item }) => chatListItems(item))
-                    }
-                </List>
-            </Paper>
+            <TextField
+                id="search"
+                label="search"
+                fullWidth
+                variant="outlined"
+                onChange={handleSearchChange}
+            />
+            <List className={classes.list}>
+                {searchField === "" ?
+                    store.chatArray.map(chat => chatListItems(chat))
+                    :
+                    FuseChatList.search(searchField).map(({ item }) => chatListItems(item))
+                }
+            </List>
+            {/* </Paper> */}
             {bookmarkCard ?
                 <Dialog
                     open={open}
