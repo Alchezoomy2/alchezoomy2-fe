@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "space-around"
     },
     playerWrapper: {
-        width: "auto", // Reset width
+        width: "700px", // Reset width
         height: "auto", // Reset height
     },
     reactPlayer: {
