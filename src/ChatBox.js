@@ -142,6 +142,7 @@ export const ChatBox = (props) => {
         <div className={classes.root}>
             <Paper
                 elevation={3}
+                className={classes.paper}
             >
                 <Typography
                     variant='h5'>

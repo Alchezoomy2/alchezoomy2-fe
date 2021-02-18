@@ -3,12 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        width: "90%",
+        width: "75%",
         overflow: "scroll"
+    },
+    paper: {
+        height: "100%",
+        width: "100%"
     },
     list: {
         height: "200px",
-        overflow: "scroll",
         width: "90%"
     },
     listItem: {
