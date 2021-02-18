@@ -143,6 +143,7 @@ export const ChatBox = (props) => {
             elevation={3}
             className={classes.root}>
             <Typography
+                className={classes.header}
                 variant='h5'>
                 CHAT
                 </Typography>

@@ -7,6 +7,11 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxHeight: "500px"
     },
+    header: {
+        width: "100%",
+        backgroundColor: theme.palette.primary1Color,
+        color: theme.palette.textColor
+    },
     list: {
         height: "400px",
         width: "100%",
