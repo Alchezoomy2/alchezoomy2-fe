@@ -7,7 +7,7 @@ import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
-import ReplyIcon from "@material-ui/icons/Reply";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
@@ -31,7 +31,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                         primary={meeting.topic}
                         secondary={meeting.displayTime}
                     />
-                    <div>
+                    <div >
                         <div>
                             <Chip
                                 size="small"
@@ -61,25 +61,25 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                                 size="small"
                                 color="secondary"
                                 label={"favorites: " + meeting.meetingFavs} />
-                        </div>
-                        <div>
-                            {
-                                favoriteArray &&
-                                    favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
-                                    <StarIcon
-                                        clickable
-                                        onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
-                                    />
-                                    :
-                                    <StarBorderIcon
-                                        clickable
-                                        onClick={() => handleFavorite(meeting)}
-                                    />
-                            }
-                            <ReplyIcon
-                                style={{ transform: "scaleX(-1)" }}
-                                onClick={handleMeetingClick}
-                            />
+
+                            <div>
+                                {
+                                    favoriteArray &&
+                                        favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
+                                        <StarIcon
+                                            clickable
+                                            onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
+                                        />
+                                        :
+                                        <StarBorderIcon
+                                            clickable
+                                            onClick={() => handleFavorite(meeting)}
+                                        />
+                                }
+                                <PlayArrowIcon
+                                    onClick={handleMeetingClick}
+                                />
+                            </div>
                         </div>
                     </div>
                 </ListItem>

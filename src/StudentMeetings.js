@@ -2,49 +2,16 @@ import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, Dialog
 import { useObserver } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import { useStateStore } from "./StoreProvider.js";
-import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./styles/studentMeetings";
 import fuse from "fuse.js";
 import MeetingListItem from "./MeetingListItem.js";
 import Transition from "./DialogTransition.js";
+
 
 import CommentIcon from "@material-ui/icons/Comment";
 import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "./utils/student-fetches/favorite-fetches.js";
 import { fetchAllStudentMeetings } from "./utils/student-fetches/meeting-fetches.js";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxHeight: "90vh",
-        maxWidth: "80vw",
-        overflow: "scroll",
-    },
-    list: {
-        width: "90%"
-    },
-    listItem: {
-        width: "650px",
-    },
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: "#fff",
-    },
-    dialogTitle: {
-        fontWeight: "bold",
-        color: "black"
-    },
-    dialogSpeaker: {
-        fontWeight: "bold",
-        fontSize: "1.1em",
-        margin: "3px"
-    },
-    dialogTimestamp: {
-        fontSize: ".9em",
-        margin: "3px",
-        color: "secondary"
-    },
-    dialogText: {
-        margin: "3px"
-    },
-}));
 
 export const Student = (props) => {
     const store = useStateStore();
@@ -55,7 +22,7 @@ export const Student = (props) => {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     let fuseMeetingList = new fuse(store.meetingsObj, {
-        keys: ["topic", "userName", "displayTime"],
+        keys: ["topic"],
         threshold: 0.4,
         ignoreLocation: true
     });
