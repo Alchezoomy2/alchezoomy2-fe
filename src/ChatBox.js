@@ -106,7 +106,7 @@ export const ChatBox = (props) => {
     const chatListItems = (chat) => {
 
         return (
-            <div className={classes.root}>
+            <div>
                 <Divider />
                 <ListItem
                     className={classes.listItem}
@@ -139,8 +139,10 @@ export const ChatBox = (props) => {
 
 
     return useObserver(() =>
-        <div>
-            <Paper elevation={3}>
+        <div >
+            <Paper
+                elevation={3}
+                className={classes.root}>
                 <Typography
                     variant='h5'>
                     CHAT
