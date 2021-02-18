@@ -12,9 +12,9 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
-    listItem: {
-        border: "2px solid red"
-    }
+    listItem: props => { }
+        "backgroundColor": props.meetingColor;
+}
 });
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
