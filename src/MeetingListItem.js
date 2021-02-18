@@ -30,60 +30,62 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                 divider={true}
             >
                 <div className={classes.tag}></div>
-                <ListItemAvatar>
-                    <Avatar alt={meeting.userName} src={meeting.picUrl} />
-                </ListItemAvatar>
-                <ListItemText
-                    primary={meeting.topic}
-                    secondary={meeting.displayTime}
-                />
-                <div >
-                    <div>
-                        <Chip
-                            size="small"
-                            color={meeting.videoUrl ? "primary" : ""}
-                            icon={<VideoLabelIcon />}
-                            label="video" />
-                        <Chip
-                            size="small"
-                            color={meeting.audioUrl ? "primary" : ""}
-                            icon={<VolumeUpIcon />}
-                            label="audio" />
-                        <Chip
-                            size="small"
-                            color={meeting.chatUrl ? "primary" : ""}
-                            icon={<ChatIcon />}
-                            label="chat" />
-                        <Chip
-                            size="small"
-                            color={meeting.transcriptUrl ? "primary" : ""}
-                            icon={<RecordVoiceOverIcon />} label="transcript" />
+                <div>
+                    <ListItemAvatar>
+                        <Avatar alt={meeting.userName} src={meeting.picUrl} />
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary={meeting.topic}
+                        secondary={meeting.displayTime}
+                    />
+                    <div >
+                        <div>
+                            <Chip
+                                size="small"
+                                color={meeting.videoUrl ? "primary" : ""}
+                                icon={<VideoLabelIcon />}
+                                label="video" />
+                            <Chip
+                                size="small"
+                                color={meeting.audioUrl ? "primary" : ""}
+                                icon={<VolumeUpIcon />}
+                                label="audio" />
+                            <Chip
+                                size="small"
+                                color={meeting.chatUrl ? "primary" : ""}
+                                icon={<ChatIcon />}
+                                label="chat" />
+                            <Chip
+                                size="small"
+                                color={meeting.transcriptUrl ? "primary" : ""}
+                                icon={<RecordVoiceOverIcon />} label="transcript" />
 
-                        <Chip
-                            size="small"
-                            color="secondary"
-                            label={"views: " + meeting.meetingViews} />
-                        <Chip
-                            size="small"
-                            color="secondary"
-                            label={"favorites: " + meeting.meetingFavs} />
+                            <Chip
+                                size="small"
+                                color="secondary"
+                                label={"views: " + meeting.meetingViews} />
+                            <Chip
+                                size="small"
+                                color="secondary"
+                                label={"favorites: " + meeting.meetingFavs} />
 
-                        {
-                            favoriteArray &&
-                                favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
-                                <StarIcon
-                                    clickable
-                                    onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
-                                />
-                                :
-                                <StarBorderIcon
-                                    clickable
-                                    onClick={() => handleFavorite(meeting)}
-                                />
-                        }
-                        <PlayArrowIcon
-                            onClick={handleMeetingClick}
-                        />
+                            {
+                                favoriteArray &&
+                                    favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
+                                    <StarIcon
+                                        clickable
+                                        onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
+                                    />
+                                    :
+                                    <StarBorderIcon
+                                        clickable
+                                        onClick={() => handleFavorite(meeting)}
+                                    />
+                            }
+                            <PlayArrowIcon
+                                onClick={handleMeetingClick}
+                            />
+                        </div>
                     </div>
                 </div>
             </ListItem>
