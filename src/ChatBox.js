@@ -144,7 +144,9 @@ export const ChatBox = (props) => {
             className={classes.root}>
             <Typography
                 className={classes.header}
-                variant='h5'>
+                variant='h5'
+                color="primary"
+            >
                 CHAT
                 </Typography>
             {/* <FormControlLabel

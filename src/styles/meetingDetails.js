@@ -13,15 +13,15 @@ const useStyles = makeStyles(() => ({
         marginTop: "20px"
     },
     playerWrapper: {
-        width: "100%",
+        width: "90%",
         maxWidth: "1000px",
         height: "auto", // Reset height
     },
-    reactPlayer: {
-        // paddingTop: "56.25 %", // Percentage ratio for 16:9
-        width: "100%",
-        height: "100%"
-    }
+    // reactPlayer: {
+    //     // paddingTop: "56.25 %", // Percentage ratio for 16:9
+    //     width: "100%",
+    //     height: "100%"
+    // }
 }));
 
 export default useStyles;
