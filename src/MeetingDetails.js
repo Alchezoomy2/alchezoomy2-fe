@@ -54,14 +54,16 @@ export const MeetingDetails = ({ startTime }) => {
                         controls
                     />
                 </div>
-                {store.meetingDetails.chat_url ?
-                    <ChatBox
-                        returnVideoTimestamp={returnVideoTimestamp}
-                        handleChatSeek={handleChatSeek}
-                    />
-                    :
-                    <p></p>
-                }
+                <div>
+                    {store.meetingDetails.chat_url ?
+                        <ChatBox
+                            returnVideoTimestamp={returnVideoTimestamp}
+                            handleChatSeek={handleChatSeek}
+                        />
+                        :
+                        <p></p>
+                    }
+                </div>
             </div>
         </Container >
     );
