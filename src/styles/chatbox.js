@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        // maxWidth: "40vw",
+        width: "90%"
     },
     list: {
         height: "200px",
