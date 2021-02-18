@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         // width: "100%",
     },
     list: {
-        height: "100%",
+        height: "500px",
         width: "100%",
         overflow: "scroll"
     },
