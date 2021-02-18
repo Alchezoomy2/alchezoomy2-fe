@@ -13,7 +13,9 @@ const useStyles = makeStyles(() => ({
     },
     reactPlayer: {
         paddingTop: "56.25 %", // Percentage ratio for 16:9
-        position: "relative" // Set to relative
+        position: "relative",
+        width: "100%",
+        height: "100%" // Set to relative
     }
 }));
 

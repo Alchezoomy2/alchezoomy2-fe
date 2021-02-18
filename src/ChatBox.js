@@ -139,7 +139,9 @@ export const ChatBox = (props) => {
 
 
     return useObserver(() =>
-        <Paper className={classes.root}>
+        <Paper
+            elevation={3}
+            className={classes.root}>
             <Typography
                 variant='h5'>
                 CHAT
