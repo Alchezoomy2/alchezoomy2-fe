@@ -26,7 +26,9 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                 <ListItem
                     alignItems="flex-start"
                     className={classes.listItem}
-                    divider={true}>
+                    divider={true}
+                    gutters={true}
+                >
                     <ListItemAvatar>
                         <Avatar alt={meeting.userName} src={meeting.picUrl} />
                     </ListItemAvatar>
