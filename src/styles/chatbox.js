@@ -7,12 +7,8 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxHeight: "500px"
     },
-    paper: {
-        // height: "100%",
-        // width: "100%",
-    },
     list: {
-        height: "500px",
+        height: "100%",
         width: "100%",
         overflow: "scroll"
     },
