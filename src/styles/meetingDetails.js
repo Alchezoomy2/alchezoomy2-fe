@@ -4,7 +4,7 @@ const useStyles = makeStyles(() => ({
     root: {
         display: "flex",
         justifyContent: "space-around",
-        width: "30vw"
+        width: "100vw"
 
     }
 }));
