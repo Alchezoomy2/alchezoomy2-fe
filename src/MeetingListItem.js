@@ -68,24 +68,22 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                             color="secondary"
                             label={"favorites: " + meeting.meetingFavs} />
 
-                        <div>
-                            {
-                                favoriteArray &&
-                                    favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
-                                    <StarIcon
-                                        clickable
-                                        onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
-                                    />
-                                    :
-                                    <StarBorderIcon
-                                        clickable
-                                        onClick={() => handleFavorite(meeting)}
-                                    />
-                            }
-                            <PlayArrowIcon
-                                onClick={handleMeetingClick}
-                            />
-                        </div>
+                        {
+                            favoriteArray &&
+                                favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
+                                <StarIcon
+                                    clickable
+                                    onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
+                                />
+                                :
+                                <StarBorderIcon
+                                    clickable
+                                    onClick={() => handleFavorite(meeting)}
+                                />
+                        }
+                        <PlayArrowIcon
+                            onClick={handleMeetingClick}
+                        />
                     </div>
                 </div>
             </ListItem>
