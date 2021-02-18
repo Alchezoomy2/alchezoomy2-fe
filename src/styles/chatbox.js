@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         width: "100%",
-        backgroundColor: "primary",
-        color: "textPrimary"
+        backgroundColor: "secondary",
+        color: "textSecondary"
     },
     list: {
         height: "400px",
