@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CommentIcon from "@material-ui/icons/Comment";
-import ReplyIcon from "@material-ui/icons/Reply";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "./utils/student-fetches/bookmark-fetches.js";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -163,8 +163,7 @@ export const ChatBox = (props) => {
                     <ListItemText
                         primary={`${chat.speaker} ${chat.text}`}
                         secondary={chat.timestamp} />
-                    <ReplyIcon
-                        className={classes.replyIcon}
+                    <PlayArrowIcon
                         clickable
                         onClick={() => props.handleChatSeek(chat.parsed_timestamp)}
                     />

@@ -23,7 +23,7 @@ export const Login = () => {
             await store.changeStudentInfo(returnedStudentInfo);
 
             const newMeetingObj = await fetchAllStudentMeetings();
-            console.log(newMeetingObj);
+
             store.changeMeetingsObj(newMeetingObj);
 
             history.push("/student/");

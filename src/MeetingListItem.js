@@ -19,12 +19,6 @@ const useStyles = makeStyles({
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
 
-    useEffect(() => {
-        console.log(meeting.topic);
-        console.log(meeting.userName);
-        console.log(meeting.displayTime);
-    }, []);
-
     const classes = useStyles({ backgroundColor: meeting.color });
     return (
         <div>

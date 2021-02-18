@@ -2,6 +2,7 @@ require("dotenv").config();
 import React from "react";
 import { StoreProvider } from "./StoreProvider.js";
 import { ThemeProvider } from "@material-ui/core";
+import { theme } from "./styles/theme.js";
 import {
     BrowserRouter as Router,
     Route,
@@ -18,7 +19,7 @@ import InvitePage from "./InvitePage.jsx";
 
 function App() {
     return (
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
             <StoreProvider>
                 <Router>
                     <Switch>
