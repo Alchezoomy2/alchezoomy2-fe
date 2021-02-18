@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyItems: "space-around",
         width: "100vw",
-        alignItems: "center"
+        alignContent: "space-around"
     }
 }));
 
