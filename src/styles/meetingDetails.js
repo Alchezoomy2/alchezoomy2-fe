@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "center"
     },
     boxDiv: {
-        marginTop: "50px"
+        marginTop: "20px"
     },
     playerWrapper: {
         width: "100%",
