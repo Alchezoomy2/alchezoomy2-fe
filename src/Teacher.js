@@ -7,13 +7,18 @@ import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches
 import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
 import { TeacherAppBar } from "./TeacherAppBar";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Backdrop, CircularProgress, Snackbar, Alert } from "@material-ui/core";
+import { Grid, Backdrop, CircularProgress, Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const useStyles = makeStyles({
     backdrop: {
         zIndex: 5
     }
 });
+
+// function Alert(props) {
+//     return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
 
 export const Teacher = () => {
     const classes = useStyles();

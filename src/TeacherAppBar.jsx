@@ -5,7 +5,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
 import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
-import { Alert } from '@material-ui/lab';
+
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -18,9 +18,6 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     const store = useStateStore();
