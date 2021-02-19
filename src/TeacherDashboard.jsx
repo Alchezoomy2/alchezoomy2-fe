@@ -35,7 +35,7 @@ export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose })
     //     console.log("TeacherDashboard");
     // }, [meetingsToDisplay]);
 
-    useObserver(() =>
+    return useObserver(() =>
         <Container maxWidth="xl" style={{ display: "flex", justifyItems: "center" }}>
             <List style={{ width: "90%" }}>
                 {
