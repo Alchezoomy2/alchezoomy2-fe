@@ -5,6 +5,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
 import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
+import { useObserver } from "mobx-react";
+
 
 
 const useStyles = makeStyles(() => ({
@@ -39,7 +41,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
         }
     };
 
-    return (
+    return useObserver(() =>
         <AppBar position="static" className={classes.root}>
             <Toolbar>
                 <Avatar
