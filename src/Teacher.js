@@ -20,6 +20,8 @@ export const Teacher = () => {
     const [displayModule, setDisplayModule] = useState(null);
     let [open, setOpen] = useState(true);
     const store = useStateStore();
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+
 
 
     const handleCreateTeacher = async (selectedColor) => {
@@ -34,6 +36,14 @@ export const Teacher = () => {
         setOpen(false);
     };
 
+    const handleSnackbarClose = () => {
+        setSnackbarOpen(false);
+    };
+
+    const handleSnackbarOpen = () => {
+        setSnackbarOpen(true);
+    };
+
 
     useEffect(async () => {
 
@@ -46,6 +56,8 @@ export const Teacher = () => {
             store.changeMeetingsObj(returnedMeetingArray);
             setDisplayModule(<TeacherDashboard
                 setOpen={setOpen}
+                handleSnackbarClose={handleSnackbarClose}
+                snackbarOpen={snackbarOpen}
             />);
         }
 
@@ -57,13 +69,15 @@ export const Teacher = () => {
     return useObserver(() =>
         <div>
             <Grid>
-                <TeacherAppBar />
+                <TeacherAppBar
+                    handleSnackbarOpen={handleSnackbarOpen}
+                />
+                {displayModule}
                 <Backdrop
                     className={classes.backdrop}
                     open={open}>
                     <CircularProgress />
                 </Backdrop>
-                {displayModule}
             </Grid>
         </div>
 

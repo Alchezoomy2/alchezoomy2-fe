@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
-import { Container, List, Divider } from "@material-ui/core";
+import { Container, List, Divider, Snackbar } from "@material-ui/core";
 import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
 
 
-export const TeacherDashboard = ({ setOpen }) => {
+export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose }) => {
     const store = useStateStore();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
-    console.log(meetingsToDisplay[0]);
 
 
     const handlePublish = (async meeting => {
-        console.log("hi!");
-
         let newMeetingObj;
         await setOpen(true);
-        console.log("handlePublish");
+
         if (meeting.published) {
             newMeetingObj = await unpublishMeeting(meeting.id);
 
@@ -28,6 +25,8 @@ export const TeacherDashboard = ({ setOpen }) => {
         setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
     });
+
+
 
     // useEffect(() => {
     //     store.changeMeetingsObj(setMeetingsToDisplay);
@@ -51,10 +50,19 @@ export const TeacherDashboard = ({ setOpen }) => {
                     )
                 }
             </List>
+            <Snackbar
+                anchorOrigin={{ 'top', 'center'}}
+                open={snackbarOpen}
+                onClose={handleSnackbarClose}
+                message={`Email invite sent`}
+                key={"top_center_snackbar"}
+            />
         </Container >
     );
 };
 
 TeacherDashboard.propTypes = {
-    setOpen: PropTypes.func
+    setOpen: PropTypes.func,
+    handleSnackbarClose: PropTypes.func,
+    snackbarOpen: PropTypes.bool
 };

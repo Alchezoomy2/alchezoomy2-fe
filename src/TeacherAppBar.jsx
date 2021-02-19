@@ -4,6 +4,8 @@ import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
 import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
+import PropTypes from "prop-types";
+
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-export const TeacherAppBar = () => {
+export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [studentEmail, setStudentEmail] = useState("");
@@ -27,6 +29,8 @@ export const TeacherAppBar = () => {
     const handleStudentInvite = async () => {
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             await inviteStudent(studentEmail, store.teacherInfo);
+            setStudentEmail("");
+            handleSnackbarOpen();
         } else {
             setValidInput(false);
         }
@@ -60,4 +64,8 @@ export const TeacherAppBar = () => {
             </Toolbar>
         </AppBar>
     );
+};
+
+TeacherAppBar.propTypes = {
+    handleSnackbarOpen: PropTypes.func
 };
