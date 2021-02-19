@@ -4,6 +4,7 @@ import { Container, List, Divider, Snackbar } from "@material-ui/core";
 import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
+import { useObserver } from "mobx-react";
 
 
 export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose }) => {
@@ -34,7 +35,7 @@ export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose })
     //     console.log("TeacherDashboard");
     // }, [meetingsToDisplay]);
 
-    return (
+    useObserver(() =>
         <Container maxWidth="xl" style={{ display: "flex", justifyItems: "center" }}>
             <List style={{ width: "90%" }}>
                 {
