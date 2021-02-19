@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Chip, ListItem, ListItemText, FormControlLabel, Switch } from "@material-ui/core";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
@@ -9,7 +8,7 @@ import PropTypes from "prop-types";
 
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
     return (
-        <ListItem alignItems="flex-start" className={classes.listItem}>
+        <ListItem alignItems="flex-start" >
             <ListItemText
                 primary={meeting.topic}
                 secondary={meeting.displayTime}
