@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
-import { Container, List, Divider, Snackbar } from "@material-ui/core";
+import { Container, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
