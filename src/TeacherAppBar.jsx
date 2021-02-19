@@ -15,8 +15,11 @@ const useStyles = makeStyles(() => ({
     },
     input: {
         color: "white",
-        marginLeft: "15px"
-
+        marginLeft: "15px",
+        width: "500px"
+    },
+    teacherName: {
+        marginLeft: "5px"
     }
 }));
 
@@ -49,7 +52,8 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     src={store.teacherInfo.picUrl}
                     edge="start"
                 />
-                <Typography>
+                <Typography
+                    className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
                 <InputBase

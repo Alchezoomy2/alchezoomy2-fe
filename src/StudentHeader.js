@@ -1,7 +1,8 @@
 import React from "react";
-import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Typography, Avatar } from "@material-ui/core";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
+import { useStateStore } from "./StoreProvider.js";
 
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
@@ -14,46 +15,57 @@ import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 
 
 export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkClick, handleFavoriteClick }) => {
+    const store = useStateStore();
+
     return useObserver(() =>
         <AppBar position="static" style={{ width: "100%" }}>
             <Toolbar>
+                <Avatar
+                    alt={store.studentInfo.userName}
+                    src={store.studentInfo.picUrl}
+                    edge="start"
+                />
                 <Typography
-                    variant="h6" >
-                    Alchezoomy
+                    variant="h6"
+                    styles={{ marginLeft: "10px" }}>
+                    {store.studentInfo.userName}
                 </Typography>
-                {pageIcon === "meeting" ?
-                    <HomeOutlinedIcon />
-                    :
-                    <IconButton
-                        edge="end"
-                        color="inherit"
-                        aria-label="home"
-                        onClick={handleMeetingsClick}>
-                        <HomeIcon />
-                    </IconButton>
-                }
-                {pageIcon === "bookmark" ?
-                    <BookmarkBorderIcon />
-                    :
-                    <IconButton
-                        edge="end"
-                        color="inherit"
-                        aria-label="home"
-                        onClick={handleBookmarkClick}>
-                        <BookmarkIcon />
-                    </IconButton>
-                }
-                {pageIcon === "favorite" ?
-                    <StarBorderIcon />
-                    :
-                    <IconButton
-                        edge="end"
-                        color="inherit"
-                        aria-label="home"
-                        onClick={handleFavoriteClick}>
-                        <StarIcon />
-                    </IconButton>
-                }
+                <div
+                    styles={{ marginLeft: "10px" }}>
+                    {pageIcon === "meeting" ?
+                        <HomeOutlinedIcon />
+                        :
+                        <IconButton
+                            edge="end"
+                            color="inherit"
+                            aria-label="home"
+                            onClick={handleMeetingsClick}>
+                            <HomeIcon />
+                        </IconButton>
+                    }
+                    {pageIcon === "bookmark" ?
+                        <BookmarkBorderIcon />
+                        :
+                        <IconButton
+                            edge="end"
+                            color="inherit"
+                            aria-label="home"
+                            onClick={handleBookmarkClick}>
+                            <BookmarkIcon />
+                        </IconButton>
+                    }
+                    {pageIcon === "favorite" ?
+                        <StarBorderIcon />
+                        :
+                        <IconButton
+                            edge="end"
+                            color="inherit"
+                            aria-label="home"
+                            onClick={handleFavoriteClick}>
+                            <StarIcon />
+                        </IconButton>
+                    }
+                </div>
             </Toolbar>
         </AppBar>
     );
