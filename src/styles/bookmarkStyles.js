@@ -2,6 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
     root: {
+        minHeight: "500px",
+        minWidth: "800px",
         maxHeight: "90vh",
         maxWidth: "80vw",
         overflow: "scroll",
