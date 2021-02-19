@@ -7,17 +7,7 @@ import ChatIcon from "@material-ui/icons/Chat";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
-const useStyles = makeStyles({
-    listItem: props => ({
-        backgroundColor: props.backgroundColor
-    })
-});
-
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
-    let meetingColor = "#FFF";
-    if (meeting.published) meetingColor = meeting.color;
-    const classes = useStyles({ backgroundColor: meetingColor });
-
     return (
         <ListItem alignItems="flex-start" className={classes.listItem}>
             <ListItemText

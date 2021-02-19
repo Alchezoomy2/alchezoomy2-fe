@@ -34,6 +34,8 @@ export const Student = (props) => {
             await setFavoriteArray(newFavoritesArray);
         }
         retrieveFavorites();
+
+        console.log(fuseMeetingList);
     }, [store]);
 
 
@@ -86,8 +88,6 @@ export const Student = (props) => {
     };
 
     const handleSearchChange = async (e) => {
-        console.log("handleSearchChange");
-        console.log(e.target.value);
         setSearchField(e.target.value);
     };
 
