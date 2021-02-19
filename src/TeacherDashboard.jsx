@@ -51,10 +51,10 @@ export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose })
                 }
             </List>
             <Snackbar
-                anchorOrigin={{ 'top', 'center'}}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
                 open={snackbarOpen}
                 onClose={handleSnackbarClose}
-                message={`Email invite sent`}
+                message={"Email invite sent"}
                 key={"top_center_snackbar"}
             />
         </Container >
