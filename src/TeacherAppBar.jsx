@@ -31,6 +31,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
             await inviteStudent(studentEmail, store.teacherInfo);
             setStudentEmail("");
             handleSnackbarOpen();
+            console.log(studentEmail);
         } else {
             setValidInput(false);
         }
