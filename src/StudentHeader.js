@@ -21,8 +21,8 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
         <AppBar position="static" style={{ width: "100%" }}>
             <Toolbar>
                 <Avatar
-                    alt={store.studentInfo.userName}
-                    src={store.studentInfo.picUrl}
+                    alt={store.studentInfo.user_name}
+                    src={store.studentInfo.pic_url}
                     edge="start"
                 />
                 <Typography
