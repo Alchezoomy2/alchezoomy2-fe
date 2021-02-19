@@ -58,7 +58,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
 
     return useObserver(() =>
 
-        <div>
+        <div className={classes.frame}>
             <Paper
                 elevation={3}
                 className={classes.root}>

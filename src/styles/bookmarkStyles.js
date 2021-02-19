@@ -7,6 +7,10 @@ const useStyles = makeStyles(() => ({
         overflow: "scroll",
         marginTop: "25px"
     },
+    frame: {
+        display: "flex",
+        justifyContent: "center"
+    }
 }));
 
 export default useStyles;
