@@ -58,6 +58,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     variant="outlined"
                     placeholder="Invite student via email"
                     helperText="invalid email format"
+                    value={studentEmail}
                     onChange={({ target }) => handleEmailChange(target.value)}
                 />
                 <IconButton
