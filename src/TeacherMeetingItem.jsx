@@ -11,7 +11,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
         <ListItem alignItems="flex-start" >
             <ListItemText
                 primary={meeting.topic}
-                secondary={meeting.displayTime}
+                secondary={`${meeting.displayTime} - Duration: ${meeting.duration} min`}
             />
             <div>
                 <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />

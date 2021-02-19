@@ -16,6 +16,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     // const classes = useStyles({ meetingColor: meeting.color });
     return (
         <div>
+            <span styles={{ backgroundColor: "red", height: "5px", width: "100%" }} />
             <ListItem
                 alignItems="flex-start"
                 // className={classes.listItem}
@@ -26,7 +27,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                 </ListItemAvatar>
                 <ListItemText
                     primary={meeting.topic}
-                    secondary={meeting.displayTime}
+                    secondary={`${meeting.displayTime} - Duration: ${meeting.duration} min`}
                 />
                 <div >
                     <div>
