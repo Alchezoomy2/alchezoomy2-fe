@@ -36,6 +36,11 @@ export const Student = (props) => {
         retrieveFavorites();
 
         console.log(fuseMeetingList);
+        const tempArray = store.meetingsObj.map(meeting => {
+            console.log(meeting);
+            return meeting;
+        });
+        console.log(tempArray);
     }, [store]);
 
 
