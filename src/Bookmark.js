@@ -4,11 +4,11 @@ import { useStateStore } from "./StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
 import fuse from "fuse.js";
 import { deleteBookmark } from "./utils/student-fetches/bookmark-fetches.js";
+import useStyles from "./styles/bookmarkStyles";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
 import BookmarkListItem from "./BookmarkListItem.js";
 import Transition from "./DialogTransition.js";
-
 import CommentIcon from "@material-ui/icons/Comment";
 
 
@@ -20,6 +20,7 @@ import CommentIcon from "@material-ui/icons/Comment";
 
 
 export const Bookmark = ({ handleMeetingDetailClick }) => {
+    const classes = useStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -35,7 +36,6 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
 
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
-        console.log(fuseBookmarkList);
     };
 
     const handleDeleteBookmark = async (bookmarkId) => {
@@ -59,7 +59,9 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
     return useObserver(() =>
 
         <div>
-            <Paper elevation={3}>
+            <Paper
+                elevation={3}
+                className={classes.root}>
                 <Typography
                     variant='h5'>
                     Bookmarks

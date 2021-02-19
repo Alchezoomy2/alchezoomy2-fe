@@ -11,18 +11,6 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
-// const useStyles = makeStyles({
-//     tag: {
-//         backgroundColor: "red",
-//         height: "100%",
-//         width: "15px"
-//     },
-//     listItem: {
-//         display: "flex",
-//         flexDirection: "column"
-//     }
-// });
-
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
 
     // const classes = useStyles({ meetingColor: meeting.color });

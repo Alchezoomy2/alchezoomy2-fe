@@ -1,6 +1,6 @@
 import React from "react";
 import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar } from "@material-ui/core";
-import ReplyIcon from "@material-ui/icons/Reply";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 
@@ -25,8 +25,7 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                         clickable
                         onClick={() => handleDeleteClick(favorite)}
                     />
-                    <ReplyIcon
-                        style={{ transform: "scaleX(-1)" }}
+                    <PlayArrowIcon
                         onClick={() => handleOpenMeeting(favorite)}
                     />
                 </div>

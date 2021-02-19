@@ -22,7 +22,7 @@ export const Student = (props) => {
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     let fuseMeetingList = new fuse(store.meetingsObj, {
-        keys: ["topic"],
+        keys: ["topic", "userName"],
         threshold: 0.4,
         ignoreLocation: true
     });

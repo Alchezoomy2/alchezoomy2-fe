@@ -7,12 +7,14 @@ import fuse from "fuse.js";
 // import { useHistory } from "react-router-dom";
 import FavoriteListItem from "./FavoriteListItem.jsx";
 import Transition from "./DialogTransition.js";
+import useStyles from "./styles/favoriteStyles";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
 import { deleteFavorite } from "./utils/student-fetches/favorite-fetches.js";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
+    const classes = useStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -49,7 +51,9 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     return useObserver(() =>
 
         <div>
-            <Paper elevation={3}>
+            <Paper
+                elevation={3}
+                className={classes.root}>
                 <Typography
                     variant='h5'>
                     Favorites
