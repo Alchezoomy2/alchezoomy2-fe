@@ -27,11 +27,11 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 />
                 <Typography
                     variant="h6"
-                    styles={{ marginLeft: "25px" }}>
+                    style={{ marginLeft: "25px" }}>
                     {store.studentInfo.user_name}
                 </Typography>
                 <div
-                    styles={{ marginLeft: "25px" }}>
+                    style={{ marginLeft: "25px" }}>
                     {pageIcon === "meeting" ?
                         <HomeOutlinedIcon />
                         :
