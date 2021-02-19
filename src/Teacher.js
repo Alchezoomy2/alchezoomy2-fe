@@ -7,7 +7,7 @@ import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches
 import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
 import { TeacherAppBar } from "./TeacherAppBar";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
+import { Grid, Backdrop, CircularProgress, Snackbar } from "@material-ui/core";
 
 const useStyles = makeStyles({
     backdrop: {
@@ -78,6 +78,13 @@ export const Teacher = () => {
                     open={open}>
                     <CircularProgress />
                 </Backdrop>
+                <Snackbar
+                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                    open={snackbarOpen}
+                    onClose={handleSnackbarClose}
+                    message={"Email invite sent"}
+                    key={"top_center_snackbar"}
+                />
             </Grid>
         </div>
 
