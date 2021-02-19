@@ -16,12 +16,13 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     // const classes = useStyles({ meetingColor: meeting.color });
     return (
         <div>
-            <span styles={{ backgroundColor: "red", height: "5px", width: "100%" }} />
             <ListItem
                 alignItems="flex-start"
                 // className={classes.listItem}
                 divider={true}
             >
+                <span styles={{ backgroundColor: "red", height: "5px", width: "100%" }} />
+
                 <ListItemAvatar>
                     <Avatar alt={meeting.userName} src={meeting.picUrl} />
                 </ListItemAvatar>
