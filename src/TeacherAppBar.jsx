@@ -12,7 +12,9 @@ const useStyles = makeStyles(() => ({
         flexGrow: 1,
     },
     input: {
-        color: "white"
+        color: "white",
+        marginLeft: "15px"
+
     }
 }));
 
@@ -31,7 +33,6 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
             await inviteStudent(studentEmail, store.teacherInfo);
             setStudentEmail("");
             handleSnackbarOpen();
-            console.log(studentEmail);
         } else {
             setValidInput(false);
         }

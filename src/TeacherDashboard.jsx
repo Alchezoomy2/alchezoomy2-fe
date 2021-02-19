@@ -7,7 +7,7 @@ import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meetin
 import { useObserver } from "mobx-react";
 
 
-export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose }) => {
+export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
@@ -51,13 +51,6 @@ export const TeacherDashboard = ({ setOpen, snackbarOpen, handleSnackbarClose })
                     )
                 }
             </List>
-            <Snackbar
-                anchorOrigin={{ vertical: "top", horizontal: "center" }}
-                open={snackbarOpen}
-                onClose={handleSnackbarClose}
-                message={"Email invite sent"}
-                key={"top_center_snackbar"}
-            />
         </Container >
     );
 };
