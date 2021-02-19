@@ -35,6 +35,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
 
     const handleSearchChange = async (e) => {
         setSearchField(e.target.value);
+        console.log(fuseBookmarkList);
     };
 
     const handleDeleteBookmark = async (bookmarkId) => {
