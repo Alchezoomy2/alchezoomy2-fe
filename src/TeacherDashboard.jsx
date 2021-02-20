@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
-import { Container, List, Divider } from "@material-ui/core";
+import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
 import { useObserver } from "mobx-react";
+import { makeStyles } from "@material-ui/styles";
 
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
+    const classes = makeStyles();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
 
@@ -36,22 +38,27 @@ export const TeacherDashboard = ({ setOpen }) => {
     // }, [meetingsToDisplay]);
 
     return useObserver(() =>
-        <Container maxWidth="xl" style={{ display: "flex", justifyItems: "center" }}>
-            <List style={{ width: "90%" }}>
-                {
-                    meetingsToDisplay.map((meeting, index) =>
-                        <div key={index}>
-                            <TeacherMeetingItem
-                                meeting={meeting}
-                                handlePublish={handlePublish}
-                                setMeetingsToDisplay={setMeetingsToDisplay} />
-                            <Divider variant="middle" component="li" />
-                        </div>
+        <div className={classes.frame}>
+            <Paper
+                maxWidth="xl"
+                className={classes.root}>
+                <List style={{ width: "90%" }
+                } >
+                    {
+                        meetingsToDisplay.map((meeting, index) =>
+                            <div key={index}>
+                                <TeacherMeetingItem
+                                    meeting={meeting}
+                                    handlePublish={handlePublish}
+                                    setMeetingsToDisplay={setMeetingsToDisplay} />
+                                <Divider variant="middle" component="li" />
+                            </div>
 
-                    )
-                }
-            </List>
-        </Container >
+                        )
+                    }
+                </List>
+            </Paper >
+        </div >
     );
 };
 

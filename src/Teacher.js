@@ -27,8 +27,6 @@ export const Teacher = () => {
     const store = useStateStore();
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-
-
     const handleCreateTeacher = async (selectedColor) => {
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });

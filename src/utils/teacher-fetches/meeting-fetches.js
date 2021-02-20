@@ -12,7 +12,6 @@ export async function fetchAllTeacherMeetings(teacherInfo) {
 }
 
 export async function publishMeeting(meetingId) {
-    console.log(`publish meeting: ${meetingId}`);
     const response = await request
         .post(`${serverUrl}/teacher/publish/${meetingId}`)
         .withCredentials();

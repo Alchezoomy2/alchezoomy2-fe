@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Avatar, Typography, Toolbar, IconButton, InputBase } from "@material-ui/core";
+import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
@@ -56,21 +56,20 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <InputBase
-                    className={classes.input}
-                    error={!validInput}
-                    variant="outlined"
-                    placeholder="Invite student via email"
-                    helperText="invalid email format"
-                    value={studentEmail}
-                    onChange={({ target }) => handleEmailChange(target.value)}
-                />
-                <IconButton
-                    color="inherit"
-                    onClick={() => handleStudentInvite()}
-                >
-                    <MailIcon />
-                </IconButton>
+                <form onSubmit={() => handleStudentInvite()}>
+                    <TextField
+                        className={classes.input}
+                        error={!validInput}
+                        variant="outlined"
+                        placeholder="Invite student via email"
+                        helperText="invalid email format"
+                        value={studentEmail}
+                        onChange={({ target }) => handleEmailChange(target.value)}
+                    />
+                    <IconButton color="inherit">
+                        <MailIcon />
+                    </IconButton>
+                </form>
             </Toolbar>
         </AppBar>
     );

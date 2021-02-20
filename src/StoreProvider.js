@@ -7,6 +7,7 @@ const StoreContext = React.createContext();
 
 export const StoreProvider = ({ children }) => {
     const store = useLocalObservable(() => ({
+        loggedIn: localStorage.getItem("LOGGED_IN") || false,
         JWT: localStorage.getItem("JWT") || "",
         code: localStorage.getItem("CODE") || "",
         userType: localStorage.getItem("USER_TYPE") || "",
@@ -21,6 +22,9 @@ export const StoreProvider = ({ children }) => {
         loading: localStorage.getItem("LOADING" || true),
         videoTimestamp: 0,
 
+        changeLoggedIn: () => {
+            store.loggedIn = !store.loggedIn;
+        },
         changeCode: newCode => {
             store.code = newCode;
             localStorage.setItem("CODE", newCode);
