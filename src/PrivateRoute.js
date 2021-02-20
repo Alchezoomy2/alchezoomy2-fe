@@ -2,12 +2,14 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useStateStore } from "./StoreProvider";
 
 const PrivateRoute = ({ render: Component, ...rest }) => {
+    const store = useStateStore();
     return (
         <Route
             {...rest}
-            render={props => (rest.token ? <Component {...props} {...rest} /> : <Redirect to="/" />)}
+            render={props => (store.loggedIn ? <Component {...props} {...rest} /> : <Redirect to="/" />)}
         />
     );
 };

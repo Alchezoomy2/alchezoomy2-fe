@@ -17,6 +17,7 @@ import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 import InvitePage from "./InvitePage.jsx";
 
+
 function App() {
     return (
         <ThemeProvider theme={theme}>

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField, FormControl } from "@material-ui/core";
+import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
 import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
+import { Button } from "react-bootstrap";
 
 
 
@@ -29,6 +30,12 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     const classes = useStyles();
     const [studentEmail, setStudentEmail] = useState("");
     // const [validInput, setValidInput] = useState(true);
+
+    const handleLogout = () => {
+        store.changeLoggedIn();
+        history.push("/");
+    };
+
 
     const handleEmailChange = (value) => {
         setStudentEmail(value);
@@ -65,6 +72,13 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 <IconButton color="inherit" onSubmit={() => handleStudentInvite()}>
                     <MailIcon />
                 </IconButton>
+                <Button
+                    variant="outlined"
+                    color="white"
+                    onClick={() => handleLogout()}
+                >
+                    LOGOUT
+                </Button>
             </Toolbar>
         </AppBar>
     );
