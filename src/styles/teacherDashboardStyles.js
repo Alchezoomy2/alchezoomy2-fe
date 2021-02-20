@@ -4,8 +4,8 @@ const useStyles = makeStyles(() => ({
     root: {
         minHeight: "60vh",
         minWidth: "500px",
-        maxHeight: "90vh",
-        maxWidth: "90vw",
+        maxHeight: "85vh",
+        width: "90vw",
         overflow: "scroll",
         marginTop: "25px"
     },
