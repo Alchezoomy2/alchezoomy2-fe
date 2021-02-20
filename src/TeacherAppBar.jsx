@@ -79,6 +79,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     variant="outlined"
                     color="inherit"
                     onClick={() => handleLogout()}
+                    edge="end"
                 >
                     LOGOUT
                 </Button>
