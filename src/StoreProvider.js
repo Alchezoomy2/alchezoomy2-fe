@@ -13,7 +13,7 @@ export const StoreProvider = ({ children }) => {
         userType: localStorage.getItem("USER_TYPE") || "",
         teacherInfo: localStorage.getItem("TEACHER_INFO") || "",
         studentInfo: localStorage.getItem("STUDENT_INFO") || "",
-        meetingsObj: localStorage.getItem("MEETINGSOBJ") || "",
+        meetingsObj: JSON.parse(localStorage.getItem("MEETINGSOBJ")) || "",
         chatArray: localStorage.getItem("CHAT_ARRAY") || "",
         bookmarkArray: localStorage.getItem("BOOKMARK_ARRAY") || "",
         transcriptArray: localStorage.getItem("TRANSCRIPT_ARRAY" || ""),
