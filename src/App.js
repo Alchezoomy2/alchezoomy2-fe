@@ -17,13 +17,14 @@ import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 import InvitePage from "./InvitePage.jsx";
 import { useStateStore } from "./StoreProvider";
+import { useObserver } from "mobx-react";
 
 
 export const App = () => {
     const store = useStateStore();
     console.log(store.loggedIn);
 
-    return (
+    return useObserver(() =>
         <ThemeProvider theme={theme}>
             <StoreProvider>
                 <Router>
