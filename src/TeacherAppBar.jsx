@@ -54,16 +54,16 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <FormControl onSubmit={() => handleStudentInvite()}>
+                <FormControl>
                     <TextField
-                        color="secondary"
+                        color="text"
                         variant="outlined"
                         placeholder="Invite student via email"
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
-                    <IconButton color="inherit">
+                    <IconButton color="inherit" onSubmit={() => handleStudentInvite()}>
                         <MailIcon />
                     </IconButton>
                 </FormControl>
