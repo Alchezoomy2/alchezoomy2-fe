@@ -39,10 +39,12 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
 
 
     const handleEmailChange = (value) => {
+        console.log(value);
         setStudentEmail(value);
     };
 
     const handleStudentInvite = async () => {
+        console.log(`invite! ${studentEmail}`);
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             await inviteStudent(studentEmail, store.teacherInfo);
             setStudentEmail("");
