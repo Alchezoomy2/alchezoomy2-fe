@@ -65,6 +65,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     {store.teacherInfo.userName}
                 </Typography>
                 <TextField
+                    className={classes.input}
                     color="inherit"
                     label="Student email"
                     value={studentEmail}
@@ -72,7 +73,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 />
                 <IconButton
                     color="inherit"
-                    onSubmit={() => handleStudentInvite()}>
+                    onClick={() => handleStudentInvite()}>
                     <MailIcon />
                 </IconButton>
                 <Button
