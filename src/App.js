@@ -19,7 +19,7 @@ import InvitePage from "./InvitePage.jsx";
 import { useStateStore } from "./StoreProvider";
 
 
-function App() {
+export default App = () => {
     const store = useStateStore();
     console.log(store.loggedIn);
 
