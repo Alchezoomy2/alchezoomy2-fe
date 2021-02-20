@@ -55,7 +55,6 @@ export const Teacher = () => {
                 handleCreateTeacher={handleCreateTeacher}
             />);
         } else {
-            console.log("useEffect");
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
             setDisplayModule(<TeacherDashboard

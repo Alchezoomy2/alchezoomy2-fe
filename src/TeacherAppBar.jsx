@@ -64,8 +64,6 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 </Typography>
                 <TextField
                     color="inherit"
-                    variant="outlined"
-                    placeholder="Invite student via email"
                     label="Student email"
                     value={studentEmail}
                     onChange={({ target }) => handleEmailChange(target.value)}
