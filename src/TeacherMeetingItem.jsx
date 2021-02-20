@@ -5,32 +5,36 @@ import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
+import useStyles from "./styles/teacherMeetingItemsStyles.js";
 
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
+    const classes = useStyles();
     return (
-        <ListItem alignItems="flex-start" >
-            <ListItemText
-                primary={meeting.topic}
-                secondary={`${meeting.displayTime} - ${meeting.duration} min`}
-            />
-            <div>
-                <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
-                <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
-                <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />
-                <Chip size="small" color={meeting.transcriptUrl ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
-            </div>
-            <FormControlLabel
-                control={<Switch checked={meeting.published}
-                    onChange={() => handlePublish(meeting)}
-                    name='publish'
-                    color="primary"
-                />}
-                label="publish" />
-            <div>
-                <Chip size="small" color="secondary" label={"views: " + meeting.meetingViews} />
-                <Chip size="small" color="secondary" label={"favorites " + meeting.meetingFavs} />
-            </div>
-        </ListItem >
+        <div className={classes.frame}>
+            <ListItem alignItems="flex-start" >
+                <ListItemText
+                    primary={meeting.topic}
+                    secondary={`${meeting.displayTime} - ${meeting.duration} min`}
+                />
+                <div>
+                    <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
+                    <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
+                    <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />
+                    <Chip size="small" color={meeting.transcriptUrl ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
+                </div>
+                <FormControlLabel
+                    control={<Switch checked={meeting.published}
+                        onChange={() => handlePublish(meeting)}
+                        name='publish'
+                        color="primary"
+                    />}
+                    label="publish" />
+                <div>
+                    <Chip size="small" color="secondary" label={"views: " + meeting.meetingViews} />
+                    <Chip size="small" color="secondary" label={"favorites " + meeting.meetingFavs} />
+                </div>
+            </ListItem >
+        </div>
     );
 };
 
