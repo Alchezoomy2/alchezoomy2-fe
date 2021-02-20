@@ -58,10 +58,11 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 </Typography>
                 <form onSubmit={() => handleStudentInvite()}>
                     <TextField
-                        className={classes.input}
+                        // className={classes.input}
                         error={!validInput}
                         variant="outlined"
                         placeholder="Invite student via email"
+                        label="Student email"
                         helperText="invalid email format"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}

@@ -5,12 +5,12 @@ import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
 import { useObserver } from "mobx-react";
-import { makeStyles } from "@material-ui/styles";
+import useStyles from "./styles/teacherDashboardStyles";
 
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
-    const classes = makeStyles();
+    const classes = useStyles();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
 
