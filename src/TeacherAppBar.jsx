@@ -55,7 +55,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     {store.teacherInfo.userName}
                 </Typography>
                 <TextField
-                    color="text"
+                    color="white"
                     variant="outlined"
                     placeholder="Invite student via email"
                     label="Student email"
