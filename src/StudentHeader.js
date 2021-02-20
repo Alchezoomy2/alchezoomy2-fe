@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, IconButton, Typography, Avatar } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Typography, Avatar, Button } from "@material-ui/core";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import { useStateStore } from "./StoreProvider.js";
@@ -7,15 +7,20 @@ import { useStateStore } from "./StoreProvider.js";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 
-
-// import { useStateStore } from './StoreProvider.js'
 import { useObserver } from "mobx-react";
 import HomeIcon from "@material-ui/icons/Home";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import { useHistory } from "react-router-dom";
 
 
 export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkClick, handleFavoriteClick }) => {
     const store = useStateStore();
+    const history = useHistory();
+
+    const handleLogout = () => {
+        store.changeLoggedIn();
+        history.push("/");
+    };
 
     return useObserver(() =>
         <AppBar position="static" style={{ width: "100%" }}>
@@ -66,6 +71,14 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                         </IconButton>
                     }
                 </div>
+                <Button
+                    variant="outlined"
+                    color="inherit"
+                    onClick={() => handleLogout()}
+                    edge="end"
+                >
+                    LOGOUT
+                </Button>
             </Toolbar>
         </AppBar>
     );
