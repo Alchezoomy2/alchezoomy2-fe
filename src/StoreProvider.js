@@ -24,6 +24,7 @@ export const StoreProvider = ({ children }) => {
 
         changeLoggedIn: () => {
             store.loggedIn = !store.loggedIn;
+            localStorage.setItem("LOGGED_IN", store.loggedIn);
         },
         changeCode: newCode => {
             store.code = newCode;
