@@ -15,7 +15,5 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-import { makeStyles } from "@material-ui/styles";
-
 export default useStyles;
 
