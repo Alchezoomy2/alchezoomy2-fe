@@ -20,7 +20,7 @@ import { useObserver } from "mobx-react";
 
 export const App = () => {
     const store = useStateStore();
-    // console.log(store.loggedIn);
+    console.log(store.loggedIn);
 
     return useObserver(() =>
         <ThemeProvider theme={theme}>
