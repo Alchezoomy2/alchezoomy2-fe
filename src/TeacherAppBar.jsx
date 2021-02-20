@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField } from "@material-ui/core";
+import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField, FormControl } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
@@ -28,7 +28,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [studentEmail, setStudentEmail] = useState("");
-    const [validInput, setValidInput] = useState(true);
+    // const [validInput, setValidInput] = useState(true);
 
     const handleEmailChange = (value) => {
         setStudentEmail(value);
@@ -39,8 +39,6 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
             await inviteStudent(studentEmail, store.teacherInfo);
             setStudentEmail("");
             handleSnackbarOpen();
-        } else {
-            setValidInput(false);
         }
     };
 
@@ -56,21 +54,19 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <form onSubmit={() => handleStudentInvite()}>
+                <FormControl onSubmit={() => handleStudentInvite()}>
                     <TextField
-                        // className={classes.input}
-                        error={!validInput}
+                        color="secondary"
                         variant="outlined"
                         placeholder="Invite student via email"
                         label="Student email"
-                        helperText="invalid email format"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
                     <IconButton color="inherit">
                         <MailIcon />
                     </IconButton>
-                </form>
+                </FormControl>
             </Toolbar>
         </AppBar>
     );
