@@ -54,7 +54,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <FormControl>
+                <FormControl className={classes.emailInput}>
                     <TextField
                         color="text"
                         variant="outlined"
