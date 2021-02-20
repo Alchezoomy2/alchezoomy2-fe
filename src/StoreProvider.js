@@ -48,7 +48,7 @@ export const StoreProvider = ({ children }) => {
 
         changeMeetingsObj: newMeetingsObj => {
             store.meetingsObj = newMeetingsObj;
-            localStorage.setItem("MEETINGSOBJ", newMeetingsObj);
+            localStorage.setItem("MEETINGSOBJ", JSON.stringify(newMeetingsObj));
         },
 
         changeLoading: newLoadingState => {
