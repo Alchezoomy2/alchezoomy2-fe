@@ -16,9 +16,13 @@ import Login from "./Login.js";
 import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 import InvitePage from "./InvitePage.jsx";
+import { useStateStore } from "./StoreProvider";
 
 
 function App() {
+    const store = useStateStore();
+    console.log(store.loggedIn);
+
     return (
         <ThemeProvider theme={theme}>
             <StoreProvider>
@@ -30,7 +34,9 @@ function App() {
                             component={AutoRedirect} />
                         <Route path="/login/"
                             component={Login} />
-                        <PrivateRoute path="/teacher"
+                        <PrivateRoute
+                            token={store.loggedIn}
+                            path="/teacher"
                             component={Teacher} />
                         <PrivateRoute path="/student"
                             component={Student} />

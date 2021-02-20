@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/styles";
 import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -27,6 +28,7 @@ const useStyles = makeStyles(() => ({
 export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
+    const history = useHistory();
     const [studentEmail, setStudentEmail] = useState("");
     // const [validInput, setValidInput] = useState(true);
 
@@ -61,19 +63,21 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     {store.teacherInfo.userName}
                 </Typography>
                 <TextField
-                    color="white"
+                    color="inherit"
                     variant="outlined"
                     placeholder="Invite student via email"
                     label="Student email"
                     value={studentEmail}
                     onChange={({ target }) => handleEmailChange(target.value)}
                 />
-                <IconButton color="inherit" onSubmit={() => handleStudentInvite()}>
+                <IconButton
+                    color="inherit"
+                    onSubmit={() => handleStudentInvite()}>
                     <MailIcon />
                 </IconButton>
                 <Button
                     variant="outlined"
-                    color="white"
+                    color="inherit"
                     onClick={() => handleLogout()}
                 >
                     LOGOUT
