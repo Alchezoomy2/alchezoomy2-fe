@@ -1,6 +1,4 @@
-require("dotenv").config();
 import React from "react";
-import { StoreProvider } from "./StoreProvider.js";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "./styles/theme.js";
 import {
@@ -26,27 +24,25 @@ export const App = () => {
 
     return useObserver(() =>
         <ThemeProvider theme={theme}>
-            <StoreProvider>
-                <Router>
-                    <Switch>
-                        <Route exact path="/"
-                            component={LandingPage} />
-                        <Route path="/redirect/"
-                            component={AutoRedirect} />
-                        <Route path="/login/"
-                            component={Login} />
-                        <PrivateRoute
-                            token={store.loggedIn}
-                            path="/teacher"
-                            component={Teacher} />
-                        <PrivateRoute path="/student"
-                            component={Student} />
-                        <Route path="/invite/:jwt"
-                            component={InvitePage} />
-                    </Switch >
-                </Router >
-            </StoreProvider >
-        </ThemeProvider>
+            <Router>
+                <Switch>
+                    <Route exact path="/"
+                        component={LandingPage} />
+                    <Route path="/redirect/"
+                        component={AutoRedirect} />
+                    <Route path="/login/"
+                        component={Login} />
+                    <PrivateRoute
+                        token={store.loggedIn}
+                        path="/teacher"
+                        component={Teacher} />
+                    <PrivateRoute path="/student"
+                        component={Student} />
+                    <Route path="/invite/:jwt"
+                        component={InvitePage} />
+                </Switch >
+            </Router >
+        </ThemeProvider >
     );
 };
 
