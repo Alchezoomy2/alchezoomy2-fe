@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 const theme = createMuiTheme({
     overrides: {
-        MUIInputLabel: {
+        TextField: {
             root: {
                 color: "white",
                 "&$focused": {
