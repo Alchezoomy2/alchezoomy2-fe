@@ -15,10 +15,13 @@ const useStyles = makeStyles(() => ({
         flexGrow: 1,
         padding: "5px"
     },
-    input: {
-        color: "white",
+    textField: {
+
         marginLeft: "15px",
         width: "500px"
+    },
+    input: {
+        color: "white"
     },
     teacherName: {
         marginLeft: "5px"
@@ -71,8 +74,8 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 <div className={classes.searchBar}>
                     <TextField
                         variant="outlined"
-                        className={classes.input}
-                        style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
+                        className={classes.textField}
+                        InputProps={{ className: classes.input }}
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
