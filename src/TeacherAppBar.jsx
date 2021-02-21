@@ -87,7 +87,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         }}
                         InputProps={{
                             classes: {
-                                notchedOutline: classes.notchedOutline,
+                                // notchedOutline: classes.notchedOutline,
                                 root: classes.input,
                                 focused: classes.input
                             }
