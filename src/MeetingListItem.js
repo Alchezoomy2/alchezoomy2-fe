@@ -1,6 +1,6 @@
 import React from "react";
 import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from "@material-ui/core";
-import useStyles from "./styles/meetingListItemStyles.js";
+// import useStyles from "./styles/meetingListItemStyles.js";
 
 
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
@@ -10,15 +10,17 @@ import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
-    const props = { borderColor: meeting.color };
-    const classes = useStyles(props);
+    // const props = { borderColor: meeting.color };
+    // const classes = useStyles(props);
 
     // const classes = useStyles({ meetingColor: meeting.color });
     return (
-        <div className={classes.frame}>
+        <div
+        // className={classes.frame}
+        >
             <ListItem
                 alignItems="flex-start"
                 // className={classes.listItem}
@@ -84,24 +86,24 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     );
 };
 
-// MeetingListItem.propTypes = {
-//     meeting: PropTypes.object(PropTypes.shape({
-//         id: PropTypes.number.isRequired,
-//         topic: PropTypes.string.isRequired,
-//         displayTime: PropTypes.string.isRequired,
-//         videoUrl: PropTypes.string.isRequired,
-//         chatUrl: PropTypes.string.isRequired,
-//         transcriptUrl: PropTypes.string.isRequired,
-//         published: PropTypes.bool.isRequired,
-//         meetingViews: PropTypes.number.isRequired,
-//         meetingFavs: PropTypes.number.isRequired
-//     })
-//     ),
-//     favoriteArray: PropTypes.array,
-//     handleUnfavorite: PropTypes.func,
-//     handleFavorite: PropTypes.func,
-//     handleMeetingClick: PropTypes.func
+MeetingListItem.propTypes = {
+    meeting: PropTypes.object(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        topic: PropTypes.string.isRequired,
+        displayTime: PropTypes.string.isRequired,
+        videoUrl: PropTypes.string.isRequired,
+        chatUrl: PropTypes.string.isRequired,
+        transcriptUrl: PropTypes.string.isRequired,
+        published: PropTypes.bool.isRequired,
+        meetingViews: PropTypes.number.isRequired,
+        meetingFavs: PropTypes.number.isRequired
+    })
+    ),
+    favoriteArray: PropTypes.array,
+    handleUnfavorite: PropTypes.func,
+    handleFavorite: PropTypes.func,
+    handleMeetingClick: PropTypes.func
 
-// };
+};
 
 export default MeetingListItem;

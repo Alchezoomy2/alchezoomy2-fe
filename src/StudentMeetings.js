@@ -89,7 +89,6 @@ export const Student = (props) => {
     const handleSearchChange = (e) => {
         setSearchField(e.target.value);
         console.log(e.target.value);
-
     };
 
     return useObserver(() =>
