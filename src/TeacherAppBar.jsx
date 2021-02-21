@@ -88,6 +88,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         <TextField
                             variant="outlined"
                             className={classes.textField}
+                            InputLabelProps={{ className: classes.input }}
                             InputProps={{ className: classes.input }}
                             label="Student email"
                             value={studentEmail}
