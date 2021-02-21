@@ -97,7 +97,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                                 focused: classes.input
                             }
                         }}
-                        label="Student email"
+                        label="email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
