@@ -1,6 +1,6 @@
 import React from "react";
 import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from "@material-ui/core";
-import useStyles from "./styles/meetingItemStyles.js";
+import useStyles from "./styles/meetingListItemStyles.js";
 
 
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
