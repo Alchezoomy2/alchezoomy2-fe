@@ -8,7 +8,8 @@ import PropTypes from "prop-types";
 import useStyles from "./styles/teacherMeetingItemsStyles.js";
 
 export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
-    const classes = useStyles();
+    const props = { borderColor: meeting.color };
+    const classes = useStyles(props);
     return (
         <div className={classes.frame}>
             <ListItem alignItems="flex-start" >
