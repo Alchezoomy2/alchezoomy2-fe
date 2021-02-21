@@ -18,8 +18,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignContent: "flex-end",
         justifyContent: "flex-start",
-        flexGrow: 1,
-        backgroundColor: "rgba(255, 255, 255, 0.44)"
+        flexGrow: 1
     }
 }));
 
@@ -50,7 +49,9 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     className={classes.iconDiv}
                     style={{ marginLeft: "25px" }}>
                     {pageIcon === "meeting" ?
-                        <HomeOutlinedIcon />
+                        <HomeOutlinedIcon
+                            edge="end"
+                        />
                         :
                         <IconButton
                             edge="end"
@@ -61,23 +62,27 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                         </IconButton>
                     }
                     {pageIcon === "bookmark" ?
-                        <BookmarkBorderIcon />
+                        <BookmarkBorderIcon
+                            edge="end"
+                        />
                         :
                         <IconButton
                             edge="end"
                             color="inherit"
-                            aria-label="home"
+                            aria-label="bookmark"
                             onClick={handleBookmarkClick}>
                             <BookmarkIcon />
                         </IconButton>
                     }
                     {pageIcon === "favorite" ?
-                        <StarBorderIcon />
+                        <StarBorderIcon
+                            edge="end"
+                        />
                         :
                         <IconButton
                             edge="end"
                             color="inherit"
-                            aria-label="home"
+                            aria-label="favorite"
                             onClick={handleFavoriteClick}>
                             <StarIcon />
                         </IconButton>
