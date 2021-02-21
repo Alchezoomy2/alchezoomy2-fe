@@ -8,7 +8,9 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting)
 
     return (
 
-        <div>
+        <div
+            style={{ borderLeft: `15px solid ${bookmark.color}`, margin: "3px" }}
+        >
             <ListItem alignItems='flex-start'>
                 <ListItemAvatar>
                     <Avatar alt={bookmark.user_name} src={bookmark.pic_url} />
