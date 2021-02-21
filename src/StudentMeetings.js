@@ -112,7 +112,6 @@ export const Student = (props) => {
                             handleFavorite,
                             () => { props.handleMeetingDetailClick(meeting.id); }))
                         :
-
                         fuseMeetingList.search(searchField).map(({ item }) => MeetingListItem(
                             item,
                             favoriteArray,
