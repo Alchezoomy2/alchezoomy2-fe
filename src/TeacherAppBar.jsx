@@ -72,7 +72,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     <TextField
                         variant="outlined"
                         className={classes.input}
-                        style={{ borderColor: "white", color: "white" }}
+                        style={{ borderColor: "#FFFFFF", color: "#FFFFFF" }}
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
