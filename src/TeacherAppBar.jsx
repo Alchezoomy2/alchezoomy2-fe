@@ -30,9 +30,14 @@ const useStyles = makeStyles(() => ({
         flexGrow: 1
     },
     notchedOutline: {
-        borderWidth: "1px",
+        borderWidth: ".5px",
         borderColor: "white !important"
-    }
+    },
+    cssOutlinedInput: {
+        "&$cssFocused $notchedOutline": {
+            borderColor: "white !important",
+        }
+    },
 }));
 
 
@@ -87,8 +92,8 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         }}
                         InputProps={{
                             classes: {
-                                // notchedOutline: classes.notchedOutline,
-                                root: classes.input,
+                                notchedOutline: classes.notchedOutline,
+                                root: classes.cssOutlinedInput,
                                 focused: classes.input
                             }
                         }}
