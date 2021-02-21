@@ -97,7 +97,8 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                                 focused: classes.input
                             }
                         }}
-                        label="Student email"
+                        label="invite"
+                        defaultValue="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
