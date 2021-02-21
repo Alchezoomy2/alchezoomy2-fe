@@ -113,15 +113,15 @@ export const Student = (props) => {
                             () => { props.handleMeetingDetailClick(meeting.id); }))
                         :
                         fuseMeetingList.search(searchField).map(({ item }) => {
-                            console.log(item.id)
+                            console.log(item.id);
                             MeetingListItem(
                                 item,
                                 favoriteArray,
                                 handleUnfavorite,
                                 handleFavorite,
-                                () => { props.handleMeetingDetailClick(item.id); })
-                        )
-                    }
+                                () => { props.handleMeetingDetailClick(item.id); }
+                            );
+                        })
 
                     }
                 </List>
