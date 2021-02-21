@@ -80,7 +80,12 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         variant="outlined"
                         className={classes.textField}
                         InputLabelProps={{ className: classes.input }}
-                        InputProps={{ classes: { notchedOutline: classes.notchedOutline } }}
+                        InputProps={{
+                            classes: {
+                                notchedOutline: classes.notchedOutline,
+                                className: classes.input
+                            }
+                        }}
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
