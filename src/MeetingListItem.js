@@ -84,24 +84,24 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     );
 };
 
-MeetingListItem.propTypes = {
-    meeting: PropTypes.object(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        topic: PropTypes.string.isRequired,
-        displayTime: PropTypes.string.isRequired,
-        videoUrl: PropTypes.string.isRequired,
-        chatUrl: PropTypes.string.isRequired,
-        transcriptUrl: PropTypes.string.isRequired,
-        published: PropTypes.bool.isRequired,
-        meetingViews: PropTypes.number.isRequired,
-        meetingFavs: PropTypes.number.isRequired
-    })
-    ),
-    favoriteArray: PropTypes.array,
-    handleUnfavorite: PropTypes.func,
-    handleFavorite: PropTypes.func,
-    handleMeetingClick: PropTypes.func
+// MeetingListItem.propTypes = {
+//     meeting: PropTypes.object(PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         topic: PropTypes.string.isRequired,
+//         displayTime: PropTypes.string.isRequired,
+//         videoUrl: PropTypes.string.isRequired,
+//         chatUrl: PropTypes.string.isRequired,
+//         transcriptUrl: PropTypes.string.isRequired,
+//         published: PropTypes.bool.isRequired,
+//         meetingViews: PropTypes.number.isRequired,
+//         meetingFavs: PropTypes.number.isRequired
+//     })
+//     ),
+//     favoriteArray: PropTypes.array,
+//     handleUnfavorite: PropTypes.func,
+//     handleFavorite: PropTypes.func,
+//     handleMeetingClick: PropTypes.func
 
-};
+// };
 
 export default MeetingListItem;

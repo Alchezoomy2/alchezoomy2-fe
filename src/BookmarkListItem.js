@@ -9,7 +9,6 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting)
     return (
 
         <div>
-
             <ListItem alignItems='flex-start'>
                 <ListItemAvatar>
                     <Avatar alt={bookmark.user_name} src={bookmark.pic_url} />
