@@ -10,7 +10,7 @@ import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
     const props = { borderColor: meeting.color };
