@@ -33,7 +33,8 @@ const useStyles = makeStyles(() => ({
         width: "500px"
     },
     input: {
-        color: "white"
+        color: "white",
+        borderColor: "white"
     },
     teacherName: {
         marginLeft: "5px"
