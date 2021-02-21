@@ -27,7 +27,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
 
     return (
         <div
-            styles={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
+            style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
         >
             <ListItem
                 alignItems="flex-start"
