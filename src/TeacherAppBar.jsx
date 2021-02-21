@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField, Button } from "@material-ui/core";
+import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField, Button, createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
@@ -8,6 +8,18 @@ import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
+const theme = createMuiTheme({
+    overrides: {
+        MUIInputLabel: {
+            root: {
+                color: "white",
+                "&$focused": {
+                    color: "white"
+                }
+            }
+        }
+    }
+});
 
 
 const useStyles = makeStyles(() => ({
@@ -60,41 +72,43 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     };
 
     return useObserver(() =>
-        <AppBar position="static" className={classes.root}>
-            <Toolbar>
-                <Avatar
-                    alt={store.teacherInfo.userName}
-                    src={store.teacherInfo.picUrl}
-                    edge="start"
-                />
-                <Typography
-                    className={classes.teacherName}>
-                    {store.teacherInfo.userName}
-                </Typography>
-                <div className={classes.searchBar}>
-                    <TextField
-                        variant="outlined"
-                        className={classes.textField}
-                        InputProps={{ className: classes.input }}
-                        label="Student email"
-                        value={studentEmail}
-                        onChange={({ target }) => handleEmailChange(target.value)}
+        <ThemeProvider theme={theme} >
+            <AppBar position="static" className={classes.root}>
+                <Toolbar>
+                    <Avatar
+                        alt={store.teacherInfo.userName}
+                        src={store.teacherInfo.picUrl}
+                        edge="start"
                     />
-                    <IconButton
+                    <Typography
+                        className={classes.teacherName}>
+                        {store.teacherInfo.userName}
+                    </Typography>
+                    <div className={classes.searchBar}>
+                        <TextField
+                            variant="outlined"
+                            className={classes.textField}
+                            InputProps={{ className: classes.input }}
+                            label="Student email"
+                            value={studentEmail}
+                            onChange={({ target }) => handleEmailChange(target.value)}
+                        />
+                        <IconButton
+                            color="inherit"
+                            onClick={() => handleStudentInvite()}>
+                            <MailIcon />
+                        </IconButton>
+                    </div>
+                    <Button
+                        // variant="outlined"
                         color="inherit"
-                        onClick={() => handleStudentInvite()}>
-                        <MailIcon />
-                    </IconButton>
-                </div>
-                <Button
-                    // variant="outlined"
-                    color="inherit"
-                    onClick={() => handleLogout()}
-                >
-                    LOGOUT
+                        onClick={() => handleLogout()}
+                    >
+                        LOGOUT
                 </Button>
-            </Toolbar>
-        </AppBar>
+                </Toolbar>
+            </AppBar>
+        </ThemeProvider>
     );
 };
 
