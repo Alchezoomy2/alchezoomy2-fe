@@ -83,20 +83,20 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 <div className={classes.searchBar}>
                     <TextField
                         variant="outlined"
-                        className={classes.textField}
-                        InputLabelProps={{
-                            classes: {
-                                root: classes.input,
-                                focused: {}
-                            }
-                        }}
-                        InputProps={{
-                            classes: {
-                                notchedOutline: classes.notchedOutline,
-                                root: classes.cssOutlinedInput,
-                                focused: classes.input
-                            }
-                        }}
+                        // className={classes.textField}
+                        // InputLabelProps={{
+                        //     classes: {
+                        //         root: classes.input,
+                        //         focused: {}
+                        //     }
+                        // }}
+                        // InputProps={{
+                        //     classes: {
+                        //         notchedOutline: classes.notchedOutline,
+                        //         root: classes.cssOutlinedInput,
+                        //         focused: classes.input
+                        //     }
+                        // }}
                         label="invite"
                         defaultValue="Student email"
                         value={studentEmail}
