@@ -1,4 +1,4 @@
-import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from "@material-ui/core";
+import { Paper, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from "@material-ui/core";
 import { useObserver } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import { useStateStore } from "./StoreProvider.js";
@@ -92,8 +92,14 @@ export const Student = (props) => {
     };
 
     return useObserver(() =>
-        <div>
-            <Container maxWidth="xl" className={classes.root}>
+        <div className={classes.frame}>
+            <Paper
+                elevation={3}
+                className={classes.root}>
+                <Typography
+                    variant="h5">
+                    Lectures
+                </Typography>
                 <TextField
                     id="search"
                     label="search"
@@ -126,7 +132,7 @@ export const Student = (props) => {
                     }
                 </List>
 
-            </Container >
+            </Paper >
             {
                 favoriteCard ?
                     <Dialog
