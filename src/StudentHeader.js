@@ -18,7 +18,11 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignContent: "flex-end",
         justifyContent: "flex-start",
-        flexGrow: 1
+        flexGrow: 1,
+        marginLeft: "25px"
+    },
+    icon: {
+        backgroundColor: "rgba(255, 255, 255, 0.44)"
     }
 }));
 
@@ -46,28 +50,25 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     {store.studentInfo.user_name}
                 </Typography>
                 <div
-                    className={classes.iconDiv}
-                    style={{ marginLeft: "25px" }}>
-                    {pageIcon === "meeting" ?
-                        <HomeOutlinedIcon
-                            edge="end"
-                        />
-                        :
-                        <IconButton
-                            edge="end"
-                            color="inherit"
-                            aria-label="home"
-                            onClick={handleMeetingsClick}>
-                            <HomeIcon />
-                        </IconButton>
-                    }
+                    className={classes.iconDiv}>
+                    <div className={classes.icon}>
+                        {pageIcon === "meeting" ?
+                            <HomeOutlinedIcon
+                            />
+                            :
+                            <IconButton
+                                color="inherit"
+                                aria-label="home"
+                                onClick={handleMeetingsClick}>
+                                <HomeIcon />
+                            </IconButton>
+                        }
+                    </div>
                     {pageIcon === "bookmark" ?
                         <BookmarkBorderIcon
-                            edge="end"
                         />
                         :
                         <IconButton
-                            edge="end"
                             color="inherit"
                             aria-label="bookmark"
                             onClick={handleBookmarkClick}>
@@ -76,11 +77,9 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     }
                     {pageIcon === "favorite" ?
                         <StarBorderIcon
-                            edge="end"
                         />
                         :
                         <IconButton
-                            edge="end"
                             color="inherit"
                             aria-label="favorite"
                             onClick={handleFavoriteClick}>
