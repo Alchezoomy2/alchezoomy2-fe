@@ -1,6 +1,6 @@
 import { Container, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from "@material-ui/core";
 import { useObserver } from "mobx-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStateStore } from "./StoreProvider.js";
 import useStyles from "./styles/studentMeetings";
 import fuse from "fuse.js";
@@ -9,7 +9,7 @@ import Transition from "./DialogTransition.js";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
-import { createFavorite, deleteFavorite } from "./utils/student-fetches/favorite-fetches.js";
+import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "./utils/student-fetches/favorite-fetches.js";
 import { fetchAllStudentMeetings } from "./utils/student-fetches/meeting-fetches.js";
 
 
@@ -28,14 +28,14 @@ export const Student = (props) => {
     });
 
 
-    // useEffect(() => {
-    //     async function retrieveFavorites() {
-    //         const newFavoritesArray = await fetchAllStudentFavorites();
-    //         await setFavoriteArray(newFavoritesArray);
-    //     }
-    //     retrieveFavorites();
+    useEffect(() => {
+        async function retrieveFavorites() {
+            const newFavoritesArray = await fetchAllStudentFavorites();
+            setFavoriteArray(newFavoritesArray);
+        }
+        retrieveFavorites();
 
-    // }, [store]);
+    }, []);
 
 
     const handleFavorite = async (meetingObj) => {
@@ -88,7 +88,7 @@ export const Student = (props) => {
 
     const handleSearchChange = (e) => {
         setSearchField(e.target.value);
-        console.log(fuseMeetingList);
+        console.log(e.target.value);
 
     };
 
