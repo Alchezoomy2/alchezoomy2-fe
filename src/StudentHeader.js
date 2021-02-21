@@ -16,9 +16,10 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(() => ({
     iconDiv: {
         display: "flex",
-        justifyContent: "flex-end",
-        alignContent: "flex-start",
-        flexGrow: 1
+        alignContent: "flex-end",
+        justifyContent: "flex-start",
+        flexGrow: 1,
+        backgroundColor: "rgba(255, 255, 255, 0.44)"
     }
 }));
 
