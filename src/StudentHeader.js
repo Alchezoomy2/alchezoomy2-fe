@@ -22,7 +22,12 @@ const useStyles = makeStyles(() => ({
         marginLeft: "25px"
     },
     icon: {
-        backgroundColor: "rgba(255, 255, 255, 0.44)"
+        backgroundColor: "rgba(255, 255, 255, 0.44)",
+        width: "15px",
+        height: "100%",
+        display: "flex",
+        justifyContent: "flex-end"
+
     }
 }));
 
