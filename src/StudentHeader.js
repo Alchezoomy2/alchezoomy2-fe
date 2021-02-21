@@ -58,8 +58,11 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     className={classes.iconDiv}>
                     <div className={classes.icon}>
                         {pageIcon === "meeting" ?
-                            <HomeOutlinedIcon
-                            />
+                            <IconButton
+                                color="inherit"
+                                aria-label="home">
+                                <HomeOutlinedIcon />
+                            </IconButton>
                             :
                             <IconButton
                                 color="inherit"
