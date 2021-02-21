@@ -6,16 +6,26 @@ import { useStateStore } from "./StoreProvider.js";
 
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
+import { makeStyles } from "@material-ui/styles";
 
 import { useObserver } from "mobx-react";
 import HomeIcon from "@material-ui/icons/Home";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { useHistory } from "react-router-dom";
 
+const useStyles = makeStyles(() => ({
+    iconDiv: {
+        display: "flex",
+        justifyContent: "flex-end",
+        alignContent: "flex-start",
+        flexGrow: 1
+    }
+}));
 
 export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkClick, handleFavoriteClick }) => {
     const store = useStateStore();
     const history = useHistory();
+    const classes = useStyles();
 
     const handleLogout = () => {
         store.changeLoggedIn();
@@ -36,6 +46,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     {store.studentInfo.user_name}
                 </Typography>
                 <div
+                    className={classes.iconDiv}
                     style={{ marginLeft: "25px" }}>
                     {pageIcon === "meeting" ?
                         <HomeOutlinedIcon />
@@ -72,7 +83,6 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     }
                 </div>
                 <Button
-                    variant="outlined"
                     color="inherit"
                     onClick={() => handleLogout()}
                     edge="end"
