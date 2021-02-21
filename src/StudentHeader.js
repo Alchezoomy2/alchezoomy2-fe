@@ -23,10 +23,10 @@ const useStyles = makeStyles(() => ({
     },
     icon: {
         backgroundColor: "rgba(255, 255, 255, 0.44)",
-        width: "15px",
-        height: "100%",
+        width: "35px",
+        height: "50px",
         display: "flex",
-        justifyContent: "flex-end"
+        justifyContent: "center"
 
     }
 }));
