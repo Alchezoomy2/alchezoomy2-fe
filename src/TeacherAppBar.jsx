@@ -93,12 +93,12 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         }}
                         InputProps={{
                             classes: {
-                                notchedOutline: classes.notchedOutline,
+                                outline: classes.notchedOutline,
                                 root: classes.cssOutlinedInput,
                                 focused: classes.cssFocused
                             }
                         }}
-                        label="email"
+                        label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
