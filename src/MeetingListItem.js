@@ -1,6 +1,7 @@
 import React from "react";
 import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from "@material-ui/core";
 // import useStyles from "./styles/meetingListItemStyles.js";
+import { makeStyles } from "@material-ui/core/styles";
 
 
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
@@ -12,14 +13,21 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
-export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
-    // const props = { borderColor: meeting.color };
-    // const classes = useStyles(props);
 
-    // const classes = useStyles({ meetingColor: meeting.color });
+const useStyles = makeStyles(({
+    frame: props => ({
+        borderLeft: `15px solid ${props.borderColor}`,
+        margin: "3px"
+    })
+}));
+
+export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
+    const props = { borderColor: meeting.color };
+    const classes = useStyles(props);
+
     return (
         <div
-        // className={classes.frame}
+            className={classes.frame}
         >
             <ListItem
                 alignItems="flex-start"
