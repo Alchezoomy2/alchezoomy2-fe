@@ -83,7 +83,8 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         InputProps={{
                             classes: {
                                 notchedOutline: classes.notchedOutline,
-                                className: classes.input
+                                root: classes.input,
+                                focused: classes.input
                             }
                         }}
                         label="Student email"
