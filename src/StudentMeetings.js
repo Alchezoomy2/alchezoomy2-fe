@@ -28,14 +28,14 @@ export const Student = (props) => {
     });
 
 
-    useEffect(() => {
-        async function retrieveFavorites() {
-            const newFavoritesArray = await fetchAllStudentFavorites();
-            await setFavoriteArray(newFavoritesArray);
-        }
-        retrieveFavorites();
+    // useEffect(() => {
+    //     async function retrieveFavorites() {
+    //         const newFavoritesArray = await fetchAllStudentFavorites();
+    //         await setFavoriteArray(newFavoritesArray);
+    //     }
+    //     retrieveFavorites();
 
-    }, [store]);
+    // }, [store]);
 
 
     const handleFavorite = async (meetingObj) => {
