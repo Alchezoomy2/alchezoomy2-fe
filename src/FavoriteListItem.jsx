@@ -8,7 +8,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
 
     return (
-        <div>
+        <div
+            style={{ borderLeft: `15px solid ${favorite.color}`, margin: "3px" }}
+        >
             <ListItem alignItems='flex-start'>
                 <ListItemAvatar>
                     <Avatar alt={favorite.userName} src={favorite.picUrl} />
