@@ -115,7 +115,7 @@ export const Student = (props) => {
 
                         fuseMeetingList.search(searchField).map(({ item }) => {
                             console.log(item);
-                            MeetingListItem(
+                            return MeetingListItem(
                                 item,
                                 favoriteArray,
                                 handleUnfavorite,
