@@ -6,7 +6,6 @@ const useStyles = makeStyles(() => ({
         minWidth: "60vw",
         maxHeight: "90vh",
         maxWidth: "80vw",
-        overflow: "scroll",
         marginTop: "25px"
     },
     frame: {

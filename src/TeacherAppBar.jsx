@@ -82,7 +82,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 </Typography>
                 <div className={classes.searchBar}>
                     <TextField
-                        // variant="outlined"
+                        variant="outlined"
                         className={classes.textField}
                         InputLabelProps={{
                             classes: {
@@ -97,7 +97,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                                 focused: classes.input
                             }
                         }}
-                        label="invite"
+                        // label="invite"
                         defaultValue="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}

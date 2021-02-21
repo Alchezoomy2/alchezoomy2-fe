@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxHeight: "90vh",
         maxWidth: "80vw",
-        overflow: "scroll",
     },
     list: {
         width: "90%"
