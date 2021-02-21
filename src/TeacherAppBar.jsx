@@ -79,7 +79,12 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     <TextField
                         variant="outlined"
                         className={classes.textField}
-                        InputLabelProps={{ className: classes.input }}
+                        InputLabelProps={{
+                            classes: {
+                                root: classes.input,
+                                focused: classes.input
+                            }
+                        }
                         InputProps={{
                             classes: {
                                 notchedOutline: classes.notchedOutline,
