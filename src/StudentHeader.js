@@ -56,25 +56,28 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 </Typography>
                 <div
                     className={classes.iconDiv}>
-                    <div className={classes.icon}>
-                        {pageIcon === "meeting" ?
-                            <IconButton
-                                color="inherit"
-                                aria-label="home">
-                                <HomeOutlinedIcon />
-                            </IconButton>
-                            :
-                            <IconButton
-                                color="inherit"
-                                aria-label="home"
-                                onClick={handleMeetingsClick}>
-                                <HomeIcon />
-                            </IconButton>
-                        }
-                    </div>
+                    {/* <div className={classes.icon}> */}
+                    {pageIcon === "meeting" ?
+                        <IconButton
+                            color="inherit"
+                            aria-label="home">
+                            <HomeOutlinedIcon />
+                        </IconButton>
+                        :
+                        <IconButton
+                            color="inherit"
+                            aria-label="home"
+                            onClick={handleMeetingsClick}>
+                            <HomeIcon />
+                        </IconButton>
+                    }
+                    {/* </div> */}
                     {pageIcon === "bookmark" ?
-                        <BookmarkBorderIcon
-                        />
+                        <IconButton
+                            color="inherit"
+                            aria-label="bookmark">
+                            <BookmarkBorderIcon />
+                        </IconButton>
                         :
                         <IconButton
                             color="inherit"
@@ -84,8 +87,11 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                         </IconButton>
                     }
                     {pageIcon === "favorite" ?
-                        <StarBorderIcon
-                        />
+                        <IconButton
+                            color="inherit"
+                            aria-label="favorite">
+                            <StarBorderIcon />
+                        </IconButton>
                         :
                         <IconButton
                             color="inherit"
