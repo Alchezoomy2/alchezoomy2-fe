@@ -113,7 +113,7 @@ export const Student = (props) => {
                             () => { props.handleMeetingDetailClick(meeting.id); }))
                         :
                         fuseMeetingList.search(searchField).map(({ item }) => {
-                            console.log(item.topic);
+                            console.log({ ...item });
                             console.log(item.id);
                             return MeetingListItem(
                                 item,
