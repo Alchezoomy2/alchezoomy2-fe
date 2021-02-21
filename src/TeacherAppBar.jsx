@@ -38,6 +38,7 @@ const useStyles = makeStyles(() => ({
             borderColor: "white !important",
         }
     },
+    cssFocused: {},
 }));
 
 
@@ -94,7 +95,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                             classes: {
                                 notchedOutline: classes.notchedOutline,
                                 root: classes.cssOutlinedInput,
-                                focused: classes.input
+                                focused: classes.cssFocused
                             }
                         }}
                         label="email"
