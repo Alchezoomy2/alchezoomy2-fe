@@ -65,8 +65,9 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     {store.teacherInfo.userName}
                 </Typography>
                 <TextField
+                    variant="outlined"
                     className={classes.input}
-                    color="inherit"
+                    color="secondary"
                     label="Student email"
                     value={studentEmail}
                     onChange={({ target }) => handleEmailChange(target.value)}
@@ -77,10 +78,9 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     <MailIcon />
                 </IconButton>
                 <Button
-                    variant="outlined"
+                    // variant="outlined"
                     color="inherit"
                     onClick={() => handleLogout()}
-                    edge="end"
                 >
                     LOGOUT
                 </Button>
