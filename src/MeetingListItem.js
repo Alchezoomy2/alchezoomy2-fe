@@ -1,6 +1,7 @@
 import React from "react";
 import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/styles";
+import useStyles from "./styles/MeetingItemStyles.js";
+
 
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
@@ -12,10 +13,12 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
+    const props = { borderColor: meeting.color };
+    const classes = useStyles(props);
 
     // const classes = useStyles({ meetingColor: meeting.color });
     return (
-        <div>
+        <div className={classes.frame}>
             <ListItem
                 alignItems="flex-start"
                 // className={classes.listItem}
