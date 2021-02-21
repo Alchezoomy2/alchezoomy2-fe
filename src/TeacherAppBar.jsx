@@ -28,6 +28,10 @@ const useStyles = makeStyles(() => ({
     },
     searchBar: {
         flexGrow: 1
+    },
+    notchedOutline: {
+        borderWidth: "1px",
+        borderColor: "white !important"
     }
 }));
 
@@ -76,7 +80,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                         variant="outlined"
                         className={classes.textField}
                         InputLabelProps={{ className: classes.input }}
-                        InputProps={{ className: classes.input }}
+                        InputProps={{ classes: classes.notchedOutline }}
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
