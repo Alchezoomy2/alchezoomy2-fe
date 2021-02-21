@@ -13,6 +13,7 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
+        padding: "5px"
     },
     input: {
         color: "white",
@@ -21,6 +22,9 @@ const useStyles = makeStyles(() => ({
     },
     teacherName: {
         marginLeft: "5px"
+    },
+    searchBar: {
+        flexGrow: 1
     }
 }));
 
@@ -64,19 +68,21 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <TextField
-                    variant="outlined"
-                    className={classes.input}
-                    color="secondary"
-                    label="Student email"
-                    value={studentEmail}
-                    onChange={({ target }) => handleEmailChange(target.value)}
-                />
-                <IconButton
-                    color="inherit"
-                    onClick={() => handleStudentInvite()}>
-                    <MailIcon />
-                </IconButton>
+                <div className={classes.searchBar}>
+                    <TextField
+                        variant="outlined"
+                        className={classes.input}
+                        style={{ borderColor: "white", color: "white" }}
+                        label="Student email"
+                        value={studentEmail}
+                        onChange={({ target }) => handleEmailChange(target.value)}
+                    />
+                    <IconButton
+                        color="inherit"
+                        onClick={() => handleStudentInvite()}>
+                        <MailIcon />
+                    </IconButton>
+                </div>
                 <Button
                     // variant="outlined"
                     color="inherit"
