@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
         maxHeight: "85vh",
         width: "70vw",
         marginTop: "25px",
-        overflowY: "auto",
+        overflowY: "hidden",
         overflowX: "scroll"
     },
     frame: {
