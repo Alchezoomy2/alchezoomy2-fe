@@ -18,6 +18,12 @@ export const useStyles = makeStyles({
     mainLogo: {
         height: "500px",
     },
+    inviteText: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        margin: "25px"
+    }
 });
 
 export default useStyles;

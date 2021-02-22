@@ -33,7 +33,6 @@ export const InvitePage = () => {
             <div className={classes.inviteText}>
                 <Typography
                     variant="body1">
-
                     {"Welcome to Alchezoomy!"}
                     <br />
                     {"You have been invited to view lextures from Alchemy Code Lab!"}
