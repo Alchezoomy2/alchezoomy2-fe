@@ -34,18 +34,19 @@ export const InvitePage = () => {
                 <Typography
                     variant="body1">
 
-                    {"Welcome to Alchezoomy!\n"}
+                    {"Welcome to Alchezoomy!"}
+                    <br />
                     {"You have been invited to view lextures from Alchemy Code Lab!"}
                     <br />
                     {"To create your account, you'll need to sign in via Zoom."}
-                    <p>
-                        {"We will use your name & email address to identify you, but we wont have access to any other of your personal data."}
-                    </p>
+                    <br />
+                    {"We will use your name & email address to identify you, but we wont have access to any other of your personal data."}
                 </Typography>
             </div>
 
             <Button
                 variant="contained"
+                color="primary"
                 onClick={() => {
                     window.location.href = zoomAPIurl;
                 }}>
