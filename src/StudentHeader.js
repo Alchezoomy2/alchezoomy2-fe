@@ -44,16 +44,6 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
     return useObserver(() =>
         <AppBar position="static" style={{ width: "100%" }}>
             <Toolbar>
-                <Avatar
-                    alt={store.studentInfo.user_name}
-                    src={store.studentInfo.pic_url}
-                    edge="start"
-                />
-                <Typography
-                    variant="h6"
-                    style={{ marginLeft: "25px" }}>
-                    {store.studentInfo.user_name}
-                </Typography>
                 <div
                     className={classes.iconDiv}>
                     {/* <div className={classes.icon}> */}
@@ -101,11 +91,21 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                         </IconButton>
                     }
                 </div>
+                <Avatar
+                    alt={store.studentInfo.user_name}
+                    src={store.studentInfo.pic_url}
+                    edge="start"
+                />
+                <Typography
+                    variant="h6"
+                    style={{ marginLeft: "25px" }}>
+                    {store.studentInfo.user_name}
+                </Typography>
+
                 <Button
                     color="inherit"
                     onClick={() => handleLogout()}
-                    edge="end"
-                >
+                    style={{ marginLeft: "25px" }}>
                     LOGOUT
                 </Button>
             </Toolbar>
