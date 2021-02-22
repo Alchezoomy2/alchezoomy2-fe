@@ -103,9 +103,8 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 </Typography>
 
                 <Button
-                    color="primary"
                     onClick={() => handleLogout()}
-                    variant="contained"
+                    variant="outlined"
                     style={{ marginLeft: "25px" }}>
                     LOGOUT
                 </Button>

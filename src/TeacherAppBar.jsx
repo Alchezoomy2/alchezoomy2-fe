@@ -15,8 +15,7 @@ const useStyles = makeStyles(() => ({
         padding: "5px"
     },
     textField: {
-        backgroundColor: "rgba(255, 255, 255, 0.44)",
-        borderRadius: "25px",
+        backgroundColor: "rgba(255, 255, 255, 0.10)",
         marginLeft: "15px",
         width: "500px"
     },
@@ -86,8 +85,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     <TextField
                         variant="filled"
                         className={classes.textField}
-                        defaultValue="Student email"
-                        label="invite"
+                        label="Student email"
                         value={studentEmail}
                         InputLabelProps={{
                             classes: {
