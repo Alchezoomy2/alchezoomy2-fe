@@ -105,7 +105,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 <Button
                     variant="outlined"
                     color="inherit"
-                    onClick={() => handleLogout()}
+                    onClick={handleLogout}
                     style={{ marginLeft: "25px" }}
                 >
                     LOGOUT
