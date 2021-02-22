@@ -103,14 +103,13 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 </Typography>
 
                 <Button
-                    onClick={() => handleLogout()}
-                    variant="outlined"
                     color="inherit"
-                    style={{ marginLeft: "25px" }}>
+                    onClick={() => handleLogout()}
+                >
                     LOGOUT
                 </Button>
             </Toolbar>
-        </AppBar >
+        </AppBar>
     );
 };
 
