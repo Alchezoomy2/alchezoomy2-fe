@@ -84,6 +84,8 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     <TextField
                         variant="outlined"
                         className={classes.textField}
+                        defaultValue="Student email"
+                        value={studentEmail}
                         InputLabelProps={{
                             classes: {
                                 root: classes.input,
@@ -98,8 +100,6 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                             }
                         }}
                         // label="invite"
-                        defaultValue="Student email"
-                        value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
                     <IconButton
