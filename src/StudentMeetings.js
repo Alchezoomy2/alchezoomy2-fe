@@ -35,7 +35,7 @@ export const Student = (props) => {
             setFavoriteArray(newFavoritesArray);
         }
         retrieveFavorites();
-
+        console.log("end use Effect");
     }, []);
 
 
