@@ -26,8 +26,8 @@ export const Login = () => {
 
                 console.log(newMeetingObj);
 
-                store.changeMeetingsObj(newMeetingObj);
-                store.changeLoggedIn();
+                await store.changeMeetingsObj(newMeetingObj);
+                await store.changeLoggedIn();
                 history.push("/student/");
             }
 
