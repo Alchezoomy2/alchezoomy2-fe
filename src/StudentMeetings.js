@@ -29,6 +29,7 @@ export const Student = (props) => {
 
 
     useEffect(() => {
+        console.log("useEffect");
         async function retrieveFavorites() {
             const newFavoritesArray = await fetchAllStudentFavorites();
             setFavoriteArray(newFavoritesArray);
