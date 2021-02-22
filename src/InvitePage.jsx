@@ -33,11 +33,14 @@ export const InvitePage = () => {
             <div className={classes.inviteText}>
                 <Typography
                     variant="body1">
-                    {"Welcome to Alchezoomy!"}
-                    {"You have been invited to view lextures from Alchemy Code Lab!"}
 
+                    {"Welcome to Alchezoomy!\n"}
+                    {"You have been invited to view lextures from Alchemy Code Lab!"}
+                    <br />
                     {"To create your account, you'll need to sign in via Zoom."}
-                    {"We will use your name & email address to identify you, but we wont have access to any other of your personal data."}
+                    <p>
+                        {"We will use your name & email address to identify you, but we wont have access to any other of your personal data."}
+                    </p>
                 </Typography>
             </div>
 
