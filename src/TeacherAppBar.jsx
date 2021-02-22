@@ -82,7 +82,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 </Typography>
                 <div className={classes.searchBar}>
                     <TextField
-                        variant="outlined"
+                        variant="filled"
                         className={classes.textField}
                         defaultValue="Student email"
                         value={studentEmail}
