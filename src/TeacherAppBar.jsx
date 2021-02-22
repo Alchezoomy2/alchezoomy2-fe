@@ -110,7 +110,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     </IconButton>
                 </div>
                 <Button
-                    // variant="outlined"
+                    variant="outlined"
                     color="inherit"
                     onClick={() => handleLogout()}
                 >
