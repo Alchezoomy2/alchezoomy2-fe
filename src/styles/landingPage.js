@@ -17,7 +17,7 @@ export const useStyles = makeStyles({
     },
     mainLogo: {
         height: "500px",
-    }
+    },
 });
 
 export default useStyles;

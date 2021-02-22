@@ -30,17 +30,13 @@ export const InvitePage = () => {
                         alt="logo image" />
                 </Paper>
             </div>
-            <div>
-                <Typography>
+            <div className={classes.inviteText}>
+                <Typography
+                    variant="body1">
                     {"Welcome to Alchezoomy!"}
-                </Typography>
-                <Typography>
                     {"You have been invited to view lextures from Alchemy Code Lab!"}
-                </Typography>
-                <Typography>
+
                     {"To create your account, you'll need to sign in via Zoom."}
-                </Typography>
-                <Typography>
                     {"We will use your name & email address to identify you, but we wont have access to any other of your personal data."}
                 </Typography>
             </div>
