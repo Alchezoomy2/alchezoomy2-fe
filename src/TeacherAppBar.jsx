@@ -38,7 +38,43 @@ const useStyles = makeStyles(() => ({
             borderColor: "white !important",
         }
     },
-}));
+    email: {
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
+        },
+        marginRight: theme.spacing(2),
+        marginLeft: 0,
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: theme.spacing(3),
+            width: 'auto',
+        },
+    },
+    searchIcon: {
+        padding: theme.spacing(0, 2),
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    inputRoot: {
+        color: 'inherit',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '20ch',
+        },
+    ));
 
 
 export const TeacherAppBar = ({ handleSnackbarOpen }) => {
@@ -80,34 +116,28 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <div className={classes.searchBar}>
-                    <TextField
-                        variant="filled"
-                        className={classes.textField}
-                        defaultValue="Student email"
-                        value={studentEmail}
-                        InputLabelProps={{
-                            classes: {
-                                root: classes.input,
-                                focused: {}
-                            }
-                        }}
-                        InputProps={{
-                            classes: {
-                                notchedOutline: classes.notchedOutline,
-                                root: classes.cssOutlinedInput,
-                                focused: classes.input
-                            }
-                        }}
-                        // label="invite"
-                        onChange={({ target }) => handleEmailChange(target.value)}
-                    />
-                    <IconButton
-                        color="inherit"
-                        onClick={() => handleStudentInvite()}>
+                <div className={classes.email}>
+                    <div className={classes.searchIcon}>
                         <MailIcon />
-                    </IconButton>
+                    </div>
+                    <InputBase
+                        placeholder="Search…"
+                        classes={{
+                            root: classes.inputRoot,
+                            input: classes.inputInput,
+                        }}
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
                 </div>
+                {/* // label="invite"
+                    //     onChange={({ target }) => handleEmailChange(target.value)}
+                    // /> */}
+                {/* <IconButton
+                    color="inherit"
+                    onClick={() => handleStudentInvite()}>
+                    <MailIcon />
+                </IconButton> */}
+                {/* </div> */}
                 <Button
                     // variant="outlined"
                     color="inherit"
