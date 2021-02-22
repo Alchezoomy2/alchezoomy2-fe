@@ -15,7 +15,7 @@ export const Login = () => {
 
         async function loginStudent() {
             let returnedStudentInfo = await studentAuth(store.code);
-
+            console.log(returnedStudentInfo);
             if (returnedStudentInfo.newUser) {
                 window.alert("You don't currently have an AlcheZoomy account. \n Please ask your teacher for access!");
                 history.push("/");
