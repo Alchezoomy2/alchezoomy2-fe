@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
         minHeight: "60vh",
         minWidth: "400px",
         maxHeight: "85vh",
-        width: "90vw",
+        width: "70vw",
         marginTop: "25px"
     },
     frame: {
