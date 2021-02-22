@@ -6,7 +6,9 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "500px",
         maxHeight: "85vh",
         width: "90vw",
-        marginTop: "25px"
+        marginTop: "25px",
+        overflowY: "scroll",
+        overflowX: "hidden"
     },
     frame: {
         display: "flex",

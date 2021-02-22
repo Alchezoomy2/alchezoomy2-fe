@@ -103,6 +103,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 </Typography>
 
                 <Button
+                    variant="outlined"
                     color="inherit"
                     onClick={() => handleLogout()}
                 >
