@@ -46,7 +46,6 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
             <Toolbar>
                 <div
                     className={classes.iconDiv}>
-                    {/* <div className={classes.icon}> */}
                     {pageIcon === "meeting" ?
                         <IconButton
                             color="inherit"
@@ -61,7 +60,6 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                             <HomeIcon />
                         </IconButton>
                     }
-                    {/* </div> */}
                     {pageIcon === "bookmark" ?
                         <IconButton
                             color="inherit"
@@ -92,8 +90,8 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                     }
                 </div>
                 <Avatar
-                    alt={store.studentInfo.user_name}
-                    src={store.studentInfo.pic_url}
+                    alt={store.studentInfo.userName}
+                    src={store.studentInfo.picUrl}
                     edge="start"
                 />
                 <Typography
