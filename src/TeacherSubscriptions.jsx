@@ -1,17 +1,17 @@
-import { Paper, TextField, Typography, IconButton } from "@material-ui/core";
+import { Paper, TextField, Typography, IconButton, List } from "@material-ui/core";
 import MailIcon from "@material-ui/icons/Mail";
 
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
-// import useStyles from "./styles/teacherEmailStyles";
+import useStyles from "./styles/teacherSubscriptionStyles";
 import fuse from "fuse.js";
 import { SubscriptionListItem } from "./SubscriptionListItem";
-import { inviteStudent } from "./utils/teacher-fetches/subscription-fetches";
+import { inviteStudent, deleteSubscription } from "./utils/teacher-fetches/subscription-fetches";
 
 export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbarOpen }) => {
     const store = useStateStore();
-    // const classes = useStyles();
+    const classes = useStyles();
     const [subscriptionArray, setSubscriptionArray] = useState(returnedSubscriptionArray);
     const [studentEmail, setStudentEmail] = useState("");
     const [searchField, setSearchField] = useState("");
@@ -67,19 +67,6 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
                         className={classes.textField}
                         label="Student email"
                         value={studentEmail}
-                        InputLabelProps={{
-                            classes: {
-                                root: classes.input,
-                                focused: {}
-                            }
-                        }}
-                        InputProps={{
-                            classes: {
-                                notchedOutline: classes.notchedOutline,
-                                root: classes.cssOutlinedInput,
-                                focused: classes.input
-                            }
-                        }}
                         onChange={({ target }) => handleEmailChange(target.value)}
                     />
                     <IconButton
