@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
 import useStyles from "./styles/teacherEmailStyles";
 import fuse from "fuse.js";
-import { SubscriptionListItem } from "./SubscriptionListItem"
+import { SubscriptionListItem } from "./SubscriptionListItem";
 
 export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbarOpen }) => {
     const store = useStateStore();
@@ -42,7 +42,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
     const handleSubscriptionDelete = async (subscriptionId) => {
         const newSubscriptionArray = await deleteSubscription(subscriptionId);
         setSubscriptionArray(newSubscriptionArray);
-    }
+    };
 
     return useObserver(() =>
         <div className={classes.frame}>
@@ -102,5 +102,5 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
                 </List>
             </Paper>
         </div>
-
+    );
 };
