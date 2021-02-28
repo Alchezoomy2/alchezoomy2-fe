@@ -34,5 +34,5 @@ export async function updateMeeting(meetingId, meetingInfo) {
         .send({ meetingInfo })
         .withCrendentials();
 
-    return response.body; teacher;
+    return response.body;
 }
