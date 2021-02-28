@@ -21,9 +21,9 @@ export async function inviteStudent(studentEmail, teacherInfo) {
     return response.body;
 }
 
-export async function deleteSubscription(studentId, teacherId) {
+export async function deleteSubscription(subscriptionId) {
     const response = await request
-        .delete(`${serverUrl}/teacher/subscriptions/`)
+        .delete(`${serverUrl}/teacher/subscriptions/${subscriptionId}`)
         .withCredentials();
 
     return response.body;

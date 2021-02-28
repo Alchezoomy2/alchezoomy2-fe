@@ -9,6 +9,8 @@ import { TeacherAppBar } from "./TeacherAppBar";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Backdrop, CircularProgress, Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import { fetchAllTeacherSubscriptions } from "./utils/teacher-fetches/subscription-fetches.js";
+import { TeacherSubscriptions } from "./TeacherSubscriptions.jsx";
 
 const useStyles = makeStyles({
     backdrop: {
@@ -31,6 +33,17 @@ export const Teacher = () => {
         store.changeMeetingsObj(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
             setOpen={setOpen}
+        />);
+        setOpen(false);
+    };
+
+    const handleSubscriptionDashboard = async () => {
+        setOpen(true);
+        const returnedSubscriptionArray = await fetchAllTeacherSubscriptions(store.teacherInfo.id);
+        setDisplayModule(<TeacherSubscriptions
+            setOpen={setOpen}
+            returnedSubscriptionArray={returnedSubscriptionArray}
+            handleSnackbarOpen={handleSnackbarOpen}
         />);
         setOpen(false);
     };
@@ -70,6 +83,7 @@ export const Teacher = () => {
             <Grid>
                 <TeacherAppBar
                     handleSnackbarOpen={handleSnackbarOpen}
+                    handleSubscriptionDashboard={handleSubscriptionDashboard}
                 />
                 {displayModule}
                 <Backdrop

@@ -89,7 +89,6 @@ export const Student = (props) => {
 
     const handleSearchChange = (e) => {
         setSearchField(e.target.value);
-        console.log(e.target.value);
     };
 
     return useObserver(() =>
@@ -119,8 +118,6 @@ export const Student = (props) => {
                             () => { props.handleMeetingDetailClick(meeting.id); }))
                         :
                         fuseMeetingList.search(searchField).map(({ item }) => {
-                            console.log({ ...item });
-                            console.log(item.id);
                             return MeetingListItem(
                                 item,
                                 favoriteArray,

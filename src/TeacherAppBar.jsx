@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField, Button } from "@material-ui/core";
+import React from "react";
+import { AppBar, Avatar, Typography, Toolbar, Button } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
-import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
-import { fetchAllTeacherSubscriptions, inviteStudent } from "./utils/teacher-fetches/subscription-fetches.js";
-
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -42,30 +39,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-export const TeacherAppBar = ({ handleSnackbarOpen }) => {
+export const TeacherAppBar = ({ handleSubscriptionDashboard }) => {
     const store = useStateStore();
     const classes = useStyles();
     const history = useHistory();
-    const [studentEmail, setStudentEmail] = useState("");
-    // const [validInput, setValidInput] = useState(true);
 
     const handleLogout = () => {
         store.changeLoggedIn();
         history.push("/");
-    };
-
-
-    const handleEmailChange = (value) => {
-        console.log(value);
-        setStudentEmail(value);
-    };
-
-    const handleStudentInvite = async () => {
-        if (studentEmail.includes("@") && studentEmail.includes(".")) {
-            await inviteStudent(studentEmail, store.teacherInfo);
-            setStudentEmail("");
-            handleSnackbarOpen();
-        }
     };
 
     return useObserver(() =>
@@ -80,39 +61,11 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                     className={classes.teacherName}>
                     {store.teacherInfo.userName}
                 </Typography>
-                <div className={classes.searchBar}>
-                    <TextField
-                        variant="filled"
-                        className={classes.textField}
-                        label="Student email"
-                        value={studentEmail}
-                        InputLabelProps={{
-                            classes: {
-                                root: classes.input,
-                                focused: {}
-                            }
-                        }}
-                        InputProps={{
-                            classes: {
-                                notchedOutline: classes.notchedOutline,
-                                root: classes.cssOutlinedInput,
-                                focused: classes.input
-                            }
-                        }}
-                        // label="invite"
-                        onChange={({ target }) => handleEmailChange(target.value)}
-                    />
-                    <IconButton
-                        color="inherit"
-                        onClick={() => handleStudentInvite()}>
-                        <MailIcon />
-                    </IconButton>
-                </div>
                 <Button
                     variant="outlined"
                     color="inherit"
-                    onClick={() => fetchAllTeacherSubscriptions(store.teacherInfo.id)}
-                >GET PERMISSIONS!</Button>
+                    onClick={handleSubscriptionDashboard}
+                >Subscriptions</Button>
                 <Button
                     variant="outlined"
                     color="inherit"
