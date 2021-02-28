@@ -67,7 +67,7 @@ export const Login = () => {
         } else if (store.userType === "invite") {
             handleInvite();
         }
-    });
+    }, []);
 
     return (
         <Backdrop open={true}>
