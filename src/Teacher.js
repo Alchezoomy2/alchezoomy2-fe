@@ -16,10 +16,6 @@ const useStyles = makeStyles({
     }
 });
 
-// function Alert(props) {
-//     return <MuiAlert elevation={6} variant="filled" {...props} />;
-// }
-
 export const Teacher = () => {
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);

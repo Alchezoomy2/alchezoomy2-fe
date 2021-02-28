@@ -7,6 +7,7 @@ import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
+import { fetchAllTeacherPermissions } from "./utils/teacher-fetches/permission-fetches.js";
 
 
 const useStyles = makeStyles(() => ({
@@ -112,12 +113,17 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 <Button
                     variant="outlined"
                     color="inherit"
+                    onClick={() => fetchAllTeacherPermissions(store.teacherInfo.id)}
+                >GET PERMISSIONS!</Button>
+                <Button
+                    variant="outlined"
+                    color="inherit"
                     onClick={() => handleLogout()}
                 >
                     LOGOUT
                 </Button>
             </Toolbar>
-        </AppBar>
+        </AppBar >
     );
 };
 
