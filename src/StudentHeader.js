@@ -97,7 +97,7 @@ export const StudentHeader = ({ pageIcon, handleMeetingsClick, handleBookmarkCli
                 <Typography
                     variant="h6"
                     style={{ marginLeft: "25px" }}>
-                    {store.studentInfo.user_name}
+                    {store.studentInfo.userName}
                 </Typography>
 
                 <Button
