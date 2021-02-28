@@ -29,12 +29,7 @@ export const Teacher = () => {
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
         store.changeTeacherInfo(returnedTeacherInfo);
-        const returnedMeetingArray = await fetchAllTeacherMeetings(returnedTeacherInfo);
-        store.changeMeetingsObj(returnedMeetingArray);
-        setDisplayModule(<TeacherDashboard
-            setOpen={setOpen}
-        />);
-        setOpen(false);
+        handleLectureDashboard();
     };
 
     const handleSubscriptionDashboard = async () => {
@@ -44,6 +39,16 @@ export const Teacher = () => {
             setOpen={setOpen}
             returnedSubscriptionArray={returnedSubscriptionArray}
             handleSnackbarOpen={handleSnackbarOpen}
+        />);
+        setOpen(false);
+    };
+
+    const handleLectureDashboard = async () => {
+        setOpen(true);
+        const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
+        store.changeMeetingsObj(returnedMeetingArray);
+        setDisplayModule(<TeacherDashboard
+            setOpen={setOpen}
         />);
         setOpen(false);
     };
@@ -84,6 +89,7 @@ export const Teacher = () => {
                 <TeacherAppBar
                     handleSnackbarOpen={handleSnackbarOpen}
                     handleSubscriptionDashboard={handleSubscriptionDashboard}
+                    handleLectureDashboard={handleLectureDashboard}
                 />
                 {displayModule}
                 <Backdrop

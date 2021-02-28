@@ -16,15 +16,11 @@ const useStyles = makeStyles(() => ({
         marginLeft: "15px",
         width: "500px"
     },
-    input: {
-        color: "white",
-        borderColor: "white"
+    userInfo: {
+        flexGrow: 1
     },
     teacherName: {
         marginLeft: "5px"
-    },
-    searchBar: {
-        flexGrow: 1
     },
     notchedOutline: {
         borderWidth: ".5px",
@@ -39,7 +35,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-export const TeacherAppBar = ({ handleSubscriptionDashboard }) => {
+export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashboard }) => {
     const store = useStateStore();
     const classes = useStyles();
     const history = useHistory();
@@ -52,15 +48,22 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard }) => {
     return useObserver(() =>
         <AppBar position="static" className={classes.root}>
             <Toolbar>
-                <Avatar
-                    alt={store.teacherInfo.userName}
-                    src={store.teacherInfo.picUrl}
-                    edge="start"
-                />
-                <Typography
-                    className={classes.teacherName}>
-                    {store.teacherInfo.userName}
-                </Typography>
+                <div className={classes.userInfo}>
+                    <Avatar
+                        alt={store.teacherInfo.userName}
+                        src={store.teacherInfo.picUrl}
+                        edge="start"
+                    />
+                    <Typography
+                        className={classes.teacherName}>
+                        {store.teacherInfo.userName}
+                    </Typography>
+                </div>
+                <Button
+                    variant="contained"
+                    color="inherit"
+                    onClick={handleLectureDashboard}
+                >Lectures</Button>
                 <Button
                     variant="outlined"
                     color="inherit"

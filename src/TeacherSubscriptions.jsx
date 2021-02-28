@@ -50,17 +50,6 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
             <Paper
                 elevation={3}
                 className={classes.root}>
-                <Typography
-                    variant="h5">
-                    Lectures
-                   </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                />
                 <div className={classes.searchBar}>
                     <TextField
                         variant="filled"
@@ -75,6 +64,18 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
                         <MailIcon />
                     </IconButton>
                 </div>
+
+                <Typography
+                    variant="h5">
+                    Lectures
+                   </Typography>
+                <TextField
+                    id="search"
+                    label="search"
+                    fullWidth
+                    variant="outlined"
+                    onChange={handleSearchChange}
+                />
                 <List className={classes.list}>
                     {searchField === "" ?
                         subscriptionArray.map(subscription => SubscriptionListItem(

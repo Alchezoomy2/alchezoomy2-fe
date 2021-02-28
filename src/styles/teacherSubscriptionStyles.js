@@ -17,7 +17,8 @@ const useStyles = makeStyles(() => ({
         marginLeft: "5px"
     },
     searchBar: {
-        flexGrow: 1
+        flexGrow: 1,
+        backgroundColor: "blue"
     },
 }));
 
