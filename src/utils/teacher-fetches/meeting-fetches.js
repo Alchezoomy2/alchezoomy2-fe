@@ -13,7 +13,7 @@ export async function fetchAllTeacherMeetings(teacherInfo) {
 
 export async function publishMeeting(meetingId) {
     const response = await request
-        .post(`${serverUrl}/teacher/publish/${meetingId}`)
+        .post(`${serverUrl}/teacher/meetings/publish/${meetingId}`)
         .withCredentials();
 
     return response.body;
@@ -22,9 +22,17 @@ export async function publishMeeting(meetingId) {
 
 export async function unpublishMeeting(meetingId) {
     const response = await request
-        .post(`${serverUrl}/teacher/unpublish/${meetingId}`)
+        .post(`${serverUrl}/teacher/meetings/unpublish/${meetingId}`)
         .withCredentials();
 
     return response.body;
+}
 
+export async function updateMeeting(meetingId, meetingInfo) {
+    const response = await request
+        .put(`${serverUrl}/teacher/meetings/update/${meetingId}`)
+        .send({ meetingInfo })
+        .withCrendentials();
+
+    return response.body; teacher;
 }

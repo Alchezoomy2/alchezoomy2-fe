@@ -3,11 +3,10 @@ import { AppBar, Avatar, Typography, Toolbar, IconButton, TextField, Button } fr
 import { useStateStore } from "./StoreProvider.js";
 import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
-import { inviteStudent } from "./utils/teacher-fetches/auth-fetches";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
-import { fetchAllTeacherPermissions } from "./utils/teacher-fetches/permission-fetches.js";
+import { fetchAllTeacherSubscriptions, inviteStudent } from "./utils/teacher-fetches/subscription-fetches.js";
 
 
 const useStyles = makeStyles(() => ({
@@ -62,7 +61,6 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
     };
 
     const handleStudentInvite = async () => {
-        console.log(`invite! ${studentEmail}`);
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             await inviteStudent(studentEmail, store.teacherInfo);
             setStudentEmail("");
@@ -113,7 +111,7 @@ export const TeacherAppBar = ({ handleSnackbarOpen }) => {
                 <Button
                     variant="outlined"
                     color="inherit"
-                    onClick={() => fetchAllTeacherPermissions(store.teacherInfo.id)}
+                    onClick={() => fetchAllTeacherSubscriptions(store.teacherInfo.id)}
                 >GET PERMISSIONS!</Button>
                 <Button
                     variant="outlined"
