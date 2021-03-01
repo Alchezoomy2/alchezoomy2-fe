@@ -48,7 +48,7 @@ export const App = () => {
                     <Route path="terms"
                         component={Terms} />
                     <Route path="support"
-                        component={support} />
+                        component={Support} />
                 </Switch >
             </Router >
         </ThemeProvider >
