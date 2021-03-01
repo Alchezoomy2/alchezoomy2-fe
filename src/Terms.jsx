@@ -15,8 +15,7 @@ export const Terms = () => {
                 </Paper>
             </div>
             <div>
-                <a src="https://www.termsofusegenerator.net/live.php?token=fHh0NKrLk7BcEmdVd6pJP8L8tlGTTHoc">TERMS</a>
-
+                <a href="https://www.termsofusegenerator.net/live.php?token=fHh0NKrLk7BcEmdVd6pJP8L8tlGTTHoc">TERMS</a>
             </div>
         </Paper>
     );
