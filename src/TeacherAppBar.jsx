@@ -17,7 +17,8 @@ const useStyles = makeStyles(() => ({
         width: "500px"
     },
     userInfo: {
-        flexGrow: 1
+        flexGrow: 1,
+        display: "flex"
     },
     teacherName: {
         marginLeft: "5px"
@@ -61,7 +62,6 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                 </div>
                 <Button
                     variant="contained"
-                    color="inherit"
                     onClick={handleLectureDashboard}
                 >Lectures</Button>
                 <Button

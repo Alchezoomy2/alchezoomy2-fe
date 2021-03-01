@@ -67,7 +67,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
 
                 <Typography
                     variant="h5">
-                    Lectures
+                    Subscriptions
                    </Typography>
                 <TextField
                     id="search"
