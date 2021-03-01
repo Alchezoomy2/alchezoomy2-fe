@@ -22,7 +22,8 @@ const useStyles = makeStyles(() => ({
         alignContent: "center",
     },
     teacherName: {
-        marginLeft: "5px"
+        marginLeft: "5px",
+        border: "1px solid pink"
     },
     notchedOutline: {
         borderWidth: ".5px",
