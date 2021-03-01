@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
     },
     textField: {
         marginLeft: "5px",
-        width: "100%"
+        width: "90%"
     },
     input: {
         color: "white",
