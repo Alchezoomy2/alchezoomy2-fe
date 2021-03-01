@@ -14,6 +14,7 @@ import Login from "./Login.js";
 import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 import InvitePage from "./InvitePage.jsx";
+import Policies from "./Policies.jsx";
 import { useStateStore } from "./StoreProvider";
 import { useObserver } from "mobx-react";
 
@@ -36,9 +37,12 @@ export const App = () => {
                         path="/teacher"
                         component={Teacher} />
                     <PrivateRoute path="/student"
+                        token={store.loggedIn}
                         component={Student} />
                     <Route path="/invite/:jwt"
                         component={InvitePage} />
+                    <Route path="/policies/"
+                        component={Policies} />
                 </Switch >
             </Router >
         </ThemeProvider >
