@@ -1,11 +1,10 @@
 import React from "react";
-import { AppBar, Avatar, Typography, Toolbar, Button } from "@material-ui/core";
+import { AppBar, Avatar, Typography, Toolbar, Button, ButtonGroup } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
 import { makeStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
-import { ButtonGroup } from "react-bootstrap";
 
 const useStyles = makeStyles(() => ({
     root: {
