@@ -23,17 +23,9 @@ const useStyles = makeStyles(() => ({
     },
     teacherName: {
         marginLeft: "5px",
-        border: "1px solid pink"
+        backgroundColod: "pink",
     },
-    notchedOutline: {
-        borderWidth: ".5px",
-        borderColor: "white !important"
-    },
-    cssOutlinedInput: {
-        "&$cssFocused $notchedOutline": {
-            borderColor: "white !important",
-        }
-    },
+
 
 }));
 
