@@ -18,7 +18,8 @@ const useStyles = makeStyles(() => ({
     },
     userInfo: {
         flexGrow: 1,
-        display: "flex"
+        display: "flex",
+        justifyContent: "center",
     },
     teacherName: {
         marginLeft: "5px"
