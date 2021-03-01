@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Typography } from "@material-ui.com";
+import { Paper } from "@material-ui/core";
 
 export const Policies = () => {
 
@@ -9,7 +9,7 @@ export const Policies = () => {
             <div>
                 <Paper elevation={2}>
                     <img
-                        className={classes.mainLogo}
+                        styles={{ height: "50px", width: "50px" }}
                         src="/images/alchezoomy-logo.png"
                         alt="logo image" />
                 </Paper>
@@ -158,7 +158,6 @@ export const Policies = () => {
                     <li>By email: paul.stevens.developer@gmail.com</li>
                 </ul>
             </div>
-
         </Paper >
     );
 };

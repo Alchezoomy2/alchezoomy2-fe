@@ -15,6 +15,8 @@ import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 import InvitePage from "./InvitePage.jsx";
 import Policies from "./Policies.jsx";
+import Terms from "./Terms.jsx";
+import Support from "./Support.jsx";
 import { useStateStore } from "./StoreProvider";
 import { useObserver } from "mobx-react";
 
@@ -41,8 +43,12 @@ export const App = () => {
                         component={Student} />
                     <Route path="/invite/:jwt"
                         component={InvitePage} />
-                    <Route path="/policies/"
+                    <Route path="/policy"
                         component={Policies} />
+                    <Route path="terms"
+                        component={Terms} />
+                    <Route path="support"
+                        component={support} />
                 </Switch >
             </Router >
         </ThemeProvider >
