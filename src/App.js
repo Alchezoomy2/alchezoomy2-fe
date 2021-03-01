@@ -45,9 +45,9 @@ export const App = () => {
                         component={InvitePage} />
                     <Route path="/policy"
                         component={Policies} />
-                    <Route path="terms"
+                    <Route path="/terms"
                         component={Terms} />
-                    <Route path="support"
+                    <Route path="/support"
                         component={Support} />
                 </Switch >
             </Router >
