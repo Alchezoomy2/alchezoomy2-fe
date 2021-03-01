@@ -51,8 +51,11 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
                 elevation={3}
                 className={classes.root}>
                 <div className={classes.searchBar}>
+                    <Typography
+                        variant="h5">
+                        Invite Students
+                   </Typography>
                     <TextField
-                        variant="filled"
                         className={classes.textField}
                         label="Student email"
                         value={studentEmail}

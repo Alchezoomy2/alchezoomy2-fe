@@ -15,8 +15,8 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center"
     },
     textField: {
-        marginLeft: "15px",
-        width: "500px"
+        marginLeft: "5px",
+        flexGrow: 1
     },
     input: {
         color: "white",
