@@ -27,7 +27,8 @@ const useStyles = makeStyles(() => ({
     },
     searchBar: {
         flexGrow: 1,
-        backgroundColor: "blue"
+        border: "1px solid #4054b4",
+        borderRadius: "5px"
     },
 }));
 
