@@ -4,3 +4,5 @@ export const Support = () => {
         <p> for support email paul.stevens.developer@gmail.com</p>
     );
 };
+
+export default Support;

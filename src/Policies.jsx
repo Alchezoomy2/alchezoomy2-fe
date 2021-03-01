@@ -161,3 +161,5 @@ export const Policies = () => {
         </Paper >
     );
 };
+
+export default Policies;

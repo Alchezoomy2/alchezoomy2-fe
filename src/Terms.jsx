@@ -157,3 +157,5 @@ Dispute Resolution. Please read this Arbitration Agreement carefully. It is part
         </Paper>
     );
 };
+
+export default Terms;
