@@ -8,7 +8,7 @@ export const Terms = () => {
             <div>
                 <Paper elevation={2}>
                     <img
-                        styles={{ height: "50px", width: "50px" }}
+                        style={{ height: "50px", width: "50px" }}
 
                         src="/images/alchezoomy-logo.png"
                         alt="logo image" />
