@@ -49,6 +49,8 @@ export const App = () => {
                         component={Terms} />
                     <Route path="/support"
                         component={Support} />
+                    {/* <Route path="/zoomverify"
+                        component={zoom} /> */}
                 </Switch >
             </Router >
         </ThemeProvider >
