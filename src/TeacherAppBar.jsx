@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
+import { ButtonGroup } from "react-bootstrap";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -60,22 +61,21 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                         {store.teacherInfo.userName}
                     </Typography>
                 </div>
-                <Button
-                    variant="contained"
-                    onClick={handleLectureDashboard}
-                >Lectures</Button>
-                <Button
-                    variant="outlined"
-                    color="inherit"
-                    onClick={handleSubscriptionDashboard}
-                >Subscriptions</Button>
-                <Button
-                    variant="outlined"
-                    color="inherit"
-                    onClick={() => handleLogout()}
-                >
-                    LOGOUT
+                <ButtonGroup
+                    color="primary"
+                    aria-label="teacher button group">
+                    <Button
+                        onClick={handleLectureDashboard}
+                    >Lectures</Button>
+                    <Button
+                        onClick={handleSubscriptionDashboard}
+                    >Subscriptions</Button>
+                    <Button
+                        onClick={() => handleLogout()}
+                    >
+                        LOGOUT
                 </Button>
+                </ButtonGroup>
             </Toolbar>
         </AppBar >
     );
