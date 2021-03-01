@@ -61,7 +61,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                     </Typography>
                 </div>
                 <ButtonGroup
-                    color="primary"
+                    color="inherit"
                     aria-label="teacher button group">
                     <Button
                         onClick={handleLectureDashboard}
