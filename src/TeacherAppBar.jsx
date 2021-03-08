@@ -23,7 +23,6 @@ const useStyles = makeStyles(() => ({
     },
     teacherName: {
         marginLeft: "5px",
-        backgroundColor: "pink",
         alignContent: "center"
     },
 
