@@ -17,7 +17,7 @@ export const LandingPage = () => {
                 <Paper elevation={2}>
                     <img
                         className={classes.mainLogo}
-                        src="/images/AL-logo.jpg"
+                        src="/images/AL-logo.JPG"
                         alt="logo image" />
                 </Paper>
             </div>
