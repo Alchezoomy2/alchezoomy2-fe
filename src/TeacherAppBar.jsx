@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
         padding: "5px"
     },
     textField: {
-        backgroundColor: "rgba(255, 255, 255, 0.10)",
+        backgroundColor: "black",
         marginLeft: "15px",
         width: "500px"
     },
