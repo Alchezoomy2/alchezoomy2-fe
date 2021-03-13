@@ -5,6 +5,7 @@ import { useStateStore } from "./StoreProvider.js";
 // import fetch from 'superagent';
 import { Container } from "@material-ui/core";
 import ChatBox from "./ChatBox.js";
+import TranscriptBox from "./TranscriptBox.js";
 import useStyles from "./styles/meetingDetails";
 const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
 
@@ -63,7 +64,14 @@ export const MeetingDetails = ({ startTime }) => {
                             handleChatSeek={handleChatSeek}
                         />
                         :
-                        <p></p>
+                        null
+                    }
+                    {store.meetingDetails.transcript_url ?
+                        <TranscriptBox
+                            returnVideoTimestamp={returnVideoTimestamp}
+                            handleChatSeek={handleChatSeek}
+                        />
+                        : null
                     }
                 </div>
             </div>
