@@ -4,7 +4,7 @@ import { useObserver } from "mobx-react";
 import { useStateStore } from "./StoreProvider.js";
 // import fetch from 'superagent';
 import { Container } from "@material-ui/core";
-import ChatBox from "./ChatBox.js";
+import ChatBox from "./ChatBox";
 import TranscriptBox from "./TranscriptBox";
 import useStyles from "./styles/meetingDetails";
 const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
