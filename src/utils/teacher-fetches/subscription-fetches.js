@@ -9,11 +9,11 @@ export async function fetchAllTeacherSubscriptions(teacherId) {
     return response.body;
 }
 
-export async function inviteStudent(studentEmail, teacherInfo) {
+export async function inviteStudent(studentEmailArray, teacherInfo) {
     const response = await request
         .post(`${serverUrl}/teacher/subscriptions/`)
         .send({
-            studentEmail,
+            studentEmailArray,
             teacherEmail: teacherInfo.email
         })
         .withCredentials();
