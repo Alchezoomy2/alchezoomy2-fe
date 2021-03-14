@@ -26,7 +26,7 @@ export const InvitePage = () => {
                 <Paper elevation={2}>
                     <img
                         className={classes.mainLogo}
-                        src="/images/alchezoomy-logo.png"
+                        src="/images/AL-logo.JPG"
                         alt="logo image" />
                 </Paper>
             </div>
