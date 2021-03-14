@@ -28,8 +28,14 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
     };
 
     const handleStudentInvite = async () => {
+        let studentEmailArray;
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
-            await inviteStudent(studentEmail, store.teacherInfo);
+            if (studentEmail.includes(",")) {
+                studentEmailArray = studentEmail.split(",");
+            } else {
+                studentEmailArray = [studentEmail];
+            }
+            await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
             handleSnackbarOpen();
         }
@@ -60,6 +66,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
+                        multiline
                     />
                     <IconButton
                         color="inherit"
