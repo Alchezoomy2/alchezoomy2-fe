@@ -3,7 +3,7 @@ import { useStateStore } from "./StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "./TeacherMeetingItem";
 import PropTypes from "prop-types";
-import { publishMeeting, unpublishMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
+import { publishMeeting, unpublishMeeting, updateMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
 import { useObserver } from "mobx-react";
 import useStyles from "./styles/teacherDashboardStyles";
 
@@ -14,7 +14,7 @@ export const TeacherDashboard = ({ setOpen }) => {
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
 
-    const handlePublish = (async meeting => {
+    const handlePublish = async meeting => {
         let newMeetingObj;
         await setOpen(true);
 
@@ -27,7 +27,16 @@ export const TeacherDashboard = ({ setOpen }) => {
 
         setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
-    });
+    };
+
+    const handleUpdate = async meeting => {
+
+        await setOpen(true);
+
+        const newMeetingArray = await updateMeeting(meeting.id, meeting);
+        setMeetingsToDisplay(newMeetingArray);
+        setOpen(false);
+    };
 
 
 
@@ -50,7 +59,8 @@ export const TeacherDashboard = ({ setOpen }) => {
                                 <TeacherMeetingItem
                                     meeting={meeting}
                                     handlePublish={handlePublish}
-                                    setMeetingsToDisplay={setMeetingsToDisplay} />
+                                    handleUpdate={handleUpdate}
+                                />
                                 <Divider variant="middle" component="li" />
                             </div>
 

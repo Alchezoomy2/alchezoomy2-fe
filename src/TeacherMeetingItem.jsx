@@ -1,5 +1,5 @@
 import React from "react";
-import { Chip, ListItem, ListItemText, FormControlLabel, Switch } from "@material-ui/core";
+import { Chip, ListItem, FormControlLabel, Switch } from "@material-ui/core";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
@@ -7,15 +7,18 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 import useStyles from "./styles/teacherMeetingItemsStyles.js";
 
-export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
+import TeacherMeetingTopic from "./TeacherMeetingTopic";
+
+export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => {
     const props = { borderColor: meeting.color };
     const classes = useStyles(props);
+
     return (
         <div className={classes.frame}>
             <ListItem alignItems="flex-start" >
-                <ListItemText
-                    primary={meeting.topic}
-                    secondary={`${meeting.displayTime} - ${meeting.duration} min`}
+                <TeacherMeetingTopic
+                    meeting={meeting}
+                    handleUpdate={handleUpdate}
                 />
                 <div>
                     <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
@@ -35,7 +38,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish }) => {
                     <Chip size="small" color="secondary" label={"favorites " + meeting.meetingFavs} />
                 </div>
             </ListItem >
-        </div>
+        </div >
     );
 };
 
@@ -52,5 +55,6 @@ TeacherMeetingItem.propTypes = {
         meetingFavs: PropTypes.number.isRequired
     })
     ),
-    handlePublish: PropTypes.func
+    handlePublish: PropTypes.func,
+    handleUpdate: PropTypes.func
 };
