@@ -30,7 +30,6 @@ export const TeacherDashboard = ({ setOpen }) => {
     };
 
     const handleUpdate = async meeting => {
-
         await setOpen(true);
 
         const newMeetingArray = await updateMeeting(meeting.id, meeting);
