@@ -12,9 +12,9 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate }) {
 
     const submitChange = async (e) => {
         e.preventDefault();
-
-        meeting.topic = topicContent;
-        console.log("🚀 ~ file: TeacherMeetingTopic.jsx ~ line 17 ~ submitChange ~ meeting", meeting);
+        const updatedMeeting = meeting;
+        updatedMeeting.topic = topicContent;
+        console.log("🚀 ~ file: TeacherMeetingTopic.jsx ~ line 17 ~ submitChange ~ meeting", updatedMeeting);
         console.log("🚀 ~ file: TeacherMeetingTopic.jsx ~ line 17 ~ submitChange ~ topicContent;", topicContent);
         await handleUpdate(meeting);
         setEditTopic(false);
