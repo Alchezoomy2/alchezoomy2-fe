@@ -33,7 +33,7 @@ export async function updateMeeting(meetingId, meetingInfo) {
     const response = await request
         .put(`${serverUrl}/teacher/meetings/update/${meetingId}`)
         .send({ meetingInfo })
-        .withCrendentials();
+        .withCredentials();
 
     return response.body;
 }
