@@ -25,7 +25,7 @@ export const AdminLogin = () => {
         } else if (adminInfo === "false") {
             setInvalidLoginOpen(true);
             setPassword("");
-        } else if (adminInfo.status === "success") {
+        } else if (adminInfo === "success") {
             store.setAdminInfo(adminInfo);
             store.changeLoggedIn();
             history.push("/admin/dashboard/");

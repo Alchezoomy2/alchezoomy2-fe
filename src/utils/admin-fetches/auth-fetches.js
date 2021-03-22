@@ -4,7 +4,7 @@ const serverUrl = process.env.REACT_APP_SERVER_URL;
 
 export async function adminAuth(userName, password) {
     const response = await fetch
-        .post(serverUrl + "/admin/oauth")
+        .post(serverUrl + "/admin/auth")
         .send({ userName, password })
         .withCredentials();
 
