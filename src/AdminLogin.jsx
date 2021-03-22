@@ -38,9 +38,9 @@ export const AdminLogin = () => {
         setNewUserDialogOpen(false);
     };
 
-    const handleSnackbarClose = () {
-        setInvalidLoginOpen(false)
-    }
+    const handleSnackbarClose = () => {
+        setInvalidLoginOpen(false);
+    };
 
     return useObserver(() => {
         <div>
