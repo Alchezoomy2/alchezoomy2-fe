@@ -38,7 +38,7 @@ export const App = () => {
                         component={Login} />
                     {/* <PrivateRoute path="/admin/dashboard"
                         component={AdminDashboard} /> */}
-                    <Route path="/admin"
+                    <Route path="/admin/login"
                         component={AdminLogin} />
                     <PrivateRoute
                         token={store.loggedIn}
