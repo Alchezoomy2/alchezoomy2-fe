@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Paper, TextField, Snackbar } from "@material-ui/core";
+import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
 import { useStyles } from "./styles/adminLogin.js";
 import { adminAuth, adminSetupPassword } from "./utils/admin-fetches/auth-fetches.js";
 import { useStateStore } from "./StoreProvider";
@@ -77,7 +77,7 @@ export default function AdminLogin() {
                         type="password"
                         required
                     />
-
+                    <Button>SUBMIT</Button>
                 </form>
             </Paper>
             <NewAdminDialog

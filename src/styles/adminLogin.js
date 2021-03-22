@@ -25,7 +25,8 @@ export const useStyles = makeStyles({
     loginForm: {
         height: "500px",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        width: "500px"
     }
 });
 
