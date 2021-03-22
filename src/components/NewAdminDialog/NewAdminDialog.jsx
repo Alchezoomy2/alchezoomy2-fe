@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@material-ui/core";
+import { PropTypes } from "mobx-react";
 
 export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
     const [newPassword1, setNewPassword1] = useState("");
@@ -55,4 +56,9 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
         </Dialog>
 
     );
+};
+
+NewAdminDialog.propTypes = {
+    handleClose: PropTypes.func,
+    newUserDialogOpen: PropTypes.func
 };
