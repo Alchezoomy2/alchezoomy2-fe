@@ -18,7 +18,7 @@ import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
 import AdminLogin from "./AdminLogin";
-// import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
+import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import { useStateStore } from "./StoreProvider";
 import { useObserver } from "mobx-react";
 
@@ -36,8 +36,8 @@ export const App = () => {
                         component={AutoRedirect} />
                     <Route path="/login/"
                         component={Login} />
-                    {/* <PrivateRoute path="/admin/dashboard"
-                        component={AdminDashboard} /> */}
+                    <PrivateRoute path="/admin/dashboard"
+                        component={AdminDashboard} />
                     <Route path="/admin/login"
                         component={AdminLogin} />
                     <PrivateRoute

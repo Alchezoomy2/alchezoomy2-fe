@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
+import { useStyles } from "./NewAdminDialogStyles.js";
 
 export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
+    const classes = useStyles();
     const [newPassword1, setNewPassword1] = useState("");
     const [newPassword2, setNewPassword2] = useState("");
     const [newUserName, setNewUserName] = useState("");
@@ -21,7 +23,8 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
             <DialogTitle id="password-update-dialog-title">
                 You are a new admin, please create a new password.
         </DialogTitle>
-            <DialogContent>
+            <DialogContent
+                className={classes.root}>
                 <TextField
                     autoFocus
                     label="User Name"
