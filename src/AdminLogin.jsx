@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Paper, Snackbar, TextField } from "@material-ui/core";
+import { Paper, TextField } from "@material-ui/core";
 import { useStyles } from "./styles/adminLogin.js";
-import { adminAuth, adminSetupPassword } from "./utils/admin-fetches/auth-fetches.js";
+import { adminAuth } from "./utils/admin-fetches/auth-fetches.js";
 import { useStateStore } from "./StoreProvider";
-import { NewAdminDialog } from "./components/NewAdminDialog/NewAdminDialog.jsx";
+// import { NewAdminDialog } from "./components/NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
 
 
@@ -13,8 +13,8 @@ export default function AdminLogin() {
     const store = useStateStore();
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [newUserDialogOpen, setNewUserDialogOpen] = useState(false);
-    const [invalidLoginOpen, setInvalidLoginOpen] = useState(false);
+    // const [newUserDialogOpen, setNewUserDialogOpen] = useState(false);
+    // const [invalidLoginOpen, setInvalidLoginOpen] = useState(false);
 
     useEffect(() => {
         console.log("HERE!");
@@ -25,9 +25,9 @@ export default function AdminLogin() {
         e.preventDefault();
         const adminInfo = await adminAuth(userName, password);
         if (adminInfo === "new") {
-            setNewUserDialogOpen(true);
+            // setNewUserDialogOpen(true);
         } else if (adminInfo === "false") {
-            setInvalidLoginOpen(true);
+            // setInvalidLoginOpen(true);
             setPassword("");
         } else if (adminInfo === "success") {
             store.setAdminInfo(adminInfo);
@@ -36,15 +36,15 @@ export default function AdminLogin() {
         }
     };
 
-    const handleClose = async (newUserName, newPassword1) => {
-        const adminInfo = await adminSetupPassword(newUserName, newPassword1);
-        await store.changeAdminInfo(adminInfo);
-        setNewUserDialogOpen(false);
-    };
+    // const handleClose = async (newUserName, newPassword1) => {
+    //     const adminInfo = await adminSetupPassword(newUserName, newPassword1);
+    //     await store.changeAdminInfo(adminInfo);
+    //     setNewUserDialogOpen(false);
+    // };
 
-    const handleSnackbarClose = () => {
-        setInvalidLoginOpen(false);
-    };
+    // const handleSnackbarClose = () => {
+    //     setInvalidLoginOpen(false);
+    // };
 
 
     return (
@@ -79,15 +79,15 @@ export default function AdminLogin() {
 
                 </form>
             </Paper>
-            <NewAdminDialog
+            {/* <NewAdminDialog
                 handleClose={handleClose}
                 newUserDialogOpen={newUserDialogOpen}
-            />
-            <Snackbar
+            /> */}
+            {/* <Snackbar
                 open={invalidLoginOpen}
                 message="Invalid Username or Password"
                 onClose={handleSnackbarClose}
-            />
+            /> */}
         </div>
     );
 
