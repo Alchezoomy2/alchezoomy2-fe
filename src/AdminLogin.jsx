@@ -28,7 +28,7 @@ export const AdminLogin = () => {
         } else if (adminInfo.status === "success") {
             store.setAdminInfo(adminInfo);
             store.changeLoggedIn();
-            history.push("/admin/dashboard");
+            history.push("/admin/dashboard/");
         }
     };
 
@@ -37,6 +37,10 @@ export const AdminLogin = () => {
         await store.changeAdminInfo(adminInfo);
         setNewUserDialogOpen(false);
     };
+
+    const handleSnackbarClose = () {
+        setInvalidLoginOpen(false)
+    }
 
     return useObserver(() => {
         <div>
@@ -76,7 +80,8 @@ export const AdminLogin = () => {
             />
             <Snackbar
                 open={invalidLoginOpen}
-                message="Invalid Usernamr or Password"
+                message="Invalid Username or Password"
+                onClose={handleSnackbarClose}
             />
         </div>;
     });
