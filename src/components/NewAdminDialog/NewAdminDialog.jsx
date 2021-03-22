@@ -26,6 +26,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
             <DialogContent
                 className={classes.root}>
                 <TextField
+                    className={classes.field}
                     autoFocus
                     label="User Name"
                     type="text"
@@ -33,7 +34,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     required
                 />
                 <TextField
-                    autoFocus
+                    className={classes.field}
                     label="Password"
                     type="password"
                     onChange={({ target }) => setNewPassword1(target.value)}
@@ -41,7 +42,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     required
                 />
                 <TextField
-                    autoFocus
+                    className={classes.field}
                     label="Password"
                     type="password"
                     onChange={({ target }) => setNewPassword2(target.value)}
