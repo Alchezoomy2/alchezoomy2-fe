@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Paper, Snackbar, TextField } from "@material-ui/core";
 import { useStyles } from "./styles/adminLogin.js";
 import { adminAuth, adminSetupPassword } from "./utils/admin-fetches/auth-fetches.js";
@@ -41,6 +41,10 @@ export default function AdminLogin() {
     const handleSnackbarClose = () => {
         setInvalidLoginOpen(false);
     };
+
+    useEffect(() => {
+        console.log("HERE!");
+    }, []);
 
     return useObserver(() =>
         <div>
