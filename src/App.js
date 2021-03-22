@@ -36,7 +36,9 @@ export const App = () => {
                         component={AutoRedirect} />
                     <Route path="/login/"
                         component={Login} />
-                    <PrivateRoute path="/admin/dashboard"
+                    <PrivateRoute
+                        token={store.loggedIn}
+                        path="/admin/dashboard"
                         component={AdminDashboard} />
                     <Route path="/admin/login"
                         component={AdminLogin} />
