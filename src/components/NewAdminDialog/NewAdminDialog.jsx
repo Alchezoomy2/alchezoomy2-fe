@@ -25,30 +25,32 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
         </DialogTitle>
             <DialogContent
                 className={classes.root}>
-                <TextField
-                    className={classes.field}
-                    autoFocus
-                    label="User Name"
-                    type="text"
-                    onChange={({ target }) => setNewUserName(target.value)}
-                    required
-                />
-                <TextField
-                    className={classes.field}
-                    label="Password"
-                    type="password"
-                    onChange={({ target }) => setNewPassword1(target.value)}
-                    error={newPassword1 !== newPassword2}
-                    required
-                />
-                <TextField
-                    className={classes.field}
-                    label="Password"
-                    type="password"
-                    onChange={({ target }) => setNewPassword2(target.value)}
-                    error={newPassword1 !== newPassword2}
-                    required
-                />
+                <form>
+                    <TextField
+                        className={classes.field}
+                        autoFocus
+                        label="User Name"
+                        type="text"
+                        onChange={({ target }) => setNewUserName(target.value)}
+                        required
+                    />
+                    <TextField
+                        className={classes.field}
+                        label="Password"
+                        type="password"
+                        onChange={({ target }) => setNewPassword1(target.value)}
+                        error={newPassword1 !== newPassword2}
+                        required
+                    />
+                    <TextField
+                        className={classes.field}
+                        label="Password"
+                        type="password"
+                        onChange={({ target }) => setNewPassword2(target.value)}
+                        error={newPassword1 !== newPassword2}
+                        required
+                    />
+                </form>
             </DialogContent>
             <DialogActions>
                 <Button

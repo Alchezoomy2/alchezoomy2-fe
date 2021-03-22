@@ -23,8 +23,8 @@ export default function AdminLogin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("SUBMIT");
         const adminInfo = await adminAuth(userName, password);
+        console.log(adminInfo);
         if (adminInfo === "new") {
             setNewUserDialogOpen(true);
         } else if (adminInfo === "false") {
