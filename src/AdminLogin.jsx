@@ -60,6 +60,7 @@ export default function AdminLogin() {
                 </div>
                 <form
                     onSubmit={handleSubmit}
+                    className={classes.loginForm}
                 >
                     <TextField
                         id="userName"

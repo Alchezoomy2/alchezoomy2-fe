@@ -20,6 +20,10 @@ export const useStyles = makeStyles({
     },
     inviteText: {
         margin: "25px"
+    },
+
+    loginForm: {
+        height: "500px"
     }
 });
 

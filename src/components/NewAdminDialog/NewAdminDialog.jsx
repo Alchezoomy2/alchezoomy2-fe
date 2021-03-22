@@ -1,4 +1,3 @@
-import { useObserver } from "mobx-react-lite";
 import React, { useState } from "react";
 import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from "@material-ui/core";
 
@@ -14,7 +13,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
     };
 
 
-    return useObserver(() => {
+    return (
         <Dialog
             open={newUserDialogOpen}
         >
@@ -53,7 +52,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     SUBMIT
             </Button>
             </DialogActions>
-        </Dialog>;
+        </Dialog>
 
-    });
+    );
 };
