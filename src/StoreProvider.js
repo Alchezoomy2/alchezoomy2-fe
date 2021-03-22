@@ -39,7 +39,7 @@ export const StoreProvider = ({ children }) => {
 
         changeAdminInfo: newAdminInfo => {
             store.AdminInfo = newAdminInfo;
-            localStorage.setItem("ADMIN_INFO", JSON.stringify(newAdminInfo);
+            localStorage.setItem("ADMIN_INFO", JSON.stringify(newAdminInfo));
         },
 
         changeTeacherInfo: newTeacherInfo => {
