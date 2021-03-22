@@ -71,7 +71,7 @@ export default function AdminLogin() {
                     />
                     <TextField
                         id="password"
-                        lavel="Password"
+                        label="Password"
                         value={password}
                         onChange={({ target }) => setPassword(target.value)}
                         type="password"
