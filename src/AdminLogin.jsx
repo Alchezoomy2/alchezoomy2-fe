@@ -3,7 +3,7 @@ import { Paper, Snackbar, TextField } from "@material-ui/core";
 import { useStyles } from "./styles/adminLogin.js";
 import { adminAuth, adminSetupPassword } from "./utils/admin-fetches/auth-fetches.js";
 import { useStateStore } from "./StoreProvider";
-// import { useObserver } from "mobx-react";
+import { useObserver } from "mobx-react";
 import { NewAdminDialog } from "./components/NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
 
@@ -20,6 +20,7 @@ export default function AdminLogin() {
     useEffect(() => {
         console.log("HERE!");
     }, []);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,7 +48,7 @@ export default function AdminLogin() {
     };
 
 
-    return (
+    return useObserver(() =>
         <div>
             <Paper elevation={3}>
                 <div>

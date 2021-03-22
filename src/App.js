@@ -17,7 +17,7 @@ import InvitePage from "./InvitePage.jsx";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
-import AdminLogin from "./AdminLogin";
+import { AdminLogin } from "./AdminLogin";
 // import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
 import { useStateStore } from "./StoreProvider";
 import { useObserver } from "mobx-react";
