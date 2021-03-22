@@ -8,7 +8,7 @@ import { NewAdminDialog } from "./components/NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
 
 
-export default function AdminLogin() {
+export const AdminLogin = () => {
     const history = useHistory();
     const classes = useStyles();
     const store = useStateStore();
@@ -90,4 +90,6 @@ export default function AdminLogin() {
         </div>
     );
 
-}
+};
+
+export default AdminLogin;
