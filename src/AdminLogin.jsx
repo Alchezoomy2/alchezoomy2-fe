@@ -17,6 +17,9 @@ export const AdminLogin = () => {
     const [newUserDialogOpen, setNewUserDialogOpen] = useState(false);
     const [invalidLoginOpen, setInvalidLoginOpen] = useState(false);
 
+    useEffect(() => {
+        console.log("HERE!");
+    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const adminInfo = await adminAuth(userName, password);
@@ -42,9 +45,6 @@ export const AdminLogin = () => {
         setInvalidLoginOpen(false);
     };
 
-    useEffect(() => {
-        console.log("HERE!");
-    }, []);
 
     return useObserver(() =>
         <div>
