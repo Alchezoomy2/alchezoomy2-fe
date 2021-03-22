@@ -42,7 +42,7 @@ export default function AdminLogin() {
         setInvalidLoginOpen(false);
     };
 
-    return useObserver(() => {
+    return useObserver(() =>
         <div>
             <Paper elevation={3}>
                 <div>
@@ -83,7 +83,7 @@ export default function AdminLogin() {
                 message="Invalid Username or Password"
                 onClose={handleSnackbarClose}
             />
-        </div>;
-    });
+        </div>
+    );
 
 }
