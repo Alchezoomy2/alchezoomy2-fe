@@ -29,7 +29,6 @@ export async function unpublishMeeting(meetingId) {
 }
 
 export async function updateMeeting(meetingId, meetingInfo) {
-    console.log("🚀 ~ file: meeting-fetches.js ~ line 32 ~ updateMeeting ~ meetingId, meetingInfo", meetingId, meetingInfo);
     const response = await request
         .put(`${serverUrl}/teacher/meetings/update/${meetingId}`)
         .send({ meetingInfo })

@@ -11,6 +11,7 @@ export const StoreProvider = ({ children }) => {
         JWT: localStorage.getItem("JWT") || "",
         code: localStorage.getItem("CODE") || "",
         userType: localStorage.getItem("USER_TYPE") || "",
+        adminInfo: JSON.parse(localStorage.getItem("ADMIN_INFO")) || "",
         teacherInfo: JSON.parse(localStorage.getItem("TEACHER_INFO")) || "",
         studentInfo: JSON.parse(localStorage.getItem("STUDENT_INFO")) || "",
         meetingsObj: JSON.parse(localStorage.getItem("MEETINGSOBJ")) || "",
@@ -34,6 +35,11 @@ export const StoreProvider = ({ children }) => {
         changeUserType: newUserType => {
             store.UserType = newUserType;
             localStorage.setItem("USER_TYPE", newUserType);
+        },
+
+        changeAdminInfo: newAdminInfo => {
+            store.AdminInfo = newAdminInfo;
+            localStorage.setItem("ADMIN_INFO", JSON.stringify(newAdminInfo);
         },
 
         changeTeacherInfo: newTeacherInfo => {

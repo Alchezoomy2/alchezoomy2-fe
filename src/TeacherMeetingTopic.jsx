@@ -14,8 +14,6 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate }) {
         e.preventDefault();
         const updatedMeeting = meeting;
         updatedMeeting.topic = topicContent;
-        console.log("🚀 ~ file: TeacherMeetingTopic.jsx ~ line 17 ~ submitChange ~ meeting", updatedMeeting);
-        console.log("🚀 ~ file: TeacherMeetingTopic.jsx ~ line 17 ~ submitChange ~ topicContent;", topicContent);
         await handleUpdate(meeting);
         setEditTopic(false);
     };
@@ -29,6 +27,9 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate }) {
                         id={`${id}${topic}`}
                         defaultValue={topicContent}
                         onChange={(e) => setTopicContent(e.target.value)}
+                        style={{
+                            width: "100%"
+                        }}
                     />
                 </form>
             );

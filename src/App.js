@@ -17,6 +17,7 @@ import InvitePage from "./InvitePage.jsx";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
+import AdminLogin from "./AdminLogin.jsx";
 import { useStateStore } from "./StoreProvider";
 import { useObserver } from "mobx-react";
 
@@ -34,6 +35,8 @@ export const App = () => {
                         component={AutoRedirect} />
                     <Route path="/login/"
                         component={Login} />
+                    <Route path="admin"
+                        component={AdminLogin} />
                     <PrivateRoute
                         token={store.loggedIn}
                         path="/teacher"
