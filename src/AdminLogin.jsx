@@ -16,10 +16,6 @@ export default function AdminLogin() {
     const [newUserDialogOpen, setNewUserDialogOpen] = useState(false);
     const [invalidLoginOpen, setInvalidLoginOpen] = useState(false);
 
-    useEffect(() => {
-        console.log("HERE!");
-    }, []);
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
