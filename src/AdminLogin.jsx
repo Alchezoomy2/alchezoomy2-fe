@@ -23,11 +23,12 @@ export default function AdminLogin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("SUBMIT");
         const adminInfo = await adminAuth(userName, password);
         if (adminInfo === "new") {
             setNewUserDialogOpen(true);
         } else if (adminInfo === "false") {
-            // setInvalidLoginOpen(true);
+            setInvalidLoginOpen(true);
             setPassword("");
         } else if (adminInfo === "success") {
             store.setAdminInfo(adminInfo);
@@ -77,7 +78,7 @@ export default function AdminLogin() {
                         type="password"
                         required
                     />
-                    <Button>SUBMIT</Button>
+                    <Button type="submit">SUBMIT</Button>
                 </form>
             </Paper>
             <NewAdminDialog
