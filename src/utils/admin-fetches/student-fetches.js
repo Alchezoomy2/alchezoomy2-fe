@@ -2,15 +2,6 @@ import fetch from "superagent";
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 
 
-export async function inviteTeacher(teacherEmailArray) {
-    const response = await fetch
-        .post(serverUrl + "/admin/invite")
-        .send({ teacherEmailArray })
-        .withCredentials();
-
-    return response.body;
-}
-
 export async function fetchAllStudents() {
     const response = await fetch
         .get(serverUrl + "admin/student")
