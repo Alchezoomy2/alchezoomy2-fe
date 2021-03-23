@@ -5,6 +5,8 @@ import { fetchAllTeachers } from "../../utils/admin-fetches/teacher-fetches";
 import AdminTeacherDashboard from "../../components/AdminTeacherDashboard/AdminTeacherDashboard";
 import useStyles from "./AdminStyles.js";
 import { Alert } from "@material-ui/lab";
+import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
+import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
 
 
 export default function Admin() {
@@ -15,11 +17,8 @@ export default function Admin() {
     const [open, setOpen] = useState(false);
 
     const handleTeacherDashboard = async () => {
-        console.log("handleTeacherDashboard");
         setOpen(true);
-        console.log(open);
         const returnedTeacherArray = await fetchAllTeachers();
-        console.log(returnedTeacherArray);
         setDisplayModule(<AdminTeacherDashboard
             returnedTeacherArray={returnedTeacherArray}
             handleSnackbarOpen={handleSnackbarOpen}
@@ -27,7 +26,16 @@ export default function Admin() {
         setOpen(false);
     };
 
-    const handleStudentDashboard = () => { };
+    const handleStudentDashboard = () => {
+        setOpen(true);
+        const returnedStudentArray = await fetchAllStudents();
+        setDisplayModule(<AdminStudentDashboard
+            returnedStudentArray={returnedStudentArray}
+            handleSnackbarOpen={handleSnackbarOpen}
+        />
+        )
+        setOpen(false);
+    };
 
     const handleS3Dashboard = () => { };
 
