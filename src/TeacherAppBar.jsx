@@ -59,7 +59,9 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                     aria-label="teacher button group">
                     <Button
                         onClick={handleLectureDashboard}
-                    >Lectures</Button>
+                    >
+                        Lectures
+                    </Button>
                     <Button
                         onClick={handleSubscriptionDashboard}
                     >Subscriptions</Button>
