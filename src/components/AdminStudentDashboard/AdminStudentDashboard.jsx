@@ -25,6 +25,7 @@ export default function AdminStudentDashboard({ returnedStudentArray, handleSnac
 
     const handleItemDelete = async (studentId) => {
         const newStudentArray = await deleteStudent(studentId);
+        handleSnackbarOpen();
         setStudentArray(newStudentArray);
     };
 
