@@ -14,7 +14,7 @@ export async function inviteTeacher(teacherEmailArray) {
 export async function fetchAllTeachers() {
     console.log("fetchAllTeachers");
     const response = await fetch
-        .get(serverUrl + "admin/teacher")
+        .get(serverUrl + "/admin/teacher")
         .withCredentials();
 
     return response.body;
@@ -22,7 +22,7 @@ export async function fetchAllTeachers() {
 
 export async function deleteTeacher(teacherId) {
     const response = await fetch
-        .delete(serverUrl + `admin/teacher/${teacherId}`)
+        .delete(serverUrl + `/admin/teacher/${teacherId}`)
         .withCredentials();
 
     return response.body;
