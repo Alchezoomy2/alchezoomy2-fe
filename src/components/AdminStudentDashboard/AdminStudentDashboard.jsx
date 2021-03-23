@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import fuse from "fuse.js";
-import { deleteStudent } from "../../utils/admin-fetches/teacher-fetches";
+import { deleteStudent } from "../../utils/admin-fetches/student-fetches";
 import useStyles from "./AdminStudentDashboardStyles";
 import { Paper, TextField, Typography, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
