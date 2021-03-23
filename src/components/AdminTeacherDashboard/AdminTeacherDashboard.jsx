@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import fuse from "fuse.js";
 import { inviteTeacher, deleteTeacher } from "../../utils/admin-fetches/teacher-fetches";
-import { useStyles } from "./AdminTeacherDashboardStyles";
+import useStyles from "./AdminTeacherDashboardStyles";
 import { Paper, TextField, Typography, IconButton, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
 import { ListableItem } from "../ListableItem/ListableItem";
