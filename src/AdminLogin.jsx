@@ -20,13 +20,15 @@ export default function AdminLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const adminInfo = await adminAuth(userName, password);
-        console.log(adminInfo);
-        if (adminInfo === "new") {
+        console.log(adminInfo.status);
+        if (adminInfo.status === "new") {
             setNewUserDialogOpen(true);
-        } else if (adminInfo === "false") {
+            setUserName("");
+            setPassword("");
+        } else if (adminInfo.status === "false") {
             setInvalidLoginOpen(true);
             setPassword("");
-        } else if (adminInfo === "success") {
+        } else if (adminInfo.status === "success") {
             console.log(adminInfo);
             store.changeLoggedIn();
             history.push("/admin/dashboard");
