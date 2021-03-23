@@ -26,14 +26,14 @@ export default function Admin() {
         setOpen(false);
     };
 
-    const handleStudentDashboard = () => {
+    const handleStudentDashboard = async () => {
         setOpen(true);
         const returnedStudentArray = await fetchAllStudents();
         setDisplayModule(<AdminStudentDashboard
             returnedStudentArray={returnedStudentArray}
             handleSnackbarOpen={handleSnackbarOpen}
         />
-        )
+        );
         setOpen(false);
     };
 
