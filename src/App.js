@@ -18,7 +18,7 @@ import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
 import AdminLogin from "./AdminLogin";
-import AdminDashboard from "./containers/AdminDashboard/AdminDashboard";
+import Admin from "./containers/Admin/Admin";
 import { useStateStore } from "./StoreProvider";
 import { useObserver } from "mobx-react";
 
@@ -39,7 +39,7 @@ export const App = () => {
                     <PrivateRoute
                         token={store.loggedIn}
                         path="/admin/dashboard"
-                        component={AdminDashboard} />
+                        component={Admin} />
                     <Route path="/admin/login"
                         component={AdminLogin} />
                     <PrivateRoute

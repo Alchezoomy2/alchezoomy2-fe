@@ -43,7 +43,6 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
 
     const handleSearchChange = (e) => {
         setSearchField(e.target.value);
-        console.log(e.target.value);
     };
 
     const handleSubscriptionDelete = async (subscriptionId) => {

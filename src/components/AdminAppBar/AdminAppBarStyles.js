@@ -2,15 +2,19 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     root: {
-        height: "500px",
-        flexDirection: "column",
-        display: "flex",
-        justifyItems: "center",
-        alignItems: "center"
+        flexGrow: 1,
+        padding: "5px"
     },
-    field: {
-        width: "500px"
-    }
+    userInfo: {
+        flexGrow: 1,
+        display: "flex",
+        alignContent: "center",
+    },
+    adminName: {
+        marginLeft: "5px",
+        alignContent: "center"
+    },
+
 });
 
 export default useStyles;
