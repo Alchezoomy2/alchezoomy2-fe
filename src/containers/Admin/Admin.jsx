@@ -12,7 +12,7 @@ export default function Admin() {
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const handleTeacherDashboard = async () => {
         setOpen(true);
