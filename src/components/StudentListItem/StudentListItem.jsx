@@ -3,7 +3,7 @@ import React from "react";
 import { ListItem, ListItemText } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-export const StudentListItem = (item, handleItemDelete) => {
+export default function StudentListItem(item, handleItemDelete) {
 
     return (
         <div>
@@ -23,4 +23,4 @@ export const StudentListItem = (item, handleItemDelete) => {
         </div>
     );
 
-};
+}
