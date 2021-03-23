@@ -5,7 +5,7 @@ const serverUrl = process.env.REACT_APP_SERVER_URL;
 export async function fetchAllStudents() {
     console.log("fetchAllStudents");
     const response = await fetch
-        .get(serverUrl + " /admin/student")
+        .get(serverUrl + "/admin/student")
         .withCredentials();
 
     return response.body;
