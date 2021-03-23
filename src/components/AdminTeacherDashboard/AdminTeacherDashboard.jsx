@@ -5,6 +5,7 @@ import useStyles from "./AdminTeacherDashboardStyles";
 import { Paper, TextField, Typography, IconButton, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
 import { ListableItem } from "../ListableItem/ListableItem";
+import MailIcon from "@material-ui/icons/Mail";
 
 
 export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnackbarOpen }) {
