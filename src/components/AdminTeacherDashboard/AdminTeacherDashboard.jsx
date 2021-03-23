@@ -54,11 +54,11 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnac
                 <div className={classes.searchBar}>
                     <Typography
                         variant="h5">
-                        Invite Students
+                        Invite Teachers
                </Typography>
                     <TextField
                         className={classes.textField}
-                        label="Student email"
+                        label="Teacher email"
                         value={teacherEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
                         multiline
