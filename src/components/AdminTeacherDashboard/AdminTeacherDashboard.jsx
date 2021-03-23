@@ -4,6 +4,7 @@ import { inviteTeacher, deleteTeacher } from "../../utils/admin-fetches/teacher-
 import { useStyles } from "./AdminTeacherDashboardStyles";
 import { Paper, TextField, Typography, IconButton, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
+import { ListableItem } from "../ListableItem/ListableItem";
 
 
 export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnackbarOpen }) {
@@ -39,7 +40,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnac
         setSearchField(e.target.value);
     };
 
-    const handleDeleteTeacher = async (teacherId) => {
+    const handleItemDelete = async (teacherId) => {
         const newTeacherArray = await deleteTeacher(teacherId);
         setTeacherArray(newTeacherArray);
     };
@@ -81,15 +82,15 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnac
                 />
                 <List className={classes.list}>
                     {searchField === "" ?
-                        teacherArray.map(teacher =>
-                            TeacherListItem(
-                                teacher,
-                                handleDeleteTeacher
+                        teacherArray.map(item =>
+                            ListableItem(
+                                item,
+                                handleItemDelete
                             ))
                         :
-                        fuseTeacherList.search(searchField).map(({ item }) => TeacherListItem(
+                        fuseTeacherList.search(searchField).map(({ item }) => ListableItem(
                             item,
-                            handleDeleteTeacher
+                            handleItemDelete
                         ))
                     }
                 </List>
