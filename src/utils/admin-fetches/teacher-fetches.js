@@ -12,6 +12,7 @@ export async function inviteTeacher(teacherEmailArray) {
 }
 
 export async function fetchAllTeachers() {
+    console.log("fetchAllTeachers");
     const response = await fetch
         .get(serverUrl + "admin/teacher")
         .withCredentials();

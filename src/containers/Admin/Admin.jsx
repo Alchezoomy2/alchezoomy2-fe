@@ -16,7 +16,8 @@ export default function Admin() {
 
     const handleTeacherDashboard = async () => {
         console.log("handleTeacherDashboard");
-        // setOpen(true);
+        setOpen(true);
+        console.log(open);
         const returnedTeacherArray = await fetchAllTeachers();
         console.log(returnedTeacherArray);
         setDisplayModule(<AdminTeacherDashboard
