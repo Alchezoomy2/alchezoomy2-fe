@@ -4,7 +4,7 @@ const serverUrl = process.env.REACT_APP_SERVER_URL;
 
 export async function inviteTeacher(teacherEmailArray) {
     const response = await fetch
-        .post(serverUrl + "/admin/invite")
+        .post(serverUrl + "/admin/teacher/")
         .send({ teacherEmailArray })
         .withCredentials();
 
@@ -12,7 +12,7 @@ export async function inviteTeacher(teacherEmailArray) {
 }
 
 export async function fetchAllTeachers() {
-    console.log("fetchAllTeachers");
+
     const response = await fetch
         .get(serverUrl + "/admin/teacher")
         .withCredentials();
