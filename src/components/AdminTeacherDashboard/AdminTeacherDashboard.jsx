@@ -72,7 +72,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnac
 
                 <Typography
                     variant="h5">
-                    Subscriptions
+                    Teachers
                </Typography>
                 <TextField
                     id="search"

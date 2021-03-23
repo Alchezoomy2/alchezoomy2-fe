@@ -36,7 +36,7 @@ export default function AdminStudentDashboard({ returnedStudentArray, handleSnac
                 className={classes.root}>
                 <Typography
                     variant="h5">
-                    Subscriptions
+                    Students
                </Typography>
                 <TextField
                     id="search"

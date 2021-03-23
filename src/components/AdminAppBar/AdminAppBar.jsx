@@ -12,7 +12,7 @@ export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashb
 
     const handleLogout = () => {
         store.changeLoggedIn();
-        history.push("/");
+        history.push("/admin/login");
     };
 
     return (
