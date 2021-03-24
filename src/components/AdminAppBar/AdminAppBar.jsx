@@ -5,7 +5,7 @@ import { useStyles } from "./AdminAppBarStyles";
 import { useHistory } from "react-router-dom";
 import { PropTypes } from "mobx-react";
 
-export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashboard, handleS3Dashboard }) {
+export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashboard, handleBucketDashboard }) {
     const store = useStateStore();
     const classes = useStyles();
     const history = useHistory();
@@ -28,7 +28,7 @@ export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashb
                     color="inherit"
                     aria-label="admin-button-group">
                     <Button
-                        onClick={handleS3Dashboard}
+                        onClick={handleBucketDashboard}
                     >
                         S3 CONFIG
                     </Button>
@@ -54,7 +54,7 @@ export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashb
 }
 
 AdminAppBar.propTypes = {
-    handleS3Dashboard: PropTypes.func,
+    handleBucketDashboard: PropTypes.func,
     handleTeacherDashboard: PropTypes.func,
     handleStudentDashboard: PropTypes.func
 };

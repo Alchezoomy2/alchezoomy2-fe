@@ -7,7 +7,7 @@ import useStyles from "./AdminStyles.js";
 import { Alert } from "@material-ui/lab";
 import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
 import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
-// import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
+import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
 import AdminBucketDashboard from "../../components/AdminBucketDashboard/AdminBucketDashboard";
 
 
@@ -39,12 +39,14 @@ export default function Admin() {
         setOpen(false);
     };
 
-    const handleS3Dashboard = async () => {
+    const handleBucketDashboard = async () => {
         setOpen(true);
-        // const returnedS3Obj = await fetchS3Obj();
-        // console.log("🚀 ~ file: Admin.jsx ~ line 45 ~ handleS3Dashboard ~ returnedS3Obj", returnedS3Obj);
+        const returnedS3Obj = await fetchS3Obj();
+        console.log("🚀 ~ file: Admin.jsx ~ line 45 ~ handleS3Dashboard ~ returnedS3Obj", returnedS3Obj);
 
         setDisplayModule(<AdminBucketDashboard
+            returnedS3Obj={returnedS3Obj}
+            handleSnackbarOpen={handleSnackbarOpen}
         />
         );
 
@@ -65,7 +67,7 @@ export default function Admin() {
             <AdminAppBar
                 handleTeacherDashboard={handleTeacherDashboard}
                 handleStudentDashboard={handleStudentDashboard}
-                handleS3Dashboard={handleS3Dashboard}
+                handleBucketDashboard={handleBucketDashboard}
             />
             {displayModule}
             <Backdrop
