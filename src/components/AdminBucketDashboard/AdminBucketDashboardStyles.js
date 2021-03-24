@@ -12,10 +12,11 @@ const useStyles = makeStyles(() => ({
     },
     frame: {
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
+        alignContent: "center"
     },
     textField: {
-        marginLeft: "5px",
+        margin: "10px",
         width: "90%"
     },
     form: {
