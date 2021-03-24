@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import useStyles from "./AdminS3DashboardStyles";
 import { Paper, TextField, Typography, Button } from "@material-ui/core";
@@ -14,6 +14,9 @@ export default function AdminS3Dashboard({
     const [region, setRegion] = useState(returnedS3Obj.region);
     const [bucket, setBucket] = useState(returnedS3Obj.Bucket);
 
+    useEffect(() => {
+        console.log(returnedS3Obj);
+    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newS3Obj = {
@@ -76,9 +79,6 @@ export default function AdminS3Dashboard({
             </Paper>
         </div>
     );
-
-
-
 }
 
 AdminS3Dashboard.propTypes = {
