@@ -50,8 +50,9 @@ export default function AdminBucketDashboard({
                     <TextField
                         className={classes.textField}
                         id="accessKeyId"
-                        label="accessKeyId"
+                        label="Access Key Id"
                         variant="outlined"
+                        value={accessKeyId}
                         onChange={({ target }) => setAccessKeyId(target.value)}
                     />
                     <TextField
@@ -59,19 +60,24 @@ export default function AdminBucketDashboard({
                         id="secretAccessKey"
                         label="Secret Access Key"
                         variant="outlined"
+                        value={secretAccessKey}
                         type="password"
                         onChange={({ target }) => setSecretAccessKey(target.value)}
                     />
                     <TextField
+                        className={classes.textField}
                         id="region"
                         label="Region"
                         variant="outlined"
+                        value={region}
                         onChange={({ target }) => setRegion(target.value)}
                     />
                     <TextField
+                        className={classes.textField}
                         id="bucket"
                         label="Bucket"
                         variant="outlined"
+                        value={bucket}
                         onChange={({ target }) => setBucket(target.value)}
                     />
                     <Button
