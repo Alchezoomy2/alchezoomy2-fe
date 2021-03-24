@@ -29,9 +29,12 @@ export default function AdminBucketDashboard({
             Bucket: bucket
         };
 
-
         const updatedS3Obj = await updateS3Obj(newS3Obj);
-        console.log("🚀 ~ file: AdminS3Dashboard.jsx ~ line 27 ~ handleSubmit ~ updatedS3Obj", updatedS3Obj);
+
+        setAccessKeyId(updatedS3Obj.accessKeyId);
+        setSecretAccessKey(updatedS3Obj.secretAccessKey);
+        setRegion(updatedS3Obj.region);
+        setBucket(updatedS3Obj.Bucket);
 
         handleSnackbarOpen();
     };
@@ -42,7 +45,8 @@ export default function AdminBucketDashboard({
                 elevation={3}
                 className={classes.root}>
                 <Typography
-                    variant="h5">
+                    variant="h5"
+                    className={classes.title}>
                     S3 Information
                 </Typography>
                 <form

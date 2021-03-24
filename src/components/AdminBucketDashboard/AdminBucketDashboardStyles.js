@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
     root: {
-        minHeight: "500px",
+        minHeight: "450px",
         minWidth: "700px",
         maxHeight: "85vh",
         width: "70vw",
@@ -23,6 +23,9 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center"
+    },
+    title: {
+        margin: "25px"
     }
 
 }));
