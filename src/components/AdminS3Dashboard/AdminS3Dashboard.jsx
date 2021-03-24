@@ -82,6 +82,6 @@ export default function AdminS3Dashboard({
 }
 
 AdminS3Dashboard.propTypes = {
-    returnedS3Obj: PropTypes.objectOrObservableObject,
+    returnedS3Obj: PropTypes.object,
     handleSnackbarOpen: PropTypes.func
 };
