@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import useStyles from "./AdminS3DashboardStyles";
 import { Paper, TextField, Typography, Button } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
-import { updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
+import { fetchS3Obj, updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
 
-export default function AdminS3Dashboard({
-    returnedS3Obj, handleSnackbarOpen
+export default function AdminS3Dashboard({ handleSnackbarOpen
 }) {
     const classes = useStyles();
-    const [accessKeyId, setAccessKeyId] = useState(returnedS3Obj[0].accessKeyId);
-    const [secretAccessKey, setSecretAccessKey] = useState(returnedS3Obj[0].secretAccessKey);
-    const [region, setRegion] = useState(returnedS3Obj[0].region);
-    const [bucket, setBucket] = useState(returnedS3Obj[0].Bucket);
+    const [accessKeyId, setAccessKeyId] = useState("");
+    const [secretAccessKey, setSecretAccessKey] = useState("");
+    const [region, setRegion] = useState("");
+    const [bucket, setBucket] = useState("");
+
+    useEffect(() => {
+        const getS3Info = async () => {
+            const returnedS3Obj = await fetchS3Obj();
+            console.log("🚀 ~ file: AdminS3Dashboard.jsx ~ line 20 ~ getS3Info ~ returnedS3Obj", returnedS3Obj);
+
+        };
+        getS3Info();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -76,6 +84,7 @@ export default function AdminS3Dashboard({
             </Paper>
         </div>
     );
+
 }
 
 AdminS3Dashboard.propTypes = {
