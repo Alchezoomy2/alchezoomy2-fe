@@ -5,7 +5,7 @@
 // import { PropTypes } from "mobx-react";
 // import { updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
 import React from "react";
-export default function AdminS3Dashboard() {
+export default function AdminBucketDashboard() {
 
     return <div>Hello!</div>;
 }
