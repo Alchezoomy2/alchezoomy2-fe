@@ -8,7 +8,7 @@ import { Alert } from "@material-ui/lab";
 import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
 import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
 // import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
-// import AdminBucketDashboard from "../../components/AdminS3Dashboard/AdminS3Dashboard";
+import AdminBucketDashboard from "../../components/AdminBucketDashboard/AdminBucketDashboard";
 
 
 export default function Admin() {
@@ -44,9 +44,7 @@ export default function Admin() {
         // const returnedS3Obj = await fetchS3Obj();
         // console.log("🚀 ~ file: Admin.jsx ~ line 45 ~ handleS3Dashboard ~ returnedS3Obj", returnedS3Obj);
 
-        setDisplayModule(<AdminStudentDashboard
-            returnedStudentArray={[]}
-            handleSnackbarOpen={handleSnackbarOpen}
+        setDisplayModule(<AdminBucketDashboard
         />
         );
 
