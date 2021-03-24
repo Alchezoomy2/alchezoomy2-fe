@@ -45,7 +45,7 @@ export default function Admin() {
         console.log("🚀 ~ file: Admin.jsx ~ line 45 ~ handleS3Dashboard ~ returnedS3Obj", returnedS3Obj);
 
         setDisplayModule(<AdminS3Dashboard
-            // returnedS3Obj={returnedS3Obj}
+            returnedS3Obj={returnedS3Obj}
             handleSnackbarOpen={handleSnackbarOpen}
         />
         );
