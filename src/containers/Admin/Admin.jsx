@@ -8,7 +8,7 @@ import { Alert } from "@material-ui/lab";
 import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
 import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
 // import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
-import AdminBucketDashboard from "../../components/AdminS3Dashboard/AdminS3Dashboard";
+// import AdminBucketDashboard from "../../components/AdminS3Dashboard/AdminS3Dashboard";
 
 
 export default function Admin() {
