@@ -29,54 +29,55 @@ export default function AdminS3Dashboard({
         handleSnackbarOpen();
     };
 
-    return (
-        <div className={classes.frame}>
-            {/* <Paper
-                elevation={3}
-                className={classes.root}>
-                <Typography
-                    variant="h5">
-                    S3 Information
-                </Typography>
-                <form
-                    onSubmit={handleSubmit}
-                    className={classes.form}
-                >
-                    <TextField
-                        className={classes.textField}
-                        id="accessKeyId"
-                        label="accessKeyId"
-                        variant="outlined"
-                        onChange={({ target }) => setAccessKeyId(target.value)}
-                    />
-                    <TextField
-                        className={classes.textField}
-                        id="secretAccessKey"
-                        label="Secret Access Key"
-                        variant="outlined"
-                        type="password"
-                        onChange={({ target }) => setSecretAccessKey(target.value)}
-                    />
-                    <TextField
-                        id="region"
-                        label="Region"
-                        variant="outlined"
-                        onChange={({ target }) => setRegion(target.value)}
-                    />
-                    <TextField
-                        id="bucket"
-                        label="Bucket"
-                        variant="outlined"
-                        onChange={({ target }) => setBucket(target.value)}
-                    />
-                    <Button
-                        type="submit">
-                        SUBMIT
-                    </Button>
-                </form>
-            </Paper> */}
-        </div>
-    );
+    return <div>AHHHHH!</div>;
+    // return (
+    //     <div className={classes.frame}>
+    //         {/* <Paper
+    //             elevation={3}
+    //             className={classes.root}>
+    //             <Typography
+    //                 variant="h5">
+    //                 S3 Information
+    //             </Typography>
+    //             <form
+    //                 onSubmit={handleSubmit}
+    //                 className={classes.form}
+    //             >
+    //                 <TextField
+    //                     className={classes.textField}
+    //                     id="accessKeyId"
+    //                     label="accessKeyId"
+    //                     variant="outlined"
+    //                     onChange={({ target }) => setAccessKeyId(target.value)}
+    //                 />
+    //                 <TextField
+    //                     className={classes.textField}
+    //                     id="secretAccessKey"
+    //                     label="Secret Access Key"
+    //                     variant="outlined"
+    //                     type="password"
+    //                     onChange={({ target }) => setSecretAccessKey(target.value)}
+    //                 />
+    //                 <TextField
+    //                     id="region"
+    //                     label="Region"
+    //                     variant="outlined"
+    //                     onChange={({ target }) => setRegion(target.value)}
+    //                 />
+    //                 <TextField
+    //                     id="bucket"
+    //                     label="Bucket"
+    //                     variant="outlined"
+    //                     onChange={({ target }) => setBucket(target.value)}
+    //                 />
+    //                 <Button
+    //                     type="submit">
+    //                     SUBMIT
+    //                 </Button>
+    //             </form>
+    //         </Paper> */}
+    //     </div>
+    // );
 
 }
 
