@@ -28,6 +28,8 @@ export default function AdminBucketDashboard({
             region,
             Bucket: bucket
         };
+
+
         const updatedS3Obj = await updateS3Obj(newS3Obj);
         console.log("🚀 ~ file: AdminS3Dashboard.jsx ~ line 27 ~ handleSubmit ~ updatedS3Obj", updatedS3Obj);
 
