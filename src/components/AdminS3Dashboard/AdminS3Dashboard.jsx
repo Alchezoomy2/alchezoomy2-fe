@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 import useStyles from "./AdminS3DashboardStyles";
-import { Paper, TextField, Typography } from "@material-ui/core";
+import { Paper, TextField, Typography, Button } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
-import { Button } from "react-bootstrap";
 import { updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
 
 export default function AdminS3Dashboard({
