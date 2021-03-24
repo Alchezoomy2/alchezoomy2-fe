@@ -5,9 +5,9 @@ import { Paper, TextField, Typography, Button } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
 import { updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
 
-export default function AdminS3Dashboard(
-    returnedS3Obj, handleSnackbarOpen
-) {
+export default function AdminS3Dashboard({
+    returnedS3Obj = {}, handleSnackbarOpen
+}) {
     const classes = useStyles();
     const [accessKeyId, setAccessKeyId] = useState(returnedS3Obj.accessKeyId);
     const [secretAccessKey, setSecretAccessKey] = useState(returnedS3Obj.secretAccessKey);
