@@ -11,7 +11,8 @@ export async function fetchS3Obj() {
 
 export async function updateS3Obj(newS3Obj) {
     const response = await fetch
-        .put({ newS3Obj })
+        .put(serverUrl + "/admin/S3")
+        .send({ newS3Obj })
         .withCredentials();
 
     return response.body;

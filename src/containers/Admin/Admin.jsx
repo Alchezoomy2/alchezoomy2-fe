@@ -42,6 +42,8 @@ export default function Admin() {
     const handleS3Dashboard = async () => {
         setOpen(true);
         const returnedS3Obj = await fetchS3Obj();
+        console.log("🚀 ~ file: Admin.jsx ~ line 45 ~ handleS3Dashboard ~ returnedS3Obj", returnedS3Obj);
+
         setDisplayModule(<AdminS3Dashboard
             returnedS3Obj={returnedS3Obj}
             handleSnackbarOpen={handleSnackbarOpen}
