@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import useStyles from "./AdminS3DashboardStyles";
+import useStyles from "./AdminBucketDashboardStyles";
 import { Paper, TextField, Typography, Button } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
 import { updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
