@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import useStyles from "./AdminS3DashboardStyles";
 import { Paper, TextField, Typography, Button } from "@material-ui/core";
@@ -9,14 +9,11 @@ export default function AdminS3Dashboard({
     returnedS3Obj, handleSnackbarOpen
 }) {
     const classes = useStyles();
-    const [accessKeyId, setAccessKeyId] = useState(returnedS3Obj.accessKeyId);
-    const [secretAccessKey, setSecretAccessKey] = useState(returnedS3Obj.secretAccessKey);
-    const [region, setRegion] = useState(returnedS3Obj.region);
-    const [bucket, setBucket] = useState(returnedS3Obj.Bucket);
+    const [accessKeyId, setAccessKeyId] = useState(returnedS3Obj[0].accessKeyId);
+    const [secretAccessKey, setSecretAccessKey] = useState(returnedS3Obj[0].secretAccessKey);
+    const [region, setRegion] = useState(returnedS3Obj[0].region);
+    const [bucket, setBucket] = useState(returnedS3Obj[0].Bucket);
 
-    useEffect(() => {
-        console.log(returnedS3Obj);
-    }, []);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newS3Obj = {
