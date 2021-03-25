@@ -8,7 +8,7 @@ import { ListableItem } from "../ListableItem/ListableItem";
 import MailIcon from "@material-ui/icons/Mail";
 
 
-export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnackbarOpen }) {
+export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackbar }) {
     const classes = useStyles();
     const [teacherArray, setTeacherArray] = useState(returnedTeacherArray);
     const [teacherEmail, setTeacherEmail] = useState("");
@@ -34,7 +34,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnac
         }
         await inviteTeacher(teacherEmailArray);
         setTeacherEmail("");
-        handleSnackbarOpen();
+        openSnackbar();
     };
 
     const handleSearchChange = (e) => {
@@ -104,5 +104,5 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, handleSnac
 
 AdminTeacherDashboard.propTypes = {
     returnedTeacherArray: PropTypes.array,
-    handleSnackbarOpen: PropTypes.func
+    openSnackbar: PropTypes.func
 };
