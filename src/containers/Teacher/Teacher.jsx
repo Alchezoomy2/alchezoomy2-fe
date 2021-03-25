@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useStateStore } from "./StoreProvider.js";
+import { useStateStore } from "../../StoreProvider.js";
 import { useObserver } from "mobx-react";
-import { TeacherCreator } from "./TeacherCreator";
-import { TeacherDashboard } from "./TeacherDashboard";
-import { fetchAllTeacherMeetings } from "./utils/teacher-fetches/meeting-fetches.js";
-import { createTeacher } from "./utils/teacher-fetches/auth-fetches";
-import { TeacherAppBar } from "./TeacherAppBar";
+import { TeacherCreator } from "../../TeacherCreator";
+import { TeacherDashboard } from "../../TeacherDashboard";
+import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
+import { createTeacher } from "../../utils/teacher-fetches/auth-fetches";
+import { TeacherAppBar } from "../../TeacherAppBar";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Backdrop, CircularProgress, Snackbar } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
-import { fetchAllTeacherSubscriptions } from "./utils/teacher-fetches/subscription-fetches.js";
-import { TeacherSubscriptions } from "./TeacherSubscriptions.jsx";
+import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
+import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
+import { TeacherSubscriptions } from "../../TeacherSubscriptions.jsx";
+import adminSnackBar from "../../components/AdminSnackbar/AdminSnackBar";
 
 const useStyles = makeStyles({
     backdrop: {
@@ -19,11 +19,11 @@ const useStyles = makeStyles({
 });
 
 export const Teacher = () => {
+    const { openSnackbar, SnackbarComponent } = adminSnackBar();
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
     let [open, setOpen] = useState(true);
     const store = useStateStore();
-    const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const handleCreateTeacher = async (selectedColor) => {
         setOpen(true);
@@ -38,7 +38,7 @@ export const Teacher = () => {
         setDisplayModule(<TeacherSubscriptions
             setOpen={setOpen}
             returnedSubscriptionArray={returnedSubscriptionArray}
-            handleSnackbarOpen={handleSnackbarOpen}
+            openSnackbar={openSnackbar}
         />);
         setOpen(false);
     };
@@ -53,15 +53,6 @@ export const Teacher = () => {
         setOpen(false);
     };
 
-    const handleSnackbarClose = () => {
-        setSnackbarOpen(false);
-    };
-
-    const handleSnackbarOpen = () => {
-        setSnackbarOpen(true);
-    };
-
-
     useEffect(async () => {
 
         if (store.teacherInfo.newUser) {
@@ -73,8 +64,7 @@ export const Teacher = () => {
             store.changeMeetingsObj(returnedMeetingArray);
             setDisplayModule(<TeacherDashboard
                 setOpen={setOpen}
-                handleSnackbarClose={handleSnackbarClose}
-                snackbarOpen={snackbarOpen}
+                openSnackbar={openSnackbar}
             />);
         }
 
@@ -87,7 +77,6 @@ export const Teacher = () => {
         <div>
             <Grid>
                 <TeacherAppBar
-                    handleSnackbarOpen={handleSnackbarOpen}
                     handleSubscriptionDashboard={handleSubscriptionDashboard}
                     handleLectureDashboard={handleLectureDashboard}
                 />
@@ -97,16 +86,7 @@ export const Teacher = () => {
                     open={open}>
                     <CircularProgress />
                 </Backdrop>
-                <Snackbar
-                    autoHideDuration={5000}
-                    open={snackbarOpen}
-                    onClose={handleSnackbarClose}>
-                    <Alert
-                        onClose={handleSnackbarClose}
-                        severity="success">
-                        Email sent!
-                </Alert>
-                </Snackbar>
+                <SnackbarComponent />
             </Grid>
         </div>
 

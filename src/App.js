@@ -10,9 +10,10 @@ import {
 import PrivateRoute from "./PrivateRoute.js";
 import LandingPage from "./LandingPage.js";
 import AutoRedirect from "./Redirect.js";
+import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
 import Login from "./Login.js";
-import Teacher from "./Teacher.js";
-import Student from "./Student.js";
+import Teacher from "./components/Teacher/Teacher.js";
+import Student from "./components/Student/Student.js";
 import InvitePage from "./InvitePage.jsx";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
@@ -42,6 +43,8 @@ export const App = () => {
                         component={Admin} />
                     <Route path="/admin/login"
                         component={AdminLogin} />
+                    <Route path="/teacher/login"
+                        component={TeacherLogin} />
                     <PrivateRoute
                         token={store.loggedIn}
                         path="/teacher"

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
-import { useStyles } from "./styles/adminLogin.js";
-import { adminAuth, adminSetupPassword } from "./utils/admin-fetches/auth-fetches.js";
-import { useStateStore } from "./StoreProvider";
-import { NewAdminDialog } from "./components/NewAdminDialog/NewAdminDialog.jsx";
+import { useStyles } from "./AdminLoginStyles.js";
+import { studentAuth, createStudent } from "../../utils/student-fetches/auth-fetches";
+import { useStateStore } from "../../StoreProvider";
+import { NewAdminDialog } from "../NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
 
 
-export default function AdminLogin() {
+export default function StudentLogin() {
     const history = useHistory();
     const classes = useStyles();
     const store = useStateStore();
@@ -19,7 +19,7 @@ export default function AdminLogin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const adminInfo = await adminAuth(userName, password);
+        const adminInfo = await studentAuth(userName, password);
         if (adminInfo.status === "new") {
             setNewUserDialogOpen(true);
             setUserName("");
@@ -28,14 +28,13 @@ export default function AdminLogin() {
             setInvalidLoginOpen(true);
             setPassword("");
         } else if (adminInfo.status === "success") {
-            console.log(adminInfo);
             store.changeLoggedIn();
             history.push("/admin/dashboard");
         }
     };
 
     const handleClose = async (newUserName, newPassword1) => {
-        const adminInfo = await adminSetupPassword(newUserName, newPassword1);
+        const adminInfo = await createStudent(newUserName, newPassword1);
         await store.changeAdminInfo(adminInfo);
         setNewUserDialogOpen(false);
     };

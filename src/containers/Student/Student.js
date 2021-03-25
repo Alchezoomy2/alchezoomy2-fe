@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Grid } from "@material-ui/core";
-import MeetingDetails from "./MeetingDetails.js";
-import { useStateStore } from "./StoreProvider.js";
+import MeetingDetails from "../../MeetingDetails.js";
+import { useStateStore } from "../../StoreProvider.js";
 import { useObserver } from "mobx-react";
 // import classes from '*.module.css';
 // import { useHistory } from "react-router-dom";
-import StudentMeetings from "./StudentMeetings.js";
-import StudentHeader from "./StudentHeader.js";
-import Bookmark from "./Bookmark.js";
-import Favorite from "./Favorite.js";
+import StudentMeetings from "../../StudentMeetings.js";
+import StudentHeader from "../../StudentHeader.js";
+import Bookmark from "../../Bookmark.js";
+import Favorite from "../../Favorite.js";
 // import fetch from "superagent";
-import { fetchAllStudentMeetings, getMeetingDetails } from "./utils/student-fetches/meeting-fetches.js";
-import { fetchAllStudentBookmarks } from "./utils/student-fetches/bookmark-fetches.js";
-import { fetchAllStudentFavorites } from "./utils/student-fetches/favorite-fetches.js";
+import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches.js";
+import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches.js";
+import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches.js";
 
 
 

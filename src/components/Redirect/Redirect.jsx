@@ -1,6 +1,6 @@
 import { useObserver } from "mobx-react";
 import React from "react";
-import { useStateStore } from "./StoreProvider";
+import { useStateStore } from "../../StoreProvider";
 import { useHistory } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 
@@ -12,7 +12,7 @@ export const AutoRedirect = ({ location }) => {
     let code = new URLSearchParams(location.search);
     store.changeCode(code.get("code"));
 
-    history.push("/login");
+    history.push("/teacher/login");
 
     return useObserver(() =>
         <Backdrop open={true}>

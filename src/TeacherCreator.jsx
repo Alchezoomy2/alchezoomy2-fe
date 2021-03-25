@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useStateStore } from "./StoreProvider";
 import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
-import { ColorPicker } from "material-ui-color";
 import PropTypes from "prop-types";
 
 
 export const TeacherCreator = ({ handleCreateTeacher }) => {
     const store = useStateStore();
     const [selectedColor, setSelectedColor] = useState("#FFFFFF");
-    const { userName, picUrl, email } = store.teacherInfo;
+    const { userName, picUrl, email, colorPalette } = store.teacherInfo;
 
     return (
         <Container>
@@ -29,12 +28,20 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
                             {`Email: ${email}`}
                         </Typography>
                         <Typography style={{ backgroundColor: selectedColor }}>
-                            Post Color:
-                            <ColorPicker
-                                name='color'
-                                value={selectedColor}
-                                onChange={color => setSelectedColor(`#${color.hex}`)}
-                            />
+                            Choose your color:
+                            <ul>
+                                {colorPalette.map(color => (
+                                    <li key={color}>
+                                        <button
+                                            onClick={() => setSelectedColor(color)}
+                                        >
+                                            <div
+                                                style={{ backgroundColor: color }}
+                                            />
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
                         </Typography>
                         <Button
                             variant="contained"

@@ -1,33 +1,12 @@
 import React from "react";
 import { AppBar, Avatar, Typography, Toolbar, Button, ButtonGroup } from "@material-ui/core";
 import { useStateStore } from "./StoreProvider.js";
-import { makeStyles } from "@material-ui/styles";
-import PropTypes from "prop-types";
+import { useStyles } from "./TeacherAppBarStyles";
+import { PropTypes } from "mobx-react";
 import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
-const useStyles = makeStyles(() => ({
-    root: {
-        flexGrow: 1,
-        padding: "5px"
-    },
-    textField: {
-        backgroundColor: "black",
-        marginLeft: "15px",
-        width: "500px"
-    },
-    userInfo: {
-        flexGrow: 1,
-        display: "flex",
-        alignContent: "center",
-    },
-    teacherName: {
-        marginLeft: "5px",
-        alignContent: "center"
-    },
 
-
-}));
 
 
 export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashboard }) => {
