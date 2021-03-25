@@ -9,11 +9,11 @@ import {
 
 import PrivateRoute from "./PrivateRoute.js";
 import LandingPage from "./LandingPage.js";
-import AutoRedirect from "./components/Redirect/Redirect.js";
+import AutoRedirect from "./components/Redirect/Redirect";
 import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
 import Login from "./Login.js";
-import Teacher from "./components/Teacher/Teacher.js";
-import Student from "./components/Student/Student.js";
+import Teacher from "./components/Teacher/Teacher";
+import Student from "./components/Student/Student";
 import InvitePage from "./InvitePage.jsx";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
