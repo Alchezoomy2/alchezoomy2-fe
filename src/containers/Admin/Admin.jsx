@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminAppBar from "../../components/AdminAppBar/AdminAppBar";
-import { Grid, Backdrop, CircularProgress, Snackbar } from "@material-ui/core";
+import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeachers } from "../../utils/admin-fetches/teacher-fetches";
 import AdminTeacherDashboard from "../../components/AdminTeacherDashboard/AdminTeacherDashboard";
 import useStyles from "./AdminStyles.js";
