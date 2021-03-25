@@ -9,7 +9,7 @@ import {
 
 import PrivateRoute from "./PrivateRoute.js";
 import LandingPage from "./LandingPage.js";
-import AutoRedirect from "./Redirect.js";
+import AutoRedirect from "./components/components/Redirect.js";
 import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
 import Login from "./Login.js";
 import Teacher from "./components/Teacher/Teacher.js";
