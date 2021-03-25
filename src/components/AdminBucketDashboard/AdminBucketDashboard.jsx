@@ -9,7 +9,7 @@ import { updateS3Obj } from "../../utils/admin-fetches/s3-fetches";
 
 
 export default function AdminBucketDashboard({
-    returnedS3Obj, handleSnackbarOpen
+    returnedS3Obj, openSnackbar
 }) {
 
 
@@ -29,14 +29,17 @@ export default function AdminBucketDashboard({
             Bucket: bucket
         };
 
-        const updatedS3Obj = await updateS3Obj(newS3Obj);
+        const updatedS3Obj = await updateS3Obj(newS3Obj)
+            .catch((error) => {
+                openSnackbar("error", error.message);
+            });
 
         setAccessKeyId(updatedS3Obj.accessKeyId);
         setSecretAccessKey(updatedS3Obj.secretAccessKey);
         setRegion(updatedS3Obj.region);
         setBucket(updatedS3Obj.Bucket);
 
-        handleSnackbarOpen();
+        openSnackbar("Success", "Changes Saved");
     };
 
     return (
@@ -100,5 +103,5 @@ export default function AdminBucketDashboard({
 
 AdminBucketDashboard.propTypes = {
     returnedS3Obj: PropTypes.object,
-    handleSnackbarOpen: PropTypes.func
+    openSnackbar: PropTypes.func
 };

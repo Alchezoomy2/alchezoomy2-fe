@@ -34,7 +34,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
         }
         await inviteTeacher(teacherEmailArray);
         setTeacherEmail("");
-        openSnackbar();
+        openSnackbar("success", "Teacher invitation sent");
     };
 
     const handleSearchChange = (e) => {
@@ -43,6 +43,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
 
     const handleItemDelete = async (teacherId) => {
         const newTeacherArray = await deleteTeacher(teacherId);
+        openSnackbar("warning", "Teacher deleted");
         setTeacherArray(newTeacherArray);
     };
 

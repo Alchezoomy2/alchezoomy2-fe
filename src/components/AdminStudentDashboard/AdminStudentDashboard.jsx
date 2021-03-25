@@ -7,7 +7,7 @@ import { PropTypes } from "mobx-react";
 import StudentListItem from "../StudentListItem/StudentListItem";
 
 
-export default function AdminStudentDashboard({ returnedStudentArray, handleSnackbarOpen }) {
+export default function AdminStudentDashboard({ returnedStudentArray, openSnackbar }) {
     const classes = useStyles();
     const [studentArray, setStudentArray] = useState(returnedStudentArray);
     const [searchField, setSearchField] = useState("");
@@ -25,7 +25,7 @@ export default function AdminStudentDashboard({ returnedStudentArray, handleSnac
 
     const handleItemDelete = async (studentId) => {
         const newStudentArray = await deleteStudent(studentId);
-        handleSnackbarOpen();
+        openSnackbar("warning", "Student deleted");
         setStudentArray(newStudentArray);
     };
 
@@ -68,5 +68,5 @@ export default function AdminStudentDashboard({ returnedStudentArray, handleSnac
 
 AdminStudentDashboard.propTypes = {
     returnedStudentArray: PropTypes.array,
-    handleSnackbarOpen: PropTypes.func
+    openSnackbar: PropTypes.func
 };
