@@ -5,7 +5,7 @@ import { TeacherCreator } from "../../TeacherCreator";
 import { TeacherDashboard } from "../../TeacherDashboard";
 import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "../../utils/teacher-fetches/auth-fetches";
-import { TeacherAppBar } from "../../TeacherAppBar";
+import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
