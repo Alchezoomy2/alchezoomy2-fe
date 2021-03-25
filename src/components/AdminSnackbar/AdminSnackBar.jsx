@@ -13,23 +13,24 @@ export default function AdminSnackBar() {
     };
 
     const openSnackbar = (incomingSeverity = "success", incomingMessage = "") => {
+        console.log("here?");
         setSnackbarOpen(true);
         setSeverity(incomingSeverity);
         setMessage(incomingMessage);
     };
 
 
-    const SnackbarComponent = (
+    const SnackbarComponent = () => (
         <Snackbar
             autoHideDuration={5000}
             open={snackbarOpen}
-            onClose={handleSnackbarClose}>
+            onClose={handleSnackbarClose} >
             <Alert
                 onClose={handleSnackbarClose}
                 severity={severity}>
                 {message}
             </Alert>
-        </Snackbar>
+        </Snackbar >
     );
 
     return { openSnackbar, SnackbarComponent };
