@@ -31,34 +31,46 @@ export const App = () => {
         <ThemeProvider theme={theme}>
             <Router>
                 <Switch>
-                    <Route exact path="/"
+                    <Route
+                        exact
+                        path="/"
                         component={LandingPage} />
-                    <Route path="/redirect/"
+                    <Route
+                        path="/redirect/"
                         component={AutoRedirect} />
-                    <Route path="/login/"
+                    <Route
+                        path="/login/"
                         component={Login} />
                     <PrivateRoute
                         token={store.loggedIn}
                         path="/admin/dashboard"
                         component={Admin} />
-                    <Route path="/admin/login"
+                    <Route
+                        exact
+                        path="/admin/login"
                         component={AdminLogin} />
-                    <Route path="/teacher/login"
+                    <Route
+                        path="/teacher/login"
                         component={TeacherLogin} />
                     <PrivateRoute
                         token={store.loggedIn}
                         path="/teacher"
                         component={Teacher} />
-                    <PrivateRoute path="/student"
+                    <PrivateRoute
+                        path="/student"
                         token={store.loggedIn}
                         component={Student} />
-                    <Route path="/invite/:jwt"
+                    <Route
+                        path="/invite/:jwt"
                         component={InvitePage} />
-                    <Route path="/policy"
+                    <Route
+                        path="/policy"
                         component={Policies} />
-                    <Route path="/terms"
+                    <Route
+                        path="/terms"
                         component={Terms} />
-                    <Route path="/support"
+                    <Route
+                        path="/support"
                         component={Support} />
                     {/* <Route path="/zoomverify"
                         component={zoom} /> */}
