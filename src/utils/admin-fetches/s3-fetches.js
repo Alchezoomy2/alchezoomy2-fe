@@ -10,7 +10,6 @@ export async function fetchS3Obj() {
 }
 
 export async function updateS3Obj(newS3Obj) {
-    console.log("🚀 ~ file: s3-fetches.js ~ line 13 ~ updateS3Obj ~ newS3Obj", newS3Obj);
     const response = await fetch
         .put(serverUrl + "/admin/S3")
         .send({ newS3Obj })
