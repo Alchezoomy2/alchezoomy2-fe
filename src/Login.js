@@ -50,11 +50,11 @@ export const Login = () => {
                 returnedStudentInfo = await createStudent(returnedStudentInfo);
             }
 
-            let newMeetingArray = await validateJWT(store.JWT, returnedStudentInfo.email);
+            // let newMeetingArray = await validateJWT(store.JWT, returnedStudentInfo.email);
 
-            console.log(newMeetingArray);
+            // console.log(newMeetingArray);
 
-            store.changeMeetingsObj(newMeetingArray);
+            // store.changeMeetingsObj(newMeetingArray);
             store.changeLoggedIn();
 
             history.push("/student/");
