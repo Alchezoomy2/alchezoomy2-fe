@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Paper, Button } from "@material-ui/core";
-import { useStyles } from "./TeacherLoginStyles.js.js";
+import { useStyles } from "./TeacherInviteStyles.js.js";
 import { useParams } from "react-router-dom";
 import { useStateStore } from "./StoreProvider.js";
 
