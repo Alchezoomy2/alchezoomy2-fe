@@ -12,6 +12,7 @@ export default function TeacherInvite() {
     const { jwt } = useParams();
 
     useEffect(() => {
+        console.log(jwt);
         store.changeJWT(jwt);
     }, []);
 
