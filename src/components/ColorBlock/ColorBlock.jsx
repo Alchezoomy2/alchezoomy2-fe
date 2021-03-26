@@ -1,3 +1,4 @@
+import { PropTypes } from "mobx-react";
 import React from "react";
 import useStyles from "./ColorBlockStyles.js";
 
@@ -23,3 +24,10 @@ export default function ColorBlock({ color, selectedColor, handleColorChange }) 
         </li>
     );
 }
+
+ColorBlock.propTypes = {
+    color: PropTypes.string,
+    selectedColor: PropTypes.string,
+    handleColorChange: PropTypes.func
+};
+
