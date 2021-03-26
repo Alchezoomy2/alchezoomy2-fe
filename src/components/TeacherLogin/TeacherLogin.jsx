@@ -15,7 +15,7 @@ export default function TeacherLogin() {
             const returnedObject = await teacherAuth(store.code);
             await store.changeTeacherInfo(returnedObject);
             store.changeLoggedIn();
-            history.pushState("/teacher");
+            history.push("/teacher");
         }
 
         loginTeacher();
