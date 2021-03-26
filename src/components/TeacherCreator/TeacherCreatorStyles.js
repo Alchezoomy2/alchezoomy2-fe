@@ -10,7 +10,8 @@ export const useStyles = makeStyles({
         alignItems: "center"
     },
     list: {
-        display: "inline"
+        listStyleType: "none",
+        display: "flex"
     },
 
 });

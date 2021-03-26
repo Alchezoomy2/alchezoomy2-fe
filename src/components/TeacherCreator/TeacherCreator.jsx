@@ -12,7 +12,10 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
     const [selectedColor, setSelectedColor] = useState("");
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
 
-    const handleColorChange = (color) => setSelectedColor(color);
+    const handleColorChange = (color) => {
+        console.log(color);
+        setSelectedColor(color);
+    };
 
     return (
         <Container>
