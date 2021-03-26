@@ -6,7 +6,7 @@ export default function ColorBlock({ color, selectedColor, handleColorChange }) 
     const classes = useStyles();
     return (
         <li>
-            <label>
+            <label className={classes.label}>
                 <input
                     className={classes.radioButton}
                     name="color-block"
