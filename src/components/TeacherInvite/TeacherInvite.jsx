@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Paper, Button } from "@material-ui/core";
 import { useStyles } from "./TeacherInviteStyles.js.js";
 import { useParams } from "react-router-dom";
-import { useStateStore } from "./StoreProvider.js";
+import { useStateStore } from "../../StoreProvider.js";
 
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
