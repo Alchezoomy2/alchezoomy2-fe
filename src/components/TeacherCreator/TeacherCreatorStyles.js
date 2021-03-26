@@ -11,7 +11,6 @@ export const useStyles = makeStyles({
     },
     list: {
         listStyleType: "none",
-        display: "inline"
     },
 
 });

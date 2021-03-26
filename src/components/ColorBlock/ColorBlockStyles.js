@@ -8,6 +8,11 @@ export const useStyles = makeStyles({
     colorBlock: {
         height: "50px",
         width: "50px"
+    },
+    label: {
+        "&aria-checked=true": {
+            border: "1px solid blue"
+        }
     }
 });
 
