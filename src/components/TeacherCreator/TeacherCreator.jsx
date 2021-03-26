@@ -29,7 +29,7 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
                 </Typography>
                 <Card
                     className={classes.card}
-                    style={{ borderLeft: `5px solid ${selectedColor}` }}
+                    style={{ borderLeft: `15px solid ${selectedColor}` }}
                 >
                     <CardContent>
                         <Avatar alt={userName} src={picUrl} />
