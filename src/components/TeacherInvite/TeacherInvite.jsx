@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Paper, Button } from "@material-ui/core";
 import { useStyles } from "./TeacherLoginStyles.js.js";
+import { useParams } from "react-router-dom";
+import { useStateStore } from "./StoreProvider.js";
+
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
 export default function TeacherInvite() {
+    const store = useStateStore();
     const classes = useStyles();
+    const { jwt } = useParams();
+
+    useEffect(() => {
+        store.changeJWT(jwt);
+    }, []);
 
     return (
         <Paper elevation={3} className={classes.root}>

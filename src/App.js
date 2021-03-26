@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute.js";
 import LandingPage from "./LandingPage.js";
 import AutoRedirect from "./components/Redirect/Redirect";
 import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
+import TeacherInvite from "./components/TeacherInvite/TeacherInvite";
 import Login from "./Login.js";
 import Teacher from "./containers/Teacher/Teacher";
 import Student from "./containers/Student/Student";
@@ -49,6 +50,10 @@ export const App = () => {
                         exact
                         path="/admin/login"
                         component={AdminLogin} />
+                    <Route
+                        exact
+                        path="/teacher/invite"
+                        component={TeacherInvite} />
                     <Route
                         path="/teacher/login"
                         component={TeacherLogin} />
