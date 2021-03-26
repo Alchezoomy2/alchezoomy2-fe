@@ -52,7 +52,7 @@ export const App = () => {
                         component={AdminLogin} />
                     <Route
                         exact
-                        path="/teacher/invite"
+                        path="/teacher/invite/:jwt"
                         component={TeacherInvite} />
                     <Route
                         path="/teacher/login"
