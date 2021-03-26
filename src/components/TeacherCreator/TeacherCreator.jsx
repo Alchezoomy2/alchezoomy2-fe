@@ -1,17 +1,23 @@
 import React, { useState } from "react";
-import { useStateStore } from "./StoreProvider";
+import { useStateStore } from "../../StoreProvider";
 import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
 import PropTypes from "prop-types";
+import useStyles from "./TeacherCreatorStyles";
+import ColorBlock from "../ColorBlock/ColorBlock";
 
 
 export const TeacherCreator = ({ handleCreateTeacher }) => {
     const store = useStateStore();
-    const [selectedColor, setSelectedColor] = useState("#FFFFFF");
+    const classes = useStyles();
+    const [selectedColor, setSelectedColor] = useState("");
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
+
+    const handleColorChange = (color) => setSelectedColor(color);
 
     return (
         <Container>
-            <Paper elevation={3} >
+            <Paper elevation={3}
+                className={classes.root}>
                 <Typography>
                     {`WELCOME TO ALCHEMZOOMY ${userName}!`}
                 </Typography>
@@ -27,22 +33,20 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
                         <Typography>
                             {`Email: ${email}`}
                         </Typography>
-                        <Typography style={{ backgroundColor: selectedColor }}>
+                        <Typography>
                             Choose your color:
-                            <ul>
-                                {colorPalette.map(color => (
-                                    <li key={color}>
-                                        <button
-                                            onClick={() => setSelectedColor(color)}
-                                        >
-                                            <div
-                                                style={{ backgroundColor: color }}
-                                            />
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
                         </Typography>
+                        <ul className={classes.list}>
+                            {colorPalette.map(color => (
+                                <ColorBlock
+                                    key={color}
+                                    color={color}
+                                    selectedColor={selectedColor}
+                                    handleColorChange={handleColorChange}
+                                />
+                            ))}
+                        </ul>
+
                         <Button
                             variant="contained"
                             color="primary"
