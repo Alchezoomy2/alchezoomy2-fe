@@ -3,15 +3,21 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     root: {
-        height: "100vh",
+        height: "90vh",
         flexDirection: "column",
         display: "flex",
         justifyItems: "center",
         alignItems: "center"
     },
+    card: {
+        height: "500px",
+        width: "70vw"
+    },
     list: {
         listStyleType: "none",
-        display: "flex"
+        display: "flex",
+        width: "350px",
+        justifyContent: "space-around"
     },
 
 });

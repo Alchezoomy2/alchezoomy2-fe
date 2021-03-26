@@ -27,7 +27,10 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
                 <Typography>
                     {"This appears to be your first visit!  You'll need to create an account to continue.  Is this you?"}
                 </Typography>
-                <Card style={{ height: "800px" }}>
+                <Card
+                    className={classes.card}
+                    style={{ borderLeft: `5px solid ${selectedColor}` }}
+                >
                     <CardContent>
                         <Avatar alt={userName} src={picUrl} />
                         <Typography>
