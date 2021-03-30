@@ -35,11 +35,12 @@ export const StudentInvite = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("HELLO!");
-        // const { studentEmail, teacherEmail } = studentInfo;
-        // const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
-        // store.changeStudentInfo(studentInfo);
-        // store.changeLoggedIn();
-        // history.push("/student/");
+        console.log(studentInfo);
+        const { studentEmail, teacherEmail } = studentInfo;
+        const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
+        store.changeStudentInfo(studentInfo);
+        store.changeLoggedIn();
+        history.push("/student/");
     };
 
 
