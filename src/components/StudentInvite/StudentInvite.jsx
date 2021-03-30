@@ -28,7 +28,7 @@ export const StudentInvite = () => {
 
                 console.log("🚀 ~ file: StudentInvite.jsx ~ line 23 ~ checkStudent ~ response ", response);
                 setStudentInfo(response);
-                setOpen(false);
+                // setOpen(false);
             }
         };
 
@@ -39,7 +39,6 @@ export const StudentInvite = () => {
         e.preventDefault();
         console.log("HELLO!");
         console.log(studentInfo);
-        console.log("🚀 ~ file: StudentInvite.jsx ~ line 1 ~ handleSubmit ~ password1", password1);
         const { studentEmail, teacherEmail } = studentInfo;
         const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
         store.changeStudentInfo(studentInfo);
@@ -74,6 +73,7 @@ export const StudentInvite = () => {
                         className={classes.signupForm}>
                         <TextField
                             id="studentEmail"
+                            label="Email"
                             value={studentInfo.studentEmail}
                             disabled
                         />
