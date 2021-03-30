@@ -36,6 +36,8 @@ export const StudentInvite = () => {
     }, []);
 
     const handleSubmit = async (e) => {
+
+        console.log("🚀 ~ file: StudentInvite.jsx ~ line 49 ~ handleSubmit ~ e", e);
         e.preventDefault();
         console.log("HELLO!");
         console.log(studentInfo);
