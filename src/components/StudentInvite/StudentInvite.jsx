@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Backdrop, CircularProgress, TextField } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { Paper, Typography, Button } from "@material-ui/core";
-import { useObserver } from "mobx-react";
 import { useStyles } from "./StudentInviteStyles";
 import { createStudent, studentExists } from "../../utils/student-fetches/auth-fetches";
 import { useStateStore } from "../../StoreProvider";
