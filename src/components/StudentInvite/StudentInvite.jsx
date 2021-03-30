@@ -73,7 +73,7 @@ export const StudentInvite = () => {
                         className={classes.signupForm}>
                         <TextField
                             id="studentEmail"
-                            label="Email"
+                            variant="outlined"
                             value={studentInfo.studentEmail}
                             disabled
                         />
