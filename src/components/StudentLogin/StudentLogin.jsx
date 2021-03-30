@@ -18,6 +18,7 @@ export default function StudentLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const studentInfo = await studentAuth(studentEmail, password);
+        console.log("🚀 ~ file: StudentLogin.jsx ~ line 21 ~ handleSubmit ~ studentInfo", studentInfo);
         if (studentInfo) {
             store.changeStudentInfo(studentInfo);
             store.changeLoggedIn();
