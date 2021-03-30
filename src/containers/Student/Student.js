@@ -17,7 +17,9 @@ import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-f
 
 
 export const Student = () => {
-    const [displayedPage, setDisplayedPage] = useState();
+    const [displayedPage, setDisplayedPage] = useState(<StudentMeetings
+        handleMeetingDetailClick={handleMeetingDetailClick}
+    />);
     const [pageIcon, setPageIcon] = useState("meeting");
     const store = useStateStore();
 
@@ -62,11 +64,9 @@ export const Student = () => {
     }, [store]);
 
 
-    useEffect(() => {
-        setDisplayedPage(<StudentMeetings
-            handleMeetingDetailClick={handleMeetingDetailClick}
-        />);
-    }, [handleMeetingDetailClick]);
+    // useEffect(() => {
+    //     setDisplayedPage();
+    // }, [handleMeetingDetailClick]);
 
     return useObserver(() =>
         <Grid>
