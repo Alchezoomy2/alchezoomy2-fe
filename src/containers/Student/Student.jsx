@@ -17,7 +17,7 @@ import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-f
 
 export const Student = () => {
     const classes = useStyles();
-    const [displayedPage, setDisplayedPage] = useState();
+    const [displayedPage, setDisplayedPage] = useState(null);
     const [pageIcon, setPageIcon] = useState("meeting");
     const [open, setOpen] = useState(true);
     const store = useStateStore();
@@ -69,6 +69,7 @@ export const Student = () => {
         setDisplayedPage(<StudentMeetings
             handleMeetingDetailClick={handleMeetingDetailClick}
         />);
+        console.log("setOpen");
         setOpen(false);
 
     }, []);
