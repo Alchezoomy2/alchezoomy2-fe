@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
 import { useStyles } from "./StudentLoginStyles.js";
 import { studentAuth } from "../../utils/student-fetches/auth-fetches";
+import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
 import { useStateStore } from "../../StoreProvider";
 import { useHistory } from "react-router-dom";
 
@@ -18,16 +19,19 @@ export default function StudentLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-
             const studentInfo = await studentAuth(studentEmail, password);
             store.changeStudentInfo(studentInfo);
             store.changeLoggedIn();
+
+            const newMeetingObj = await fetchAllStudentMeetings();
+
+            console.log(newMeetingObj);
+
+            await store.changeMeetingsObj(newMeetingObj);
+            await store.changeLoggedIn();
             history.push("/student");
         } catch (e) {
-            console.log("🚀 ~ file: StudentLogin.jsx ~ line 27 ~ handleSubmit ~ e", e);
 
-
-            window.alert(e.message);
             setInvalidLoginOpen(true);
             setPassword("");
         }

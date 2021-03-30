@@ -6,17 +6,12 @@ import { TeacherDashboard } from "../../TeacherDashboard";
 import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "../../utils/teacher-fetches/auth-fetches";
 import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
-import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from "./TeacherStyles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
 import { TeacherSubscriptions } from "../../TeacherSubscriptions.jsx";
 import adminSnackBar from "../../components/AdminSnackbar/AdminSnackBar";
 
-const useStyles = makeStyles({
-    backdrop: {
-        zIndex: 5
-    }
-});
 
 export const Teacher = () => {
     const { openSnackbar, SnackbarComponent } = adminSnackBar();

@@ -1,9 +1,8 @@
-import React, { useState, useCallback } from "react";
-import { Grid } from "@material-ui/core";
+import React, { useState, useCallback, useEffect } from "react";
+import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import MeetingDetails from "../../MeetingDetails.js";
 import { useStateStore } from "../../StoreProvider.js";
-import { useObserver } from "mobx-react";
-// import classes from '*.module.css';
+import { useStyles } from "./StudentStyles";// import classes from '*.module.css';
 // import { useHistory } from "react-router-dom";
 import StudentMeetings from "../../StudentMeetings.js";
 import StudentHeader from "../../StudentHeader.js";
@@ -17,11 +16,12 @@ import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-f
 
 
 export const Student = () => {
-    const [displayedPage, setDisplayedPage] = useState(<StudentMeetings
-        handleMeetingDetailClick={handleMeetingDetailClick}
-    />);
+    const classes = useStyles();
+    const [displayedPage, setDisplayedPage] = useState();
     const [pageIcon, setPageIcon] = useState("meeting");
+    const [open, setOpen] = useState(true);
     const store = useStateStore();
+
 
     const handleBookmarkClick = async () => {
         const returnedBookmarkArray = await fetchAllStudentBookmarks();
@@ -64,11 +64,14 @@ export const Student = () => {
     }, [store]);
 
 
-    // useEffect(() => {
-    //     setDisplayedPage();
-    // }, [handleMeetingDetailClick]);
+    useEffect(() => {
 
-    return useObserver(() =>
+        setDisplayedPage(<StudentMeetings
+            handleMeetingDetailClick={handleMeetingDetailClick}
+        />);
+    }, [handleMeetingDetailClick]);
+
+    return (
         <Grid>
             <StudentHeader
                 handleBookmarkClick={handleBookmarkClick}
@@ -77,6 +80,11 @@ export const Student = () => {
                 pageIcon={pageIcon}
             />
             {displayedPage}
+            <Backdrop
+                className={classes.backdrop}
+                open={open}>
+                <CircularProgress />
+            </Backdrop>
         </Grid>
     );
 };
