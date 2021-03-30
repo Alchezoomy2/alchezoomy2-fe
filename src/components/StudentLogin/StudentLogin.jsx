@@ -17,18 +17,21 @@ export default function StudentLogin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const studentInfo = await studentAuth(studentEmail, password);
-        if (studentInfo) {
+        try {
+
+            const studentInfo = await studentAuth(studentEmail, password);
             store.changeStudentInfo(studentInfo);
             store.changeLoggedIn();
             history.push("/student");
+        } catch (e) {
+            console.log("🚀 ~ file: StudentLogin.jsx ~ line 27 ~ handleSubmit ~ e", e);
 
-        } else {
-            console.log("🚀 ~ file: StudentLogin.jsx ~ line 21 ~ handleSubmit ~ studentInfo", studentInfo);
-            window.alert(studentInfo.message);
+
+            window.alert(e.message);
             setInvalidLoginOpen(true);
             setPassword("");
         }
+
     };
 
     const handleSnackbarClose = () => {
