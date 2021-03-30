@@ -20,7 +20,9 @@ export const StudentInvite = () => {
     useEffect(() => {
         const checkStudent = async () => {
             const response = await studentExists(jwt);
+            console.log("🚀 ~ file: StudentInvite.jsx ~ line 23 ~ checkStudent ~ response ", response);
             const { status } = response;
+
             if (status === "exisiting") {
                 history.push("/student/login");
             } else {
