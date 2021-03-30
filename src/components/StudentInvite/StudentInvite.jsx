@@ -21,6 +21,7 @@ export const InvitePage = () => {
     useEffect(() => {
         const checkStudent = async () => {
             const response = await studentExists(jwt);
+            console.log("🚀 ~ file: StudentInvite.jsx ~ line 24 ~ checkStudent ~ response", response);
             const { status } = response;
             if (status === "exisiting") {
                 history.push("/student/login");
@@ -42,7 +43,7 @@ export const InvitePage = () => {
     };
 
 
-    return useObserver(() =>
+    return (
         <Paper elevation={3} className={classes.root}>
             <div>
                 <Paper elevation={2}>
