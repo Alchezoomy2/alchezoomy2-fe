@@ -70,7 +70,8 @@ export const Student = () => {
             handleMeetingDetailClick={handleMeetingDetailClick}
         />);
         setOpen(false);
-    }, [handleMeetingDetailClick]);
+
+    }, []);
 
     return (
         <Grid>
