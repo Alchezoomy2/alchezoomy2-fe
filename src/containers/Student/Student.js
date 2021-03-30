@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { Grid } from "@material-ui/core";
 import MeetingDetails from "../../MeetingDetails.js";
 import { useStateStore } from "../../StoreProvider.js";
