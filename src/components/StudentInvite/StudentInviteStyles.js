@@ -23,7 +23,7 @@ export const useStyles = makeStyles({
     },
 
     signupForm: {
-        height: "500px",
+        height: "300px",
         display: "flex",
         flexDirection: "column",
         width: "500px"

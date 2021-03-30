@@ -20,7 +20,6 @@ export const InvitePage = () => {
     useEffect(() => {
         const checkStudent = async () => {
             const response = await studentExists(jwt);
-            console.log("🚀 ~ file: StudentInvite.jsx ~ line 24 ~ checkStudent ~ response", response);
             const { status } = response;
             if (status === "exisiting") {
                 history.push("/student/login");
@@ -33,7 +32,8 @@ export const InvitePage = () => {
         checkStudent();
     }, []);
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         const { studentEmail, teacherEmail } = studentInfo;
         const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
         store.changeStudentInfo(studentInfo);
