@@ -69,6 +69,7 @@ export const Student = () => {
         setDisplayedPage(<StudentMeetings
             handleMeetingDetailClick={handleMeetingDetailClick}
         />);
+        setOpen(true);
     }, [handleMeetingDetailClick]);
 
     return (
