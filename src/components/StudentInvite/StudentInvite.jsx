@@ -76,7 +76,7 @@ export const StudentInvite = () => {
                         <TextField
                             id="studentEmail"
                             variant="outlined"
-                            value={studentInfo.studentEmail}
+                            // value={studentInfo.studentEmail}
                             disabled
                         />
                         <TextField
