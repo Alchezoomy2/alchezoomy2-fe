@@ -39,9 +39,7 @@ export default function StudentInvite() {
     }, []);
 
     const handleSubmit = async (e, studentEmail, teacherEmail) => {
-        console.log("🚀 ~ file: StudentInvite.jsx ~ line 49 ~ handleSubmit ~ e", e);
         e.preventDefault();
-        console.log("HELLO!");
         // console.log(studentInfo);
 
         // const { studentEmail, teacherEmail } = studentInfo;
@@ -79,7 +77,7 @@ export default function StudentInvite() {
                         <TextField
                             id="studentEmail"
                             variant="outlined"
-                            // value={studentInfo.studentEmail}
+                            value={studentInfo.studentEmail}
                             disabled
                         />
                         <TextField
@@ -107,13 +105,13 @@ export default function StudentInvite() {
 
                     </form>
                 </Paper>
-            </div>
-            <Backdrop
-                className={classes.backdrop}
-                open={open}>
-                <CircularProgress />
-            </Backdrop>
 
+                <Backdrop
+                    className={classes.backdrop}
+                    open={open}>
+                    <CircularProgress />
+                </Backdrop>
+            </div>
         </Paper>
 
 
