@@ -40,6 +40,7 @@ export const StudentInvite = () => {
         console.log("HELLO!");
         console.log(studentInfo);
         const { studentEmail, teacherEmail } = studentInfo;
+        console.log("🚀 ~ file: StudentInvite.jsx ~ line 1 ~ handleSubmit ~ studentEmail, teacherEmail, password1", studentEmail, teacherEmail, password1);
         const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
         store.changeStudentInfo(studentInfo);
         store.changeLoggedIn();
