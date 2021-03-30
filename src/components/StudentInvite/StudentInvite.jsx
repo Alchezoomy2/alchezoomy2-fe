@@ -7,7 +7,7 @@ import { createStudent, studentExists } from "../../utils/student-fetches/auth-f
 import { useStateStore } from "../../StoreProvider";
 
 
-export const InvitePage = () => {
+export const StudentInvite = () => {
     const [open, setOpen] = useState(true);
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
@@ -34,11 +34,12 @@ export const InvitePage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { studentEmail, teacherEmail } = studentInfo;
-        const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
-        store.changeStudentInfo(studentInfo);
-        store.changeLoggedIn();
-        history.push("/student/");
+        console.log("HELLO!");
+        // const { studentEmail, teacherEmail } = studentInfo;
+        // const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
+        // store.changeStudentInfo(studentInfo);
+        // store.changeLoggedIn();
+        // history.push("/student/");
     };
 
 
@@ -110,4 +111,4 @@ export const InvitePage = () => {
 
 };
 
-export default InvitePage;
+export default StudentInvite;
