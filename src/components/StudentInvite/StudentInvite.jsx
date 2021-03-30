@@ -5,9 +5,12 @@ import { Paper, Typography, Button } from "@material-ui/core";
 import { useStyles } from "./StudentInviteStyles";
 import { createStudent, studentExists } from "../../utils/student-fetches/auth-fetches";
 import { useStateStore } from "../../StoreProvider";
+import { useHistory } from "react-router-dom";
+
 
 
 export default function StudentInvite() {
+    const history = useHistory();
     const [open, setOpen] = useState(true);
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
