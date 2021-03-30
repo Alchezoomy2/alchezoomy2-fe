@@ -21,7 +21,8 @@ export async function createStudent(studentEmail, teacherEmail, password) {
 
 export async function studentExists(jwt) {
     const response = await fetch
-        .get(serverUrl + "/student/exists/" + jwt)
+        .post(serverUrl + "/student/exists/")
+        .send({ jwt })
         .withCredentials();
 
     return response.body;

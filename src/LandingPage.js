@@ -1,12 +1,11 @@
 import React from "react";
-import { useObserver } from "mobx-react";
 import { Paper, Button } from "@material-ui/core";
 import { useStyles } from "./styles/landingPage.js";
 
 export const LandingPage = () => {
     const classes = useStyles();
 
-    return useObserver(() =>
+    return (
         <Paper elevation={3} className={classes.root}>
             <div>
                 <Paper elevation={2}>
@@ -18,7 +17,6 @@ export const LandingPage = () => {
             </div>
             <div>
                 <Button
-                    // className={classes.button}
                     variant="contained"
                     color="secondary"
                     onClick={() => {
