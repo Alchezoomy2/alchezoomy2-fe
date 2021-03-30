@@ -28,7 +28,7 @@ export const StudentInvite = () => {
 
                 console.log("🚀 ~ file: StudentInvite.jsx ~ line 23 ~ checkStudent ~ response ", response);
                 setStudentInfo(response);
-                // setOpen(false);
+                setOpen(true);
             }
         };
 
