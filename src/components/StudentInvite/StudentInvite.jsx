@@ -7,7 +7,7 @@ import { createStudent, studentExists } from "../../utils/student-fetches/auth-f
 import { useStateStore } from "../../StoreProvider";
 
 
-export const StudentInvite = () => {
+export default function StudentInvite() {
     const [open, setOpen] = useState(true);
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
@@ -35,13 +35,13 @@ export const StudentInvite = () => {
         checkStudent();
     }, []);
 
-    const handleSubmit = async (e) => {
-
+    const handleSubmit = async (e, studentEmail, teacherEmail) => {
         console.log("🚀 ~ file: StudentInvite.jsx ~ line 49 ~ handleSubmit ~ e", e);
         e.preventDefault();
         console.log("HELLO!");
-        console.log(studentInfo);
-        const { studentEmail, teacherEmail } = studentInfo;
+        // console.log(studentInfo);
+
+        // const { studentEmail, teacherEmail } = studentInfo;
         const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
         store.changeStudentInfo(studentInfo);
         store.changeLoggedIn();
@@ -71,7 +71,7 @@ export const StudentInvite = () => {
                         </Typography>
                     </div>
                     <form
-                        onSubmit={handleSubmit}
+                        onSubmit={(e) => handleSubmit(e, studentInfo.studentEmail, studentInfo.teacherEmail)}
                         className={classes.signupForm}>
                         <TextField
                             id="studentEmail"
@@ -116,6 +116,5 @@ export const StudentInvite = () => {
 
     );
 
-};
+}
 
-export default StudentInvite;
