@@ -15,7 +15,8 @@ import TeacherInvite from "./components/TeacherInvite/TeacherInvite";
 import Login from "./Login.js";
 import Teacher from "./containers/Teacher/Teacher";
 import Student from "./containers/Student/Student";
-import InvitePage from "./InvitePage.jsx";
+import StudentLogin from "./components/StudentLogin/StudentLogin";
+import StudentInvite from "./components/StudentInvite/StudentInvite";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
@@ -61,13 +62,17 @@ export const App = () => {
                         token={store.loggedIn}
                         path="/teacher"
                         component={Teacher} />
+                    <Route
+                        exact
+                        path="/student/login"
+                        component={StudentLogin} />
+                    <Route
+                        path="/student/invite/:jwt"
+                        component={StudentInvite} />
                     <PrivateRoute
                         path="/student"
                         token={store.loggedIn}
                         component={Student} />
-                    <Route
-                        path="/invite/:jwt"
-                        component={InvitePage} />
                     <Route
                         path="/policy"
                         component={Policies} />

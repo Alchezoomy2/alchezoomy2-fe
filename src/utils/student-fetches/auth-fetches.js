@@ -1,19 +1,27 @@
 import fetch from "superagent";
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 
-export async function studentAuth(userName, password) {
+export async function studentAuth(studentEmail, password) {
     const response = await fetch
-        .post(serverUrl + "/student/oauth")
-        .send({ userName, password })
+        .post(serverUrl + "/student/auth")
+        .send({ studentEmail, password })
         .withCredentials();
 
     return response.body;
 }
 
-export async function createStudent(userName, password, JWT) {
+export async function createStudent(studentEmail, teacherEmail, password) {
     const response = await fetch
         .post(serverUrl + "/student/new")
-        .send({ userName, password, JWT })
+        .send({ studentEmail, teacherEmail, password })
+        .withCredentials();
+
+    return response.body;
+}
+
+export async function studentExists(jwt) {
+    const response = await fetch
+        .get(serverUrl + "/student/exists/" + jwt)
         .withCredentials();
 
     return response.body;

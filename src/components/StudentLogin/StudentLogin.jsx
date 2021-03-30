@@ -3,7 +3,6 @@ import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
 import { useStyles } from "./AdminLoginStyles.js";
 import { studentAuth, createStudent } from "../../utils/student-fetches/auth-fetches";
 import { useStateStore } from "../../StoreProvider";
-import { NewAdminDialog } from "../NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
 
 
@@ -11,32 +10,23 @@ export default function StudentLogin() {
     const history = useHistory();
     const classes = useStyles();
     const store = useStateStore();
-    const [userName, setUserName] = useState("");
+    const [studentEmail, setStudentEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [newUserDialogOpen, setNewUserDialogOpen] = useState(false);
     const [invalidLoginOpen, setInvalidLoginOpen] = useState(false);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const adminInfo = await studentAuth(userName, password);
-        if (adminInfo.status === "new") {
-            setNewUserDialogOpen(true);
-            setUserName("");
-            setPassword("");
-        } else if (adminInfo.status === "false") {
+        const studentInfo = await studentAuth(studentEmail, password);
+        if (studentInfo) {
+            store.changeStudentInfo(studentInfo);
+            store.changeLoggedIn();
+            history.push("/student");
+
+        } else {
             setInvalidLoginOpen(true);
             setPassword("");
-        } else if (adminInfo.status === "success") {
-            store.changeLoggedIn();
-            history.push("/admin/dashboard");
         }
-    };
-
-    const handleClose = async (newUserName, newPassword1) => {
-        const adminInfo = await createStudent(newUserName, newPassword1);
-        await store.changeAdminInfo(adminInfo);
-        setNewUserDialogOpen(false);
     };
 
     const handleSnackbarClose = () => {
@@ -60,10 +50,10 @@ export default function StudentLogin() {
                     className={classes.loginForm}
                 >
                     <TextField
-                        id="userName"
-                        label="User Name"
-                        value={userName}
-                        onChange={({ target }) => setUserName(target.value)}
+                        id="studentEmail"
+                        label="Email"
+                        value={studentEmail}
+                        onChange={({ target }) => setStudentEmail(target.value)}
                         required
                     />
                     <TextField
@@ -77,10 +67,6 @@ export default function StudentLogin() {
                     <Button type="submit">SUBMIT</Button>
                 </form>
             </Paper>
-            <NewAdminDialog
-                handleClose={handleClose}
-                newUserDialogOpen={newUserDialogOpen}
-            />
             <Snackbar
                 open={invalidLoginOpen}
                 message="Invalid Username or Password"

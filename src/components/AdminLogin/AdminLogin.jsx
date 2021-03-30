@@ -44,7 +44,6 @@ export default function AdminLogin() {
         setInvalidLoginOpen(false);
     };
 
-
     return (
         <div>
             <Paper elevation={3}>

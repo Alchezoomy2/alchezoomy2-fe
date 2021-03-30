@@ -11,7 +11,7 @@ export const useStyles = makeStyles({
     },
     card: {
         height: "500px",
-        width: "70vw"
+        width: "300p"
     },
     list: {
         listStyleType: "none",
