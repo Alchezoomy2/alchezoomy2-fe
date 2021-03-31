@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import { teacherAuth } from "../../utils/teacher-fetches/auth-fetches";
