@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
 import { useStyles } from "./AdminLoginStyles.js";
 import { adminAuth, adminSetupPassword } from "../../utils/admin-fetches/auth-fetches.js";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import { NewAdminDialog } from "../NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
 
