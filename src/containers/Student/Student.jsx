@@ -6,8 +6,8 @@ import { useStyles } from "./StudentStyles";// import classes from '*.module.css
 // import { useHistory } from "react-router-dom";
 import StudentMeetings from "../../components/StudentMeetings/StudentMeetings.js";
 import StudentAppBar from "../../components/StudentAppBar/StudentAppBar";
-import Bookmark from "../../Bookmark.js";
-import Favorite from "../../Favorite.js";
+import Bookmark from "../../components/Bookmark/Bookmark.js";
+import Favorite from "../../components/Favorite/Favorite.js";
 // import fetch from "superagent";
 import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches.js";
 import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches.js";
