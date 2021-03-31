@@ -21,7 +21,7 @@ import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 import Admin from "./containers/Admin/Admin";
-import { useStateStore } from "./StoreProvider";
+import { useStateStore } from "./utils/StoreProvider";
 import { useObserver } from "mobx-react";
 
 
