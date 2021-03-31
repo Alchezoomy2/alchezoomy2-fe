@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
 import { useObserver } from "mobx-react";
 import { TeacherCreator } from "../../components/TeacherCreator/TeacherCreator";
-import { TeacherDashboard } from "../../TeacherDashboard";
+import { TeacherDashboard } from "../../components/TeacherDashboard/TeacherDashboard";
 import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "../../utils/teacher-fetches/auth-fetches";
 import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
