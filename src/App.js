@@ -12,7 +12,6 @@ import LandingPage from "./containers/LandingPage/LandingPage.js";
 import AutoRedirect from "./components/Redirect/Redirect";
 import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
 import TeacherInvite from "./components/TeacherInvite/TeacherInvite";
-import Login from "./Login.js";
 import Teacher from "./containers/Teacher/Teacher";
 import Student from "./containers/Student/Student";
 import StudentLogin from "./components/StudentLogin/StudentLogin";
@@ -40,9 +39,6 @@ export const App = () => {
                     <Route
                         path="/redirect/"
                         component={AutoRedirect} />
-                    <Route
-                        path="/login/"
-                        component={Login} />
                     <PrivateRoute
                         token={store.loggedIn}
                         path="/admin/dashboard"
