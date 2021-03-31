@@ -1,14 +1,14 @@
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";
-import { useStateStore } from "./StoreProvider.js";
+import { useStateStore } from "../../StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
 import fuse from "fuse.js";
-import { deleteBookmark } from "./utils/student-fetches/bookmark-fetches.js";
-import useStyles from "./styles/bookmarkStyles";
+import { deleteBookmark } from "../../utils/student-fetches/bookmark-fetches.js";
+import useStyles from "./bookmarkStyles";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import BookmarkListItem from "./BookmarkListItem.js";
-import Transition from "./DialogTransition.js";
+import BookmarkListItem from "../BookmarkListItem/BookmarkListItem.js";
+import Transition from "../DialogTransition/DialogTransition.js";
 import CommentIcon from "@material-ui/icons/Comment";
 
 

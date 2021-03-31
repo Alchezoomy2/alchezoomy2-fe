@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useStateStore } from "./StoreProvider";
+import { useStateStore } from "../../StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
-import { TeacherMeetingItem } from "./TeacherMeetingItem";
+import { TeacherMeetingItem } from "../../TeacherMeetingItem";
 import PropTypes from "prop-types";
-import { publishMeeting, unpublishMeeting, updateMeeting } from "./utils/teacher-fetches/meeting-fetches.js";
+import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/teacher-fetches/meeting-fetches.js";
 import { useObserver } from "mobx-react";
-import useStyles from "./styles/teacherDashboardStyles";
+import useStyles from "./teacherDashboardStyles";
 
 
 export const TeacherDashboard = ({ setOpen }) => {

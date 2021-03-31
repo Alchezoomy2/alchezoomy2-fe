@@ -1,15 +1,15 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
-import useStyles from "./styles/chatbox";
+import useStyles from "../../styles/chatbox";
 
 import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
-import { useStateStore } from "./StoreProvider.js";
+import { useStateStore } from "../../StoreProvider.js";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CommentIcon from "@material-ui/icons/Comment";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "./utils/student-fetches/bookmark-fetches.js";
+import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../utils/student-fetches/bookmark-fetches.js";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;

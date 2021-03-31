@@ -4,7 +4,7 @@ import MeetingDetails from "../../MeetingDetails.js";
 import { useStateStore } from "../../StoreProvider.js";
 import { useStyles } from "./StudentStyles";// import classes from '*.module.css';
 // import { useHistory } from "react-router-dom";
-import StudentMeetings from "../../StudentMeetings.js";
+import StudentMeetings from "../../components/StudentMeetings/StudentMeetings.js";
 import StudentAppBar from "../../components/StudentAppBar/StudentAppBar";
 import Bookmark from "../../Bookmark.js";
 import Favorite from "../../Favorite.js";

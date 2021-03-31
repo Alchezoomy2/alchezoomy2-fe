@@ -1,17 +1,17 @@
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";
-import { useStateStore } from "./StoreProvider.js";
+import { useStateStore } from "../../StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
 import fuse from "fuse.js";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import FavoriteListItem from "./FavoriteListItem.jsx";
+import FavoriteListItem from "../../FavoriteListItem.jsx";
 import Transition from "./DialogTransition.js";
-import useStyles from "./styles/favoriteStyles";
+import useStyles from "./favoriteStyles";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
-import { deleteFavorite } from "./utils/student-fetches/favorite-fetches.js";
+import { deleteFavorite } from "../../utils/student-fetches/favorite-fetches.js";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();

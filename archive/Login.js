@@ -1,11 +1,11 @@
 // import { useObserver } from 'mobx-react';
 import React, { useEffect } from "react";
-import { useStateStore } from "./StoreProvider";
+import { useStateStore } from "../src/StoreProvider";
 import { useHistory } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
-import { studentAuth, createStudent } from "./utils/student-fetches/auth-fetches";
-import { teacherAuth } from "./utils/teacher-fetches/auth-fetches";
-import { fetchAllStudentMeetings } from "./utils/student-fetches/meeting-fetches.js";
+import { studentAuth, createStudent } from "../src/utils/student-fetches/auth-fetches";
+import { teacherAuth } from "../src/utils/teacher-fetches/auth-fetches";
+import { fetchAllStudentMeetings } from "../src/utils/student-fetches/meeting-fetches.js";
 
 export const Login = () => {
     const store = useStateStore();

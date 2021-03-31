@@ -1,6 +1,6 @@
 import React from "react";
 import { Paper, Button } from "@material-ui/core";
-import { useStyles } from "./styles/landingPage.js";
+import { useStyles } from "./LandingPageStyles.js";
 
 export const LandingPage = () => {
     const classes = useStyles();
