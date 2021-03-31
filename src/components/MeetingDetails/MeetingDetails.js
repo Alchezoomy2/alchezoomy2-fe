@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import ReactPlayer from "react-player";
 import { useObserver } from "mobx-react";
-import { useStateStore } from "../../StoreProvider.js";
-// import fetch from 'superagent';
+import { useStateStore } from "../../utils/StoreProvider.js";
 import { Container } from "@material-ui/core";
 import ChatBox from "./ChatBox";
-import TranscriptBox from "../../TranscriptBox";
+import TranscriptBox from "../../components/TranscriptBox/TranscriptBox";
 import useStyles from "./meetingDetailsStyles";
 const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
 
