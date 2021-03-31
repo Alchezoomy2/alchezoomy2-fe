@@ -3,7 +3,7 @@ import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
 import { useStyles } from "./StudentLoginStyles.js";
 import { studentAuth } from "../../utils/student-fetches/auth-fetches";
 import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 
 
