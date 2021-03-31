@@ -3,10 +3,10 @@ import MailIcon from "@material-ui/icons/Mail";
 
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import useStyles from "./teacherSubscriptionStyles";
 import fuse from "fuse.js";
-import { SubscriptionListItem } from "./SubscriptionListItem";
+import { SubscriptionListItem } from "../SubscriptionListItem/SubscriptionListItem";
 import { inviteStudent, deleteSubscription } from "../../utils/teacher-fetches/subscription-fetches";
 
 export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbarOpen }) => {
