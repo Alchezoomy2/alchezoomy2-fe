@@ -9,7 +9,7 @@ import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
 import { useStyles } from "./TeacherStyles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
-import { TeacherSubscriptions } from "../../TeacherSubscriptions.jsx";
+import { TeacherSubscriptions } from "../../components/TeacherSubscriptions/TeacherSubscriptions.jsx";
 import adminSnackBar from "../../components/AdminSnackbar/AdminSnackBar";
 
 
