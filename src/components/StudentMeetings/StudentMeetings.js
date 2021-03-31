@@ -2,7 +2,7 @@ import { Paper, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitl
 import { useObserver } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
-import useStyles from "../../styles/studentMeetings";
+import useStyles from "./studentMeetingsStyles";
 import fuse from "fuse.js";
 import MeetingListItem from "../MeetingListItem/MeetingListItem.js";
 import Transition from "../../components/DialogTransition/DialogTransition";
