@@ -1,6 +1,6 @@
 import React from "react";
 import { AppBar, Avatar, Typography, Toolbar, Button, ButtonGroup } from "@material-ui/core";
-import { useStateStore } from "../../StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider.js";
 import { useStyles } from "./TeacherAppBarStyles";
 import { PropTypes } from "mobx-react";
 import { useObserver } from "mobx-react";

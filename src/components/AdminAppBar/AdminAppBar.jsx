@@ -1,6 +1,6 @@
 import React from "react";
 import { AppBar, Typography, Button, ButtonGroup, Toolbar } from "@material-ui/core";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import { useStyles } from "./AdminAppBarStyles";
 import { useHistory } from "react-router-dom";
 import { PropTypes } from "mobx-react";
