@@ -13,6 +13,8 @@ export const AutoRedirect = ({ location }) => {
 
     useEffect(() => {
         async function loginTeacher() {
+
+            console.log("🚀 ~ file: Redirect.jsx ~ line 13 ~ AutoRedirect ~ code", code);
             const returnedObject = await teacherAuth(code);
             await store.changeTeacherInfo(returnedObject);
             store.changeLoggedIn();
