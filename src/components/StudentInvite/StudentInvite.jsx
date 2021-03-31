@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Paper, Typography, Button } from "@material-ui/core";
 import { useStyles } from "./StudentInviteStyles";
 import { createStudent, studentExists } from "../../utils/student-fetches/auth-fetches";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 
 
