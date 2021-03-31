@@ -1,11 +1,11 @@
 import { Paper, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from "@material-ui/core";
 import { useObserver } from "mobx-react";
 import React, { useEffect, useState } from "react";
-import { useStateStore } from "../../StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider.js";
 import useStyles from "../../styles/studentMeetings";
 import fuse from "fuse.js";
 import MeetingListItem from "../MeetingListItem/MeetingListItem.js";
-import Transition from "./DialogTransition.js";
+import Transition from "../../components/DialogTransition/DialogTransition";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
