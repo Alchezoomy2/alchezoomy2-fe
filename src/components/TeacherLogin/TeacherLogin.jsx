@@ -1,12 +1,11 @@
 import React from "react";
-import { useStateStore } from "../../StoreProvider";
-import { useHistory } from "react-router-dom";
 import { Paper, Button } from "@material-ui/core";
-
+import { useStyles } from "./TeacherLoginStyles";
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
 
 export default function TeacherLogin() {
+    const classes = useStyles();
 
     return (
         <div>

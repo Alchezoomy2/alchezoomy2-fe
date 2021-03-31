@@ -3,6 +3,7 @@ import { useStateStore } from "../../StoreProvider";
 import { useHistory } from "react-router-dom";
 import { Backdrop, CircularProgress } from "@material-ui/core";
 import { teacherAuth } from "../../utils/teacher-fetches/auth-fetches";
+import PropTypes from "prop-types";
 
 
 export const AutoRedirect = ({ location }) => {
@@ -21,7 +22,6 @@ export const AutoRedirect = ({ location }) => {
         loginTeacher();
     }, []);
 
-    history.push("/teacher/login");
 
     return (
         <Backdrop open={true}>
@@ -33,3 +33,6 @@ export const AutoRedirect = ({ location }) => {
 
 export default AutoRedirect;
 
+AutoRedirect.propTypes = {
+    location: PropTypes.object
+};
