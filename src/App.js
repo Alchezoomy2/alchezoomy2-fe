@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import PrivateRoute from "./PrivateRoute.js";
-import LandingPage from "./LandingPage.js";
+import LandingPage from "./containers/LandingPage/LandingPage.js";
 import AutoRedirect from "./components/Redirect/Redirect";
 import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
 import TeacherInvite from "./components/TeacherInvite/TeacherInvite";
