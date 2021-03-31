@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 require("dotenv").config();
-import { StoreProvider } from "./StoreProvider.js";
+import { StoreProvider } from "./utils/StoreProvider.js";
 
 ReactDOM.render(
   <React.StrictMode>
