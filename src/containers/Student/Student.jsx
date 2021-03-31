@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import MeetingDetails from "../../MeetingDetails.js";
-import { useStateStore } from "../../StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider.js";
 import { useStyles } from "./StudentStyles";// import classes from '*.module.css';
 // import { useHistory } from "react-router-dom";
 import StudentMeetings from "../../components/StudentMeetings/StudentMeetings.js";

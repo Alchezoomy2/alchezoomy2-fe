@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useStateStore } from "../../StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider.js";
 import { useObserver } from "mobx-react";
 import { TeacherCreator } from "../../components/TeacherCreator/TeacherCreator";
 import { TeacherDashboard } from "../../TeacherDashboard";
