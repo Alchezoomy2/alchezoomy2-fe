@@ -14,6 +14,7 @@ export const AutoRedirect = ({ location }) => {
     useEffect(() => {
         async function loginTeacher() {
             const returnedObject = await teacherAuth(code.get("code"));
+            console.log("🚀 ~ file: Redirect.jsx ~ line 17 ~ loginTeacher ~ returnedObject", returnedObject);
             if (returnedObject.error) {
                 window.alert(returnedObject.error);
                 history.push("/teacher/login");

@@ -19,6 +19,7 @@ import StudentInvite from "./components/StudentInvite/StudentInvite";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
+import Instructions from "./components/Instructions/Instructions";
 import AdminLogin from "./components/AdminLogin/AdminLogin";
 import Admin from "./containers/Admin/Admin";
 import { useStateStore } from "./utils/StoreProvider";
@@ -78,6 +79,9 @@ export const App = () => {
                     <Route
                         path="/support"
                         component={Support} />
+                    <Route
+                        path="/instructions"
+                        component={Instructions} />
                     {/* <Route path="/zoomverify"
                         component={zoom} /> */}
                 </Switch >
