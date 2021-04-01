@@ -1,12 +1,12 @@
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";
-import { useStateStore } from "../../StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
 import fuse from "fuse.js";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import FavoriteListItem from "../../FavoriteListItem.jsx";
-import Transition from "./DialogTransition.js";
+import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
+import Transition from "../DialogTransition/DialogTransition";
 import useStyles from "./favoriteStyles";
 
 

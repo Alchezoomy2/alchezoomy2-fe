@@ -1,10 +1,10 @@
 import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
-import useStyles from "../../styles/chatbox";
+import useStyles from "./ChatboxStyles";
 
 import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
-import { useStateStore } from "../../StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider.js";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CommentIcon from "@material-ui/icons/Comment";
