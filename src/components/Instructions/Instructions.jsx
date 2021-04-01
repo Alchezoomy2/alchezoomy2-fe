@@ -8,13 +8,13 @@ export default function Instructions() {
                 <li>Navigate to <a href={"https://alchemylectures.com/teacher/login"}>https://alchemylectures.com/teacher/login</a>
                 </li>
                 <li>
-                    Click on "Sign In With Zoom" button.
+                    {"Click on \"Sign In With Zoom\" button."}
                 </li>
                 <li>
                     Sign in through your Zoom account.
                 </li>
                 <li>
-                    Verify you Zoom user data and press "create user" button.
+                    {"Verify you Zoom user data and press \"create user\" button."}
                 </li>
             </ul>
             <h3>Usage</h3>
@@ -29,7 +29,7 @@ export default function Instructions() {
                         </li>
                 </ul>
                 <li>
-                    If you wish to share this lecture with your students, click on the “publish” slider.
+                    {"If you wish to share this lecture with your students, click on the “publish” slider."}
                     <ul>
                         <li>
                             Publishing your lecture will download any video, chat and transcript data to our server.
@@ -46,10 +46,10 @@ export default function Instructions() {
             <h5>Manage Students:</h5>
             <ul>
                 <li>
-                    To invite your students click on “Subscriptions” in the header.
+                    {"To invite your students click on “Subscriptions” in the header."}
                 </li>
                 <li>
-                    Enter the student email into the “Invite Student” input box.
+                    {"Enter the student email into the “Invite Student” input box."}
                     <ul>
                         <li>
                             Be sure that the email address given is the same as they use for their Zoom account.
