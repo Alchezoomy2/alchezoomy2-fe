@@ -13,8 +13,11 @@ export const AutoRedirect = ({ location }) => {
 
     useEffect(() => {
         async function loginTeacher() {
-
             const returnedObject = await teacherAuth(code.get("code"));
+            if (returnedObject.error) {
+                window.alert(returnedObject.error);
+                history.push("/teacher/login");
+            }
             await store.changeTeacherInfo(returnedObject);
             store.changeLoggedIn();
             history.push("/teacher");
