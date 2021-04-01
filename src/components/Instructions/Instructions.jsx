@@ -83,7 +83,7 @@ export default function Instructions() {
                     Login to you Zoom Account and navigate to the Zoom App Marketplace.
                 </li>
                 <li>
-                    Click Manage > Installed Apps or search for the Alchemy Lectures app.
+                    {"Click Manage > Installed Apps or search for the Alchemy Lectures app."}
                 </li>
                 <li>
                     Click the Alchemy Lectures app
