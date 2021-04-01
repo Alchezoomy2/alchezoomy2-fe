@@ -37,7 +37,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
             }
             await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
-            handleSnackbarOpen();
+            handleSnackbarOpen("success", "Student Invited");
         }
     };
 
