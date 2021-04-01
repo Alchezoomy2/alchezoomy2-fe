@@ -70,7 +70,6 @@ export const ChatBox = (props) => {
                 comment: commentField
             });
         }
-        console.log(newBookmarkArray);
         setBookmarkArray(newBookmarkArray);
         setOpen(false);
         setCommentField("");

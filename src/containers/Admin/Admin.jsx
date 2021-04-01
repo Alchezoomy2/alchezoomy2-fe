@@ -41,7 +41,6 @@ export default function Admin() {
     const handleBucketDashboard = async () => {
         setOpen(true);
         const returnedS3Obj = await fetchS3Obj();
-        console.log("🚀 ~ file: Admin.jsx ~ line 45 ~ handleS3Dashboard ~ returnedS3Obj", returnedS3Obj);
 
         setDisplayModule(<AdminBucketDashboard
             returnedS3Obj={returnedS3Obj}

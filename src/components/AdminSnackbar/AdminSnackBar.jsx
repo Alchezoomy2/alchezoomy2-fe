@@ -13,7 +13,6 @@ export default function adminSnackBar() {
     };
 
     const openSnackbar = (incomingSeverity = "success", incomingMessage = "") => {
-        console.log("here?");
         setSnackbarOpen(true);
         setSeverity(incomingSeverity);
         setMessage(incomingMessage);

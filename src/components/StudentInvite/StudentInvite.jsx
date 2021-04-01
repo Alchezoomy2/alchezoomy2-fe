@@ -28,8 +28,6 @@ export default function StudentInvite() {
             if (status === "existing") {
                 history.push("/student/login");
             } else {
-
-                console.log("🚀 ~ file: StudentInvite.jsx ~ line 23 ~ checkStudent ~ response ", response);
                 setStudentInfo(response);
                 setOpen(true);
             }

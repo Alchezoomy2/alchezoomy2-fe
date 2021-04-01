@@ -28,7 +28,6 @@ export default function AdminLogin() {
             setInvalidLoginOpen(true);
             setPassword("");
         } else if (adminInfo.status === "success") {
-            console.log(adminInfo);
             store.changeLoggedIn();
             history.push("/admin/dashboard");
         }

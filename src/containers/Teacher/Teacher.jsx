@@ -41,7 +41,6 @@ export const Teacher = () => {
     const handleLectureDashboard = async () => {
         setOpen(true);
         const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
-        console.log("🚀 ~ file: Teacher.jsx ~ line 44 ~ handleLectureDashboard ~ returnedMeetingArray", returnedMeetingArray);
         store.changeMeetingsObj(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
             setOpen={setOpen}

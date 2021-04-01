@@ -25,8 +25,6 @@ export default function StudentLogin() {
 
             const newMeetingObj = await fetchAllStudentMeetings();
 
-            console.log(newMeetingObj);
-
             await store.changeMeetingsObj(newMeetingObj);
             await store.changeLoggedIn();
             history.push("/student");

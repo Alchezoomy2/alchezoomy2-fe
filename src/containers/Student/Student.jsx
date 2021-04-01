@@ -35,7 +35,6 @@ export const Student = () => {
 
     const handleFavoriteClick = async () => {
         const returnedFavoriteArray = await fetchAllStudentFavorites();
-        console.log(returnedFavoriteArray);
         await store.changeFavoriteArray(returnedFavoriteArray);
         setPageIcon("favorite");
         setDisplayedPage(<Favorite
@@ -69,7 +68,6 @@ export const Student = () => {
         setDisplayedPage(<StudentMeetings
             handleMeetingDetailClick={handleMeetingDetailClick}
         />);
-        console.log("setOpen");
         setOpen(false);
 
     }, []);

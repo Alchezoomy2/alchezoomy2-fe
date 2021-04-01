@@ -13,7 +13,6 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
 
     const handleColorChange = (color) => {
-        console.log(color);
         setSelectedColor(color);
     };
 

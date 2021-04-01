@@ -15,7 +15,6 @@ export const Login = () => {
 
         async function loginStudent() {
             let returnedStudentInfo = await studentAuth(store.code);
-            console.log(returnedStudentInfo);
             if (returnedStudentInfo.newUser) {
                 window.alert("You don't currently have an AlcheZoomy account. \n Please ask your teacher for access!");
                 history.push("/");
@@ -23,8 +22,6 @@ export const Login = () => {
                 await store.changeStudentInfo(returnedStudentInfo);
 
                 const newMeetingObj = await fetchAllStudentMeetings();
-
-                console.log(newMeetingObj);
 
                 await store.changeMeetingsObj(newMeetingObj);
                 await store.changeLoggedIn();
@@ -45,7 +42,6 @@ export const Login = () => {
 
         async function handleInvite() {
             let returnedStudentInfo = await studentAuth(store.code);
-            console.log(returnedStudentInfo);
             if (returnedStudentInfo.newUser) {
                 returnedStudentInfo = await createStudent(returnedStudentInfo);
             }
