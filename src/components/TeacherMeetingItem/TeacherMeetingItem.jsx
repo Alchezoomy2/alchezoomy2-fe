@@ -5,9 +5,9 @@ import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
-import useStyles from "./styles/teacherMeetingItemsStyles.js";
+import useStyles from "./teacherMeetingItemsStyles";
 
-import TeacherMeetingTopic from "./TeacherMeetingTopic";
+import TeacherMeetingTopic from "../TeacherMeetingTopic/TeacherMeetingTopic";
 
 export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => {
     const props = { borderColor: meeting.color };
