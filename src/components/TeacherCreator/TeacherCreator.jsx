@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStateStore } from "../../StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
 import PropTypes from "prop-types";
 import useStyles from "./TeacherCreatorStyles";
