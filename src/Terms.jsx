@@ -11,7 +11,7 @@ export const Terms = () => {
                         style={{ height: "50px", width: "50px" }}
 
                         src="/images/alchezoomy-logo.png"
-                        alt="logo image" />
+                        alt="logo" />
                 </Paper>
             </div>
             <div>

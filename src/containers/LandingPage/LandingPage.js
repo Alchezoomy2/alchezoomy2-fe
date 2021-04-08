@@ -12,7 +12,7 @@ export const LandingPage = () => {
                     <img
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
-                        alt="logo image" />
+                        alt="logo" />
                 </Paper>
             </div>
             <div>

@@ -55,7 +55,7 @@ export default function StudentInvite() {
                     <img
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
-                        alt="logo image" />
+                        alt="logo" />
                     <div className={classes.inviteText}>
                         <Typography
                             variant="body1"

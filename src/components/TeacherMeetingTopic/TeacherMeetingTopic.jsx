@@ -38,7 +38,7 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate }) {
                 <div>
                     {topic}
                     <IconButton
-                        aria-labl="edit-topic"
+                        aria-label="edit-topic"
                         size="small"
                         onClick={() => setEditTopic(true)}
                     >

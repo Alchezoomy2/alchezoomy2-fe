@@ -14,7 +14,7 @@ export default function TeacherInvite() {
                     <img
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
-                        alt="logo image"
+                        alt="logo"
                     />
                 </Paper>
                 <div>

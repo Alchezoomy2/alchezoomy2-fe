@@ -51,7 +51,7 @@ export default function AdminLogin() {
                         <img
                             className={classes.mainLogo}
                             src="/images/AL-logo.JPG"
-                            alt="logo image" />
+                            alt="logo" />
                     </Paper>
                 </div>
                 <form
