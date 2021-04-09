@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import { useObserver } from "mobx-react";
 import { useStateStore } from "../../utils/StoreProvider.js";
@@ -16,10 +16,16 @@ export const MeetingDetails = ({ startTime }) => {
     // const startingTimestamp = useRef(props.match.params.timestamp)
     let player = useRef();
     let videoTimestamp = useRef();
+    const [media, setMedia] = useState("");
 
 
 
     useEffect(() => {
+        if (store.meetingDetails.videoUrl) {
+            setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`);
+        } else if (store.meetingDetails.audioUrl) {
+            setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
+        }
         async function startAtTimestamp() {
             if (startTime) player.current.seekTo(startTime, "seconds");
         }
@@ -47,14 +53,17 @@ export const MeetingDetails = ({ startTime }) => {
             style={{ display: "flex", justifyItems: "center" }}>
             <div className={classes.root}>
                 <div className={classes.playerWrapper}>
-                    <ReactPlayer
-                        className={classes.reactPlayer}
-                        ref={player}
-                        width="100%"
-                        height="100%"
-                        url={`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`}
-                        controls
-                    />
+                    {media ?
+                        <ReactPlayer
+                            className={classes.reactPlayer}
+                            ref={player}
+                            width="100%"
+                            height="100%"
+                            url={media}
+                            controls
+                        />
+                        : null
+                    }
                 </div>
                 <div className={classes.boxDiv}>
                     {store.meetingDetails.chat_url ?

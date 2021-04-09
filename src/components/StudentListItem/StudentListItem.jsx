@@ -12,7 +12,7 @@ export default function StudentListItem(item, handleItemDelete) {
                 divider={true}
             >
                 <ListItemText
-                    primary={item.userName}
+                    primary={item.studentEmail}
                     secondary={item.email}
                 />
                 <DeleteIcon
