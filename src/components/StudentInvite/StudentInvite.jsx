@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 export default function StudentInvite() {
     const history = useHistory();
     const [open, setOpen] = useState(true);
+    const [firstName, setFirstName] = useState("");
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
     const [studentInfo, setStudentInfo] = useState({});
@@ -77,6 +78,14 @@ export default function StudentInvite() {
                             variant="outlined"
                             value={studentInfo.studentEmail}
                             disabled
+                        />
+                        <TextField
+                            id="firstName"
+                            label="First Name"
+                            variant="outlined"
+                            value={firstName}
+                            onChange={({ target }) => setFirstName(target.value)}
+                            required
                         />
                         <TextField
                             id="password1"
