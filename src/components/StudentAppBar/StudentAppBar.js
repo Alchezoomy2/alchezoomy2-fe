@@ -6,6 +6,8 @@ import { useStateStore } from "../../utils/StoreProvider.js";
 
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
+import PersonIcon from "@material-ui/icons/Person";
+import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 
 import { useObserver } from "mobx-react";
 import HomeIcon from "@material-ui/icons/Home";
@@ -14,7 +16,13 @@ import { useHistory } from "react-router-dom";
 import { useStyles } from "./StudentAppBarStyles";
 
 
-export default function StudentAppBar({ pageIcon, handleMeetingsClick, handleBookmarkClick, handleFavoriteClick }) {
+export default function StudentAppBar({
+    pageIcon,
+    handleMeetingsClick,
+    handleBookmarkClick,
+    handleFavoriteClick,
+    handleProfileClick }) {
+
     const store = useStateStore();
     const history = useHistory();
     const classes = useStyles();
@@ -29,6 +37,21 @@ export default function StudentAppBar({ pageIcon, handleMeetingsClick, handleBoo
             <Toolbar>
                 <div
                     className={classes.iconDiv}>
+                    {pageIcon === "profile" ?
+                        <IconButton
+                            color="inherit"
+                            aria-label="profile">
+                            <PersonIcon />
+                        </IconButton>
+                        :
+                        <IconButton
+                            color="inherit"
+                            aria-label="profile"
+                            onClick={handleProfileClick}>
+                            <PersonOutlineIcon />
+                        </IconButton>
+
+                    }
                     {pageIcon === "meeting" ?
                         <IconButton
                             color="inherit"
@@ -86,8 +109,8 @@ export default function StudentAppBar({ pageIcon, handleMeetingsClick, handleBoo
                 >
                     LOGOUT
                 </Button>
-            </Toolbar>
-        </AppBar>
+            </Toolbar >
+        </AppBar >
     );
 }
 

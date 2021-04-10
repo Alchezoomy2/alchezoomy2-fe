@@ -8,7 +8,7 @@ import StudentMeetings from "../../components/StudentMeetings/StudentMeetings.js
 import StudentAppBar from "../../components/StudentAppBar/StudentAppBar";
 import Bookmark from "../../components/Bookmark/Bookmark.js";
 import Favorite from "../../components/Favorite/Favorite.js";
-// import fetch from "superagent";
+import StudentProfile from "../../components/StudentProfile/StudentProfile";
 import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches.js";
 import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches.js";
 import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches.js";
@@ -21,6 +21,14 @@ export const Student = () => {
     const [pageIcon, setPageIcon] = useState("meeting");
     const [open, setOpen] = useState(true);
     const store = useStateStore();
+    const handleLoadingSpinner = () => setOpen(!open);
+
+    const handleProfileClick = async () => {
+        setPageIcon("profile");
+        setDisplayedPage(<StudentProfile
+            handleLoadingSpinner={handleLoadingSpinner}
+        />);
+    };
 
 
     const handleBookmarkClick = async () => {
@@ -78,6 +86,7 @@ export const Student = () => {
                 handleBookmarkClick={handleBookmarkClick}
                 handleFavoriteClick={handleFavoriteClick}
                 handleMeetingsClick={handleMeetingsClick}
+                handleProfileClick={handleProfileClick}
                 pageIcon={pageIcon}
             />
             {displayedPage}

@@ -28,10 +28,10 @@ export async function studentExists(jwt) {
     return response.body;
 }
 
-export async function studentChangePassword(userName, oldPassword, newPassword) {
+export async function studentChangePassword(studentId, payload) {
     const response = await fetch
-        .post(serverUrl + "/student/password")
-        .send({ userName, oldPassword, newPassword })
+        .patch(serverUrl + "/student/user/" + studentId)
+        .send(payload)
         .withCredentials();
 
     return response.body;
