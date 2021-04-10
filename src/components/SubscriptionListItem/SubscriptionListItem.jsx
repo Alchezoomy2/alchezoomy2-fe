@@ -12,7 +12,8 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
                 divider={true}
             >
                 <ListItemText
-                    secondary={subscription.email}
+                    primary={subscription.firstName}
+                    secondary={subscription.studentEmail}
                 />
                 <DeleteIcon
                     clickable
