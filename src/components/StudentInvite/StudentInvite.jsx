@@ -42,7 +42,7 @@ export default function StudentInvite() {
         // console.log(studentInfo);
 
         // const { studentEmail, teacherEmail } = studentInfo;
-        const studentInfo = await createStudent(studentEmail, teacherEmail, password1);
+        const studentInfo = await createStudent(studentEmail, teacherEmail, password1, firstName);
         store.changeStudentInfo(studentInfo);
         store.changeLoggedIn();
         history.push("/student/");
