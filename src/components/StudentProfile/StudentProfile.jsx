@@ -13,12 +13,12 @@ export default function StudentProfile({ handleLoadingSpinner }) {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword1, setNewPassword1] = useState("");
     const [newPassword2, setNewPassword2] = useState("");
+    const [newFirstName, setNewFirstName] = useState("");
 
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         handleLoadingSpinner(true);
         const response = await studentChangeProfile(store.studentInfo.id, { oldPassword, newPassword1 });
-        console.log("🚀 ~ file: StudentProfile.jsx ~ line 21 ~ handlePasswordSubmit ~ response ", response);
         setOldPassword("");
         setNewPassword1("");
         setNewPassword2("");
@@ -29,10 +29,48 @@ export default function StudentProfile({ handleLoadingSpinner }) {
 
     };
 
+    const handleNameSubmit = async (e) => {
+        e.preventDefault();
+        handleLoadingSpinner(true);
+        const response = await studentChangeProfile(store.studentInfo.id, { newFirstName });
+        store.changeStudentInfo(response);
+        if (response.message) {
+            window.alert(response.message);
+        }
+        handleLoadingSpinner(false);
+    };
+
 
     return (
         <Paper elevation={3} className={classes.root}>
             <div>
+                <span>NAME</span>
+                <form
+                    onSubmit={(e) => handleNameSubmit(e)}
+                    className={classes.nameForm}>
+                    <TextField
+                        id="firstName"
+                        variant="outlined"
+                        label="Current First Name"
+                        value={store.studentInfo.firstName}
+                        disabled
+                    />
+                    <TextField
+                        id="firstName"
+                        variant="outlined"
+                        label="New First Name"
+                        value={newFirstName}
+                        onChange={({ target }) => setNewFirstName(target.value)}
+                        required
+                    />
+                    <Button
+                        type="submit">
+                        SUBMIT
+                    </Button>
+                </form>
+            </div>
+            <div>
+                <span>CHANGE PASSWORD</span>
                 <form
                     onSubmit={(e) => handlePasswordSubmit(e)}
                     className={classes.passwordForm}>
