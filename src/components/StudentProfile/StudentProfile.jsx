@@ -33,10 +33,13 @@ export default function StudentProfile({ handleLoadingSpinner }) {
                     <TextField
                         id="oldPassword"
                         variant="outlined"
+                        label="Old Password"
+                        type="password"
                         value={oldPassword}
                         onChange={({ target }) => setOldPassword(target.value)}
                         required
                     />
+
                     <TextField
                         id="password1"
                         label="New Password"

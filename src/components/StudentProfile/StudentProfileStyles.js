@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         margin: "25px"
     },
 
-    signupForm: {
+    passwordForm: {
         height: "300px",
         display: "flex",
         flexDirection: "column",
