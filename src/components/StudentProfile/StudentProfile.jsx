@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Paper, TextField, Button } from "@material-ui/core";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useStyles } from "./StudentProfileStyles";
-import { studentChangePassword } from "../../utils/student-fetches/auth-fetches";
+import { studentChangeProfile } from "../../utils/student-fetches/auth-fetches";
 import { PropTypes } from "mobx-react";
 
 
@@ -17,7 +17,7 @@ export default function StudentProfile({ handleLoadingSpinner }) {
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
         handleLoadingSpinner();
-        const response = await studentChangePassword(store.studentInfo.id, { oldPassword, newPassword1 });
+        const response = await studentChangeProfile(store.studentInfo.id, { oldPassword, newPassword1 });
         console.log("🚀 ~ file: StudentProfile.jsx ~ line 19 ~ handlePasswordSubmit ~ response", response);
 
         handleLoadingSpinner();

@@ -41,14 +41,14 @@ export default function StudentAppBar({
                         <IconButton
                             color="inherit"
                             aria-label="profile">
-                            <PersonIcon />
+                            <PersonOutlineIcon />
                         </IconButton>
                         :
                         <IconButton
                             color="inherit"
                             aria-label="profile"
                             onClick={handleProfileClick}>
-                            <PersonOutlineIcon />
+                            <PersonIcon />
                         </IconButton>
 
                     }

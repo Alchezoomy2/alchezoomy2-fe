@@ -28,7 +28,7 @@ export async function studentExists(jwt) {
     return response.body;
 }
 
-export async function studentChangePassword(studentId, payload) {
+export async function studentChangeProfile(studentId, payload) {
     const response = await fetch
         .patch(serverUrl + "/student/user/" + studentId)
         .send(payload)
