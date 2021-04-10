@@ -16,7 +16,6 @@ export default function StudentProfile({ handleLoadingSpinner }) {
 
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
-        handleLoadingSpinner();
         const response = await studentChangeProfile(store.studentInfo.id, { oldPassword, newPassword1 });
         console.log("🚀 ~ file: StudentProfile.jsx ~ line 21 ~ handlePasswordSubmit ~ response ", response);
         setOldPassword("");
@@ -25,7 +24,6 @@ export default function StudentProfile({ handleLoadingSpinner }) {
         if (response.message) {
             window.alert(response.message);
         }
-        handleLoadingSpinner();
 
     };
 
