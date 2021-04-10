@@ -33,6 +33,7 @@ export async function studentChangeProfile(studentId, payload) {
         .patch(serverUrl + "/student/user/" + studentId)
         .send(payload)
         .withCredentials();
+    console.log("🚀 ~ file: auth-fetches.js ~ line 36 ~ studentChangeProfile ~ response", response);
 
     return response.body;
 }
