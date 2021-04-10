@@ -18,9 +18,13 @@ export default function StudentProfile({ handleLoadingSpinner }) {
         e.preventDefault();
         handleLoadingSpinner();
         const response = await studentChangeProfile(store.studentInfo.id, { oldPassword, newPassword1 });
-        console.log("🚀 ~ file: StudentProfile.jsx ~ line 19 ~ handlePasswordSubmit ~ response", response);
-
+        setOldPassword("");
+        setNewPassword1("");
+        setNewPassword2("");
         handleLoadingSpinner();
+        if (response.message) {
+            window.alert(response.message);
+        }
     };
 
 
