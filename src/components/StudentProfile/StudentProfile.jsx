@@ -3,6 +3,8 @@ import { Paper, TextField, Button } from "@material-ui/core";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useStyles } from "./StudentProfileStyles";
 import { studentChangePassword } from "../../utils/student-fetches/auth-fetches";
+import { PropTypes } from "mobx-react";
+
 
 
 export default function StudentProfile({ handleLoadingSpinner }) {
@@ -62,3 +64,8 @@ export default function StudentProfile({ handleLoadingSpinner }) {
         </Paper>
     );
 }
+
+
+StudentProfile.propTypes = {
+    handleLoadingSpinner: PropTypes.func
+};
