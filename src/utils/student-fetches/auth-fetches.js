@@ -10,10 +10,10 @@ export async function studentAuth(studentEmail, password) {
     return response.body;
 }
 
-export async function createStudent(studentEmail, teacherEmail, password) {
+export async function createStudent(studentEmail, teacherEmail, password, firstName) {
     const response = await fetch
         .post(serverUrl + "/student/new")
-        .send({ studentEmail, teacherEmail, password })
+        .send({ studentEmail, teacherEmail, password, firstName })
         .withCredentials();
 
     return response.body;
