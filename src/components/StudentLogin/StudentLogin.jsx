@@ -5,7 +5,7 @@ import { studentAuth } from "../../utils/student-fetches/auth-fetches";
 import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
-import snackBar from "../../components/snackbar/snackBar";
+import snackBar from "../../components/snackBar/snackBar";
 
 
 export default function StudentLogin() {
