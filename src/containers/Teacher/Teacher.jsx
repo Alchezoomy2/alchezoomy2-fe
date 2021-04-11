@@ -52,9 +52,11 @@ export const Teacher = () => {
     };
 
     const handleAvatarClick = async () => {
+        setOpen(true);
         const returnedHexPalette = await fetchColorPalette(store.teacherInfo.picUrl);
         setHexPalette(returnedHexPalette.hexPalette);
         setColorDialog(true);
+        setOpen(false);
     };
 
     const closeColorDialog = () => {

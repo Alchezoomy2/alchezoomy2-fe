@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
         height: "90vh",
         flexDirection: "column",
         display: "flex",
-        justifyItems: "center",
+        justifyContents: "center",
         alignItems: "center"
     },
     card: {
