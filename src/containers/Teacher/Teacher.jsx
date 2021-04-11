@@ -55,7 +55,7 @@ export const Teacher = () => {
         const returnedHexPalette = await fetchColorPalette(store.teacherInfo.picUrl);
         console.log("🚀 ~ file: Teacher.jsx ~ line 56 ~ handleAvatarClick ~ returnedHexPalette", returnedHexPalette);
 
-        setHexPalette(returnedHexPalette);
+        setHexPalette(returnedHexPalette.hexPalette);
         setColorDialog(true);
     };
 
