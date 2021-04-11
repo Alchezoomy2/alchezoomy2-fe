@@ -8,11 +8,11 @@ import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
 import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
 import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
 import AdminBucketDashboard from "../../components/AdminBucketDashboard/AdminBucketDashboard";
-import adminSnackBar from "../../components/AdminSnackbar/AdminSnackBar";
+import snackBar from "../../components/snackbar/snackBar";
 
 
 export default function Admin() {
-    const { openSnackbar, SnackbarComponent } = adminSnackBar();
+    const { openSnackbar, SnackbarComponent } = snackBar();
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
     const [open, setOpen] = useState(false);
