@@ -3,9 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles({
     root: {
         height: "100vh",
-        flexDirection: "column",
         display: "flex",
-        justifyItems: "center",
+        justifyItems: "space-between",
         alignItems: "center"
     },
     button: {
@@ -24,6 +23,12 @@ export const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         width: "500px"
+    },
+
+    nameForm: {
+        display: "flex",
+        flexDirection: "column",,
+
     }
 });
 

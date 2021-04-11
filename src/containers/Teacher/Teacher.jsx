@@ -10,11 +10,11 @@ import { useStyles } from "./TeacherStyles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
 import { TeacherSubscriptions } from "../../components/TeacherSubscriptions/TeacherSubscriptions.jsx";
-import adminSnackBar from "../../components/AdminSnackbar/AdminSnackBar";
+import snackBar from "../../components/snackbar/snackBar";
 
 
 export const Teacher = () => {
-    const { openSnackbar, SnackbarComponent } = adminSnackBar();
+    const { openSnackbar, SnackbarComponent } = snackBar();
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
     let [open, setOpen] = useState(true);

@@ -7,13 +7,14 @@ import { PropTypes } from "mobx-react";
 
 
 
-export default function StudentProfile({ handleLoadingSpinner }) {
+export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
     const store = useStateStore();
     const classes = useStyles();
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword1, setNewPassword1] = useState("");
     const [newPassword2, setNewPassword2] = useState("");
     const [newFirstName, setNewFirstName] = useState("");
+    const [currentFirstName, setCurrentFirstName] = useState(store.studentInfo.firstName);
 
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +24,9 @@ export default function StudentProfile({ handleLoadingSpinner }) {
         setNewPassword1("");
         setNewPassword2("");
         if (response.message) {
-            window.alert(response.message);
+            openSnackbar("error", response.message);
+        } else {
+            openSnackbar("success", "Password Changed!");
         }
         handleLoadingSpinner(false);
 
@@ -33,10 +36,15 @@ export default function StudentProfile({ handleLoadingSpinner }) {
         e.preventDefault();
         handleLoadingSpinner(true);
         const response = await studentChangeProfile(store.studentInfo.id, { newFirstName });
+
         store.changeStudentInfo(response);
         if (response.message) {
-            window.alert(response.message);
+            openSnackbar("error", response.message);
+        } else {
+            openSnackbar("success", "Name Changed!");
         }
+        setCurrentFirstName(newFirstName);
+        setNewFirstName("");
         handleLoadingSpinner(false);
     };
 
@@ -52,7 +60,7 @@ export default function StudentProfile({ handleLoadingSpinner }) {
                         id="firstName"
                         variant="outlined"
                         label="Current First Name"
-                        value={store.studentInfo.firstName}
+                        value={currentFirstName}
                         disabled
                     />
                     <TextField

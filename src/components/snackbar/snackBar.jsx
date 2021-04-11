@@ -3,7 +3,7 @@ import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 
 
-export default function adminSnackBar() {
+export default function snackBar() {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [severity, setSeverity] = useState("info");
     const [message, setMessage] = useState("");
