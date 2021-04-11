@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Paper, Typography, Button } from "@material-ui/core";
 import { useStyles } from "./StudentInviteStyles";
 import { createStudent, studentExists } from "../../utils/student-fetches/auth-fetches";
+import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 
@@ -43,6 +44,8 @@ export default function StudentInvite() {
         const studentInfo = await createStudent(studentEmail, teacherEmail, password1, firstName);
         if (studentInfo) {
             store.changeStudentInfo(studentInfo);
+            const meetingsObj = await fetchAllStudentMeetings();
+            store.changeMeetingsObj(meetingsObj);
             store.changeLoggedIn();
             history.push("/student/");
         }
