@@ -39,6 +39,9 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
 
         store.changeStudentInfo(response);
         handleLoadingSpinner(false);
+
+        console.log("🚀 ~ file: StudentProfile.jsx ~ line 39 ~ handleNameSubmit ~ response", response);
+
         if (response.message) {
             openSnackbar("error", response.message);
         } else {
