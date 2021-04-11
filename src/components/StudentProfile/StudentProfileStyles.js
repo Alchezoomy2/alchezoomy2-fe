@@ -4,7 +4,8 @@ export const useStyles = makeStyles({
     root: {
         height: "100vh",
         display: "flex",
-        alignItems: "space-between",
+        alignItems: "center",
+
     },
     button: {
         height: "50px",

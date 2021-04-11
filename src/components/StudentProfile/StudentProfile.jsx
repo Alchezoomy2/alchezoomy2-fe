@@ -49,7 +49,7 @@ export default function StudentProfile({ openSnackbar }) {
     return (
         <Paper elevation={3} className={classes.root}>
             <div>
-                <span>NAME</span>
+                <span>CHANGE NAME</span>
                 <form
                     onSubmit={(e) => handleNameSubmit(e)}
                     className={classes.nameForm}>
