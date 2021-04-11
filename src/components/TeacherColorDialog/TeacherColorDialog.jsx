@@ -18,6 +18,9 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
         console.log(selectedColor);
     };
 
+    useEffect(() => {
+        console.log(hexPalette);
+    }, []);
     return (
         <Dialog
             open={colorDialog}
