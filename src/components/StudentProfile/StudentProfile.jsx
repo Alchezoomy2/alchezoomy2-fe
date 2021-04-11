@@ -43,8 +43,10 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
         console.log("🚀 ~ file: StudentProfile.jsx ~ line 39 ~ handleNameSubmit ~ response", response);
 
         if (response.message) {
+            console.log("response.message");
             openSnackbar("error", response.message);
         } else {
+            console.log("else");
             openSnackbar("success", "Name Changed!");
         }
         setCurrentFirstName(newFirstName);
