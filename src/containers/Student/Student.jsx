@@ -23,12 +23,10 @@ export const Student = () => {
     const [pageIcon, setPageIcon] = useState("meeting");
     const [open, setOpen] = useState(true);
     const store = useStateStore();
-    const handleLoadingSpinner = (input = !open) => setOpen(input);
 
     const handleProfileClick = async () => {
         setPageIcon("profile");
         setDisplayedPage(<StudentProfile
-            handleLoadingSpinner={handleLoadingSpinner}
             openSnackbar={openSnackbar}
         />);
     };
@@ -93,11 +91,6 @@ export const Student = () => {
                 pageIcon={pageIcon}
             />
             {displayedPage}
-            <Backdrop
-                className={classes.backdrop}
-                open={open}>
-                <CircularProgress />
-            </Backdrop>
             <SnackbarComponent />
         </Grid>
     );
