@@ -74,8 +74,6 @@ export const Student = () => {
         setDisplayedPage(<StudentMeetings
             handleMeetingDetailClick={handleMeetingDetailClick}
         />);
-        setOpen(false);
-
     }, []);
 
     return (
