@@ -7,7 +7,7 @@ import { PropTypes } from "mobx-react";
 
 
 
-export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
+export default function StudentProfile({ openSnackbar }) {
     const store = useStateStore();
     const classes = useStyles();
     const [oldPassword, setOldPassword] = useState("");
@@ -121,6 +121,5 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
 
 
 StudentProfile.propTypes = {
-    handleLoadingSpinner: PropTypes.func,
     openSnackbar: PropTypes.func
 };
