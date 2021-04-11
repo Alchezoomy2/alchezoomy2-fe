@@ -8,7 +8,7 @@ import StudentAppBar from "../../components/StudentAppBar/StudentAppBar";
 import Bookmark from "../../components/Bookmark/Bookmark.js";
 import Favorite from "../../components/Favorite/Favorite.js";
 import StudentProfile from "../../components/StudentProfile/StudentProfile";
-import snackBar from "../../components/snackbar/snackBar";
+import snackBar from "../../components/snackBar/snackBar";
 import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches.js";
 import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches.js";
 import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches.js";
