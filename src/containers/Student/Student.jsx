@@ -29,7 +29,7 @@ export const Student = () => {
         setPageIcon("profile");
         setDisplayedPage(<StudentProfile
             handleLoadingSpinner={handleLoadingSpinner}
-            openSnackBar={openSnackbar}
+            openSnackbar={openSnackbar}
         />);
     };
 
