@@ -9,7 +9,7 @@ import fuse from "fuse.js";
 import { SubscriptionListItem } from "../SubscriptionListItem/SubscriptionListItem";
 import { inviteStudent, deleteSubscription } from "../../utils/teacher-fetches/subscription-fetches";
 
-export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbarOpen }) => {
+export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [subscriptionArray, setSubscriptionArray] = useState(returnedSubscriptionArray);
@@ -37,7 +37,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
             }
             await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
-            handleSnackbarOpen("success", "Student Invited");
+            openSnackbar("success", "Student Invited");
         }
     };
 

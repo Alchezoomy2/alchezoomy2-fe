@@ -34,7 +34,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
         }
         await inviteTeacher(teacherEmailArray);
         setTeacherEmail("");
-        openSnackbar("success", "Teacher invitation sent");
+        openSnackbar("success", "Student invitation sent");
     };
 
     const handleSearchChange = (e) => {
