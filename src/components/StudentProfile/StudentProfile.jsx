@@ -49,7 +49,7 @@ export default function StudentProfile({ openSnackbar }) {
     return (
         <Paper elevation={3} className={classes.root}>
             <div>
-                <span>CHANGE NAME</span>
+                <span className={classes.label}>CHANGE NAME</span>
                 <form
                     onSubmit={(e) => handleNameSubmit(e)}
                     className={classes.nameForm}>
@@ -69,13 +69,14 @@ export default function StudentProfile({ openSnackbar }) {
                         required
                     />
                     <Button
-                        type="submit">
+                        type="submit"
+                        color="primary">
                         SUBMIT
                     </Button>
                 </form>
             </div>
             <div>
-                <span>CHANGE PASSWORD</span>
+                <span className={classes.label}>CHANGE PASSWORD</span>
                 <form
                     onSubmit={(e) => handlePasswordSubmit(e)}
                     className={classes.passwordForm}>
@@ -110,7 +111,8 @@ export default function StudentProfile({ openSnackbar }) {
                         required
                     />
                     <Button
-                        type="submit">
+                        type="submit"
+                        color="primary">
                         SUBMIT
                     </Button>
                 </form>

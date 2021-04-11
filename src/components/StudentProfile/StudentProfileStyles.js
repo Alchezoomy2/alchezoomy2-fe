@@ -4,18 +4,16 @@ export const useStyles = makeStyles({
     root: {
         height: "100vh",
         display: "flex",
-        justifyContent: "space-between",
-        marginBottom: "15px"
+        justifyContent: "space-around",
     },
+
     button: {
         height: "50px",
         width: "150px",
     },
-    mainLogo: {
-        height: "500px",
-    },
-    inviteText: {
-        margin: "25px"
+
+    label: {
+        marginBottom: "15px"
     },
 
     passwordForm: {
