@@ -54,11 +54,11 @@ export default function StudentProfile({ openSnackbar }) {
         e.preventDefault();
         if (openDeletePassword) {
             const response = await deleteStudent(store.studentInfo.id, deletePassword);
-            console.log("🚀 ~ file: StudentProfile.jsx ~ line 54 ~ handleDeleteAccount ~ response", response);
 
             if (response.success) {
                 openSnackbar("success", response.message);
                 store.changeLoggedIn();
+                localStorage.clear();
                 history.push("/");
             }
             openSnackbar("error", response.message);
