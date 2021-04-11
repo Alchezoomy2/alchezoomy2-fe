@@ -5,10 +5,10 @@ import React, { useState } from "react";
 import useStyles from "./TeacherColorDialogStyles";
 import { PropTypes } from "mobx-react";
 
-export default function TeacherColorDialog({ returnedHexPalette, closeColorDialog, colorDialog }) {
+export default function TeacherColorDialog({ hexPalette, closeColorDialog, colorDialog }) {
     // const store = useStateStore();
     const classes = useStyles();
-    const [selectedColor, setSelectedColor] = useState(returnedHexPalette[0]);
+    const [selectedColor, setSelectedColor] = useState(hexPalette[0]);
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
@@ -29,10 +29,10 @@ export default function TeacherColorDialog({ returnedHexPalette, closeColorDialo
             </DialogTitle>
             <DialogContent
                 className={classes.root}>
-                {returnedHexPalette[0] ?
+                {hexPalette[0] ?
                     <div>
                         <ul className={classes.list}>
-                            {returnedHexPalette.map(color => (
+                            {hexPalette.map(color => (
                                 <ColorBlock
                                     key={color}
                                     color={color}
@@ -64,7 +64,7 @@ export default function TeacherColorDialog({ returnedHexPalette, closeColorDialo
 }
 
 TeacherColorDialog.propTypes = {
-    returnedHexPalette: PropTypes.array,
+    hexPalette: PropTypes.array,
     closeColorDialog: PropTypes.func,
     colorDialog: PropTypes.bool
 };
