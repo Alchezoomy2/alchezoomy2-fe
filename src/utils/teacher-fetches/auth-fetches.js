@@ -30,3 +30,12 @@ export async function fetchColorPalette(picUrl) {
     return response.body;
 }
 
+export async function changeColor(teacherId, newColor) {
+    const response = await request
+        .put(serverUrl + "/teacher/color/" + teacherId)
+        .send({ newColor })
+        .withCredentials();
+
+    return response.body;
+}
+
