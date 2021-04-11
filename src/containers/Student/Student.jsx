@@ -1,8 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import MeetingDetails from "../../components/MeetingDetails/MeetingDetails";
 import { useStateStore } from "../../utils/StoreProvider.js";
-import { useStyles } from "./StudentStyles";// import classes from '*.module.css';
 // import { useHistory } from "react-router-dom";
 import StudentMeetings from "../../components/StudentMeetings/StudentMeetings.js";
 import StudentAppBar from "../../components/StudentAppBar/StudentAppBar";
@@ -18,10 +17,8 @@ import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-f
 
 export const Student = () => {
     const { openSnackbar, SnackbarComponent } = snackBar();
-    const classes = useStyles();
     const [displayedPage, setDisplayedPage] = useState(null);
     const [pageIcon, setPageIcon] = useState("meeting");
-    const [open, setOpen] = useState(true);
     const store = useStateStore();
 
     const handleProfileClick = async () => {
