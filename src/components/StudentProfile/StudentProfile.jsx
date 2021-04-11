@@ -18,35 +18,27 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
 
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
-        handleLoadingSpinner(true);
         const response = await studentChangeProfile(store.studentInfo.id, { oldPassword, newPassword1 });
         setOldPassword("");
         setNewPassword1("");
         setNewPassword2("");
+
         if (response.message) {
             openSnackbar("error", response.message);
         } else {
             openSnackbar("success", "Password Changed!");
         }
-        handleLoadingSpinner(false);
 
     };
 
     const handleNameSubmit = async (e) => {
         e.preventDefault();
-        handleLoadingSpinner(true);
         const response = await studentChangeProfile(store.studentInfo.id, { newFirstName });
 
         store.changeStudentInfo(response);
-        handleLoadingSpinner(false);
-
-        console.log("🚀 ~ file: StudentProfile.jsx ~ line 39 ~ handleNameSubmit ~ response", response);
-
         if (response.message) {
-            console.log("response.message");
             openSnackbar("error", response.message);
         } else {
-            console.log("else");
             openSnackbar("success", "Name Changed!");
         }
         setCurrentFirstName(newFirstName);
