@@ -19,7 +19,7 @@ export default function StudentLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const studentInfo = await studentAuth(studentEmail, password);
+            const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
             store.changeStudentInfo(studentInfo);
             store.changeLoggedIn();
 
@@ -30,7 +30,7 @@ export default function StudentLogin() {
             history.push("/student");
         } catch (e) {
 
-            openSnackbar("error", e.message);
+            openSnackbar("error", "Invalid username or password");
             setPassword("");
         }
 

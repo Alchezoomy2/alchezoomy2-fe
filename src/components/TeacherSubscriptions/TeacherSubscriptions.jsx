@@ -31,9 +31,9 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, handleSnackbar
         let studentEmailArray;
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             if (studentEmail.includes(",")) {
-                studentEmailArray = studentEmail.split(",");
+                studentEmailArray = studentEmail.split(",").toLowerCase();
             } else {
-                studentEmailArray = [studentEmail];
+                studentEmailArray = [studentEmail.toLowerCase()];
             }
             await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
