@@ -9,6 +9,13 @@ export const useStyles = makeStyles({
         justifyItems: "center",
         alignItems: "center"
     },
+    list: {
+        listStyleType: "none",
+        display: "flex",
+        width: "350px",
+        justifyContent: "space-around",
+        margin: "5px",
+    },
 
 });
 

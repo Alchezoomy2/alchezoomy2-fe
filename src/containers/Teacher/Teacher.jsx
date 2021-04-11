@@ -59,7 +59,7 @@ export const Teacher = () => {
         setColorDialog(true);
     };
 
-    const closeColorModal = () => {
+    const closeColorDialog = () => {
         setOpen(false);
         setColorDialog(false);
     };
@@ -102,7 +102,7 @@ export const Teacher = () => {
                 <SnackbarComponent />
                 <TeacherColorDialog
                     hexPalette={hexPalette}
-                    closeColorModal={closeColorModal}
+                    closeColorDialog={closeColorDialog}
                     colorDialog={colorDialog}
                 />
             </Grid>

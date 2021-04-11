@@ -24,14 +24,15 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
     return (
         <Dialog
             open={colorDialog}
-            style={{ borderLeft: `15px solid ${selectedColor}` }}
         >
             <DialogTitle id="color-update"
             >
                 Change your display color.
             </DialogTitle>
             <DialogContent
-                className={classes.root}>
+                className={classes.root}
+                style={{ borderLeft: `15px solid ${selectedColor}` }}
+            >
                 {hexPalette[0] ?
                     <div>
                         <ul className={classes.list}>
