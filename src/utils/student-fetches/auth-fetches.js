@@ -36,3 +36,12 @@ export async function studentChangeProfile(studentId, payload) {
 
     return response.body;
 }
+
+export async function deleteStudent(studentId, password) {
+    const response = await fetch
+        .delete(serverUrl + "/student/" + studentId)
+        .send({ password: password })
+        .withCredentials();
+
+    return response.body;
+}

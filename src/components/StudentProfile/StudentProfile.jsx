@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Paper, TextField, Button } from "@material-ui/core";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useStyles } from "./StudentProfileStyles";
-import { studentChangeProfile } from "../../utils/student-fetches/auth-fetches";
+import { studentChangeProfile, deleteStudent } from "../../utils/student-fetches/auth-fetches";
 import { PropTypes } from "mobx-react";
 
 
@@ -15,6 +15,8 @@ export default function StudentProfile({ openSnackbar }) {
     const [newPassword2, setNewPassword2] = useState("");
     const [newFirstName, setNewFirstName] = useState("");
     const [currentFirstName, setCurrentFirstName] = useState(store.studentInfo.firstName);
+    const [openDeletePassword, setOpenDeletePassword] = useState(false);
+    const [deletePassword, setDeletePassword] = useState("");
 
     const handlePasswordSubmit = async (e) => {
         e.preventDefault();
@@ -45,6 +47,22 @@ export default function StudentProfile({ openSnackbar }) {
         setNewFirstName("");
     };
 
+    const handleDeleteAccount = async (e) => {
+        e.preventDefault();
+        if (openDeletePassword) {
+            const response = await deleteStudent(store.studentInfo.id, deletePassword);
+            if (response.success) {
+                openSnackbar("success", response.message);
+                store.changeLoggedIn();
+                history.push("/");
+            }
+            openSnackbar("error", response.message);
+            setDeletePassword("");
+        } else {
+            setOpenDeletePassword(true);
+        }
+
+    };
 
     return (
         <Paper elevation={3} className={classes.root}>
@@ -64,11 +82,13 @@ export default function StudentProfile({ openSnackbar }) {
                         id="firstName"
                         variant="outlined"
                         label="New First Name"
+                        autocomplete="given-name"
                         value={newFirstName}
                         onChange={({ target }) => setNewFirstName(target.value)}
                         required
                     />
                     <Button
+                        variant="contained"
                         type="submit"
                         color="primary">
                         SUBMIT
@@ -85,6 +105,7 @@ export default function StudentProfile({ openSnackbar }) {
                         variant="outlined"
                         label="Old Password"
                         type="password"
+                        autocomplete="current-password"
                         value={oldPassword}
                         onChange={({ target }) => setOldPassword(target.value)}
                         required
@@ -97,6 +118,7 @@ export default function StudentProfile({ openSnackbar }) {
                         value={newPassword1}
                         onChange={({ target }) => setNewPassword1(target.value)}
                         type="password"
+                        autocomplete="new-password"
                         error={newPassword1 !== newPassword2}
                         required
                     />
@@ -107,15 +129,42 @@ export default function StudentProfile({ openSnackbar }) {
                         value={newPassword2}
                         onChange={({ target }) => setNewPassword2(target.value)}
                         type="password"
+                        autocomplete="new-password"
                         error={newPassword1 !== newPassword2}
                         required
                     />
                     <Button
+                        variant="contained"
                         type="submit"
                         color="primary">
                         SUBMIT
                     </Button>
                 </form>
+            </div>
+            <div>
+                {openDeletePassword ?
+                    <div>
+                        <span className={classes.label}>ENTER PASSWORD TO DELETE ACCOUNT</span>
+                        <TextField
+                            id="deletePassword"
+                            variant="outlined"
+                            label="Current Password"
+                            value={deletePassword}
+                            onChange={({ target }) => setDeletePassword(target.value)}
+                            type="password"
+                            autocomplete="current-password"
+                            required
+                        />
+                    </div>
+                    :
+                    <span className={classes.label}>DELETE ACCOUNT</span>
+                }
+                <Button
+                    variant="contained"
+                    color="accent2Color"
+                    onClick={handleDeleteAccount}>
+                    DELETE ACCOUNT
+                </Button>
             </div>
         </Paper>
     );

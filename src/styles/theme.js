@@ -8,7 +8,7 @@ export const theme = createMuiTheme({
         "secondary": {
             "main": "#858585",
         },
-        "accent2Color": "#c51162",
+        "accent2Color": "#f50057",
         "primary1Color": "#1976d2",
         "primary2Color": "#039be5",
         "accent1Color": "#f50057",
