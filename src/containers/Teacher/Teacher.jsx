@@ -11,7 +11,7 @@ import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscr
 import { TeacherSubscriptions } from "../../components/TeacherSubscriptions/TeacherSubscriptions.jsx";
 import { fetchColorPalette } from "../../utils/teacher-fetches/auth-fetches";
 import snackBar from "../../components/snackbar/snackBar";
-import { TeacherColorDialog } from "../../components/TeacherColorDialog/TeacherColorDialog";
+import TeacherColorDialog from "../../components/TeacherColorDialog/TeacherColorDialog";
 
 
 export const Teacher = () => {
