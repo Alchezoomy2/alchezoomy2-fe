@@ -124,5 +124,6 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
 
 
 StudentProfile.propTypes = {
-    handleLoadingSpinner: PropTypes.func
+    handleLoadingSpinner: PropTypes.func,
+    openSnackbar: PropTypes.func
 };
