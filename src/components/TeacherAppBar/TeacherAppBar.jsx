@@ -27,6 +27,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                         src={store.teacherInfo.picUrl}
                         edge="start"
                         onClick={handleAvatarClick}
+                        className={classes.avatar}
                     />
                     <Typography
                         className={classes.teacherName}>

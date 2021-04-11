@@ -19,6 +19,9 @@ export const useStyles = makeStyles({
         marginLeft: "5px",
         alignContent: "center"
     },
+    avatar: {
+        cursor: "pointer",
+    }
 
 
 });
