@@ -4,10 +4,13 @@ import { useStateStore } from "../../utils/StoreProvider";
 import { useStyles } from "./StudentProfileStyles";
 import { studentChangeProfile, deleteStudent } from "../../utils/student-fetches/auth-fetches";
 import { PropTypes } from "mobx-react";
+import { useHistory } from "react-router-dom";
+
 
 
 
 export default function StudentProfile({ openSnackbar }) {
+    const history = useHistory();
     const store = useStateStore();
     const classes = useStyles();
     const [oldPassword, setOldPassword] = useState("");
@@ -51,6 +54,8 @@ export default function StudentProfile({ openSnackbar }) {
         e.preventDefault();
         if (openDeletePassword) {
             const response = await deleteStudent(store.studentInfo.id, deletePassword);
+            console.log("🚀 ~ file: StudentProfile.jsx ~ line 54 ~ handleDeleteAccount ~ response", response);
+
             if (response.success) {
                 openSnackbar("success", response.message);
                 store.changeLoggedIn();
