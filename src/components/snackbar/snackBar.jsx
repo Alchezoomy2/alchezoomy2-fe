@@ -13,6 +13,8 @@ export default function snackBar() {
     };
 
     const openSnackbar = (incomingSeverity = "success", incomingMessage = "") => {
+        console.log("🚀 ~ file: SnackBar.jsx ~ line 16 ~ openSnackbar ~ incomingSeverity", incomingSeverity);
+        console.log("🚀 ~ file: SnackBar.jsx ~ line 16 ~ openSnackbar ~ incomingMessage", incomingMessage);
         setSnackbarOpen(true);
         setSeverity(incomingSeverity);
         setMessage(incomingMessage);
