@@ -44,8 +44,8 @@ export default function StudentInvite() {
         const studentInfo = await createStudent(studentEmail, teacherEmail, password1, firstName);
         if (studentInfo) {
             store.changeStudentInfo(studentInfo);
-            const meetingsObj = await fetchAllStudentMeetings();
-            store.changeMeetingsObj(meetingsObj);
+            const newMeetingsObj = await fetchAllStudentMeetings();
+            store.changeMeetingsObj(newMeetingsObj);
             store.changeLoggedIn();
             history.push("/student/");
         }
