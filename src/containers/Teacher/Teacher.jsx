@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
-import { useObserver } from "mobx-react";
 import { TeacherCreator } from "../../components/TeacherCreator/TeacherCreator";
 import { TeacherDashboard } from "../../components/TeacherDashboard/TeacherDashboard";
 import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
@@ -17,6 +16,7 @@ export const Teacher = () => {
     const { openSnackbar, SnackbarComponent } = snackBar();
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
+    const [colorDialog, setColorDialog] = useState(false);
     let [open, setOpen] = useState(true);
     const store = useStateStore();
 
@@ -48,44 +48,61 @@ export const Teacher = () => {
         setOpen(false);
     };
 
-    useEffect(async () => {
+    const handleAvatarClick = async () => {
+        const returnedHexPalette = await fetchColorPalette(store.teacherInfo.picUrl);
+        setColorDialog(true);
+    }
 
-        if (store.teacherInfo.newUser) {
-            setDisplayModule(<TeacherCreator
-                handleCreateTeacher={handleCreateTeacher}
-            />);
-        } else {
-            const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
-            store.changeMeetingsObj(returnedMeetingArray);
-            setDisplayModule(<TeacherDashboard
-                setOpen={setOpen}
-                openSnackbar={openSnackbar}
-            />);
-        }
-
+    const closeColorModal = () => {
         setOpen(false);
-    }, [setOpen]);
+        setColorModal(false);
+    }
+}
+
+useEffect(async () => {
+
+    if (store.teacherInfo.newUser) {
+        setDisplayModule(<TeacherCreator
+            handleCreateTeacher={handleCreateTeacher}
+        />);
+    } else {
+        const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
+        store.changeMeetingsObj(returnedMeetingArray);
+        setDisplayModule(<TeacherDashboard
+            setOpen={setOpen}
+            openSnackbar={openSnackbar}
+        />);
+    }
+
+    setOpen(false);
+}, [setOpen]);
 
 
 
-    return useObserver(() =>
-        <div>
-            <Grid>
-                <TeacherAppBar
-                    handleSubscriptionDashboard={handleSubscriptionDashboard}
-                    handleLectureDashboard={handleLectureDashboard}
-                />
-                {displayModule}
-                <Backdrop
-                    className={classes.backdrop}
-                    open={open}>
-                    <CircularProgress />
-                </Backdrop>
-                <SnackbarComponent />
-            </Grid>
-        </div>
+return useObserver(() =>
+    <div>
+        <Grid>
+            <TeacherAppBar
+                handleSubscriptionDashboard={handleSubscriptionDashboard}
+                handleLectureDashboard={handleLectureDashboard}
+                handleAvatarClick={handleAvatarClick}
+            />
+            {displayModule}
+            <Backdrop
+                className={classes.backdrop}
+                open={open}>
+                <CircularProgress />
+            </Backdrop>
+            <SnackbarComponent />
+            <TeacherColorDialog
+                returnedHexPalette={returnedHexPalette}
+                closeColorModal={closeColorModal}
+                colorDialog={colorDialog}
+            />
+        </Grid>
+    </div>
 
-    );
+);
 };
 
 export default Teacher;

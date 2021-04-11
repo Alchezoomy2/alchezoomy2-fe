@@ -21,7 +21,7 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
             <Paper elevation={3}
                 className={classes.root}>
                 <Typography>
-                    {`WELCOME TO ALCHEMZOOMY ${userName}!`}
+                    {`WELCOME TO ALCHEMY LECTURES ${userName}!`}
                 </Typography>
                 <Typography>
                     {"This appears to be your first visit!  You'll need to create an account to continue.  Is this you?"}

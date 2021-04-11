@@ -7,9 +7,7 @@ import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
 
-
-
-export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashboard }) => {
+export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashboard, handleAvatarClick }) => {
     const store = useStateStore();
     const classes = useStyles();
     const history = useHistory();
@@ -19,6 +17,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
         history.push("/");
     };
 
+
     return useObserver(() =>
         <AppBar position="static" className={classes.root}>
             <Toolbar>
@@ -27,6 +26,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                         alt={store.teacherInfo.userName}
                         src={store.teacherInfo.picUrl}
                         edge="start"
+                        onClick={handleAvatarClick}
                     />
                     <Typography
                         className={classes.teacherName}>
