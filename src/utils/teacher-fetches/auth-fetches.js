@@ -23,7 +23,8 @@ export async function createTeacher(teacherInfo) {
 
 export async function fetchColorPalette(picUrl) {
     const response = await request
-        .get(serverUrl + "/teacher/color/" + picUrl)
+        .post(serverUrl + "/teacher/color")
+        .send({ picUrl })
         .withCredentials();
 
     return response.body;
