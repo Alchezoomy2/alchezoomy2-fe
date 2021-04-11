@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
 
     nameForm: {
         display: "flex",
-        flexDirection: "column",,
+        flexDirection: "column",
 
     }
 });
