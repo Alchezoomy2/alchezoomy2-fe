@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogTitle, Button, Typography } from "@material-ui/core";
 import ColorBlock from "../ColorBlock/ColorBlock";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { useStateStore } from "../../utils/StoreProvider";
 import useStyles from "./TeacherColorDialogStyles";
 import { PropTypes } from "mobx-react";
