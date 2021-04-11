@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
+import { Paper, TextField, Button } from "@material-ui/core";
 import { useStyles } from "./StudentLoginStyles.js";
 import { studentAuth } from "../../utils/student-fetches/auth-fetches";
 import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
+import snackBar from "../../components/snackbar/snackBar";
 
 
 export default function StudentLogin() {
     const history = useHistory();
     const classes = useStyles();
     const store = useStateStore();
+    const { openSnackbar, SnackbarComponent } = snackBar();
     const [studentEmail, setStudentEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [invalidLoginOpen, setInvalidLoginOpen] = useState(false);
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,16 +30,11 @@ export default function StudentLogin() {
             history.push("/student");
         } catch (e) {
 
-            setInvalidLoginOpen(true);
+            openSnackbar("error", e.message);
             setPassword("");
         }
 
     };
-
-    const handleSnackbarClose = () => {
-        setInvalidLoginOpen(false);
-    };
-
 
     return (
         <div>
@@ -74,11 +69,7 @@ export default function StudentLogin() {
                     <Button type="submit">SUBMIT</Button>
                 </form>
             </Paper>
-            <Snackbar
-                open={invalidLoginOpen}
-                message="Invalid Username or Password"
-                onClose={handleSnackbarClose}
-            />
+            <SnackbarComponent />
         </div>
     );
 
