@@ -38,6 +38,7 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
         const response = await studentChangeProfile(store.studentInfo.id, { newFirstName });
 
         store.changeStudentInfo(response);
+        handleLoadingSpinner(false);
         if (response.message) {
             openSnackbar("error", response.message);
         } else {
@@ -45,7 +46,6 @@ export default function StudentProfile({ handleLoadingSpinner, openSnackbar }) {
         }
         setCurrentFirstName(newFirstName);
         setNewFirstName("");
-        handleLoadingSpinner(false);
     };
 
 
