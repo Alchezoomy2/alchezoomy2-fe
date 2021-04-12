@@ -17,7 +17,7 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
                 />
                 <DeleteIcon
                     clickable
-                    onClick={() => handleSubscriptionDelete(subscription.id)}
+                    onClick={() => handleSubscriptionDelete(subscription)}
                 />
             </ListItem>
         </div>

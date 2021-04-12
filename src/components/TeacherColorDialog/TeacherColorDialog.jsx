@@ -17,7 +17,6 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
 
     const handleSubmit = async () => {
         const { updatedTeacher, updatedMeetings } = await changeColor(store.teacherInfo.id, selectedColor);
-        console.log("🚀 ~ file: TeacherColorDialog.jsx ~ line 20 ~ handleSubmit ~ updatedTeacher, updatedMeetings", updatedTeacher, updatedMeetings);
         store.changeTeacherInfo(updatedTeacher);
         store.changeMeetingsObj(updatedMeetings);
         closeColorDialog();

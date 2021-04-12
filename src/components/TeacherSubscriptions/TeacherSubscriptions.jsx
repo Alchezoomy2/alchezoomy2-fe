@@ -8,13 +8,17 @@ import useStyles from "./teacherSubscriptionStyles";
 import fuse from "fuse.js";
 import { SubscriptionListItem } from "../SubscriptionListItem/SubscriptionListItem";
 import { inviteStudent, deleteSubscription } from "../../utils/teacher-fetches/subscription-fetches";
+import DeleteDialog from "../DeleteDialog/DeleteDialog";
 
-export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar }) => {
+export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, setOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [subscriptionArray, setSubscriptionArray] = useState(returnedSubscriptionArray);
     const [studentEmail, setStudentEmail] = useState("");
     const [searchField, setSearchField] = useState("");
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+    const [deletePayload, setDeletePayload] = useState("");
+
 
     let fuseSubscriptionList = new fuse(subscriptionArray, {
         keys: ["email", "creationDate", "userName"],
@@ -45,8 +49,19 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar }
         setSearchField(e.target.value);
     };
 
-    const handleSubscriptionDelete = async (subscriptionId) => {
-        const newSubscriptionArray = await deleteSubscription(subscriptionId);
+    const handleSubscriptionDelete = async (subscription) => {
+        // const newSubscriptionArray = await deleteSubscription(subscriptionId);
+        // setSubscriptionArray(newSubscriptionArray);
+        setDeletePayload({
+            label: subscription.studentEmail,
+            payload: subscription
+        });
+        setShowDeleteDialog(true);
+        setOpen(true);
+    };
+
+    const closeDeleteDialog = async (confirmed, subscription) => {
+        const newSubscriptionArray = await deleteSubscription(subscription.id);
         setSubscriptionArray(newSubscriptionArray);
     };
 
@@ -99,6 +114,12 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar }
                     }
                 </List>
             </Paper>
+            <DeleteDialog
+                deletePayload={deletePayload}
+                closeDeleteDialog={closeDeleteDialog}
+                showDeleteDialog={showDeleteDialog}
+            />
+
         </div>
     );
 };
