@@ -61,8 +61,17 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
     };
 
     const closeDeleteDialog = async (confirmed, subscription) => {
-        const newSubscriptionArray = await deleteSubscription(subscription.id);
-        setSubscriptionArray(newSubscriptionArray);
+        if (confirmed) {
+            const newSubscriptionArray = await deleteSubscription(subscription.id);
+            setSubscriptionArray(newSubscriptionArray);
+            setShowDeleteDialog(false);
+            setOpen(false);
+        }
+        setDeletePayload("");
+        setShowDeleteDialog(false);
+        setOpen(false);
+
+
     };
 
     return useObserver(() =>

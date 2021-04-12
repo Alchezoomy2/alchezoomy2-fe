@@ -22,9 +22,10 @@ export default function DeleteDialog({ deletePayload, closeDeleteDialog, showDel
             </DialogContent>
             <DialogActions>
                 <Button
-                    onClick={closeDeleteDialog}
+                    onClick={() => closeDeleteDialog(false)}
                     color="primary">{"CANCEL"}</Button>
-                <Button onClick={closeDeleteDialog}
+                <Button
+                    onClick={() => closeDeleteDialog(true, deletePayload.payload)}
                     color="primary">{"DELETE"}
                 </Button>
             </DialogActions>
