@@ -22,8 +22,10 @@ export const MeetingDetails = ({ startTime }) => {
 
     useEffect(() => {
         if (store.meetingDetails.videoUrl) {
+            console.log("video");
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`);
         } else if (store.meetingDetails.audioUrl) {
+            console.log("audio");
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
         }
         async function startAtTimestamp() {
