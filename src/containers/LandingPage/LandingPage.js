@@ -18,6 +18,14 @@ export const LandingPage = () => {
             <div>
                 <Button
                     variant="contained"
+                    color="primary"
+                    onClick={() => {
+                        window.location.href = "/teacher/login";
+                    }}>
+                    TEACHER
+                </Button>
+                <Button
+                    variant="contained"
                     color="secondary"
                     onClick={() => {
                         window.location.href = "/student/login";

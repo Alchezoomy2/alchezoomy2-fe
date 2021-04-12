@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 
-export const ChatBox = (props) => {
+export const ChatBox = ({ handleChatSeek }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -127,7 +127,7 @@ export const ChatBox = (props) => {
                         secondary={chat.timestamp} />
                     <PlayArrowIcon
                         clickable
-                        onClick={() => props.handleChatSeek(chat.parsed_timestamp)}
+                        onClick={() => handleChatSeek(chat.parsed_timestamp)}
                     />
                 </ListItem>
             </div>
