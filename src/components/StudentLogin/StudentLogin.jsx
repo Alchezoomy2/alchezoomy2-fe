@@ -21,12 +21,12 @@ export default function StudentLogin() {
         try {
             const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
             store.changeStudentInfo(studentInfo);
-            store.changeLoggedIn();
 
             const newMeetingObj = await fetchAllStudentMeetings();
+            console.log("🚀 ~ file: StudentLogin.jsx ~ line 26 ~ handleSubmit ~ newMeetingObj", newMeetingObj);
 
-            await store.changeMeetingsObj(newMeetingObj);
-            await store.changeLoggedIn();
+            store.changeMeetingsObj(newMeetingObj);
+            store.changeLoggedIn();
             history.push("/student");
         } catch (e) {
 
