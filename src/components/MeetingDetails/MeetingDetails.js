@@ -21,6 +21,8 @@ export const MeetingDetails = ({ startTime }) => {
 
 
     useEffect(() => {
+        conosle.log("useEffect");
+        console.log("🚀 ~ file: MeetingDetails.js ~ line 26 ~ useEffect ~ store.meetingDetails", store.meetingDetails);
         if (store.meetingDetails.videoUrl) {
             console.log("video");
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`);
