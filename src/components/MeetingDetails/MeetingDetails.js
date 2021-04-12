@@ -23,10 +23,10 @@ export const MeetingDetails = ({ startTime }) => {
     useEffect(() => {
         console.log("useEffect");
         console.log("🚀 ~ file: MeetingDetails.js ~ line 26 ~ useEffect ~ store.meetingDetails", store.meetingDetails);
-        if (store.meetingDetails.videoUrl) {
+        if (store.meetingDetails.videoUrl !== "") {
             console.log("video");
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`);
-        } else if (store.meetingDetails.audioUrl) {
+        } else if (store.meetingDetails.audioUrl !== "") {
             console.log("audio");
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
         }
