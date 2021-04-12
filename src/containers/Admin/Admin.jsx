@@ -33,6 +33,7 @@ export default function Admin() {
         setDisplayModule(<AdminStudentDashboard
             returnedStudentArray={returnedStudentArray}
             openSnackbar={openSnackbar}
+            setOpen={setOpen}
         />
         );
         setOpen(false);

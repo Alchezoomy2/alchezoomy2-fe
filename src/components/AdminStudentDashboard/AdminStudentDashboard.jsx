@@ -5,12 +5,16 @@ import useStyles from "./AdminStudentDashboardStyles";
 import { Paper, TextField, Typography, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
 import StudentListItem from "../StudentListItem/StudentListItem";
+import DeleteDialog from "../DeleteDialog/DeleteDialog";
 
 
-export default function AdminStudentDashboard({ returnedStudentArray, openSnackbar }) {
+export default function AdminStudentDashboard({ returnedStudentArray, openSnackbar, setOpen }) {
     const classes = useStyles();
     const [studentArray, setStudentArray] = useState(returnedStudentArray);
     const [searchField, setSearchField] = useState("");
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+    const [deletePayload, setDeletePayload] = useState("");
+
 
     let fuseStudentList = new fuse(studentArray, {
         keys: ["email", "userName"],
@@ -23,10 +27,25 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
         setSearchField(e.target.value);
     };
 
-    const handleItemDelete = async (studentId) => {
-        const newStudentArray = await deleteStudent(studentId);
-        openSnackbar("warning", "Student deleted");
-        setStudentArray(newStudentArray);
+    const handleItemDelete = async (student) => {
+        setDeletePayload({
+            label: student.studentEmail,
+            payload: student
+        });
+        setShowDeleteDialog(true);
+        setOpen(true);
+    };
+
+    const closeDeleteDialog = async (confirmed, student) => {
+
+        if (confirmed) {
+            const newStudentArray = await deleteStudent(student.id);
+            openSnackbar("warning", "Student deleted");
+            setStudentArray(newStudentArray);
+        }
+        setDeletePayload("");
+        setShowDeleteDialog(false);
+        setOpen(false);
     };
 
     return (
@@ -60,6 +79,12 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
                     }
                 </List>
             </Paper>
+            <DeleteDialog
+                deletePayload={deletePayload}
+                closeDeleteDialog={closeDeleteDialog}
+                showDeleteDialog={showDeleteDialog}
+            />
+
         </div>
 
     );
@@ -68,5 +93,6 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
 
 AdminStudentDashboard.propTypes = {
     returnedStudentArray: PropTypes.array,
-    openSnackbar: PropTypes.func
+    openSnackbar: PropTypes.func,
+    setOpen: PropTypes.func
 };

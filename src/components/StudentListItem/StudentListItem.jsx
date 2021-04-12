@@ -17,7 +17,7 @@ export default function StudentListItem(item, handleItemDelete) {
                 />
                 <DeleteIcon
                     clickable
-                    onClick={() => handleItemDelete(item.id)}
+                    onClick={() => handleItemDelete(item)}
                 />
             </ListItem>
         </div>

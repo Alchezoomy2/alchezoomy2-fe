@@ -50,8 +50,6 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
     };
 
     const handleSubscriptionDelete = async (subscription) => {
-        // const newSubscriptionArray = await deleteSubscription(subscriptionId);
-        // setSubscriptionArray(newSubscriptionArray);
         setDeletePayload({
             label: subscription.studentEmail,
             payload: subscription
