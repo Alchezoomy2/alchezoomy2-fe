@@ -9,7 +9,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import DeleteDialog from "../DeleteDialog/DeleteDialog";
 
 
-export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackbar }) {
+export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackbar, setOpen }) {
     const classes = useStyles();
     const [teacherArray, setTeacherArray] = useState(returnedTeacherArray);
     const [teacherEmail, setTeacherEmail] = useState("");
@@ -54,80 +54,81 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
         setShowDeleteDialog(true);
         setOpen(true);
     };
+
     const closeDeleteDialog = async (confirmed, teacher) => {
-        if (confirmd) {
-            const newTeacherArray = await deleteTeacher(teacherId);
+        if (confirmed) {
+            const newTeacherArray = await deleteTeacher(teacher.id);
             openSnackbar("warning", "Teacher deleted");
             setTeacherArray(newTeacherArray);
         }
         setDeletePayload("");
         setShowDeleteDialog(false);
         setOpen(false);
-    }
-};
+    };
 
-return (
-    <div className={classes.frame}>
-        <Paper
-            elevation={3}
-            className={classes.root}>
-            <div className={classes.searchBar}>
+    return (
+        <div className={classes.frame}>
+            <Paper
+                elevation={3}
+                className={classes.root}>
+                <div className={classes.searchBar}>
+                    <Typography
+                        variant="h5">
+                        Invite Teachers
+               </Typography>
+                    <TextField
+                        className={classes.textField}
+                        label="Teacher email"
+                        value={teacherEmail}
+                        onChange={({ target }) => handleEmailChange(target.value)}
+                        multiline
+                    />
+                    <IconButton
+                        color="inherit"
+                        onClick={() => handleTeacherInvite()}>
+                        <MailIcon />
+                    </IconButton>
+                </div>
+
                 <Typography
                     variant="h5">
-                    Invite Teachers
+                    Teachers
                </Typography>
                 <TextField
-                    className={classes.textField}
-                    label="Teacher email"
-                    value={teacherEmail}
-                    onChange={({ target }) => handleEmailChange(target.value)}
-                    multiline
+                    id="search"
+                    label="search"
+                    fullWidth
+                    variant="outlined"
+                    onChange={handleSearchChange}
                 />
-                <IconButton
-                    color="inherit"
-                    onClick={() => handleTeacherInvite()}>
-                    <MailIcon />
-                </IconButton>
-            </div>
-
-            <Typography
-                variant="h5">
-                Teachers
-               </Typography>
-            <TextField
-                id="search"
-                label="search"
-                fullWidth
-                variant="outlined"
-                onChange={handleSearchChange}
-            />
-            <List className={classes.list}>
-                {searchField === "" ?
-                    teacherArray.map(item =>
-                        ListableItem(
+                <List className={classes.list}>
+                    {searchField === "" ?
+                        teacherArray.map(item =>
+                            ListableItem(
+                                item,
+                                handleItemDelete
+                            ))
+                        :
+                        fuseTeacherList.search(searchField).map(({ item }) => ListableItem(
                             item,
                             handleItemDelete
                         ))
-                    :
-                    fuseTeacherList.search(searchField).map(({ item }) => ListableItem(
-                        item,
-                        handleItemDelete
-                    ))
-                }
-            </List>
-        </Paper>
-        <DeleteDialog
-            deletePayload={deletePayload}
-            closeDeleteDialog={closeDeleteDialog}
-            showDeleteDialog={showDeleteDialog}
-        />
-    </div>
+                    }
+                </List>
+            </Paper>
+            <DeleteDialog
+                deletePayload={deletePayload}
+                closeDeleteDialog={closeDeleteDialog}
+                showDeleteDialog={showDeleteDialog}
+            />
+        </div>
 
-);
+    );
 
 }
 
 AdminTeacherDashboard.propTypes = {
     returnedTeacherArray: PropTypes.array,
-    openSnackbar: PropTypes.func
+    openSnackbar: PropTypes.func,
+    setOpen: PropTypes.func,
 };
