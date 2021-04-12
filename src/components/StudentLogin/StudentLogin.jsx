@@ -21,7 +21,7 @@ export default function StudentLogin() {
         try {
             const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
             console.log(studentInfo);
-            if (studentInfo !== error) {
+            if (typeof studentInfo !== "string") {
                 store.changeStudentInfo(studentInfo);
 
                 const newMeetingObj = await fetchAllStudentMeetings();
