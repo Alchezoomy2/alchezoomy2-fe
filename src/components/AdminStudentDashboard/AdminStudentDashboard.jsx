@@ -37,13 +37,14 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
     };
 
     const closeDeleteDialog = async (confirmed, student) => {
+        console.log(student);
         if (confirmed) {
             const newStudentArray = await deleteStudent(student.id);
             openSnackbar("warning", "Student deleted");
             setStudentArray(newStudentArray);
         }
-        setShowDeleteDialog(false);
         setOpen(false);
+        setShowDeleteDialog(false);
         setDeletePayload("");
     };
 
@@ -78,11 +79,15 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
                     }
                 </List>
             </Paper>
-            <DeleteDialog
-                deletePayload={deletePayload}
-                closeDeleteDialog={closeDeleteDialog}
-                showDeleteDialog={showDeleteDialog}
-            />
+            {deletePayload ?
+
+                <DeleteDialog
+                    deletePayload={deletePayload}
+                    closeDeleteDialog={closeDeleteDialog}
+                    showDeleteDialog={showDeleteDialog}
+                />
+                : null
+            }
 
         </div>
 
