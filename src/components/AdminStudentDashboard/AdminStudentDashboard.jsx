@@ -37,7 +37,6 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
     };
 
     const closeDeleteDialog = async (confirmed, student) => {
-
         if (confirmed) {
             const newStudentArray = await deleteStudent(student.id);
             openSnackbar("warning", "Student deleted");

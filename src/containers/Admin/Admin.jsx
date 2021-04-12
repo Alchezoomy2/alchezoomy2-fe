@@ -23,6 +23,7 @@ export default function Admin() {
         setDisplayModule(<AdminTeacherDashboard
             returnedTeacherArray={returnedTeacherArray}
             openSnackbar={openSnackbar}
+            setOpen={setOpen}
         />);
         setOpen(false);
     };
