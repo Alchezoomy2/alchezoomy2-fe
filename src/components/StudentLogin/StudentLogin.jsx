@@ -21,7 +21,10 @@ export default function StudentLogin() {
         try {
             const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
             console.log(studentInfo);
-            if (typeof studentInfo !== "string") {
+            if (studentInfo.error) {
+                openSnackbar("error", "Invalid username or password");
+                setPassword("");
+            } else {
                 store.changeStudentInfo(studentInfo);
 
                 const newMeetingObj = await fetchAllStudentMeetings();
@@ -31,8 +34,6 @@ export default function StudentLogin() {
                 store.changeLoggedIn();
                 history.push("/student");
             }
-            openSnackbar("error", "Invalid username or password");
-            setPassword("");
         } catch (error) {
 
             openSnackbar("error", "Invalid username or password");
