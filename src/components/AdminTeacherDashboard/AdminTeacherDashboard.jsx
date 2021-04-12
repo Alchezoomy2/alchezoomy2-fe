@@ -61,9 +61,9 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
             openSnackbar("warning", "Teacher deleted");
             setTeacherArray(newTeacherArray);
         }
-        setDeletePayload("");
         setShowDeleteDialog(false);
         setOpen(false);
+        setDeletePayload("");
     };
 
     return (

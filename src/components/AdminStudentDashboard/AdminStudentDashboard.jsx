@@ -42,9 +42,9 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
             openSnackbar("warning", "Student deleted");
             setStudentArray(newStudentArray);
         }
-        setDeletePayload("");
         setShowDeleteDialog(false);
         setOpen(false);
+        setDeletePayload("");
     };
 
     return (

@@ -65,9 +65,9 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
             setShowDeleteDialog(false);
             setOpen(false);
         }
-        setDeletePayload("");
         setShowDeleteDialog(false);
         setOpen(false);
+        setDeletePayload("");
 
 
     };
