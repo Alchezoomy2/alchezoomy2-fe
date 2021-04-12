@@ -20,15 +20,20 @@ export default function StudentLogin() {
         e.preventDefault();
         try {
             const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
-            store.changeStudentInfo(studentInfo);
+            console.log(studentInfo);
+            if (studentInfo !== error) {
+                store.changeStudentInfo(studentInfo);
 
-            const newMeetingObj = await fetchAllStudentMeetings();
-            console.log("🚀 ~ file: StudentLogin.jsx ~ line 26 ~ handleSubmit ~ newMeetingObj", newMeetingObj);
+                const newMeetingObj = await fetchAllStudentMeetings();
+                console.log("🚀 ~ file: StudentLogin.jsx ~ line 26 ~ handleSubmit ~ newMeetingObj", newMeetingObj);
 
-            store.changeMeetingsObj(newMeetingObj);
-            store.changeLoggedIn();
-            history.push("/student");
-        } catch (e) {
+                store.changeMeetingsObj(newMeetingObj);
+                store.changeLoggedIn();
+                history.push("/student");
+            }
+            openSnackbar("error", "Invalid username or password");
+            setPassword("");
+        } catch (error) {
 
             openSnackbar("error", "Invalid username or password");
             setPassword("");
