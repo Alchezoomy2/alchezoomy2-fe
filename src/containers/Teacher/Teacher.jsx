@@ -10,7 +10,7 @@ import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
 import { TeacherSubscriptions } from "../../components/TeacherSubscriptions/TeacherSubscriptions.jsx";
 import { fetchColorPalette } from "../../utils/teacher-fetches/auth-fetches";
-import snackBar from "../../components/snackBar/snackBar";
+import snackBar from "../../hooks/snackBar/snackBar";
 import TeacherColorDialog from "../../components/TeacherColorDialog/TeacherColorDialog";
 
 

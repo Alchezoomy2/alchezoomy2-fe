@@ -7,15 +7,20 @@ import { createStudent, studentExists } from "../../utils/student-fetches/auth-f
 import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
 import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
+import usePasswordMeter from "../../hooks/usePasswordMeter/usePasswordMeter";
+import snackBar from "../../hooks/snackBar/snackBar";
 
 
 
 export default function StudentInvite() {
     const history = useHistory();
     const [open, setOpen] = useState(true);
+    const { checkPasswordStrength, PasswordMeterComponent } = usePasswordMeter();
+    const { openSnackbar, SnackbarComponent } = snackBar();
     const [firstName, setFirstName] = useState("");
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
+    const [passwordStrength, setPasswordStrength] = useState(0);
     const [studentInfo, setStudentInfo] = useState({});
     const store = useStateStore();
     const { jwt } = useParams();
@@ -41,14 +46,28 @@ export default function StudentInvite() {
     const handleSubmit = async (e, studentEmail, teacherEmail) => {
         e.preventDefault();
 
-        const studentInfo = await createStudent(studentEmail, teacherEmail, password1, firstName);
-        if (studentInfo) {
-            store.changeStudentInfo(studentInfo);
-            const newMeetingsObj = await fetchAllStudentMeetings();
-            store.changeMeetingsObj(newMeetingsObj);
-            store.changeLoggedIn();
-            history.push("/student/");
+        if (passwordStrength > 2) {
+            const studentInfo = await createStudent(studentEmail, teacherEmail, password1, firstName);
+            if (studentInfo) {
+                store.changeStudentInfo(studentInfo);
+                const newMeetingsObj = await fetchAllStudentMeetings();
+                store.changeMeetingsObj(newMeetingsObj);
+                store.changeLoggedIn();
+                history.push("/student/");
+            }
+        } else {
+            openSnackbar("warning", "Password Must Be More Complex!");
         }
+    };
+
+    const handlePassword1Change = ({ target }) => {
+        setPassword1(target.value);
+        setPasswordStrength(checkPasswordStrength(target.value));
+    };
+
+    const handlePassword2Change = ({ target }) => {
+        setPassword2(target.value);
+        setPasswordStrength(checkPasswordStrength(target.value));
     };
 
 
@@ -94,7 +113,7 @@ export default function StudentInvite() {
                             id="password1"
                             label="Password"
                             value={password1}
-                            onChange={({ target }) => setPassword1(target.value)}
+                            onChange={handlePassword1Change}
                             type="password"
                             error={password1 !== password2}
                             required
@@ -103,11 +122,12 @@ export default function StudentInvite() {
                             id="password2"
                             label="Password"
                             value={password2}
-                            onChange={({ target }) => setPassword2(target.value)}
+                            onChange={handlePassword2Change}
                             type="password"
                             error={password1 !== password2}
                             required
                         />
+                        <PasswordMeterComponent />
                         <Button
                             type="submit">
                             SUBMIT
@@ -121,6 +141,7 @@ export default function StudentInvite() {
                     open={open}>
                     <CircularProgress />
                 </Backdrop>
+                <SnackbarComponent />
             </div>
         </Paper>
 

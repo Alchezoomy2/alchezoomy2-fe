@@ -8,7 +8,7 @@ import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
 import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
 import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
 import AdminBucketDashboard from "../../components/AdminBucketDashboard/AdminBucketDashboard";
-import snackBar from "../../components/snackBar/snackBar";
+import snackBar from "../../hooks/snackBar/snackBar";
 
 
 export default function Admin() {
