@@ -166,6 +166,7 @@ export const ChatBox = ({ handleChatSeek }) => {
                 fullWidth
                 variant="outlined"
                 onChange={handleSearchChange}
+                autocomplete="off"
             />
             <List className={classes.list}>
                 {searchField === "" ?

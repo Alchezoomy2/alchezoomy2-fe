@@ -10,6 +10,4 @@ export const useStyles = makeStyles({
         WebkitAppearance: "none",
         appearance: "none",
     }
-
-
 });

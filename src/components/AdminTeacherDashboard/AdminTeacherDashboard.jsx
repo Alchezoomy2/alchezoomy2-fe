@@ -100,6 +100,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
                     fullWidth
                     variant="outlined"
                     onChange={handleSearchChange}
+                    autocomplete="off"
                 />
                 <List className={classes.list}>
                     {searchField === "" ?

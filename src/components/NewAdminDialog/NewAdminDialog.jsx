@@ -31,6 +31,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     label="User Name"
                     type="text"
                     onChange={({ target }) => setNewUserName(target.value)}
+                    autocomplete="off"
                     required
                 />
                 <TextField
@@ -38,6 +39,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     label="Password"
                     type="password"
                     onChange={({ target }) => setNewPassword1(target.value)}
+                    autocomplete="off"
                     error={newPassword1 !== newPassword2}
                     required
                 />
@@ -46,6 +48,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     label="Password"
                     type="password"
                     onChange={({ target }) => setNewPassword2(target.value)}
+                    autocomplete="off"
                     error={newPassword1 !== newPassword2}
                     required
                 />

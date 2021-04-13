@@ -53,6 +53,7 @@ export default function StudentLogin() {
                         label="Email"
                         value={studentEmail}
                         onChange={({ target }) => setStudentEmail(target.value)}
+                        autocomplete="email"
                         required
                     />
                     <TextField
@@ -60,6 +61,7 @@ export default function StudentLogin() {
                         label="Password"
                         value={password}
                         onChange={({ target }) => setPassword(target.value)}
+                        autocomplete="current-password"
                         type="password"
                         required
                     />

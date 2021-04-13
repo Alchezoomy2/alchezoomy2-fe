@@ -63,6 +63,7 @@ export default function AdminLogin() {
                         label="User Name"
                         value={userName}
                         onChange={({ target }) => setUserName(target.value)}
+                        autocomplete="username"
                         required
                     />
                     <TextField
@@ -70,6 +71,7 @@ export default function AdminLogin() {
                         label="Password"
                         value={password}
                         onChange={({ target }) => setPassword(target.value)}
+                        autocomplete="current-password"
                         type="password"
                         required
                     />

@@ -64,6 +64,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                     fullWidth
                     variant="outlined"
                     onChange={handleSearchChange}
+                    autocomplete="off"
                 />
                 <List>
                     {searchField === "" ?

@@ -104,6 +104,7 @@ export const Student = (props) => {
                     fullWidth
                     variant="outlined"
                     onChange={handleSearchChange}
+                    autocomplete="off"
                 />
                 <List className={classes.list}>
 

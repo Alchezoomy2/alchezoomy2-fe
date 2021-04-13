@@ -87,6 +87,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                         label="Student email"
                         value={studentEmail}
                         onChange={({ target }) => handleEmailChange(target.value)}
+                        autocomplete="off"
                         multiline
                     />
                     <IconButton
@@ -106,6 +107,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                     fullWidth
                     variant="outlined"
                     onChange={handleSearchChange}
+                    autocomplete="off"
                 />
                 <List className={classes.list}>
                     {searchField === "" ?
