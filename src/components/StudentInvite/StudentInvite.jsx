@@ -62,8 +62,6 @@ export default function StudentInvite() {
 
     const handlePassword1Change = ({ target }) => {
         setPassword1(target.value);
-        console.log(target.value);
-        console.log(setPasswordStrength(target.value));
         setPasswordStrength(checkPasswordStrength(target.value));
     };
 

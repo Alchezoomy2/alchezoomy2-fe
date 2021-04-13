@@ -31,7 +31,8 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
         setStudentEmail(value);
     };
 
-    const handleStudentInvite = async () => {
+    const handleStudentInvite = async (e) => {
+        e.preventDefault();
         let studentEmailArray;
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             if (studentEmail.includes(",")) {
@@ -82,17 +83,20 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                         variant="h5">
                         Invite Students
                    </Typography>
-                    <TextField
-                        className={classes.textField}
-                        label="Student email"
-                        value={studentEmail}
-                        onChange={({ target }) => handleEmailChange(target.value)}
-                        autocomplete="off"
-                        multiline
-                    />
+                    <form
+                        onSubmit={handleStudentInvite}>
+                        <TextField
+                            className={classes.textField}
+                            label="Student email"
+                            value={studentEmail}
+                            onChange={({ target }) => handleEmailChange(target.value)}
+                            autocomplete="off"
+                            multiline
+                        />
+                    </form>
                     <IconButton
                         color="inherit"
-                        onClick={() => handleStudentInvite()}>
+                        type="submit">
                         <MailIcon />
                     </IconButton>
                 </div>

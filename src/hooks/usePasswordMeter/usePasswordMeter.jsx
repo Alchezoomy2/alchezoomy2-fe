@@ -13,14 +13,11 @@ export default function usePasswordMeter() {
     const checkPasswordStrength = (password = "") => {
         if (password !== "") {
             const { score } = zxcvbn(password);
-            console.log("🚀 ~ file: usePasswordMeter.jsx ~ line 16 ~ checkPasswordStrength ~ score", score);
-
             setStrength(score);
         } else {
             setStrength(0);
         }
         const { returnLabel, returnColor } = returnPasswordLabel(strength);
-        console.log("🚀 ~ file: usePasswordMeter.jsx ~ line 21 ~ checkPasswordStrength ~ returnLabel, returnColor ", returnLabel, returnColor);
         setLabel(returnLabel);
         setColor(returnColor);
         return strength;
