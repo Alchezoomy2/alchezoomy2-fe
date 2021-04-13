@@ -19,17 +19,22 @@ export default function StudentLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
-        if (studentInfo.error) {
+        try {
+            if (studentInfo.error) {
+                openSnackbar("error", "Invalid username or password");
+                setPassword("");
+            } else {
+                store.changeStudentInfo(studentInfo);
+
+                const newMeetingObj = await fetchAllStudentMeetings();
+
+                store.changeMeetingsObj(newMeetingObj);
+                store.changeLoggedIn();
+                history.push("/student");
+            }
+        } catch (e) {
             openSnackbar("error", "Invalid username or password");
             setPassword("");
-        } else {
-            store.changeStudentInfo(studentInfo);
-
-            const newMeetingObj = await fetchAllStudentMeetings();
-
-            store.changeMeetingsObj(newMeetingObj);
-            store.changeLoggedIn();
-            history.push("/student");
         }
     };
 
