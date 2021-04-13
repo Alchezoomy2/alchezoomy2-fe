@@ -62,7 +62,7 @@ export default function AdminLogin() {
                         label="User Name"
                         value={userName}
                         onChange={({ target }) => setUserName(target.value)}
-                        autocomplete="username"
+                        autocomplete="off"
                         required
                     />
                     <TextField
