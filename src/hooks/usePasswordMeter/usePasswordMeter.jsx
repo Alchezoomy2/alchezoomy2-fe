@@ -19,10 +19,10 @@ export default function usePasswordMeter() {
         } else {
             setStrength(0);
         }
-        const { responseLabel, responseColor } = returnPasswordLabel(strength);
-        console.log("🚀 ~ file: usePasswordMeter.jsx ~ line 21 ~ checkPasswordStrength ~ responseLabel, responseColor ", responseLabel, responseColor);
-        setLabel(responseLabel);
-        setColor(responseColor);
+        const { returnLabel, returnColor } = returnPasswordLabel(strength);
+        console.log("🚀 ~ file: usePasswordMeter.jsx ~ line 21 ~ checkPasswordStrength ~ returnLabel, returnColor ", returnLabel, returnColor);
+        setLabel(returnLabel);
+        setColor(returnColor);
         return strength;
     };
 
