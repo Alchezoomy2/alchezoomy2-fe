@@ -65,7 +65,11 @@ export default function StudentLogin() {
                         type="password"
                         required
                     />
-                    <Button type="submit">SUBMIT</Button>
+                    <Button
+                        variant="contained"
+                        type="submit">
+                        SUBMIT
+                    </Button>
                 </form>
             </Paper>
             <SnackbarComponent />

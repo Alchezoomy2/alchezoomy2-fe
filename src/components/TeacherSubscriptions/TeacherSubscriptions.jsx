@@ -1,4 +1,4 @@
-import { Paper, TextField, Typography, IconButton, List } from "@material-ui/core";
+import { Paper, TextField, Typography, Button, List } from "@material-ui/core";
 import MailIcon from "@material-ui/icons/Mail";
 
 import { useObserver } from "mobx-react";
@@ -40,6 +40,8 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
             } else {
                 studentEmailArray = [studentEmail.toLowerCase()];
             }
+            console.log("🚀 ~ file: TeacherSubscriptions.jsx ~ line 42 ~ handleStudentInvite ~ studentEmailArray", studentEmailArray);
+
             await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
             openSnackbar("success", "Student Invited");
@@ -93,11 +95,12 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                             autocomplete="off"
                             multiline
                         />
-                        <IconButton
-                            color="inherit"
-                            type="submit">
-                            <MailIcon />
-                        </IconButton>
+                        <Button
+                            variant="contained"
+                            type="submit"
+                        >
+                            SUBMIT
+                            </Button>
                     </form>
                 </div>
 
@@ -133,6 +136,6 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                 showDeleteDialog={showDeleteDialog}
             />
 
-        </div>
+        </div >
     );
 };
