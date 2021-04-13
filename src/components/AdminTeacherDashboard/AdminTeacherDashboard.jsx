@@ -32,9 +32,9 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
         let teacherEmailArray;
 
         if (teacherEmail.includes(",")) {
-            teacherEmailArray = teacherEmail.split(",").toLowerCase();
+            teacherEmailArray = teacherEmail.split(",").toLowerCase().trim();
         } else {
-            teacherEmailArray = [teacherEmail.toLowerCase()];
+            teacherEmailArray = [teacherEmail.toLowerCase().trim()];
         }
         await inviteTeacher(teacherEmailArray);
         setTeacherEmail("");
