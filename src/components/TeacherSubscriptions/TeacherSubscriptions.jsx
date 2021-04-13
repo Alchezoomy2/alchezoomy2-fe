@@ -36,7 +36,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
         let studentEmailArray;
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             if (studentEmail.includes(",")) {
-                studentEmailArray = studentEmail.split(",").toLowerCase();
+                studentEmailArray = studentEmail.split(",").toLowerCase().replace(/(^\s*(?!.+)\n+)|(\n+\s+(?!.+)$)/g, "");
             } else {
                 studentEmailArray = [studentEmail.toLowerCase()];
             }
