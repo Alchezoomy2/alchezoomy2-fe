@@ -22,7 +22,6 @@ export default function AdminLogin() {
         const adminInfo = await adminAuth(userName, password);
         if (adminInfo.status === "new") {
             setNewUserDialogOpen(true);
-            setUserName("");
             setPassword("");
         } else if (adminInfo.status === "false") {
             setInvalidLoginOpen(true);
@@ -33,8 +32,8 @@ export default function AdminLogin() {
         }
     };
 
-    const handleClose = async (newUserName, newPassword1) => {
-        const adminInfo = await adminSetupPassword(newUserName, newPassword1);
+    const handleClose = async (newPassword1) => {
+        const adminInfo = await adminSetupPassword(userName, newPassword1);
         await store.changeAdminInfo(adminInfo);
         setNewUserDialogOpen(false);
     };
@@ -81,6 +80,7 @@ export default function AdminLogin() {
             <NewAdminDialog
                 handleClose={handleClose}
                 newUserDialogOpen={newUserDialogOpen}
+                userName={userName}
             />
             <Snackbar
                 open={invalidLoginOpen}

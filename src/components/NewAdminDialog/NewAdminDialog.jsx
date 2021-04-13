@@ -3,16 +3,15 @@ import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } 
 import { PropTypes } from "mobx-react";
 import { useStyles } from "./NewAdminDialogStyles.js";
 
-export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
+export const NewAdminDialog = ({ handleClose, newUserDialogOpen, userName }) => {
     const classes = useStyles();
     const [newPassword1, setNewPassword1] = useState("");
     const [newPassword2, setNewPassword2] = useState("");
-    const [newUserName, setNewUserName] = useState("");
 
 
     const handleCloseLocal = (e) => {
         e.preventDefault();
-        handleClose(newUserName, newPassword1);
+        handleClose(newPassword1);
     };
 
 
@@ -27,12 +26,10 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                 className={classes.root}>
                 <TextField
                     className={classes.field}
-                    autoFocus
-                    label="User Name"
                     type="text"
-                    onChange={({ target }) => setNewUserName(target.value)}
                     autocomplete="off"
-                    required
+                    value={userName}
+                    disabled
                 />
                 <TextField
                     className={classes.field}
@@ -41,6 +38,7 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
                     onChange={({ target }) => setNewPassword1(target.value)}
                     autocomplete="off"
                     error={newPassword1 !== newPassword2}
+                    autoFocus
                     required
                 />
                 <TextField
@@ -67,5 +65,6 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen }) => {
 
 NewAdminDialog.propTypes = {
     handleClose: PropTypes.func,
-    newUserDialogOpen: PropTypes.func
+    newUserDialogOpen: PropTypes.func,
+    userName: PropTypes.string,
 };
