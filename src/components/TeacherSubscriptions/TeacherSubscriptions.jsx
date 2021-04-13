@@ -93,12 +93,12 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                             autocomplete="off"
                             multiline
                         />
+                        <IconButton
+                            color="inherit"
+                            type="submit">
+                            <MailIcon />
+                        </IconButton>
                     </form>
-                    <IconButton
-                        color="inherit"
-                        type="submit">
-                        <MailIcon />
-                    </IconButton>
                 </div>
 
                 <Typography
