@@ -38,7 +38,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
             if (studentEmail.includes(",")) {
                 studentEmailArray = studentEmail.split(",").toLowerCase().replace(/(^\s*(?!.+)\n+)|(\n+\s+(?!.+)$)/g, "");
             } else {
-                studentEmailArray = [studentEmail.toLowerCase()];
+                studentEmailArray = [studentEmail.toLowerCase().replace(/(^\s*(?!.+)\n+)|(\n+\s+(?!.+)$)/g, "")];
             }
             console.log("🚀 ~ file: TeacherSubscriptions.jsx ~ line 42 ~ handleStudentInvite ~ studentEmailArray", studentEmailArray);
 
@@ -98,6 +98,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                         <Button
                             variant="contained"
                             type="submit"
+                            color="primary"
                         >
                             SUBMIT
                             </Button>
