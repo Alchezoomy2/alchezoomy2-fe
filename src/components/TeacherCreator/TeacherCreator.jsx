@@ -68,5 +68,6 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
 
 TeacherCreator.propTypes = {
     setOpen: PropTypes.func,
-    handleCreateTeacher: PropTypes.func
+    handleCreateTeacher: PropTypes.func,
+    creatorOpen: PropTypes.bool,
 };
