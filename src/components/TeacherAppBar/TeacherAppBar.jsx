@@ -3,7 +3,6 @@ import { AppBar, Avatar, Typography, Toolbar, Button, ButtonGroup } from "@mater
 import { useStateStore } from "../../utils/StoreProvider.js";
 import { useStyles } from "./TeacherAppBarStyles";
 import { PropTypes } from "mobx-react";
-import { useObserver } from "mobx-react";
 import { useHistory } from "react-router-dom";
 
 
@@ -18,7 +17,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
     };
 
 
-    return useObserver(() =>
+    return (
         <AppBar position="static" className={classes.root}>
             <Toolbar>
                 <div className={classes.userInfo}>
