@@ -4,7 +4,6 @@ import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/teacher-fetches/meeting-fetches.js";
-import { useObserver } from "mobx-react";
 import useStyles from "./teacherDashboardStyles";
 
 
@@ -45,7 +44,7 @@ export const TeacherDashboard = ({ setOpen }) => {
     //     console.log("TeacherDashboard");
     // }, [meetingsToDisplay]);
 
-    return useObserver(() =>
+    return (
         <div className={classes.frame}>
             <Paper
                 maxWidth="xl"

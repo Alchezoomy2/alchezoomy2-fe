@@ -28,7 +28,7 @@ export default function StudentAppBar({
     const classes = useStyles();
 
     const handleLogout = () => {
-        store.changeLoggedIn();
+        store.changeLoggedOut();
         history.push("/");
     };
 

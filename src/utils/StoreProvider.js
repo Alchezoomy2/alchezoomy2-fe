@@ -24,8 +24,12 @@ export const StoreProvider = ({ children }) => {
         videoTimestamp: 0,
 
         changeLoggedIn: () => {
-            store.loggedIn = !store.loggedIn;
-            localStorage.setItem("LOGGED_IN", store.loggedIn);
+            store.loggedIn = true;
+            localStorage.setItem("LOGGED_IN", true);
+        },
+        changeLoggedOut: () => {
+            store.loggedOut = false;
+            localStorage.setItem("LOGGED_IN", false);
         },
         changeCode: newCode => {
             store.code = newCode;

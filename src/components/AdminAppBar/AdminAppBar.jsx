@@ -11,7 +11,7 @@ export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashb
     const history = useHistory();
 
     const handleLogout = () => {
-        store.changeLoggedIn();
+        store.changeLoggedOut();
         localStorage.clear();
         history.push("/admin/login");
     };

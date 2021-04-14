@@ -13,7 +13,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
     const history = useHistory();
 
     const handleLogout = () => {
-        store.changeLoggedIn();
+        store.changeLoggedOut();
         history.push("/");
     };
 
