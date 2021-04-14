@@ -28,6 +28,7 @@ export const Teacher = () => {
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
         store.changeTeacherInfo(returnedTeacherInfo);
         handleLectureDashboard();
+        setOpen(false);
     };
 
     const handleSubscriptionDashboard = async () => {
@@ -68,6 +69,7 @@ export const Teacher = () => {
     useEffect(async () => {
 
         if (store.teacherInfo.newUser) {
+            setOpen(true);
             setDisplayModule(<TeacherCreator
                 handleCreateTeacher={handleCreateTeacher}
             />);

@@ -40,7 +40,6 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
             } else {
                 studentEmailArray = [studentEmail.toLowerCase().trim()];
             }
-            console.log("🚀 ~ file: TeacherSubscriptions.jsx ~ line 42 ~ handleStudentInvite ~ studentEmailArray", studentEmailArray);
 
             await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
