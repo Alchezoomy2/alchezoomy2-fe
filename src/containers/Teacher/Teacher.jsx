@@ -71,7 +71,7 @@ export const Teacher = () => {
     useEffect(async () => {
         console.log("How often?");
         if (store.teacherInfo.newUser) {
-            setOpen(true);
+            // setOpen(true);
             setCreatorOpen(true);
         } else {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
