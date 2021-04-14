@@ -51,8 +51,8 @@ export const TeacherDashboard = ({ setOpen }) => {
                 className={classes.root}>
                 <List style={{ width: "90%" }
                 } >
-                    {
-                        meetingsToDisplay.map((meeting, index) =>
+                    {meetingsToDisplay ?
+                        meetingsToDisplay.map((meeting, index) => (
                             <div key={index}>
                                 <TeacherMeetingItem
                                     meeting={meeting}
@@ -62,7 +62,8 @@ export const TeacherDashboard = ({ setOpen }) => {
                                 <Divider variant="middle" component="li" />
                             </div>
 
-                        )
+                        ))
+                        : null
                     }
                 </List>
             </Paper >
