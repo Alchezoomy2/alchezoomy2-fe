@@ -7,7 +7,8 @@ export const useStyles = makeStyles({
         flexDirection: "column",
         display: "flex",
         justifyContents: "center",
-        alignItems: "center"
+        alignItems: "center",
+        zIndex: "1000"
     },
     card: {
         height: "500px",
