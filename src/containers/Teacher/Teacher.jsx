@@ -45,14 +45,15 @@ export const Teacher = () => {
     };
 
     const handleLectureDashboard = async () => {
-        console.log("handleLectureDashboard");
         setOpen(true);
         const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
         store.changeMeetingsObj(returnedMeetingArray);
+        console.log("handleLectureDashboard");
         console.log(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
             setOpen={setOpen}
         />);
+        console.log("mounted");
         setOpen(false);
     };
 

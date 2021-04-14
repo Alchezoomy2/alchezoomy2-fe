@@ -54,7 +54,7 @@ export const TeacherDashboard = ({ setOpen }) => {
                 className={classes.root}>
                 <List style={{ width: "90%" }
                 } >
-                    {meetingsToDisplay ?
+                    {meetingsToDisplay !== null ?
                         meetingsToDisplay.map((meeting, index) => (
                             <div key={index}>
                                 <TeacherMeetingItem
