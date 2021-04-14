@@ -19,6 +19,7 @@ export const Teacher = () => {
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
     const [hexPalette, setHexPalette] = useState([]);
+    const [createTeacher, setCreateTeacher] = useState(false);
     const [colorDialog, setColorDialog] = useState(false);
     let [open, setOpen] = useState(true);
     const store = useStateStore();
@@ -29,6 +30,7 @@ export const Teacher = () => {
         store.changeTeacherInfo(returnedTeacherInfo);
         handleLectureDashboard();
         setOpen(false);
+        setCreateTeacher(false);
     };
 
     const handleSubscriptionDashboard = async () => {
@@ -70,9 +72,7 @@ export const Teacher = () => {
         console.log("How often?");
         if (store.teacherInfo.newUser) {
             setOpen(true);
-            setDisplayModule(<TeacherCreator
-                handleCreateTeacher={handleCreateTeacher}
-            />);
+            setCreateTeacher(true);
         } else {
             const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             store.changeMeetingsObj(returnedMeetingArray);
@@ -107,6 +107,11 @@ export const Teacher = () => {
                 closeColorDialog={closeColorDialog}
                 colorDialog={colorDialog}
             />
+            {createTeacher ?
+                <TeacherCreator
+                    handleCreateTeacher={handleCreateTeacher}
+                />
+                : null}
         </div>
 
     );
