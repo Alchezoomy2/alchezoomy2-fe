@@ -48,12 +48,9 @@ export const Teacher = () => {
         setOpen(true);
         const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
         store.changeMeetingsObj(returnedMeetingArray);
-        console.log("handleLectureDashboard");
-        console.log(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
             setOpen={setOpen}
         />);
-        console.log("mounted");
         setOpen(false);
     };
 
@@ -72,19 +69,10 @@ export const Teacher = () => {
 
 
     useEffect(async () => {
-        console.log("How often?");
         if (store.teacherInfo.newUser) {
-            // setOpen(true);
             setCreatorOpen(true);
         } else {
             handleLectureDashboard();
-            // const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
-            // store.changeMeetingsObj(returnedMeetingArray);
-            // setDisplayModule(<TeacherDashboard
-            //     setOpen={setOpen}
-            //     openSnackbar={openSnackbar}
-            // />);
-            // setOpen(false);
         }
     }, []);
 

@@ -115,6 +115,7 @@ export default function StudentInvite() {
                             value={password1}
                             onChange={handlePassword1Change}
                             type="password"
+                            autocomplete="new-password"
                             error={password1 !== password2}
                             required
                         />
@@ -124,6 +125,7 @@ export default function StudentInvite() {
                             value={password2}
                             onChange={handlePassword2Change}
                             type="password"
+                            autocomplete="new-password"
                             error={password1 !== password2}
                             required
                         />
