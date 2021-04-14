@@ -96,18 +96,18 @@ export const Teacher = () => {
                     handleAvatarClick={handleAvatarClick}
                 />
                 {displayModule}
-                <Backdrop
-                    className={classes.backdrop}
-                    open={open}>
-                    <CircularProgress />
-                </Backdrop>
-                <SnackbarComponent />
-                <TeacherColorDialog
-                    hexPalette={hexPalette}
-                    closeColorDialog={closeColorDialog}
-                    colorDialog={colorDialog}
-                />
             </Grid>
+            <Backdrop
+                className={classes.backdrop}
+                open={open}>
+                <CircularProgress />
+            </Backdrop>
+            <SnackbarComponent />
+            <TeacherColorDialog
+                hexPalette={hexPalette}
+                closeColorDialog={closeColorDialog}
+                colorDialog={colorDialog}
+            />
         </div>
 
     );
