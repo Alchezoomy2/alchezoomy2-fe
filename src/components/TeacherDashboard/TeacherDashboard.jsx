@@ -52,7 +52,7 @@ export const TeacherDashboard = ({ setOpen }) => {
             <Paper
                 maxWidth="xl"
                 className={classes.root}>
-                {/* <List style={{ width: "90%" }
+                <List style={{ width: "90%" }
                 } >
                     {meetingsToDisplay !== null ?
                         meetingsToDisplay.map((meeting, index) => (
@@ -68,7 +68,7 @@ export const TeacherDashboard = ({ setOpen }) => {
                         ))
                         : null
                     }
-                </List> */}
+                </List>
             </Paper >
         </div >
     );
