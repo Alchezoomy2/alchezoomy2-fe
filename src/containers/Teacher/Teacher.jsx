@@ -49,6 +49,7 @@ export const Teacher = () => {
         setOpen(true);
         const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
         store.changeMeetingsObj(returnedMeetingArray);
+        console.log(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
             setOpen={setOpen}
         />);

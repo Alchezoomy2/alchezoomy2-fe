@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../utils/StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
@@ -12,6 +12,9 @@ export const TeacherDashboard = ({ setOpen }) => {
     const classes = useStyles();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
+    useEffect(() => {
+        console.log(meetingsToDisplay);
+    });
 
     const handlePublish = async meeting => {
         let newMeetingObj;
