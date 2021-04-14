@@ -28,7 +28,7 @@ export const Teacher = () => {
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
         store.changeTeacherInfo(returnedTeacherInfo);
-        // handleLectureDashboard();
+        handleLectureDashboard();
         setOpen(false);
         setCreatorOpen(false);
     };
@@ -77,7 +77,7 @@ export const Teacher = () => {
             // setOpen(true);
             setCreatorOpen(true);
         } else {
-            // handleLectureDashboard();
+            handleLectureDashboard();
             // const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             // store.changeMeetingsObj(returnedMeetingArray);
             // setDisplayModule(<TeacherDashboard
@@ -100,7 +100,7 @@ export const Teacher = () => {
                 />
                 {displayModule}
             </Grid>
-            {/* <Backdrop
+            <Backdrop
                 className={classes.backdrop}
                 open={open}>
                 <CircularProgress />
@@ -110,7 +110,7 @@ export const Teacher = () => {
                 hexPalette={hexPalette}
                 closeColorDialog={closeColorDialog}
                 colorDialog={colorDialog}
-            /> */}
+            />
             <TeacherCreator
                 handleCreateTeacher={handleCreateTeacher}
                 creatorOpen={creatorOpen}
