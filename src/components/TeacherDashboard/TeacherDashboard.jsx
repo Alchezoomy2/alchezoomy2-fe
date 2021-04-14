@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../utils/StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
-// import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
+import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/teacher-fetches/meeting-fetches.js";
 import useStyles from "./teacherDashboardStyles";
@@ -11,10 +11,6 @@ export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
-
-    useEffect(() => {
-        console.log(meetingsToDisplay);
-    });
 
     const handlePublish = async meeting => {
         let newMeetingObj;
