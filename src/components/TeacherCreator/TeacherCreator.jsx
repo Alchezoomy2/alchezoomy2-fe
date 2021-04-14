@@ -43,14 +43,16 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
                             Choose your color:
                         </Typography>
                         <ul className={classes.list}>
-                            {colorPalette.map(color => (
-                                <ColorBlock
-                                    key={color}
-                                    color={color}
-                                    selectedColor={selectedColor}
-                                    handleColorChange={handleColorChange}
-                                />
-                            ))}
+                            {colorPalette ?
+                                colorPalette.map(color => (
+                                    <ColorBlock
+                                        key={color}
+                                        color={color}
+                                        selectedColor={selectedColor}
+                                        handleColorChange={handleColorChange}
+                                    />
+                                ))
+                                : null}
                         </ul>
 
                         <Button
