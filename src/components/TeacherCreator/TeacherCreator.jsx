@@ -6,7 +6,7 @@ import useStyles from "./TeacherCreatorStyles";
 import ColorBlock from "../ColorBlock/ColorBlock";
 
 
-export const TeacherCreator = ({ handleCreateTeacher }) => {
+export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [selectedColor, setSelectedColor] = useState("");
@@ -17,7 +17,8 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
     };
 
     return (
-        <Dialog>
+        <Dialog
+            open={creatorOpen}>
             <Paper elevation={3}
                 className={classes.root}>
                 <Typography>
