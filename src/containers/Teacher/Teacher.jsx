@@ -100,7 +100,7 @@ export const Teacher = () => {
                 /> */}
                 {displayModule}
             </Grid>
-            <Backdrop
+            {/* <Backdrop
                 className={classes.backdrop}
                 open={open}>
                 <CircularProgress />
@@ -110,11 +110,11 @@ export const Teacher = () => {
                 hexPalette={hexPalette}
                 closeColorDialog={closeColorDialog}
                 colorDialog={colorDialog}
-            />
-            <TeacherCreator
+            /> */}
+            {/* <TeacherCreator
                 handleCreateTeacher={handleCreateTeacher}
                 creatorOpen={creatorOpen}
-            />
+            /> */}
         </div>
 
     );
