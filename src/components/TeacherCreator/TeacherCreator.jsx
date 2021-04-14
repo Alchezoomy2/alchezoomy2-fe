@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider";
-import { Container, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
+import { Dialog, Typography, Paper, Avatar, Card, CardContent, Button } from "@material-ui/core";
 import PropTypes from "prop-types";
 import useStyles from "./TeacherCreatorStyles";
 import ColorBlock from "../ColorBlock/ColorBlock";
@@ -17,7 +17,7 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
     };
 
     return (
-        <Container>
+        <Dialog>
             <Paper elevation={3}
                 className={classes.root}>
                 <Typography>
@@ -61,7 +61,7 @@ export const TeacherCreator = ({ handleCreateTeacher }) => {
                     </CardContent>
                 </Card>
             </Paper>
-        </Container>
+        </Dialog>
     );
 };
 
