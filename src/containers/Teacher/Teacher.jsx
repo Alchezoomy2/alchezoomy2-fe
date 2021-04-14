@@ -4,7 +4,7 @@ import { TeacherCreator } from "../../components/TeacherCreator/TeacherCreator";
 import { TeacherDashboard } from "../../components/TeacherDashboard/TeacherDashboard";
 import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "../../utils/teacher-fetches/auth-fetches";
-// import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
+import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
 import { useStyles } from "./TeacherStyles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
@@ -93,11 +93,11 @@ export const Teacher = () => {
     return (
         <div>
             <Grid>
-                {/* <TeacherAppBar
+                <TeacherAppBar
                     handleSubscriptionDashboard={handleSubscriptionDashboard}
                     handleLectureDashboard={handleLectureDashboard}
                     handleAvatarClick={handleAvatarClick}
-                /> */}
+                />
                 {displayModule}
             </Grid>
             {/* <Backdrop
