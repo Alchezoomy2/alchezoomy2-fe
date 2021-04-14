@@ -67,7 +67,7 @@ export const Teacher = () => {
 
 
     useEffect(async () => {
-
+        console.log("How often?");
         if (store.teacherInfo.newUser) {
             setOpen(true);
             setDisplayModule(<TeacherCreator
@@ -80,9 +80,8 @@ export const Teacher = () => {
                 setOpen={setOpen}
                 openSnackbar={openSnackbar}
             />);
+            setOpen(false);
         }
-
-        setOpen(false);
     }, [setOpen]);
 
 
