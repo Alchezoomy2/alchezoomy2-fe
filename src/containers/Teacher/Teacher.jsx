@@ -77,7 +77,7 @@ export const Teacher = () => {
             // setOpen(true);
             setCreatorOpen(true);
         } else {
-            handleLectureDashboard();
+            // handleLectureDashboard();
             // const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
             // store.changeMeetingsObj(returnedMeetingArray);
             // setDisplayModule(<TeacherDashboard
