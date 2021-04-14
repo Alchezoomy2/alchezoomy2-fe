@@ -77,13 +77,14 @@ export const Teacher = () => {
             // setOpen(true);
             setCreatorOpen(true);
         } else {
-            const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
-            store.changeMeetingsObj(returnedMeetingArray);
-            setDisplayModule(<TeacherDashboard
-                setOpen={setOpen}
-                openSnackbar={openSnackbar}
-            />);
-            setOpen(false);
+            handleLectureDashboard();
+            // const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
+            // store.changeMeetingsObj(returnedMeetingArray);
+            // setDisplayModule(<TeacherDashboard
+            //     setOpen={setOpen}
+            //     openSnackbar={openSnackbar}
+            // />);
+            // setOpen(false);
         }
     }, []);
 
