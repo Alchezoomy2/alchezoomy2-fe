@@ -1,5 +1,4 @@
 import { Paper, TextField, Typography, Button, List } from "@material-ui/core";
-import MailIcon from "@material-ui/icons/Mail";
 
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";

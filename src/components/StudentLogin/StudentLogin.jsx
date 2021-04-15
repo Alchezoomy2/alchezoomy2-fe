@@ -21,7 +21,6 @@ export default function StudentLogin() {
         try {
             const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
             if (studentInfo.error) {
-                console.log("if");
                 openSnackbar("error", "Invalid username or password");
                 setPassword("");
             } else {
@@ -34,7 +33,6 @@ export default function StudentLogin() {
                 history.push("/student");
             }
         } catch (e) {
-            console.log("catch");
             openSnackbar("error", "Invalid username or password");
             setPassword("");
         }
