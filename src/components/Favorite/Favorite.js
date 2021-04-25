@@ -1,4 +1,4 @@
-import { useObserver } from "mobx-react";
+// import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
@@ -48,7 +48,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     };
 
 
-    return useObserver(() =>
+    return (
 
         <div className={classes.frame}>
             <Paper

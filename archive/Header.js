@@ -3,7 +3,7 @@ import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 // import { useStateStore } from './StoreProvider.js'
-import { useObserver } from "mobx-react";
+// import { useObserver } from "mobx-react";
 // import classes from '*.module.css';
 import { useHistory } from "react-router-dom";
 
@@ -14,7 +14,7 @@ export const Header = () => {
     const history = useHistory();
 
 
-    return useObserver(() =>
+    return (
         <AppBar position="static" style={{ width: "100%" }}>
             <Toolbar>
                 <IconButton
