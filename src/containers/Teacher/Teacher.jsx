@@ -12,6 +12,7 @@ import { TeacherSubscriptions } from "../../components/TeacherSubscriptions/Teac
 import { fetchColorPalette } from "../../utils/teacher-fetches/auth-fetches";
 import snackBar from "../../hooks/snackBar/snackBar";
 import TeacherColorDialog from "../../components/TeacherColorDialog/TeacherColorDialog";
+import Footer from "../../components/Footer/Footer";
 
 
 export const Teacher = () => {
@@ -87,6 +88,7 @@ export const Teacher = () => {
                     handleAvatarClick={handleAvatarClick}
                 />
                 {displayModule}
+                <Footer />
             </Grid>
             <Backdrop
                 className={classes.backdrop}
