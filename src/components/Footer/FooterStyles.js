@@ -11,9 +11,6 @@ const useStyles = makeStyles(() => ({
         alignContent: "center",
         width: "95vw",
     },
-    test: {
-        width: "100%",
-    }
 }));
 
 export default useStyles;

@@ -79,56 +79,58 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                 maxWidth="xl"
                 elevation={3}
                 className={classes.frame}>
-                <div className={classes.searchBar}>
+                <>
+                    <div className={classes.searchBar}>
+                        <Typography
+                            variant="h5">
+                            Invite Students
+                   </Typography>
+                        <form
+                            onSubmit={handleStudentInvite}>
+                            <TextField
+                                className={classes.textField}
+                                label="Student email"
+                                value={studentEmail}
+                                onChange={({ target }) => handleEmailChange(target.value)}
+                                autocomplete="off"
+                                multiline
+                            />
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="primary"
+                            >
+                                INVITE
+                            </Button>
+                        </form>
+                    </div>
+
                     <Typography
                         variant="h5">
-                        Invite Students
+                        Subscriptions
                    </Typography>
-                    <form
-                        onSubmit={handleStudentInvite}>
-                        <TextField
-                            className={classes.textField}
-                            label="Student email"
-                            value={studentEmail}
-                            onChange={({ target }) => handleEmailChange(target.value)}
-                            autocomplete="off"
-                            multiline
-                        />
-                        <Button
-                            variant="contained"
-                            type="submit"
-                            color="primary"
-                        >
-                            INVITE
-                            </Button>
-                    </form>
-                </div>
-
-                <Typography
-                    variant="h5">
-                    Subscriptions
-                   </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                    autocomplete="off"
-                />
-                <List className={classes.list}>
-                    {searchField === "" ?
-                        subscriptionArray.map(subscription => SubscriptionListItem(
-                            subscription,
-                            handleSubscriptionDelete
-                        ))
-                        :
-                        fuseSubscriptionList.search(searchField).map(({ item }) => SubscriptionListItem(
-                            item,
-                            handleSubscriptionDelete
-                        ))
-                    }
-                </List>
+                    <TextField
+                        id="search"
+                        label="search"
+                        fullWidth
+                        variant="outlined"
+                        onChange={handleSearchChange}
+                        autocomplete="off"
+                    />
+                    <List className={classes.list}>
+                        {searchField === "" ?
+                            subscriptionArray.map(subscription => SubscriptionListItem(
+                                subscription,
+                                handleSubscriptionDelete
+                            ))
+                            :
+                            fuseSubscriptionList.search(searchField).map(({ item }) => SubscriptionListItem(
+                                item,
+                                handleSubscriptionDelete
+                            ))
+                        }
+                    </List>
+                </>
             </Paper>
             <DeleteDialog
                 deletePayload={deletePayload}
