@@ -93,6 +93,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                                 value={studentEmail}
                                 onChange={({ target }) => handleEmailChange(target.value)}
                                 autocomplete="off"
+                                variant="outlined"
                                 multiline
                             />
                             <Button
