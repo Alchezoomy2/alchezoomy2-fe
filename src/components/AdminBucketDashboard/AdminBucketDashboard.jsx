@@ -43,58 +43,61 @@ export default function AdminBucketDashboard({
     };
 
     return (
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
+                maxWidth="xl"
                 elevation={3}
-                className={classes.root}>
-                <Typography
-                    variant="h5"
-                    className={classes.title}>
-                    S3 Information
-                </Typography>
-                <form
-                    onSubmit={handleSubmit}
-                    className={classes.form}
-                >
-                    <TextField
-                        className={classes.textField}
-                        id="accessKeyId"
-                        label="Access Key Id"
-                        variant="outlined"
-                        value={accessKeyId}
-                        onChange={({ target }) => setAccessKeyId(target.value)}
-                    />
-                    <TextField
-                        className={classes.textField}
-                        id="secretAccessKey"
-                        label="Secret Access Key"
-                        variant="outlined"
-                        value={secretAccessKey}
-                        type="password"
-                        onChange={({ target }) => setSecretAccessKey(target.value)}
-                    />
-                    <TextField
-                        className={classes.textField}
-                        id="region"
-                        label="Region"
-                        variant="outlined"
-                        value={region}
-                        onChange={({ target }) => setRegion(target.value)}
-                    />
-                    <TextField
-                        className={classes.textField}
-                        id="bucket"
-                        label="Bucket"
-                        variant="outlined"
-                        value={bucket}
-                        onChange={({ target }) => setBucket(target.value)}
-                    />
-                    <Button
-                        variant="outlined"
-                        type="submit">
-                        SUBMIT
+                className={classes.frame}>
+                <div>
+                    <Typography
+                        variant="h5"
+                        className={classes.title}>
+                        S3 Information
+                    </Typography>
+                    <form
+                        onSubmit={handleSubmit}
+                        className={classes.form}
+                    >
+                        <TextField
+                            className={classes.textField}
+                            id="accessKeyId"
+                            label="Access Key Id"
+                            variant="outlined"
+                            value={accessKeyId}
+                            onChange={({ target }) => setAccessKeyId(target.value)}
+                        />
+                        <TextField
+                            className={classes.textField}
+                            id="secretAccessKey"
+                            label="Secret Access Key"
+                            variant="outlined"
+                            value={secretAccessKey}
+                            type="password"
+                            onChange={({ target }) => setSecretAccessKey(target.value)}
+                        />
+                        <TextField
+                            className={classes.textField}
+                            id="region"
+                            label="Region"
+                            variant="outlined"
+                            value={region}
+                            onChange={({ target }) => setRegion(target.value)}
+                        />
+                        <TextField
+                            className={classes.textField}
+                            id="bucket"
+                            label="Bucket"
+                            variant="outlined"
+                            value={bucket}
+                            onChange={({ target }) => setBucket(target.value)}
+                        />
+                        <Button
+                            variant="outlined"
+                            type="submit">
+                            SUBMIT
                     </Button>
-                </form>
+                    </form>
+                </div>
             </Paper>
         </div>
     );

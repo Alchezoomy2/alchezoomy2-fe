@@ -23,15 +23,12 @@ const useStyles = makeStyles(() => ({
         marginLeft: "5px"
     },
     inviteBar: {
-        // width: "100%",
-        // border: `1px solid ${secondaryMain}`,
-        // borderRadius: "5px",
         marginBottom: "25px",
         padding: "15px"
     },
     list: {
         width: "100%",
-        minHeight: "50vh",
+        minHeight: "60vh",
         overflowY: "scroll",
         overflowX: "hidden"
     },

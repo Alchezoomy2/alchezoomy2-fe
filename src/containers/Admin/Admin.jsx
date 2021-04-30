@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminAppBar from "../../components/AdminAppBar/AdminAppBar";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeachers } from "../../utils/admin-fetches/teacher-fetches";
@@ -53,6 +53,10 @@ export default function Admin() {
 
         setOpen(false);
     };
+
+    useEffect(() => {
+        handleTeacherDashboard();
+    }, []);
 
 
     return <div>

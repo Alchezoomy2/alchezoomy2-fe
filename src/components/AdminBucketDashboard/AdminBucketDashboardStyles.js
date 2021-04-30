@@ -1,20 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { root, frame } from "../../styles/frames";
 
 const useStyles = makeStyles(() => ({
-    root: {
-        minHeight: "450px",
-        minWidth: "700px",
-        maxHeight: "85vh",
-        width: "70vw",
-        marginTop: "25px",
-        overflowY: "scroll",
-        overflowX: "hidden"
-    },
-    frame: {
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center"
-    },
+    root, frame,
     textField: {
         margin: "10px",
         width: "90%"

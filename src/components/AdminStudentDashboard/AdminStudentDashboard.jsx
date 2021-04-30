@@ -48,35 +48,38 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
     };
 
     return (
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
                 elevation={3}
-                className={classes.root}>
-                <Typography
-                    variant="h5">
-                    Students
+                maxWidth="xl"
+                className={classes.frame}>
+                <div>
+                    <Typography
+                        variant="h5">
+                        Students
                </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                />
-                <List className={classes.list}>
-                    {searchField === "" ?
-                        studentArray.map(item =>
-                            StudentListItem(
+                    <TextField
+                        id="search"
+                        label="search"
+                        fullWidth
+                        variant="outlined"
+                        onChange={handleSearchChange}
+                    />
+                    <List className={classes.list}>
+                        {searchField === "" ?
+                            studentArray.map(item =>
+                                StudentListItem(
+                                    item,
+                                    handleItemDelete
+                                ))
+                            :
+                            fuseStudentList.search(searchField).map(({ item }) => StudentListItem(
                                 item,
                                 handleItemDelete
                             ))
-                        :
-                        fuseStudentList.search(searchField).map(({ item }) => StudentListItem(
-                            item,
-                            handleItemDelete
-                        ))
-                    }
-                </List>
+                        }
+                    </List>
+                </div>
             </Paper>
             {deletePayload ?
                 <DeleteDialog

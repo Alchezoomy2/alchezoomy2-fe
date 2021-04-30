@@ -67,55 +67,58 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
     };
 
     return (
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
+                maxWidth="xl"
                 elevation={3}
-                className={classes.root}>
-                <div className={classes.searchBar}>
+                className={classes.frame}>
+                <div>
+                    <div className={classes.searchBar}>
+                        <Typography
+                            variant="h5">
+                            Invite Teachers
+                    </Typography>
+                        <TextField
+                            className={classes.textField}
+                            label="Teacher email"
+                            value={teacherEmail}
+                            onChange={({ target }) => handleEmailChange(target.value)}
+                            multiline
+                        />
+                        <IconButton
+                            color="inherit"
+                            onClick={() => handleTeacherInvite()}>
+                            <MailIcon />
+                        </IconButton>
+                    </div>
+
                     <Typography
                         variant="h5">
-                        Invite Teachers
+                        Teachers
                </Typography>
                     <TextField
-                        className={classes.textField}
-                        label="Teacher email"
-                        value={teacherEmail}
-                        onChange={({ target }) => handleEmailChange(target.value)}
-                        multiline
+                        id="search"
+                        label="search"
+                        fullWidth
+                        variant="outlined"
+                        onChange={handleSearchChange}
+                        autocomplete="off"
                     />
-                    <IconButton
-                        color="inherit"
-                        onClick={() => handleTeacherInvite()}>
-                        <MailIcon />
-                    </IconButton>
-                </div>
-
-                <Typography
-                    variant="h5">
-                    Teachers
-               </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                    autocomplete="off"
-                />
-                <List className={classes.list}>
-                    {searchField === "" ?
-                        teacherArray.map(item =>
-                            ListableItem(
+                    <List className={classes.list}>
+                        {searchField === "" ?
+                            teacherArray.map(item =>
+                                ListableItem(
+                                    item,
+                                    handleItemDelete
+                                ))
+                            :
+                            fuseTeacherList.search(searchField).map(({ item }) => ListableItem(
                                 item,
                                 handleItemDelete
                             ))
-                        :
-                        fuseTeacherList.search(searchField).map(({ item }) => ListableItem(
-                            item,
-                            handleItemDelete
-                        ))
-                    }
-                </List>
+                        }
+                    </List>
+                </div>
             </Paper>
             <DeleteDialog
                 deletePayload={deletePayload}

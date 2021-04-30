@@ -35,14 +35,6 @@ export const TeacherDashboard = ({ setOpen }) => {
         setOpen(false);
     };
 
-
-
-    // useEffect(() => {
-    //     store.changeMeetingsObj(setMeetingsToDisplay);
-    //     setOpen(false);
-    //     console.log("TeacherDashboard");
-    // }, [meetingsToDisplay]);
-
     return (
         <div className={classes.root}>
             <Paper

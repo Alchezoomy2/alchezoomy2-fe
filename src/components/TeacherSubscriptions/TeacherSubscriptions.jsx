@@ -108,8 +108,8 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                     <div className={classes.searchBar}>
                         <Typography
                             variant="h5">
-                            Subscriptions
-                   </Typography>
+                            Search Subscriptions
+                        </Typography>
                         <TextField
                             id="search"
                             label="search"
