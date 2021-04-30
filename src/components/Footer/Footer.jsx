@@ -19,7 +19,8 @@ export default function Footer() {
                 <IconButton
                     edge="end"
                     color="inherit"
-                    aria-label="email designer">
+                    aria-label="email designer"
+                    href="mailto:paul.stevens.developer@gmail.com">
                     <MailIcon />
                 </IconButton>
             </Toolbar>
