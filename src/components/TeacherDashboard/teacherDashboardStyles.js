@@ -5,16 +5,16 @@ const useStyles = makeStyles(() => ({
         width: "100%",
         height: "100%",
         display: "flex",
-        justifyContent: "center"
+        justifyItems: "center"
     },
     root: {
-        height: "95vh",
+        height: "90vh",
         width: "100%",
         marginTop: "25px"
     },
     list: {
         width: "95%",
-        height: "95vh",
+        height: "90vh",
         border: "1px solid green"
     }
 

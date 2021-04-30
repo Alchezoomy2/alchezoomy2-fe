@@ -6,7 +6,6 @@ const useStyles = makeStyles(({
     }),
     listItem: {
         display: "flex",
-        // justifyItems: "center",
         alignItems: "center",
     },
     chips: {
