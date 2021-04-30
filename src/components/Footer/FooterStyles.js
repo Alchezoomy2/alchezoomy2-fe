@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
         justifyContent: "flex-end",
         alignContent: "center",
         width: "100vw",
+        marginLeft: "0",
     },
     test: {
         border: "1px solid yellow",
