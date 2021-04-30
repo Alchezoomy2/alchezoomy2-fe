@@ -53,11 +53,11 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
                 elevation={3}
                 maxWidth="xl"
                 className={classes.frame}>
-                <div>
+                <div className={classes.searchBar}>
                     <Typography
                         variant="h5">
                         Students
-               </Typography>
+                        </Typography>
                     <TextField
                         id="search"
                         label="search"

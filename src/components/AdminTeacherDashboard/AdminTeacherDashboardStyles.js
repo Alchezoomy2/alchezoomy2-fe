@@ -14,11 +14,19 @@ const useStyles = makeStyles(() => ({
     teacherName: {
         marginLeft: "5px"
     },
-    searchBar: {
-        flexGrow: 1,
-        border: "1px solid #4054b4",
-        borderRadius: "5px"
+    inviteBar: {
+        marginBottom: "25px",
+        padding: "15px"
     },
+    list: {
+        width: "100%",
+        minHeight: "60vh",
+        overflowY: "scroll",
+        overflowX: "hidden"
+    },
+    searchBar: {
+        padding: "15px"
+    }
 }));
 
 export default useStyles;

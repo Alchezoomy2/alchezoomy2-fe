@@ -20,6 +20,7 @@ export const useStyles = makeStyles({
     },
     avatar: {
         cursor: "pointer",
+        border: "3px solid white"
     }
 
 

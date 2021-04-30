@@ -44,6 +44,8 @@ export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashb
                         STUDENTS
                     </Button>
                     <Button
+                        variant="contained"
+                        color="secondary"
                         onClick={handleLogout}
                     >
                         LOGOUT

@@ -50,14 +50,11 @@ export default function AdminBucketDashboard({
                 className={classes.frame}>
                 <div>
                     <Typography
-                        variant="h5"
-                        className={classes.title}>
+                        variant="h5">
                         S3 Information
                     </Typography>
                     <form
-                        onSubmit={handleSubmit}
-                        className={classes.form}
-                    >
+                        onSubmit={handleSubmit}>
                         <TextField
                             className={classes.textField}
                             id="accessKeyId"
@@ -93,6 +90,7 @@ export default function AdminBucketDashboard({
                         />
                         <Button
                             variant="outlined"
+                            color="secondary"
                             type="submit">
                             SUBMIT
                     </Button>

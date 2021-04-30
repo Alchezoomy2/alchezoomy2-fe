@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import fuse from "fuse.js";
 import { inviteTeacher, deleteTeacher } from "../../utils/admin-fetches/teacher-fetches";
 import useStyles from "./AdminTeacherDashboardStyles";
-import { Paper, TextField, Typography, IconButton, List } from "@material-ui/core";
+import { Paper, TextField, Typography, Button, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
 import { ListableItem } from "../ListableItem/ListableItem";
-import MailIcon from "@material-ui/icons/Mail";
 import DeleteDialog from "../DeleteDialog/DeleteDialog";
 
 
@@ -73,37 +72,44 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
                 elevation={3}
                 className={classes.frame}>
                 <div>
-                    <div className={classes.searchBar}>
+                    <div className={classes.inviteBar}>
                         <Typography
                             variant="h5">
                             Invite Teachers
-                    </Typography>
-                        <TextField
-                            className={classes.textField}
-                            label="Teacher email"
-                            value={teacherEmail}
-                            onChange={({ target }) => handleEmailChange(target.value)}
-                            multiline
-                        />
-                        <IconButton
-                            color="inherit"
-                            onClick={() => handleTeacherInvite()}>
-                            <MailIcon />
-                        </IconButton>
+                        </Typography>
+                        <form
+                            onSubmit={handleTeacherInvite}>
+                            <TextField
+                                className={classes.textField}
+                                label="Teacher email"
+                                value={teacherEmail}
+                                onChange={({ target }) => handleEmailChange(target.value)}
+                                variant="outlined"
+                                multiline
+                            />
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="primary"
+                            >
+                                INVITE
+                            </Button>
+                        </form>
                     </div>
-
-                    <Typography
-                        variant="h5">
-                        Teachers
-               </Typography>
-                    <TextField
-                        id="search"
-                        label="search"
-                        fullWidth
-                        variant="outlined"
-                        onChange={handleSearchChange}
-                        autocomplete="off"
-                    />
+                    <div className={classes.searchBar}>
+                        <Typography
+                            variant="h5">
+                            Teachers
+                        </Typography>
+                        <TextField
+                            id="search"
+                            label="search"
+                            fullWidth
+                            variant="outlined"
+                            onChange={handleSearchChange}
+                            autocomplete="off"
+                        />
+                    </div>
                     <List className={classes.list}>
                         {searchField === "" ?
                             teacherArray.map(item =>
@@ -125,7 +131,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
                 closeDeleteDialog={closeDeleteDialog}
                 showDeleteDialog={showDeleteDialog}
             />
-        </div>
+        </div >
 
     );
 

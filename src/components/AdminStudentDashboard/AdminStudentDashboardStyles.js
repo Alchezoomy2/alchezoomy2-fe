@@ -5,20 +5,9 @@ const useStyles = makeStyles(() => ({
     root, frame,
     textField: {
         marginLeft: "5px",
-        width: "90%"
-    },
-    input: {
-        color: "white",
-        borderColor: "white"
-    },
-    teacherName: {
-        marginLeft: "5px"
-    },
-    searchBar: {
-        flexGrow: 1,
-        border: "1px solid #4054b4",
-        borderRadius: "5px"
-    },
+        minWidth: "100%",
+        width: "30vw"
+    }
 }));
 
 export default useStyles;
