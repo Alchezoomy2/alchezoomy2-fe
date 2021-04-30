@@ -8,13 +8,13 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center"
     },
     root: {
-        height: "100%",
+        height: "50vh",
         width: "100%",
         marginTop: "25px"
     },
     list: {
         width: "95%",
-        height: "100%"
+        height: "50vh"
 
     }
 
