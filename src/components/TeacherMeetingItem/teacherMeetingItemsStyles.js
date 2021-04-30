@@ -7,13 +7,12 @@ const useStyles = makeStyles(({
     listItem: {
         display: "flex",
         justifyItems: "center",
-        alignItems: "center",
-        border: "1px solid red"
+        // alignItems: "center",
     },
     chips: {
         display: "flex",
         justifyContent: "center",
-        border: "1px solid blue"
+        marginRight: "5px",
     }
 
 }));
