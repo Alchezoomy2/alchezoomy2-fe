@@ -11,6 +11,9 @@ const useStyles = makeStyles(() => ({
         height: "100vh - 100",
         width: "95vw",
         marginTop: "25px"
+    },
+    list: {
+        width: "95%"
     }
 
 }));

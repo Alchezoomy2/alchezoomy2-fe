@@ -48,8 +48,7 @@ export const TeacherDashboard = ({ setOpen }) => {
             <Paper
                 maxWidth="xl"
                 className={classes.root}>
-                <List style={{ width: "90%" }
-                } >
+                <List className={classes.list}>
                     {meetingsToDisplay !== null ?
                         meetingsToDisplay.map((meeting, index) => (
                             <div key={index}>
