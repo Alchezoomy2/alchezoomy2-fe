@@ -6,6 +6,7 @@ const useStyles = makeStyles(() => ({
     component: {
         display: "flex",
         flexDirection: "column",
+        alignContent: "center",
         width: "100%",
         minHeight: "85vh"
     },

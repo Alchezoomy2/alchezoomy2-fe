@@ -6,7 +6,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 export const ListableItem = (item, handleItemDelete) => {
 
     return (
-        <div>
+        <div style={{ borderLeft: `5px solid ${item.color}` }}>
             <ListItem
                 alignItems="flex-start"
                 divider={true}

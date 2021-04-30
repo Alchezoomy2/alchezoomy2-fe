@@ -89,7 +89,7 @@ export default function AdminBucketDashboard({
                             onChange={({ target }) => setBucket(target.value)}
                         />
                         <Button
-                            variant="outlined"
+                            variant="contained"
                             color="secondary"
                             type="submit">
                             SUBMIT

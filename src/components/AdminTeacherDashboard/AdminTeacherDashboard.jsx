@@ -99,7 +99,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
                     <div className={classes.searchBar}>
                         <Typography
                             variant="h5">
-                            Teachers
+                            Search Teachers
                         </Typography>
                         <TextField
                             id="search"
