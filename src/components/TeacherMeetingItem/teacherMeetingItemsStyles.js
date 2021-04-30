@@ -6,13 +6,13 @@ const useStyles = makeStyles(({
     }),
     listItem: {
         display: "flex",
-        justifyItems: "center",
-        // alignItems: "center",
+        // justifyItems: "center",
+        alignItems: "center",
     },
     chips: {
         display: "flex",
         justifyContent: "center",
-        marginRight: "5px",
+        marginRight: "15px",
     }
 
 }));
