@@ -6,7 +6,7 @@ const useStyles = makeStyles(({
     }),
     listItem: {
         display: "flex",
-        alignContent: "center"
+        justifyContent: "center"
     }
 
 }));
