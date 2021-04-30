@@ -7,7 +7,7 @@ export const root = {
 };
 
 export const frame = {
-    minHeight: "85vh",
+    // minHeight: "85vh",
     width: "95%",
     marginTop: "25px",
     display: "flex",
