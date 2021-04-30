@@ -10,7 +10,6 @@ export const useStyles = makeStyles({
         justifyItems: "center",
         width: "70%",
         minHeight: "85vh",
-        border: "1px solid pink"
     },
     component: {
         display: "flex",
@@ -18,7 +17,7 @@ export const useStyles = makeStyles({
         alignItems: "center",
         justifyItems: "center",
         width: "70%",
-        border: "1px solid pink"
+        marginTop: "25px"
     },
     button: {
         height: "50px",

@@ -150,7 +150,7 @@ export default function StudentProfile({ openSnackbar }) {
                             <Button
                                 variant="contained"
                                 type="submit"
-                                color="primary">
+                                color="secondary">
                                 SUBMIT
                     </Button>
                         </form>
@@ -175,7 +175,7 @@ export default function StudentProfile({ openSnackbar }) {
                         }
                         <Button
                             variant="contained"
-                            color="accent2Color"
+                            color="secondary"
                             onClick={handleDeleteAccount}>
                             DELETE ACCOUNT
                         </Button>

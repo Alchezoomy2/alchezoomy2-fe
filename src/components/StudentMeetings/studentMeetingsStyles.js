@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
         padding: "10px"
     },
     list: {
-        width: "90%"
+        width: "100%",
+        height: "85vh",
+        overflowY: "scroll",
+        overflowX: "hidden"
     },
     listItem: {
         width: "650px",
