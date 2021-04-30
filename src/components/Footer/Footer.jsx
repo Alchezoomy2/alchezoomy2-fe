@@ -1,5 +1,5 @@
 import React from "react";
-import { Appbar, IconButton, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
 import MailIcon from "@material-ui/icons/Mail";
 import { useStyles } from "./FooterStyles";
 
@@ -8,7 +8,7 @@ export default function Footer() {
     const classes = useStyles();
 
     return (
-        <Appbar
+        <AppBar
             variant="static"
             className={classes.root}
             color="primary">
@@ -23,6 +23,6 @@ export default function Footer() {
                     <MailIcon />
                 </IconButton>
             </Toolbar>
-        </Appbar>
+        </AppBar>
     );
 }
