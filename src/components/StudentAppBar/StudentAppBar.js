@@ -39,7 +39,7 @@ export default function StudentAppBar({
                     className={classes.iconDiv}>
                     {pageIcon === "profile" ?
                         <IconButton
-                            color="inherit"
+                            color="secondary"
                             aria-label="profile">
                             <PersonOutlineIcon />
                         </IconButton>
@@ -54,7 +54,7 @@ export default function StudentAppBar({
                     }
                     {pageIcon === "meeting" ?
                         <IconButton
-                            color="inherit"
+                            color="secondary"
                             aria-label="home">
                             <HomeOutlinedIcon />
                         </IconButton>
@@ -68,7 +68,7 @@ export default function StudentAppBar({
                     }
                     {pageIcon === "bookmark" ?
                         <IconButton
-                            color="inherit"
+                            color="secondary"
                             aria-label="bookmark">
                             <BookmarkBorderIcon />
                         </IconButton>
@@ -82,7 +82,7 @@ export default function StudentAppBar({
                     }
                     {pageIcon === "favorite" ?
                         <IconButton
-                            color="inherit"
+                            color="secondary"
                             aria-label="favorite">
                             <StarBorderIcon />
                         </IconButton>
@@ -102,10 +102,10 @@ export default function StudentAppBar({
                 </Typography>
 
                 <Button
-                    variant="outlined"
-                    color="inherit"
+                    variant="contained"
+                    color="secondary"
                     onClick={handleLogout}
-                    style={{ marginLeft: "25px" }}
+                    className={classes.logoutButton}
                 >
                     LOGOUT
                 </Button>

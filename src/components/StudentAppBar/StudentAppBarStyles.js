@@ -18,6 +18,9 @@ export const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "center"
 
+    },
+    logoutButton: {
+        marginLeft: "25px"
     }
 }));
 

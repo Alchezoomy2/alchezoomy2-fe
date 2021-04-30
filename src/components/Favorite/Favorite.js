@@ -7,7 +7,7 @@ import fuse from "fuse.js";
 // import { useHistory } from "react-router-dom";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
 import Transition from "../DialogTransition/DialogTransition";
-import useStyles from "./favoriteStyles";
+import useStyles from "./FavoriteStyles";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
@@ -50,35 +50,38 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
 
     return (
 
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
+                maxWidth="xl"
                 elevation={3}
-                className={classes.root}>
-                <Typography
-                    variant='h5'>
-                    Favorites
+                className={classes.frame}>
+                <div className={classes.component}>
+                    <Typography
+                        variant='h5'>
+                        Favorites
                     </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                    autocomplete="off"
-                />
-                <List>
-                    {searchField === "" ?
-                        store.favoriteArray.map(favorite => FavoriteListItem(
-                            favorite,
-                            handleDeleteClick,
-                            handleOpenMeeting))
-                        :
-                        fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(
-                            item,
-                            handleDeleteClick,
-                            handleOpenMeeting))
-                    }
-                </List>
+                    <TextField
+                        id="search"
+                        label="search"
+                        fullWidth
+                        variant="outlined"
+                        onChange={handleSearchChange}
+                        autocomplete="off"
+                    />
+                    <List>
+                        {searchField === "" ?
+                            store.favoriteArray.map(favorite => FavoriteListItem(
+                                favorite,
+                                handleDeleteClick,
+                                handleOpenMeeting))
+                            :
+                            fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(
+                                item,
+                                handleDeleteClick,
+                                handleOpenMeeting))
+                        }
+                    </List>
+                </div>
             </Paper>
             {
                 dialogCard ?

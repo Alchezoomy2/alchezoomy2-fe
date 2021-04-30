@@ -58,33 +58,36 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
 
     return useObserver(() =>
 
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
+                maxWidth="xl"
                 elevation={3}
-                className={classes.root}>
-                <Typography
-                    variant='h5'>
-                    Bookmarks
+                className={classes.frame}>
+                <div className={classes.component}>
+                    <Typography
+                        variant='h5'>
+                        Bookmarks
                     </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                    autocomplete="off"
-                />
-                <List>
-                    {searchField === "" ?
-                        store.bookmarkArray.map(bookmark => BookmarkListItem(bookmark,
-                            handleDeleteClick,
-                            handleOpenMeeting))
-                        :
-                        fuseBookmarkList.search(searchField).map(({ item }) => BookmarkListItem(item,
-                            handleDeleteClick,
-                            handleOpenMeeting))
-                    }
-                </List>
+                    <TextField
+                        id="search"
+                        label="search"
+                        fullWidth
+                        variant="outlined"
+                        onChange={handleSearchChange}
+                        autocomplete="off"
+                    />
+                    <List>
+                        {searchField === "" ?
+                            store.bookmarkArray.map(bookmark => BookmarkListItem(bookmark,
+                                handleDeleteClick,
+                                handleOpenMeeting))
+                            :
+                            fuseBookmarkList.search(searchField).map(({ item }) => BookmarkListItem(item,
+                                handleDeleteClick,
+                                handleOpenMeeting))
+                        }
+                    </List>
+                </div>
             </Paper>
             {
                 dialogCard ?

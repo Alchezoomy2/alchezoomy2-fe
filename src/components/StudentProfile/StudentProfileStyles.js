@@ -1,12 +1,25 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { root, frame } from "../../styles/frames";
 
 export const useStyles = makeStyles({
-    root: {
-        height: "100vh",
+    root, frame,
+    components: {
         display: "flex",
-        justifyContent: "space-around",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyItems: "center",
+        width: "70%",
+        minHeight: "85vh",
+        border: "1px solid pink"
     },
-
+    component: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyItems: "center",
+        width: "70%",
+        border: "1px solid pink"
+    },
     button: {
         height: "50px",
         width: "150px",
@@ -22,11 +35,9 @@ export const useStyles = makeStyles({
         flexDirection: "column",
         width: "500px"
     },
-
     nameForm: {
         display: "flex",
         flexDirection: "column",
-
     }
 });
 

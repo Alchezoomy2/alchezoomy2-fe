@@ -1,20 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
-
+import { root, frame } from "../../styles/frames";
 const useStyles = makeStyles(() => ({
-    root: {
-        minHeight: "60vh",
-        minWidth: "700px",
-        maxHeight: "85vh",
-        width: "70vw",
-        marginTop: "25px",
-        overflowY: "scroll",
-        overflowX: "hidden"
-    },
-    frame: {
+    root, frame,
+    component: {
         display: "flex",
-        justifyContent: "center"
-    }
+        flexDirection: "column",
+        width: "100%",
+        minHeight: "85vh"
+    },
+
 }));
 
 export default useStyles;
-

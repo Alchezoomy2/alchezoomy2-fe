@@ -90,45 +90,47 @@ export const Student = (props) => {
     };
 
     return useObserver(() =>
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
+                maxWidth="xl"
                 elevation={3}
-                className={classes.root}>
-                <Typography
-                    variant="h5">
-                    Lectures
-                </Typography>
-                <TextField
-                    id="search"
-                    label="search"
-                    fullWidth
-                    variant="outlined"
-                    onChange={handleSearchChange}
-                    autocomplete="off"
-                />
-                <List className={classes.list}>
+                className={classes.frame}>
+                <div className={classes.component}>
+                    <Typography
+                        variant="h5">
+                        Lectures
+                    </Typography>
+                    <TextField
+                        id="search"
+                        label="search"
+                        fullWidth
+                        variant="outlined"
+                        onChange={handleSearchChange}
+                        autocomplete="off"
+                    />
+                    <List className={classes.list}>
 
-                    {searchField === "" ?
-                        store.meetingsObj.map(meeting => MeetingListItem(
-                            meeting,
-                            favoriteArray,
-                            handleUnfavorite,
-                            handleFavorite,
-                            () => { props.handleMeetingDetailClick(meeting.id); }))
-                        :
-                        fuseMeetingList.search(searchField).map(({ item }) => {
-                            return MeetingListItem(
-                                item,
+                        {searchField === "" ?
+                            store.meetingsObj.map(meeting => MeetingListItem(
+                                meeting,
                                 favoriteArray,
                                 handleUnfavorite,
                                 handleFavorite,
-                                () => { props.handleMeetingDetailClick(item.id); }
-                            );
-                        })
+                                () => { props.handleMeetingDetailClick(meeting.id); }))
+                            :
+                            fuseMeetingList.search(searchField).map(({ item }) => {
+                                return MeetingListItem(
+                                    item,
+                                    favoriteArray,
+                                    handleUnfavorite,
+                                    handleFavorite,
+                                    () => { props.handleMeetingDetailClick(item.id); }
+                                );
+                            })
 
-                    }
-                </List>
-
+                        }
+                    </List>
+                </div>
             </Paper >
             {
                 favoriteCard ?

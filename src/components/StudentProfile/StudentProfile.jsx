@@ -70,108 +70,119 @@ export default function StudentProfile({ openSnackbar }) {
     };
 
     return (
-        <Paper elevation={3} className={classes.root}>
-            <div>
-                <span className={classes.label}>CHANGE NAME</span>
-                <form
-                    onSubmit={(e) => handleNameSubmit(e)}
-                    className={classes.nameForm}>
-                    <TextField
-                        id="firstName"
-                        variant="outlined"
-                        label="Current First Name"
-                        value={currentFirstName}
-                        disabled
-                    />
-                    <TextField
-                        id="firstName"
-                        variant="outlined"
-                        label="New First Name"
-                        autocomplete="given-name"
-                        value={newFirstName}
-                        onChange={({ target }) => setNewFirstName(target.value)}
-                        required
-                    />
-                    <Button
-                        variant="contained"
-                        type="submit"
-                        color="primary">
-                        SUBMIT
-                    </Button>
-                </form>
-            </div>
-            <div>
-                <span className={classes.label}>CHANGE PASSWORD</span>
-                <form
-                    onSubmit={(e) => handlePasswordSubmit(e)}
-                    className={classes.passwordForm}>
-                    <TextField
-                        id="oldPassword"
-                        variant="outlined"
-                        label="Old Password"
-                        type="password"
-                        autocomplete="current-password"
-                        value={oldPassword}
-                        onChange={({ target }) => setOldPassword(target.value)}
-                        required
-                    />
-
-                    <TextField
-                        id="password1"
-                        variant="outlined"
-                        label="New Password"
-                        value={newPassword1}
-                        onChange={({ target }) => setNewPassword1(target.value)}
-                        type="password"
-                        autocomplete="new-password"
-                        error={newPassword1 !== newPassword2}
-                        required
-                    />
-                    <TextField
-                        id="password2"
-                        variant="outlined"
-                        label="New Password"
-                        value={newPassword2}
-                        onChange={({ target }) => setNewPassword2(target.value)}
-                        type="password"
-                        autocomplete="new-password"
-                        error={newPassword1 !== newPassword2}
-                        required
-                    />
-                    <Button
-                        variant="contained"
-                        type="submit"
-                        color="primary">
-                        SUBMIT
-                    </Button>
-                </form>
-            </div>
-            <div>
-                {openDeletePassword ?
-                    <div>
-                        <span className={classes.label}>ENTER PASSWORD TO DELETE ACCOUNT</span>
-                        <TextField
-                            id="deletePassword"
-                            variant="outlined"
-                            label="Current Password"
-                            value={deletePassword}
-                            onChange={({ target }) => setDeletePassword(target.value)}
-                            type="password"
-                            autocomplete="current-password"
-                            required
-                        />
+        <div className={classes.root}>
+            <Paper
+                maxWidth="xl"
+                elevation={3}
+                className={classes.frame}>
+                <div className={classes.components}>
+                    <div className={classes.component}>
+                        <div className={classes.label}>
+                            CHANGE NAME
                     </div>
-                    :
-                    <span className={classes.label}>DELETE ACCOUNT</span>
-                }
-                <Button
-                    variant="contained"
-                    color="accent2Color"
-                    onClick={handleDeleteAccount}>
-                    DELETE ACCOUNT
-                </Button>
-            </div>
-        </Paper>
+                        <form
+                            onSubmit={(e) => handleNameSubmit(e)}
+                            className={classes.nameForm}>
+                            <TextField
+                                id="firstName"
+                                variant="outlined"
+                                label="Current First Name"
+                                value={currentFirstName}
+                                disabled
+                            />
+                            <TextField
+                                id="firstName"
+                                variant="outlined"
+                                label="New First Name"
+                                autocomplete="given-name"
+                                value={newFirstName}
+                                onChange={({ target }) => setNewFirstName(target.value)}
+                                required
+                            />
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="secondary">
+                                SUBMIT
+                    </Button>
+                        </form>
+                    </div>
+                    <div className={classes.component}>
+                        <div className={classes.label}>
+                            CHANGE PASSWORD
+                    </div>
+                        <form
+                            onSubmit={(e) => handlePasswordSubmit(e)}
+                            className={classes.passwordForm}>
+                            <TextField
+                                id="oldPassword"
+                                variant="outlined"
+                                label="Old Password"
+                                type="password"
+                                autocomplete="current-password"
+                                value={oldPassword}
+                                onChange={({ target }) => setOldPassword(target.value)}
+                                required
+                            />
+
+                            <TextField
+                                id="password1"
+                                variant="outlined"
+                                label="New Password"
+                                value={newPassword1}
+                                onChange={({ target }) => setNewPassword1(target.value)}
+                                type="password"
+                                autocomplete="new-password"
+                                error={newPassword1 !== newPassword2}
+                                required
+                            />
+                            <TextField
+                                id="password2"
+                                variant="outlined"
+                                label="New Password"
+                                value={newPassword2}
+                                onChange={({ target }) => setNewPassword2(target.value)}
+                                type="password"
+                                autocomplete="new-password"
+                                error={newPassword1 !== newPassword2}
+                                required
+                            />
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="primary">
+                                SUBMIT
+                    </Button>
+                        </form>
+                    </div>
+                    <div className={classes.component}>
+                        {openDeletePassword ?
+                            <div>
+                                <span className={classes.label}>ENTER PASSWORD TO DELETE ACCOUNT</span>
+                                <TextField
+                                    id="deletePassword"
+                                    variant="outlined"
+                                    label="Current Password"
+                                    value={deletePassword}
+                                    onChange={({ target }) => setDeletePassword(target.value)}
+                                    type="password"
+                                    autocomplete="current-password"
+                                    required
+                                />
+                            </div>
+                            :
+                            <span className={classes.label}>DELETE ACCOUNT</span>
+                        }
+                        <Button
+                            variant="contained"
+                            color="accent2Color"
+                            onClick={handleDeleteAccount}>
+                            DELETE ACCOUNT
+                        </Button>
+                    </div>
+                </div>
+            </Paper>
+        </div>
     );
 }
 
