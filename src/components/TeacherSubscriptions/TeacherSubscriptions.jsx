@@ -79,12 +79,12 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                 maxWidth="xl"
                 elevation={3}
                 className={classes.frame}>
-                <>
+                <div className={classes.component}>
                     <div className={classes.searchBar}>
                         <Typography
                             variant="h5">
                             Invite Students
-                   </Typography>
+                        </Typography>
                         <form
                             onSubmit={handleStudentInvite}>
                             <TextField

@@ -3,6 +3,11 @@ import { root, frame } from "../../styles/frames";
 
 const useStyles = makeStyles(() => ({
     root, frame,
+
+    component: {
+        display: "flex",
+        flexDirection: "column"
+    },
     textField: {
         marginLeft: "5px",
         width: "90%"
