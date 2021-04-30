@@ -15,7 +15,9 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
 
     return (
         <div className={classes.frame}>
-            <ListItem alignItems="flex-start" >
+            <ListItem
+                alignItems="flex-start"
+                className={classes.listItem}>
                 <TeacherMeetingTopic
                     meeting={meeting}
                     handleUpdate={handleUpdate}
