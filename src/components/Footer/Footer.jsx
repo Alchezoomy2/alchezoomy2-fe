@@ -16,9 +16,8 @@ export default function Footer() {
                 <>
                     <Typography variant="Button">
                         Designed by Paul Stevens
-                </Typography>
+                    </Typography>
                     <IconButton
-                        edge="end"
                         color="inherit"
                         aria-label="email designer"
                         href="mailto:paul.stevens.developer@gmail.com">
