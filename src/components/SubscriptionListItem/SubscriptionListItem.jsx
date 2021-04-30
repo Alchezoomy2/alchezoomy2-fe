@@ -13,7 +13,7 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
             >
                 <ListItemText
                     primary={subscription.firstName}
-                    secondary={subscription.studentEmail}
+                    secondary={`${subscription.studentEmail} - ${subscription.creationDate}`}
                 />
                 <DeleteIcon
                     clickable

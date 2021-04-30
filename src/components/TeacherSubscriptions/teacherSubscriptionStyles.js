@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
     },
     list: {
         width: "100%",
-        height: "85vh",
+        minHeight: "50vh",
         overflowY: "scroll",
         overflowX: "hidden"
     },
