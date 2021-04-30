@@ -130,7 +130,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                             ))
                         }
                     </List>
-                </>
+                </div>
             </Paper>
             <DeleteDialog
                 deletePayload={deletePayload}
