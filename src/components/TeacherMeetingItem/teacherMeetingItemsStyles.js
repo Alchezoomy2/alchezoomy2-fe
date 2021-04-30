@@ -6,7 +6,8 @@ const useStyles = makeStyles(({
     }),
     listItem: {
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
+        border: "1px solid red"
     }
 
 }));
