@@ -6,8 +6,8 @@ const useStyles = makeStyles(({
     }),
     listItem: {
         display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
+        justifyItems: "center",
+        alignItems: "center",
         border: "1px solid red"
     },
     chips: {
