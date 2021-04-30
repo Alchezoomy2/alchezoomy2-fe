@@ -15,6 +15,7 @@ const useStyles = makeStyles(() => ({
         marginLeft: "5px"
     },
     inviteBar: {
+        width: "100%",
         marginBottom: "25px",
         padding: "15px"
     },

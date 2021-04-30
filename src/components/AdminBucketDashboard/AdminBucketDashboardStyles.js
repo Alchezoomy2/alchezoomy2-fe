@@ -8,6 +8,7 @@ const useStyles = makeStyles(() => ({
         width: "90%"
     },
     form: {
+        minHeight: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center"
