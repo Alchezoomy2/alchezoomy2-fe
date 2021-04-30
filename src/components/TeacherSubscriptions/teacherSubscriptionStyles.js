@@ -1,10 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { root, frame } from "../../styles/frames";
-import { secondaryMain } from "../../styles/colors";
 
 const useStyles = makeStyles(() => ({
     root, frame,
-
     component: {
         display: "flex",
         flexDirection: "column",

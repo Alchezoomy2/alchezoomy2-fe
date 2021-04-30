@@ -71,7 +71,7 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
                 maxWidth="xl"
                 elevation={3}
                 className={classes.frame}>
-                <div>
+                <div className={classes.component}>
                     <div className={classes.inviteBar}>
                         <Typography
                             variant="h5">

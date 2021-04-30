@@ -53,7 +53,7 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
                 elevation={3}
                 maxWidth="xl"
                 className={classes.frame}>
-                <div className={classes.searchBar}>
+                <div className={classes.component}>
                     <Typography
                         variant="h5">
                         Students
