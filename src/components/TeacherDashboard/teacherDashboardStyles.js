@@ -12,12 +12,10 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
-        border: "1px solid purple"
     },
     list: {
         width: "95%",
         height: "85vh",
-        border: "1px solid green"
     }
 
 }));

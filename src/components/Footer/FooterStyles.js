@@ -7,10 +7,9 @@ const useStyles = makeStyles(() => ({
     },
     frame: {
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-end",
         alignContent: "center",
         width: "100%",
-        border: "1px solid red"
     }
 }));
 
