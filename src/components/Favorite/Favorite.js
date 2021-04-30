@@ -7,7 +7,7 @@ import fuse from "fuse.js";
 // import { useHistory } from "react-router-dom";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
 import Transition from "../DialogTransition/DialogTransition";
-import useStyles from "./FavoriteStyles";
+import useStyles from "./FavoriteStyle";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
