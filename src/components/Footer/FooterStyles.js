@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
         width: "95vw",
     },
     test: {
-        width: "90%",
+        width: "100%",
     }
 }));
 

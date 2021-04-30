@@ -47,6 +47,7 @@ export const TeacherDashboard = ({ setOpen }) => {
         <div className={classes.root}>
             <Paper
                 maxWidth="xl"
+                elevation={3}
                 className={classes.frame}>
                 <List className={classes.list}>
                     {meetingsToDisplay !== null ?

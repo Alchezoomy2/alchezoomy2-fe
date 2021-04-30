@@ -6,7 +6,6 @@ export const root = {
 };
 
 export const frame = {
-    height: "100%",
     minHeight: "85vh",
     width: "95%",
     marginTop: "25px",

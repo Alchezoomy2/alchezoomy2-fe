@@ -74,10 +74,11 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
     };
 
     return useObserver(() =>
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
+                maxWidth="xl"
                 elevation={3}
-                className={classes.root}>
+                className={classes.frame}>
                 <div className={classes.searchBar}>
                     <Typography
                         variant="h5">
