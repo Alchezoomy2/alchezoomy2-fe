@@ -13,17 +13,17 @@ export default function Footer() {
             className={classes.root}
             color="primary">
             <Toolbar variant="dense" className={classes.frame}>
-                <div className={classes.test}>
-                    <Typography variant="Button">
-                        Designed by Paul Stevens
+                <div className={classes.test} />
+                <Typography variant="Button">
+                    Designed by Paul Stevens
                     </Typography>
-                    <IconButton
-                        color="inherit"
-                        aria-label="email designer"
-                        href="mailto:paul.stevens.developer@gmail.com">
-                        <MailIcon />
-                    </IconButton>
-                </div>
+                <IconButton
+                    color="inherit"
+                    aria-label="email designer"
+                    href="mailto:paul.stevens.developer@gmail.com">
+                    <MailIcon />
+                </IconButton>
+
             </Toolbar>
         </AppBar>
     );

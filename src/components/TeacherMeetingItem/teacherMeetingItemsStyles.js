@@ -12,6 +12,12 @@ const useStyles = makeStyles(({
         display: "flex",
         justifyContent: "center",
         marginRight: "15px",
+    },
+    widgets: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        border: "1px solid orange"
     }
 
 }));

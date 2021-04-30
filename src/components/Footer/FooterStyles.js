@@ -12,7 +12,8 @@ const useStyles = makeStyles(() => ({
         width: "100vw",
     },
     test: {
-        border: "1px solid yellow"
+        border: "1px solid yellow",
+        width: "100%",
     }
 }));
 

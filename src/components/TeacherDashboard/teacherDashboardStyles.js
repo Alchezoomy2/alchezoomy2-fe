@@ -17,12 +17,7 @@ const useStyles = makeStyles(() => ({
         width: "95%",
         height: "85vh",
     },
-    widgets: {
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-between",
-        border: "1px solid orange"
-    }
+
 
 
 }));
