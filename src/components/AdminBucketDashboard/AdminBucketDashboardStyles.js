@@ -6,8 +6,9 @@ const useStyles = makeStyles(() => ({
     component: {
         display: "flex",
         flexDirection: "column",
-        alignContent: "center",
-        width: "100%",
+        alignItems: "center",
+        justifyItems: "center",
+        width: "70%",
         minHeight: "85vh"
     },
     textField: {
