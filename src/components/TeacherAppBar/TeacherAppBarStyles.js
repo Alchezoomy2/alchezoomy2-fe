@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
     userInfo: {
         flexGrow: 1,
         display: "flex",
-        alignContent: "center",
+        alignItems: "center",
     },
     teacherName: {
         marginLeft: "5px",
