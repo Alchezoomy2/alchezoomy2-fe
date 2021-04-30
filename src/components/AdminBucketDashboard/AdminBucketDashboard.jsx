@@ -48,7 +48,7 @@ export default function AdminBucketDashboard({
                 maxWidth="xl"
                 elevation={3}
                 className={classes.frame}>
-                <div className={classes.form}>
+                <div className={classes.component}>
                     <Typography
                         variant="h5">
                         S3 Information

@@ -3,15 +3,15 @@ import { root, frame } from "../../styles/frames";
 
 const useStyles = makeStyles(() => ({
     root, frame,
+    component: {
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        minHeight: "85vh"
+    },
     textField: {
         margin: "10px",
         width: "90%"
-    },
-    form: {
-        minHeight: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center"
     },
     title: {
         margin: "25px"

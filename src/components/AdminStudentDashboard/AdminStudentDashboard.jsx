@@ -17,7 +17,7 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
 
 
     let fuseStudentList = new fuse(studentArray, {
-        keys: ["email", "userName"],
+        keys: ["studentEmail", "firstName"],
         threshold: 0.4,
         ignoreLocation: true
     });
@@ -56,7 +56,7 @@ export default function AdminStudentDashboard({ returnedStudentArray, openSnackb
                 <div className={classes.component}>
                     <Typography
                         variant="h5">
-                        Students
+                        Search Students
                         </Typography>
                     <TextField
                         id="search"

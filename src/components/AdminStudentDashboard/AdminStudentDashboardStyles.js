@@ -7,7 +7,8 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        minHeight: "85vh"
+        minHeight: "85vh",
+        padding: "25px"
     },
     searchBar: {
         width: "90%"
