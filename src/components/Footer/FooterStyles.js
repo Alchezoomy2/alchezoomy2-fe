@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "flex-end",
         alignContent: "center",
-        width: "100%",
+        width: "100vw",
     }
 }));
 

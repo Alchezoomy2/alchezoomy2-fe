@@ -22,22 +22,24 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                     meeting={meeting}
                     handleUpdate={handleUpdate}
                 />
-                <div className={classes.chips}>
-                    <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
-                    <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
-                    <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />
-                    <Chip size="small" color={meeting.transcriptUrl ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
-                </div>
-                <FormControlLabel
-                    control={<Switch checked={meeting.published}
-                        onChange={() => handlePublish(meeting)}
-                        name='publish'
-                        color="primary"
-                    />}
-                    label="publish" />
-                <div>
-                    <Chip size="small" color="secondary" label={"views: " + meeting.meetingViews} />
-                    <Chip size="small" color="secondary" label={"favorites " + meeting.meetingFavs} />
+                <div className={classes.widgets}>
+                    <div className={classes.chips}>
+                        <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
+                        <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
+                        <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />
+                        <Chip size="small" color={meeting.transcriptUrl ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
+                    </div>
+                    <FormControlLabel
+                        control={<Switch checked={meeting.published}
+                            onChange={() => handlePublish(meeting)}
+                            name='publish'
+                            color="primary"
+                        />}
+                        label="publish" />
+                    <div>
+                        <Chip size="small" color="secondary" label={"views: " + meeting.meetingViews} />
+                        <Chip size="small" color="secondary" label={"favorites " + meeting.meetingFavs} />
+                    </div>
                 </div>
             </ListItem >
         </div >
