@@ -14,9 +14,10 @@ const useStyles = makeStyles(({
         marginRight: "15px",
     },
     widgets: {
-        width: "100%",
+        width: "30vw",
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         border: "1px solid orange"
     }
 
