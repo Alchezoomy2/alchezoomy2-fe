@@ -9,11 +9,13 @@ const useStyles = makeStyles(() => ({
     },
     root: {
         height: "100vh - 100",
-        width: "95vw",
+        width: "100%",
         marginTop: "25px"
     },
     list: {
-        width: "95%"
+        width: "95%",
+        height: "100%"
+
     }
 
 }));
