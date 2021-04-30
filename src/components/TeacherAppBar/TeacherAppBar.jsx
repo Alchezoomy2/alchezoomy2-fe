@@ -46,7 +46,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
                     >Subscriptions</Button>
                     <Button
                         variant="contained"
-                        color="primary"
+                        color="inherit"
                         onClick={() => handleLogout()}
                     >
                         LOGOUT
