@@ -3,6 +3,9 @@ import { root, frame } from "../../styles/frames";
 
 const useStyles = makeStyles(() => ({
     root, frame,
+    searchBar: {
+        width: "100%"
+    },
     textField: {
         marginLeft: "5px",
         minWidth: "100%",
