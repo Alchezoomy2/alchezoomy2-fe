@@ -14,11 +14,10 @@ const useStyles = makeStyles(({
         marginRight: "15px",
     },
     widgets: {
-        width: "40vw",
+        width: "38vw",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        border: "1px solid orange"
     }
 
 }));
