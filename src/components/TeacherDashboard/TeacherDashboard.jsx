@@ -44,10 +44,10 @@ export const TeacherDashboard = ({ setOpen }) => {
     // }, [meetingsToDisplay]);
 
     return (
-        <div className={classes.frame}>
+        <div className={classes.root}>
             <Paper
                 maxWidth="xl"
-                className={classes.root}>
+                className={classes.frame}>
                 <List className={classes.list}>
                     {meetingsToDisplay !== null ?
                         meetingsToDisplay.map((meeting, index) => (

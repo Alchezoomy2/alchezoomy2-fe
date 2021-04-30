@@ -1,26 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { root, frame } from "../../styles/frames";
 
 const useStyles = makeStyles(() => ({
-    frame: {
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center"
-    },
-    root: {
-        height: "85vh",
-        width: "95%",
-        marginTop: "25px",
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-    },
+    root,
+    frame,
     list: {
         width: "100%",
         height: "85vh",
     },
-
-
 
 }));
 

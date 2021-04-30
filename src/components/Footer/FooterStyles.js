@@ -9,11 +9,10 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "flex-end",
         alignContent: "center",
-        width: "90vw",
+        width: "95vw",
     },
     test: {
-        border: "1px solid yellow",
-        width: "9%",
+        width: "90%",
     }
 }));
 
