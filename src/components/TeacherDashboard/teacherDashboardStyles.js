@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center"
     },
     root: {
-        height: "100vh - 100",
+        height: "100%",
         width: "100%",
         marginTop: "25px"
     },
