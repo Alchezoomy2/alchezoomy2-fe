@@ -1,12 +1,12 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-
+import { primaryMain, secondaryMain } from "./colors";
 export const theme = createMuiTheme({
     "palette": {
         "primary": {
-            "main": "#000000",
+            "main": primaryMain,
         },
         "secondary": {
-            "main": "#858585",
+            "main": secondaryMain,
         },
         "accent2Color": "#f50057",
         "primary1Color": "#1976d2",

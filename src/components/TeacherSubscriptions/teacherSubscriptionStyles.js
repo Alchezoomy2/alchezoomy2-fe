@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { root, frame } from "../../styles/frames";
+import { secondaryMain } from "../../styles/colors";
 
 const useStyles = makeStyles(() => ({
     root, frame,
@@ -21,18 +22,22 @@ const useStyles = makeStyles(() => ({
     teacherName: {
         marginLeft: "5px"
     },
-    searchBar: {
+    inviteBar: {
         width: "100%",
-        // border: "1px solid #4054b4",
+        border: `1px solid ${secondaryMain}`,
         borderRadius: "5px",
         marginBottom: "25px",
-        backgroundColor: "gray"
+        padding: "5px"
     },
     list: {
         width: "100%",
         height: "85vh",
         overflowY: "scroll",
         overflowX: "hidden"
+    },
+    searchBar: {
+        width: "100%",
+        padding: "5px"
     }
 }));
 

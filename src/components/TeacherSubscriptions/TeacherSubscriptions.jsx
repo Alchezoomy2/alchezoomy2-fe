@@ -80,7 +80,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                 elevation={3}
                 className={classes.frame}>
                 <div className={classes.component}>
-                    <div className={classes.searchBar}>
+                    <div className={classes.inviteBar}>
                         <Typography
                             variant="h5">
                             Invite Students
@@ -104,19 +104,20 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                             </Button>
                         </form>
                     </div>
-
-                    <Typography
-                        variant="h5">
-                        Subscriptions
+                    <div className={classes.searchBar}>
+                        <Typography
+                            variant="h5">
+                            Subscriptions
                    </Typography>
-                    <TextField
-                        id="search"
-                        label="search"
-                        fullWidth
-                        variant="outlined"
-                        onChange={handleSearchChange}
-                        autocomplete="off"
-                    />
+                        <TextField
+                            id="search"
+                            label="search"
+                            fullWidth
+                            variant="outlined"
+                            onChange={handleSearchChange}
+                            autocomplete="off"
+                        />
+                    </div>
                     <List className={classes.list}>
                         {searchField === "" ?
                             subscriptionArray.map(subscription => SubscriptionListItem(
