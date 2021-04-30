@@ -4,15 +4,15 @@ const useStyles = makeStyles(() => ({
     frame: {
         width: "100%",
         height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        border: "1px solid purple"
     },
     root: {
         height: "85vh",
         width: "100%",
         marginTop: "25px",
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+        border: "1px solid purple"
     },
     list: {
         width: "95%",

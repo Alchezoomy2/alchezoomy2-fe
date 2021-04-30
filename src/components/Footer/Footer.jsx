@@ -12,7 +12,7 @@ export default function Footer() {
             variant="static"
             className={classes.root}
             color="primary">
-            <Toolbar variant="dense">
+            <Toolbar variant="dense" className={classes.frame}>
                 <Typography variant="Button">
                     Designed by Paul Stevens
                 </Typography>
