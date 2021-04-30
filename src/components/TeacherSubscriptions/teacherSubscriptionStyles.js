@@ -23,9 +23,17 @@ const useStyles = makeStyles(() => ({
     },
     searchBar: {
         width: "100%",
-        border: "1px solid #4054b4",
-        borderRadius: "5px"
+        // border: "1px solid #4054b4",
+        borderRadius: "5px",
+        marginBottom: "25px",
+        backgroundColor: "gray"
     },
+    list: {
+        width: "100%",
+        height: "85vh",
+        overflowY: "scroll",
+        overflowX: "hidden"
+    }
 }));
 
 export default useStyles;

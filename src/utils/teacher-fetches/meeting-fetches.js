@@ -8,7 +8,7 @@ export async function fetchAllTeacherMeetings(teacherInfo) {
         .withCredentials();
 
 
-    return response.body;
+    return response.body || [];
 
 }
 
