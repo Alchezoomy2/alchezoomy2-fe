@@ -14,7 +14,7 @@ const useStyles = makeStyles(({
         marginRight: "15px",
     },
     widgets: {
-        width: "30vw",
+        width: "40vw",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",

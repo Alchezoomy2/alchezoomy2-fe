@@ -7,14 +7,14 @@ const useStyles = makeStyles(() => ({
     },
     root: {
         height: "85vh",
-        width: "100%",
+        width: "95%",
         marginTop: "25px",
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
     },
     list: {
-        width: "95%",
+        width: "100%",
         height: "85vh",
     },
 

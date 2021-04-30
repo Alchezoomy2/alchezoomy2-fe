@@ -9,8 +9,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "flex-end",
         alignContent: "center",
-        width: "100vw",
-        marginLeft: "0",
+        width: "90vw",
     },
     test: {
         border: "1px solid yellow",
