@@ -20,7 +20,7 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
 
 
     let fuseSubscriptionList = new fuse(subscriptionArray, {
-        keys: ["email", "creationDate", "userName"],
+        keys: ["studentEmail", "creationDate", "firstName"],
         threshold: 0.4,
         ignoreLocation: true
     });
