@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     frame,
     list: {
         width: "100%",
-        maxHeight: "85vh",
+        height: "85vh",
         // overFlowX: "scroll",
         // overflowY: "hidden"
     },
