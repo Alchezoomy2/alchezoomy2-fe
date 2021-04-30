@@ -4,6 +4,8 @@ const useStyles = makeStyles(() => ({
     root: {
         top: "auto",
         bottom: 0,
+        display: "flex",
+        justifyContent: "end"
     },
 }));
 
