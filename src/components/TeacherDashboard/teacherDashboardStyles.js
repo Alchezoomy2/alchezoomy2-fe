@@ -5,7 +5,8 @@ const useStyles = makeStyles(() => ({
         width: "100%",
         height: "100%",
         display: "flex",
-        justifyItems: "center"
+        justifyContent: "center",
+        alignItems: "center"
     },
     root: {
         height: "90vh",
