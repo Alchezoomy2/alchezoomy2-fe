@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
 import MailIcon from "@material-ui/icons/Mail";
-import { useStyles } from "./FooterStyles";
+import useStyles from "./FooterStyles";
 
 
 export default function Footer() {
