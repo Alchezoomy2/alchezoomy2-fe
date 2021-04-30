@@ -7,8 +7,8 @@ const useStyles = makeStyles(() => ({
     list: {
         width: "100%",
         maxHeight: "85vh",
-        overFlowX: "scroll",
-        overflowY: "hidden"
+        // overFlowX: "scroll",
+        // overflowY: "hidden"
     },
 
 }));
