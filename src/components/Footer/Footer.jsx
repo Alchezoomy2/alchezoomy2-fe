@@ -13,7 +13,7 @@ export default function Footer() {
             className={classes.root}
             color="primary">
             <Toolbar variant="dense" className={classes.frame}>
-                <>
+                <div className={classes.test}>
                     <Typography variant="Button">
                         Designed by Paul Stevens
                     </Typography>
@@ -23,7 +23,7 @@ export default function Footer() {
                         href="mailto:paul.stevens.developer@gmail.com">
                         <MailIcon />
                     </IconButton>
-                </>
+                </div>
             </Toolbar>
         </AppBar>
     );
