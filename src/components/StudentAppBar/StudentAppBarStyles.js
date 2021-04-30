@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles(() => ({
+    appBar: {
+        width: "100%"
+    },
     iconDiv: {
         display: "flex",
         alignContent: "flex-end",

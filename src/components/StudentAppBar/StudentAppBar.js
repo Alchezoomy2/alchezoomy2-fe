@@ -33,7 +33,7 @@ export default function StudentAppBar({
     };
 
     return useObserver(() =>
-        <AppBar position="static" style={{ width: "100%" }}>
+        <AppBar position="static" className={classes.appBar}>
             <Toolbar>
                 <div
                     className={classes.iconDiv}>
