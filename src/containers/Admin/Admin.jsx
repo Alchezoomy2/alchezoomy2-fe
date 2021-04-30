@@ -9,6 +9,7 @@ import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminS
 import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
 import AdminBucketDashboard from "../../components/AdminBucketDashboard/AdminBucketDashboard";
 import snackBar from "../../hooks/snackBar/snackBar";
+import Footer from "../../components/Footer/Footer";
 
 
 export default function Admin() {
@@ -62,12 +63,13 @@ export default function Admin() {
                 handleBucketDashboard={handleBucketDashboard}
             />
             {displayModule}
-            <Backdrop
-                className={classes.backdrop}
-                open={open}>
-                <CircularProgress />
-            </Backdrop>
+            <Footer />
         </Grid>
+        <Backdrop
+            className={classes.backdrop}
+            open={open}>
+            <CircularProgress />
+        </Backdrop>
         <SnackbarComponent />
     </div>;
 }

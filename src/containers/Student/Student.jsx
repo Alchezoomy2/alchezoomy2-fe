@@ -9,6 +9,7 @@ import Bookmark from "../../components/Bookmark/Bookmark.js";
 import Favorite from "../../components/Favorite/Favorite.js";
 import StudentProfile from "../../components/StudentProfile/StudentProfile";
 import snackBar from "../../hooks/snackBar/snackBar";
+import Footer from "../../components/Footer/Footer";
 import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches.js";
 import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches.js";
 import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches.js";
@@ -77,17 +78,20 @@ export const Student = () => {
     }, []);
 
     return (
-        <Grid>
-            <StudentAppBar
-                handleBookmarkClick={handleBookmarkClick}
-                handleFavoriteClick={handleFavoriteClick}
-                handleMeetingsClick={handleMeetingsClick}
-                handleProfileClick={handleProfileClick}
-                pageIcon={pageIcon}
-            />
-            {displayedPage}
+        <>
+            <Grid>
+                <StudentAppBar
+                    handleBookmarkClick={handleBookmarkClick}
+                    handleFavoriteClick={handleFavoriteClick}
+                    handleMeetingsClick={handleMeetingsClick}
+                    handleProfileClick={handleProfileClick}
+                    pageIcon={pageIcon}
+                />
+                {displayedPage}
+                <Footer />
+            </Grid>
             <SnackbarComponent />
-        </Grid>
+        </>
     );
 };
 
