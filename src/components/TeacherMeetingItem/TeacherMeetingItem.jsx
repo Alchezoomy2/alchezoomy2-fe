@@ -22,7 +22,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                     meeting={meeting}
                     handleUpdate={handleUpdate}
                 />
-                <div>
+                <div className={classes.chips}>
                     <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
                     <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
                     <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />

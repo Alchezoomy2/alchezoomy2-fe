@@ -8,6 +8,11 @@ const useStyles = makeStyles(({
         display: "flex",
         justifyContent: "center",
         border: "1px solid red"
+    },
+    chips: {
+        display: "flex",
+        justifyContent: "center",
+        border: "1px solid blue"
     }
 
 }));

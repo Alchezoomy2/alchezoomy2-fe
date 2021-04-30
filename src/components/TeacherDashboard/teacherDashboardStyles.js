@@ -8,14 +8,14 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center"
     },
     root: {
-        height: "50vh",
+        height: "100vh - 50px",
         width: "100%",
         marginTop: "25px"
     },
     list: {
         width: "95%",
-        height: "50vh"
-
+        height: "100vh - 50px",
+        border: "1px solid green"
     }
 
 }));
