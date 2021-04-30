@@ -7,6 +7,7 @@ export async function fetchAllTeacherMeetings(teacherInfo) {
         .send({ teacherInfo })
         .withCredentials();
 
+
     return response.body;
 
 }

@@ -6,7 +6,6 @@ export const useStyles = makeStyles({
         padding: "5px"
     },
     textField: {
-        backgroundColor: "black",
         marginLeft: "15px",
         width: "500px"
     },
