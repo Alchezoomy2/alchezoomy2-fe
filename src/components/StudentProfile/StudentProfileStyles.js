@@ -26,8 +26,9 @@ export const useStyles = makeStyles({
     },
     label: {
         marginBottom: "15px",
-        backgroundColor: primaryMain,
-        color: "white",
+        // backgroundColor: primaryMain,
+        // color: "white",
+        border: `5px 0px 5px 0px solid ${primaryMain}`,
         borderRadius: "5px",
         padding: "10px"
     },
