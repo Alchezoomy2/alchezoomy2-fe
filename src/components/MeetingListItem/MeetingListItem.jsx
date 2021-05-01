@@ -21,7 +21,9 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                 divider={true}
             >
                 <ListItemAvatar>
-                    <Avatar alt={meeting.userName} src={meeting.picUrl} />
+                    <Avatar
+                        alt={meeting.userName}
+                        src={meeting.picUrl} />
                 </ListItemAvatar>
                 <ListItemText
                     primary={meeting.topic}
