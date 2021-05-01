@@ -2,11 +2,9 @@ import React from "react";
 import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar, Button, Tooltip } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import DeleteIcon from "@material-ui/icons/Delete";
-import useStyles from "./FavoriteListItemStyles";
 
 
-export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
-    // const classes = useStyles();
+export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting, listItemClasses) => {
 
     return (
         <div
@@ -22,10 +20,10 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                 />
                 <ListItemText
                     primary={favorite.comment}
-                // className={classes.text}
+                    className={listItemClasses.text}
                 />
-                <div>
-                    {/* // className={classes.buttons}> */}
+                <div
+                    className={listItemClasses.buttons}>
                     <Tooltip title="Delete">
                         <Button
                             variant="contained"
@@ -39,7 +37,7 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                     <Tooltip title="Play">
                         <Button
                             variant="contained" color="primary"
-                            // className={classes.playButton}
+                            className={listItemClasses.playButton}
                             size="small"
                             endIcon={<PlayArrowIcon />}
                             onClick={() => handleOpenMeeting(favorite)}>

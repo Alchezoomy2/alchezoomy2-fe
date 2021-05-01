@@ -6,6 +6,7 @@ import fuse from "fuse.js";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
 import Transition from "../DialogTransition/DialogTransition";
 import useStyles from "./FavoriteStyle";
+import FavoriteListItemStyles from "../FavoriteListItemStyles/FavoriteListItemStyles";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
@@ -13,6 +14,7 @@ import { deleteFavorite } from "../../utils/student-fetches/favorite-fetches";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();
+    const listItemClasses = FavoriteListItemStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -31,11 +33,8 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
 
     const handleDeleteFavorite = async (favoriteId) => {
         const newFavoriteArray = await deleteFavorite(favoriteId);
-        console.log(newFavoriteArray);
         store.changeFavoriteArray(newFavoriteArray);
-        console.log("stored!");
         setOpen(false);
-        console.log("false!");
     };
 
     const handleDeleteClick = async (favorite) => {
@@ -73,12 +72,14 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                             store.favoriteArray.map(favorite => FavoriteListItem(
                                 favorite,
                                 handleDeleteClick,
-                                handleOpenMeeting))
+                                handleOpenMeeting,
+                                listItemClasses))
                             :
                             fuseFavoriteList.search(searchField).map(({ item }) => FavoriteListItem(
                                 item,
                                 handleDeleteClick,
-                                handleOpenMeeting))
+                                handleOpenMeeting,
+                                listItemClasses))
                         }
                     </List>
                 </div>
