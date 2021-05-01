@@ -18,8 +18,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     // const classes = useStyles(props);
     return (
         <div
-            // className={itemClasses.frame}
-            style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
+            style={{ borderLeft: "15px solid", margin: "3px" }}
         >
             <ListItem
                 alignItems="flex-start"
