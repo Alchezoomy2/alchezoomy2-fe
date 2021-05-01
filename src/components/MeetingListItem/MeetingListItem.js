@@ -1,5 +1,5 @@
 import React from "react";
-import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider, Tooltip } from "@material-ui/core";
+import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider, Tooltip, Button } from "@material-ui/core";
 
 
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
@@ -11,7 +11,6 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 import useStyles from "./meetingListItemStyles";
-import { Button } from "react-bootstrap";
 
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
