@@ -158,7 +158,9 @@ export default function StudentProfile({ openSnackbar }) {
                     <div className={classes.component}>
                         {openDeletePassword ?
                             <div>
-                                <span className={classes.label}>ENTER PASSWORD TO DELETE ACCOUNT</span>
+                                <div className={classes.label}>
+                                    ENTER PASSWORD TO DELETE ACCOUNT
+                                </div>
                                 <TextField
                                     id="deletePassword"
                                     variant="outlined"

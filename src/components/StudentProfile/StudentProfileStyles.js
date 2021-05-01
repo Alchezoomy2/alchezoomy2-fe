@@ -24,13 +24,11 @@ export const useStyles = makeStyles({
         height: "50px",
         width: "150px",
     },
-
     label: {
         marginBottom: "15px"
     },
 
     passwordForm: {
-        height: "300px",
         display: "flex",
         flexDirection: "column",
         width: "500px"
