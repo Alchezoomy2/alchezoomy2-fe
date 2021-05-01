@@ -5,7 +5,7 @@ import { useStateStore } from "../../utils/StoreProvider.js";
 import useStyles from "./studentMeetingsStyles";
 import fuse from "fuse.js";
 import MeetingListItem from "../MeetingListItem/MeetingListItem";
-import Transition from "../../components/DialogTransition/DialogTransition";
+import Transition from "../DialogTransition/DialogTransition";
 
 
 import CommentIcon from "@material-ui/icons/Comment";

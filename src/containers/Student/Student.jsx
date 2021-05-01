@@ -1,18 +1,18 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import MeetingDetails from "../../components/MeetingDetails/MeetingDetails";
-import { useStateStore } from "../../utils/StoreProvider.js";
+import { useStateStore } from "../../utils/StoreProvider";
 // import { useHistory } from "react-router-dom";
-import StudentMeetings from "../../components/StudentMeetings/StudentMeetings.js";
+import StudentMeetings from "../../components/StudentMeetings/StudentMeetings";
 import StudentAppBar from "../../components/StudentAppBar/StudentAppBar";
-import Bookmark from "../../components/Bookmark/Bookmark.js";
-import Favorite from "../../components/Favorite/Favorite.js";
+import Bookmark from "../../components/Bookmark/Bookmark";
+import Favorite from "../../components/Favorite/Favorite";
 import StudentProfile from "../../components/StudentProfile/StudentProfile";
 import snackBar from "../../hooks/snackBar/snackBar";
 import Footer from "../../components/Footer/Footer";
-import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches.js";
-import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches.js";
-import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches.js";
+import { fetchAllStudentMeetings, getMeetingDetails } from "../../utils/student-fetches/meeting-fetches";
+import { fetchAllStudentBookmarks } from "../../utils/student-fetches/bookmark-fetches";
+import { fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches";
 
 
 
