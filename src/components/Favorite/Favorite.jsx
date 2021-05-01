@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
 import fuse from "fuse.js";
-// import { makeStyles } from '@material-ui/core/styles';
-// import { useHistory } from "react-router-dom";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
 import Transition from "../DialogTransition/DialogTransition";
 import useStyles from "./FavoriteStyle";
@@ -20,7 +18,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     const [open, setOpen] = useState(false);
     const store = useStateStore();
     const [favoriteArray, setFavoriteArray] = useState(store.favoriteArray);
-    // const classes = useStyles();
+
     let fuseFavoriteList = new fuse(favoriteArray, {
         keys: ["topic", "comment", "userName"],
         threshold: 0.4,
@@ -73,7 +71,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                         onChange={handleSearchChange}
                         autocomplete="off"
                     />
-                    {/* <List>
+                    <List>
                         {fuseFavoriteList && searchField === "" ?
                             favoriteArray.map(favorite => FavoriteListItem(
                                 favorite,
@@ -85,7 +83,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                                 handleDeleteClick,
                                 handleOpenMeeting))
                         }
-                    </List> */}
+                    </List>
                 </div>
             </Paper>
             {

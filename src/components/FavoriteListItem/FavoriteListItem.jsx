@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar, Button, Tooltip } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -6,6 +6,10 @@ import useStyles from "./FavoriteListItemStyles";
 
 
 export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
+
+    useEffect(() => {
+        console.log(favorite);
+    });
     const classes = useStyles();
     return (
         <div
