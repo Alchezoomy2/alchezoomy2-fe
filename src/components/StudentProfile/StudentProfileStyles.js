@@ -29,6 +29,7 @@ export const useStyles = makeStyles({
         backgroundColor: primaryMain,
         color: "white",
         borderRadius: "25px",
+        padding: "10px"
     },
 
     passwordForm: {
