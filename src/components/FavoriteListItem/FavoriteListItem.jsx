@@ -6,7 +6,7 @@ import useStyles from "./FavoriteListItemStyles";
 
 
 export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting) => {
-    const classes = useStyles();
+    // const classes = useStyles();
 
     return (
         <div
@@ -22,9 +22,10 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                 />
                 <ListItemText
                     primary={favorite.comment}
-                    className={classes.text}
+                // className={classes.text}
                 />
-                <div className={classes.buttons}>
+                <div>
+                    {/* // className={classes.buttons}> */}
                     <Tooltip title="Delete">
                         <Button
                             variant="contained"
@@ -38,7 +39,7 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                     <Tooltip title="Play">
                         <Button
                             variant="contained" color="primary"
-                            className={classes.playButton}
+                            // className={classes.playButton}
                             size="small"
                             endIcon={<PlayArrowIcon />}
                             onClick={() => handleOpenMeeting(favorite)}>
