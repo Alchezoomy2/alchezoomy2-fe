@@ -1,7 +1,5 @@
 import React from "react";
-import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from "@material-ui/core";
-// import useStyles from "./styles/meetingListItemStyles.js";
-// import { makeStyles } from "@material-ui/core/styles";
+import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider, Tooltip } from "@material-ui/core";
 
 
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
@@ -12,24 +10,19 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
+import useStyles from "./meetingListItemStyles";
+import { Button } from "react-bootstrap";
 
-
-// const useStyles = makeStyles(({
-//     frame: props => ({
-//         borderLeft: `15px solid ${props.borderColor}`,
-//         margin: "3px"
-//     })
-// }));
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
-
+    const props = { borderColor: meeting.color };
+    const classes = useStyles(props);
     return (
         <div
-            style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
+            className={classes.frame}
         >
             <ListItem
                 alignItems="flex-start"
-                // className={classes.listItem}
                 divider={true}
             >
                 <ListItemAvatar>
@@ -39,7 +32,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     primary={meeting.topic}
                     secondary={`${meeting.displayTime} - ${meeting.duration} min`}
                 />
-                <div>
+                <div className={classes.chips}>
                     <Chip
                         size="small"
                         color={meeting.videoUrl ? "primary" : ""}
@@ -68,23 +61,31 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                         size="small"
                         color="secondary"
                         label={"favorites: " + meeting.meetingFavs} />
-
-                    {
-                        favoriteArray &&
-                            favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
-                            <StarIcon
-                                clickable
-                                onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
-                            />
-                            :
-                            <StarBorderIcon
-                                clickable
-                                onClick={() => handleFavorite(meeting)}
-                            />
-                    }
-                    <PlayArrowIcon
-                        onClick={handleMeetingClick}
-                    />
+                    <Tooltip title="Favorite">
+                        {
+                            favoriteArray &&
+                                favoriteArray.some(favorite => favorite.meetingId === meeting.id) ?
+                                <StarIcon
+                                    clickable
+                                    onClick={() => handleUnfavorite(favoriteArray.find(favorite => favorite.meetingId === meeting.id), meeting)}
+                                />
+                                :
+                                <StarBorderIcon
+                                    clickable
+                                    onClick={() => handleFavorite(meeting)}
+                                />
+                        }
+                    </Tooltip>
+                    <Tooltip title="Play">
+                        <Button
+                            variant="contained" color="primary"
+                            className={classes.playButton}
+                            endIcon={<PlayArrowIcon />}
+                            onClick={handleMeetingClick}
+                        >
+                            Play
+                    </Button>
+                    </Tooltip>
                 </div>
             </ListItem>
             <Divider variant="middle" component="li" />

@@ -3,7 +3,7 @@ export const root = {
     display: "flex",
     justifyContent: "center",
     overflow: "hidden",
-    backgroundColor: "lightgray",
+    backgroundColor: "#d7dfea",
     height: "100vh",
 };
 

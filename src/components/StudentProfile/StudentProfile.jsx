@@ -157,7 +157,7 @@ export default function StudentProfile({ openSnackbar }) {
                     </div>
                     <div className={classes.component}>
                         {openDeletePassword ?
-                            <div>
+                            <div className={classes.deleteAccount}>
                                 <div className={classes.label}>
                                     ENTER PASSWORD TO DELETE ACCOUNT
                                 </div>

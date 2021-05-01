@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { root, frame } from "../../styles/frames";
+import { primaryMain } from "../../styles/color";
 
 export const useStyles = makeStyles({
     root, frame,
@@ -24,7 +25,10 @@ export const useStyles = makeStyles({
         width: "150px",
     },
     label: {
-        marginBottom: "15px"
+        marginBottom: "15px",
+        backgroundColor: primaryMain,
+        color: "white",
+        borderRadius: "25px",
     },
 
     passwordForm: {
@@ -33,6 +37,10 @@ export const useStyles = makeStyles({
         width: "500px"
     },
     nameForm: {
+        display: "flex",
+        flexDirection: "column",
+    },
+    deleteAccount: {
         display: "flex",
         flexDirection: "column",
     }
