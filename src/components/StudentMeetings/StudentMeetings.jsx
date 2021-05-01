@@ -111,7 +111,7 @@ export const Student = (props) => {
                     />
                     <List className={classes.list}>
 
-                        {searchField === "" ?
+                        {store.meetingObj && searchField === "" ?
                             store.meetingsObj.map(meeting => MeetingListItem(
                                 meeting,
                                 favoriteArray,
