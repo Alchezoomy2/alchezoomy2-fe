@@ -5,8 +5,8 @@ import { useStateStore } from "../../utils/StoreProvider.js";
 import useStyles from "./studentMeetingsStyles";
 import fuse from "fuse.js";
 import MeetingListItem from "../MeetingListItem/MeetingListItem";
-import Transition from "../DialogTransition/DialogTransition";
-import meetingListItemClasses from "../MeetingListItem/MeetingListItem";
+import Transition from "../../components/DialogTransition/DialogTransition";
+
 
 import CommentIcon from "@material-ui/icons/Comment";
 import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches";
@@ -21,7 +21,6 @@ export const Student = (props) => {
     const [favoriteArray, setFavoriteArray] = useState();
     const [open, setOpen] = useState(false);
     const classes = useStyles();
-    const itemClasses = meetingListItemClasses();
     let fuseMeetingList = new fuse(store.meetingsObj, {
         keys: ["topic"],
         threshold: 0.4,
@@ -111,15 +110,13 @@ export const Student = (props) => {
                     />
                     <List className={classes.list}>
 
-                        {store.meetingObj && searchField === "" ?
+                        {searchField === "" ?
                             store.meetingsObj.map(meeting => MeetingListItem(
                                 meeting,
                                 favoriteArray,
                                 handleUnfavorite,
                                 handleFavorite,
-                                () => { props.handleMeetingDetailClick(meeting.id); },
-                                itemClasses
-                            ))
+                                () => { props.handleMeetingDetailClick(meeting.id); }))
                             :
                             fuseMeetingList.search(searchField).map(({ item }) => {
                                 return MeetingListItem(
@@ -127,8 +124,7 @@ export const Student = (props) => {
                                     favoriteArray,
                                     handleUnfavorite,
                                     handleFavorite,
-                                    () => { props.handleMeetingDetailClick(item.id); },
-                                    itemClasses
+                                    () => { props.handleMeetingDetailClick(item.id); }
                                 );
                             })
 
