@@ -1,7 +1,6 @@
 import React from "react";
 import { Chip, ListItem, ListItemText, ListItemAvatar, Avatar, Divider, Tooltip, Button } from "@material-ui/core";
 
-
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
@@ -18,7 +17,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     // const classes = useStyles(props);
     return (
         <div
-            style={{ borderLeft: "15px solid", margin: "3px" }}
+        // style={{ borderLeft: "15px solid", margin: "3px" }}
         >
             <ListItem
                 alignItems="flex-start"
@@ -33,7 +32,9 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     primary={meeting.topic}
                     secondary={`${meeting.displayTime} - ${meeting.duration} min`}
                 />
-                <div className={itemClasses.chips}>
+                <div
+                // className={itemClasses.chips}
+                >
                     <Chip
                         size="small"
                         color={meeting.videoUrl ? "primary" : ""}
@@ -82,7 +83,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                             size="small"
                             variant="contained"
                             color="primary"
-                            className={itemClasses.playButton}
+                            // className={itemClasses.playButton}
                             endIcon={<PlayArrowIcon />}
                             onClick={handleMeetingClick}
                         >
