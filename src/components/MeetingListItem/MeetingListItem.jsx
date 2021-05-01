@@ -10,31 +10,25 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
-// import useStyles from "./meetingListItemStyles";
 
 
-export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick, itemClasses) => {
-    // const props = { borderColor: meeting.color };
-    // const classes = useStyles(props);
-    console.log(meeting);
+export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
     return (
         <div
-            style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
         >
             <ListItem
                 alignItems="flex-start"
                 divider={true}
             >
                 <ListItemAvatar>
-                    <Avatar
-                        alt={meeting.userName}
-                        src={meeting.picUrl} />
+                    <Avatar alt={meeting.userName} src={meeting.picUrl} />
                 </ListItemAvatar>
                 <ListItemText
                     primary={meeting.topic}
                     secondary={`${meeting.displayTime} - ${meeting.duration} min`}
                 />
-                <div className={itemClasses.chips}>
+                <div
+                >
                     <Chip
                         size="small"
                         color={meeting.videoUrl ? "primary" : ""}
@@ -80,10 +74,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     </Tooltip>
                     <Tooltip title="Play">
                         <Button
-                            size="small"
-                            variant="contained"
-                            color="primary"
-                            className={itemClasses.playButton}
+                            variant="contained" color="primary"
                             endIcon={<PlayArrowIcon />}
                             onClick={handleMeetingClick}
                         >
@@ -113,8 +104,8 @@ MeetingListItem.propTypes = {
     favoriteArray: PropTypes.array,
     handleUnfavorite: PropTypes.func,
     handleFavorite: PropTypes.func,
-    handleMeetingClick: PropTypes.func,
-    itemClasses: PropTypes.object
+    handleMeetingClick: PropTypes.func
+
 };
 
 export default MeetingListItem;
