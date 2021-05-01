@@ -88,6 +88,7 @@ export default function StudentProfile({ openSnackbar }) {
                                 variant="outlined"
                                 label="Current First Name"
                                 value={currentFirstName}
+                                className={classes.textField}
                                 disabled
                             />
                             <TextField
@@ -96,6 +97,7 @@ export default function StudentProfile({ openSnackbar }) {
                                 label="New First Name"
                                 autocomplete="given-name"
                                 value={newFirstName}
+                                className={classes.textField}
                                 onChange={({ target }) => setNewFirstName(target.value)}
                                 required
                             />
@@ -115,6 +117,7 @@ export default function StudentProfile({ openSnackbar }) {
                             onSubmit={(e) => handlePasswordSubmit(e)}
                             className={classes.passwordForm}>
                             <TextField
+                                className={classes.textField}
                                 id="oldPassword"
                                 variant="outlined"
                                 label="Old Password"
@@ -126,6 +129,7 @@ export default function StudentProfile({ openSnackbar }) {
                             />
 
                             <TextField
+                                className={classes.textField}
                                 id="password1"
                                 variant="outlined"
                                 label="New Password"
@@ -137,6 +141,7 @@ export default function StudentProfile({ openSnackbar }) {
                                 required
                             />
                             <TextField
+                                className={classes.textField}
                                 id="password2"
                                 variant="outlined"
                                 label="New Password"
@@ -162,6 +167,7 @@ export default function StudentProfile({ openSnackbar }) {
                                     ENTER PASSWORD TO DELETE ACCOUNT
                                 </div>
                                 <TextField
+                                    className={classes.textField}
                                     id="deletePassword"
                                     variant="outlined"
                                     label="Current Password"
@@ -179,7 +185,7 @@ export default function StudentProfile({ openSnackbar }) {
                             variant="contained"
                             color="secondary"
                             onClick={handleDeleteAccount}>
-                            DELETE ACCOUNT
+                            DELETE
                         </Button>
                     </div>
                 </div>

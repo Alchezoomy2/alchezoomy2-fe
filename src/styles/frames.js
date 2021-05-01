@@ -14,3 +14,11 @@ export const frame = {
     justifyContent: "center",
     alignContent: "center",
 };
+
+export const component = {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    minHeight: "85vh",
+    padding: "10px"
+};

@@ -31,7 +31,9 @@ export const useStyles = makeStyles({
         borderRadius: "5px",
         padding: "10px"
     },
-
+    textField: {
+        margin: "5px"
+    },
     passwordForm: {
         display: "flex",
         flexDirection: "column",

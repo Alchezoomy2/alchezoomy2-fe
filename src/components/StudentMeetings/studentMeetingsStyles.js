@@ -1,14 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { root, frame } from "../../styles/frames";
+import { root, frame, component } from "../../styles/frames";
 const useStyles = makeStyles((theme) => ({
-    root, frame,
-    component: {
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        minHeight: "85vh",
-        padding: "10px"
-    },
+    root, frame, component,
     list: {
         width: "100%",
         height: "85vh",
