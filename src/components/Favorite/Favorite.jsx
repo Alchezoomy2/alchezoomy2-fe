@@ -6,7 +6,7 @@ import fuse from "fuse.js";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
 import Transition from "../DialogTransition/DialogTransition";
 import useStyles from "./FavoriteStyle";
-import FavoriteListItemStyles from "../FavoriteListItemStyles/FavoriteListItemStyles";
+import FavoriteListItemStyles from "../FavoriteListItem/FavoriteListItemStyles";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
