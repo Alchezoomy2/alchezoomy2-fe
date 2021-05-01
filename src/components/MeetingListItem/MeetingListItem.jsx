@@ -14,11 +14,12 @@ import PropTypes from "prop-types";
 
 
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick, itemClasses) => {
-    const props = { borderColor: meeting.color };
+    // const props = { borderColor: meeting.color };
     // const classes = useStyles(props);
     return (
         <div
-            className={itemClasses.frame}
+            // className={itemClasses.frame}
+            style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
         >
             <ListItem
                 alignItems="flex-start"
