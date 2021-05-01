@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
         marginBottom: "15px",
         backgroundColor: primaryMain,
         color: "white",
-        borderRadius: "25px",
+        borderRadius: "5px",
         padding: "10px"
     },
 

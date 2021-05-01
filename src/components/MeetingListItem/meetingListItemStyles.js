@@ -9,8 +9,7 @@ const useStyles = makeStyles(({
         width: "40vw",
         display: "flex",
         alignItems: "center",
-        justifyItems: "spacebetween",
-        border: "1px solid green"
+        justifyItems: "space-between",
     }
 
 }));
