@@ -10,15 +10,15 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
-import useStyles from "./meetingListItemStyles";
+// import useStyles from "./meetingListItemStyles";
 
 
-export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
+export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick, itemClasses) => {
     const props = { borderColor: meeting.color };
-    const classes = useStyles(props);
+    // const classes = useStyles(props);
     return (
         <div
-            className={classes.frame}
+            className={itemClasses.frame}
         >
             <ListItem
                 alignItems="flex-start"
@@ -33,7 +33,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     primary={meeting.topic}
                     secondary={`${meeting.displayTime} - ${meeting.duration} min`}
                 />
-                <div className={classes.chips}>
+                <div className={itemClasses.chips}>
                     <Chip
                         size="small"
                         color={meeting.videoUrl ? "primary" : ""}
@@ -82,7 +82,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                             size="small"
                             variant="contained"
                             color="primary"
-                            className={classes.playButton}
+                            className={itemClasses.playButton}
                             endIcon={<PlayArrowIcon />}
                             onClick={handleMeetingClick}
                         >
