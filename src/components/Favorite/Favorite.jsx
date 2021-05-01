@@ -17,9 +17,8 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
-    const [favoriteArray, setFavoriteArray] = useState(store.favoriteArray);
 
-    let fuseFavoriteList = new fuse(favoriteArray, {
+    let fuseFavoriteList = new fuse(store.favoriteArray, {
         keys: ["topic", "comment", "userName"],
         threshold: 0.4,
         ignoreLocation: true
@@ -35,8 +34,6 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
         console.log(newFavoriteArray);
         store.changeFavoriteArray(newFavoriteArray);
         console.log("stored!");
-        setFavoriteArray(newFavoriteArray);
-        console.log("set!");
         setOpen(false);
         console.log("false!");
     };
@@ -72,8 +69,8 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                         autocomplete="off"
                     />
                     <List>
-                        {fuseFavoriteList && searchField === "" ?
-                            favoriteArray.map(favorite => FavoriteListItem(
+                        {searchField === "" ?
+                            store.favoriteArray.map(favorite => FavoriteListItem(
                                 favorite,
                                 handleDeleteClick,
                                 handleOpenMeeting))
