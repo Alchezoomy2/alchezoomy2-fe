@@ -79,7 +79,9 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     </Tooltip>
                     <Tooltip title="Play">
                         <Button
-                            variant="contained" color="primary"
+                            size="small"
+                            variant="contained"
+                            color="primary"
                             className={classes.playButton}
                             endIcon={<PlayArrowIcon />}
                             onClick={handleMeetingClick}

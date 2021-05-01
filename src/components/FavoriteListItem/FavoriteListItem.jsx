@@ -22,17 +22,23 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                 <ListItemText
                     primary={favorite.comment}
                 />
-                <div>
+                <div className={classes.buttons}>
                     <Tooltip title="Delete">
-                        <DeleteIcon
-                            clickable
-                            onClick={() => handleDeleteClick(favorite)}
-                        />
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            size="small"
+                            endIcon={<DeleteIcon />}
+                            onClick={() => handleDeleteClick(favorite)}>
+                            Delete
+                        </Button>
+
                     </Tooltip>
                     <Tooltip title="Play">
                         <Button
                             variant="contained" color="primary"
                             className={classes.playButton}
+                            size="small"
                             endIcon={<PlayArrowIcon />}
                             onClick={() => handleOpenMeeting(favorite)}>
                             Play

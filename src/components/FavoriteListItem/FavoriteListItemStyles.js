@@ -5,9 +5,9 @@ const useStyles = makeStyles(({
         borderLeft: `15px solid ${props.borderColor}`,
         margin: "3px"
     }),
-    chips: {
+    buttons: {
         height: "50px",
-        width: "40vw",
+        width: "20vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
