@@ -118,7 +118,7 @@ export const Student = (props) => {
                                 handleUnfavorite,
                                 handleFavorite,
                                 () => { props.handleMeetingDetailClick(meeting.id); },
-                                itemClasses
+                                {/* itemClasses */ }
                             ))
                             :
                             fuseMeetingList.search(searchField).map(({ item }) => {
@@ -128,7 +128,7 @@ export const Student = (props) => {
                                     handleUnfavorite,
                                     handleFavorite,
                                     () => { props.handleMeetingDetailClick(item.id); },
-                                    itemClasses
+                                    {/* itemClasses */ }
                                 );
                             })
 

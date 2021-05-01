@@ -12,7 +12,8 @@ import PropTypes from "prop-types";
 // import useStyles from "./meetingListItemStyles";
 
 
-export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick, itemClasses) => {
+export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick,
+) => {
     // const props = { borderColor: meeting.color };
     // const classes = useStyles(props);
     return (
