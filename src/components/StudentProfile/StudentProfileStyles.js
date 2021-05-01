@@ -17,7 +17,8 @@ export const useStyles = makeStyles({
         alignItems: "center",
         justifyItems: "center",
         width: "70%",
-        marginTop: "25px"
+        marginTop: "25px",
+        border: "1px solid green"
     },
     button: {
         height: "50px",

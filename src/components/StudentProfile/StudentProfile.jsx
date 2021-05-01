@@ -79,7 +79,7 @@ export default function StudentProfile({ openSnackbar }) {
                     <div className={classes.component}>
                         <div className={classes.label}>
                             CHANGE NAME
-                    </div>
+                        </div>
                         <form
                             onSubmit={(e) => handleNameSubmit(e)}
                             className={classes.nameForm}>
@@ -104,7 +104,7 @@ export default function StudentProfile({ openSnackbar }) {
                                 type="submit"
                                 color="secondary">
                                 SUBMIT
-                    </Button>
+                            </Button>
                         </form>
                     </div>
                     <div className={classes.component}>
@@ -152,7 +152,7 @@ export default function StudentProfile({ openSnackbar }) {
                                 type="submit"
                                 color="secondary">
                                 SUBMIT
-                    </Button>
+                        </Button>
                         </form>
                     </div>
                     <div className={classes.component}>
