@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { root, frame } from "../../styles/frames";
-import { primaryMain } from "../../styles/color";
+import { primaryMain } from "../../styles/colors";
 
 export const useStyles = makeStyles({
     root, frame,
