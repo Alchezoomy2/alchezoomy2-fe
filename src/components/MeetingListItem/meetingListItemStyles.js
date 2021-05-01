@@ -6,10 +6,12 @@ const useStyles = makeStyles(({
         margin: "3px"
     }),
     chips: {
+        height: "100%",
         width: "40vw",
         display: "flex",
         alignItems: "center",
         justifyItems: "space-between",
+        border: "1px solid aqua"
     }
 
 }));
