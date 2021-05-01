@@ -11,7 +11,7 @@ import useStyles from "./FavoriteStyle";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
-import { deleteFavorite } from "../../utils/student-fetches/favorite-fetches.js";
+import { deleteFavorite } from "../../utils/student-fetches/favorite-fetches";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();

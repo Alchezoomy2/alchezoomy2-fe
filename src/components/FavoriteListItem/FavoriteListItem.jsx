@@ -34,7 +34,7 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                             variant="contained" color="primary"
                             className={classes.playButton}
                             endIcon={<PlayArrowIcon />}
-                            onClick={() => handleOpenMeeting(favorite)}                        >
+                            onClick={() => handleOpenMeeting(favorite)}>
                             Play
                     </Button>
                     </Tooltip>
