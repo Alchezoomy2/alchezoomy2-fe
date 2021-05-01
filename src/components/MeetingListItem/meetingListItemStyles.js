@@ -9,8 +9,8 @@ const useStyles = makeStyles(({
         height: "100%",
         width: "40vw",
         display: "flex",
-        alignItems: "center",
-        justifyItems: "space-between",
+        alignItems: "space-between",
+        justifyItems: "center",
         border: "1px solid aqua"
     }
 
