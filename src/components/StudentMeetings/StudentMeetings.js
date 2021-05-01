@@ -4,13 +4,13 @@ import React, { useEffect, useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
 import useStyles from "./studentMeetingsStyles";
 import fuse from "fuse.js";
-import MeetingListItem from "../MeetingListItem/MeetingListItem.js";
+import MeetingListItem from "../MeetingListItem/MeetingListItem";
 import Transition from "../../components/DialogTransition/DialogTransition";
 
 
 import CommentIcon from "@material-ui/icons/Comment";
-import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches.js";
-import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches.js";
+import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches";
+import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fetches";
 
 
 export const Student = (props) => {
