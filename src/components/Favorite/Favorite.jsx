@@ -75,7 +75,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                     />
                     <List>
                         {searchField === "" ?
-                            store.favoriteArray.map(favorite => FavoriteListItem(
+                            favoriteArray.map(favorite => FavoriteListItem(
                                 favorite,
                                 handleDeleteClick,
                                 handleOpenMeeting))

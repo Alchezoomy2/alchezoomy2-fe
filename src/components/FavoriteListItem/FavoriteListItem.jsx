@@ -33,7 +33,6 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                             onClick={() => handleDeleteClick(favorite)}>
                             Delete
                         </Button>
-
                     </Tooltip>
                     <Tooltip title="Play">
                         <Button
