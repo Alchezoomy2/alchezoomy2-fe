@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, IconButton, Typography, Button } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Typography, Button, Tooltip } from "@material-ui/core";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import { useStateStore } from "../../utils/StoreProvider.js";
@@ -37,63 +37,71 @@ export default function StudentAppBar({
             <Toolbar>
                 <div
                     className={classes.iconDiv}>
-                    {pageIcon === "profile" ?
-                        <IconButton
-                            color="secondary"
-                            aria-label="profile">
-                            <PersonOutlineIcon />
-                        </IconButton>
-                        :
-                        <IconButton
-                            color="inherit"
-                            aria-label="profile"
-                            onClick={handleProfileClick}>
-                            <PersonIcon />
-                        </IconButton>
+                    <Tooltip title="Profile">
+                        {pageIcon === "profile" ?
+                            <IconButton
+                                color="secondary"
+                                aria-label="profile">
+                                <PersonOutlineIcon />
+                            </IconButton>
+                            :
+                            <IconButton
+                                color="inherit"
+                                aria-label="profile"
+                                onClick={handleProfileClick}>
+                                <PersonIcon />
+                            </IconButton>
 
-                    }
-                    {pageIcon === "meeting" ?
-                        <IconButton
-                            color="secondary"
-                            aria-label="home">
-                            <HomeOutlinedIcon />
-                        </IconButton>
-                        :
-                        <IconButton
-                            color="inherit"
-                            aria-label="home"
-                            onClick={handleMeetingsClick}>
-                            <HomeIcon />
-                        </IconButton>
-                    }
-                    {pageIcon === "bookmark" ?
-                        <IconButton
-                            color="secondary"
-                            aria-label="bookmark">
-                            <BookmarkBorderIcon />
-                        </IconButton>
-                        :
-                        <IconButton
-                            color="inherit"
-                            aria-label="bookmark"
-                            onClick={handleBookmarkClick}>
-                            <BookmarkIcon />
-                        </IconButton>
-                    }
-                    {pageIcon === "favorite" ?
-                        <IconButton
-                            color="secondary"
-                            aria-label="favorite">
-                            <StarBorderIcon />
-                        </IconButton>
-                        :
-                        <IconButton
-                            color="inherit"
-                            aria-label="favorite"
-                            onClick={handleFavoriteClick}>
-                            <StarIcon />
-                        </IconButton>
-                    }
+                        }
+                    </Tooltip>
+                    <Tooltip title="Lectures">
+                        {pageIcon === "meeting" ?
+                            <IconButton
+                                color="secondary"
+                                aria-label="home">
+                                <HomeOutlinedIcon />
+                            </IconButton>
+                            :
+                            <IconButton
+                                color="inherit"
+                                aria-label="home"
+                                onClick={handleMeetingsClick}>
+                                <HomeIcon />
+                            </IconButton>
+                        }
+                    </Tooltip>
+                    <Tooltip title="Bookmarks">
+                        {pageIcon === "bookmark" ?
+                            <IconButton
+                                color="secondary"
+                                aria-label="bookmark">
+                                <BookmarkBorderIcon />
+                            </IconButton>
+                            :
+                            <IconButton
+                                color="inherit"
+                                aria-label="bookmark"
+                                onClick={handleBookmarkClick}>
+                                <BookmarkIcon />
+                            </IconButton>
+                        }
+                    </Tooltip>
+                    <Tooltip title="Favorites">
+                        {pageIcon === "favorite" ?
+                            <IconButton
+                                color="secondary"
+                                aria-label="favorite">
+                                <StarBorderIcon />
+                            </IconButton>
+                            :
+                            <IconButton
+                                color="inherit"
+                                aria-label="favorite"
+                                onClick={handleFavoriteClick}>
+                                <StarIcon />
+                            </IconButton>
+                        }
+                    </Tooltip>
                 </div>
                 <Typography
                     variant="h6"

@@ -110,7 +110,7 @@ export default function StudentProfile({ openSnackbar }) {
                     <div className={classes.component}>
                         <div className={classes.label}>
                             CHANGE PASSWORD
-                    </div>
+                        </div>
                         <form
                             onSubmit={(e) => handlePasswordSubmit(e)}
                             className={classes.passwordForm}>
