@@ -74,7 +74,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                         autocomplete="off"
                     />
                     <List>
-                        {searchField === "" ?
+                        {fuseFavoriteList && searchField === "" ?
                             favoriteArray.map(favorite => FavoriteListItem(
                                 favorite,
                                 handleDeleteClick,
