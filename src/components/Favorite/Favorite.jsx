@@ -73,7 +73,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                         onChange={handleSearchChange}
                         autocomplete="off"
                     />
-                    <List>
+                    {/* <List>
                         {fuseFavoriteList && searchField === "" ?
                             favoriteArray.map(favorite => FavoriteListItem(
                                 favorite,
@@ -85,7 +85,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                                 handleDeleteClick,
                                 handleOpenMeeting))
                         }
-                    </List>
+                    </List> */}
                 </div>
             </Paper>
             {
