@@ -28,6 +28,7 @@ export const useStyles = makeStyles({
         marginBottom: "15px",
         // backgroundColor: primaryMain,
         // color: "white",
+        border: `1px solid ${primaryMain}`,
         borderTop: `5px solid ${primaryMain}`,
         borderBottom: `5px solid ${primaryMain}`,
         borderRadius: "5px",
