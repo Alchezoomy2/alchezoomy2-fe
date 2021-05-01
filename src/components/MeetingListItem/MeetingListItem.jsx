@@ -18,8 +18,8 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
     // const classes = useStyles(props);
     return (
         <div
-        // className={itemClasses.frame}
-        // style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
+            // className={itemClasses.frame}
+            style={{ borderLeft: `15px solid ${meeting.color}`, margin: "3px" }}
         >
             <ListItem
                 alignItems="flex-start"
@@ -113,8 +113,8 @@ MeetingListItem.propTypes = {
     favoriteArray: PropTypes.array,
     handleUnfavorite: PropTypes.func,
     handleFavorite: PropTypes.func,
-    handleMeetingClick: PropTypes.func
-
+    handleMeetingClick: PropTypes.func,
+    itemClasses: PropTypes.object
 };
 
 export default MeetingListItem;
