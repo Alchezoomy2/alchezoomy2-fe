@@ -5,12 +5,17 @@ const useStyles = makeStyles(({
         borderLeft: `15px solid ${props.borderColor}`,
         margin: "3px"
     }),
+    text: {
+        display: "flex",
+        alignItems: "center"
+    },
     buttons: {
         height: "50px",
-        width: "20vw",
+        width: "10vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        border: "1px solid red"
     }
 
 }));

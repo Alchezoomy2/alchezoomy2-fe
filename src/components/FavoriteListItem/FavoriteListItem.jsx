@@ -21,6 +21,7 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting)
                 />
                 <ListItemText
                     primary={favorite.comment}
+                    className={classes.text}
                 />
                 <div className={classes.buttons}>
                     <Tooltip title="Delete">
