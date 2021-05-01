@@ -36,8 +36,11 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
         const newFavoriteArray = await deleteFavorite(favoriteId);
         console.log(newFavoriteArray);
         store.changeFavoriteArray(newFavoriteArray);
+        console.log("stored!");
         setFavoriteArray(newFavoriteArray);
+        console.log("set!");
         setOpen(false);
+        console.log("false!");
     };
 
     const handleDeleteClick = async (favorite) => {
