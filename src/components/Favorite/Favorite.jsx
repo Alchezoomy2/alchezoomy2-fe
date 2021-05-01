@@ -19,8 +19,9 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
     const store = useStateStore();
+    const [favoriteArray, setFavoriteArray] = useState(store.favoriteArray);
     // const classes = useStyles();
-    let fuseFavoriteList = new fuse(store.favoriteArray, {
+    let fuseFavoriteList = new fuse(favoriteArray, {
         keys: ["topic", "comment", "userName"],
         threshold: 0.4,
         ignoreLocation: true
@@ -33,8 +34,8 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
 
     const handleDeleteFavorite = async (favoriteId) => {
         const newFavoriteArray = await deleteFavorite(favoriteId);
-
-        await store.changeFavoriteArray(newFavoriteArray);
+        store.changeFavoriteArray(newFavoriteArray);
+        setFavoriteArray(newFavoriteArray);
         setOpen(false);
     };
 
@@ -128,9 +129,6 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                     :
                     <></>
             }
-
-
-
         </div >
 
     );

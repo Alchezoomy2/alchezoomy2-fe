@@ -61,11 +61,6 @@ export const StoreProvider = ({ children }) => {
             localStorage.setItem("MEETINGSOBJ", JSON.stringify(newMeetingsObj));
         },
 
-        // changeLoading: newLoadingState => {
-        //     store.loading = newLoadingState;
-        //     localStorage.setItem("LOADING", newLoadingState);
-        // },
-
         changeChatArray: newChatArray => {
             store.chatArray = newChatArray;
             localStorage.setItem("CHAT_ARRAY", JSON.stringify(newChatArray));

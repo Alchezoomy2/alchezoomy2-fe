@@ -11,11 +11,10 @@ const useStyles = makeStyles(({
     },
     buttons: {
         height: "50px",
-        width: "10vw",
+        width: "15vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        border: "1px solid red"
     }
 
 }));
