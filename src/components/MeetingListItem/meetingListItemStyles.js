@@ -6,7 +6,7 @@ const useStyles = makeStyles(({
         margin: "3px"
     }),
     chips: {
-        height: "100%",
+        height: "25px",
         width: "40vw",
         display: "flex",
         alignItems: "center",
