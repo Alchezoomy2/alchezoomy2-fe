@@ -6,11 +6,11 @@ const useStyles = makeStyles(({
         margin: "3px"
     }),
     chips: {
-        height: "75px",
+        height: "50px",
         width: "40vw",
         display: "flex",
         alignItems: "center",
-        justifyItems: "space-around",
+        justifyContent: "space-between",
         border: "1px solid aqua"
     }
 
