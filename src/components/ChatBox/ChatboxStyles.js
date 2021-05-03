@@ -1,9 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { primaryMain, secondaryMain } from "../../styles/colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         // flexGrow: 1,
-        width: "800px",
+        width: "50vw",
         height: "auto",
         maxHeight: "500px"
     },
@@ -11,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         padding: "5px",
         colorPrimary: "primary"
+    },
+    label: {
+        backgroundColor: primaryMain,
+        color: secondaryMain
     },
     list: {
         height: "400px",
