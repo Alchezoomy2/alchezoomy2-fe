@@ -23,8 +23,6 @@ export const Student = (props) => {
     const classes = useStyles();
     const meetingListItemClasses = meetingListItemStyles();
 
-    console.log(meetingListItemClasses.frame);
-
     let fuseMeetingList = new fuse(store.meetingsObj, {
         keys: ["topic"],
         threshold: 0.4,

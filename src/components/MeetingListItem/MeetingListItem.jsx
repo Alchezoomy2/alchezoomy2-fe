@@ -15,7 +15,10 @@ import PropTypes from "prop-types";
 export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick, meetingListItemClasses) => {
     return (
         <div
-            className={meetingListItemClasses.frame}
+            style={{
+                borderLeft: `15px solid ${meeting.color}`,
+                margin: "3px"
+            }}
         >
             <ListItem
                 alignItems="flex-start"
