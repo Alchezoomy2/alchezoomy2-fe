@@ -7,10 +7,13 @@ const meetingListItemStyles = makeStyles(({
     }),
     chips: {
         height: "50px",
-        width: "40vw",
+        // width: "40vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+    },
+    chip: {
+        margin: "5px"
     }
 
 }));
