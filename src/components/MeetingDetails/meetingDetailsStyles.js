@@ -9,16 +9,18 @@ const useStyles = makeStyles(() => ({
         width: "80%",
         maxWidth: "800px",
         height: "auto", // Reset height
-        border: "1px solid blue",
         display: "flex",
         alignContent: "center",
-        justifyItems: "center"
+        justifyItems: "center",
     },
     container: {
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignContent: "center",
-        justifyItems: "center"
+        justifyItems: "center",
+        border: "1px solid blue",
+
     }
     // reactPlayer: {
     //     // paddingTop: "56.25 %", // Percentage ratio for 16:9
