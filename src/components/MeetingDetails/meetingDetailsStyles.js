@@ -7,13 +7,19 @@ const useStyles = makeStyles(() => ({
     },
     playerWrapper: {
         width: "80%",
-        maxWidth: "1000px",
+        maxWidth: "800px",
         height: "auto", // Reset height
         border: "1px solid blue",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
+        alignContent: "center",
+        justifyItems: "center"
     },
+    container: {
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "center",
+        justifyItems: "center"
+    }
     // reactPlayer: {
     //     // paddingTop: "56.25 %", // Percentage ratio for 16:9
     //     width: "100%",
