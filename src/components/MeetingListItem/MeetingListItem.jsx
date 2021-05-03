@@ -12,9 +12,10 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 
 
-export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick) => {
+export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handleFavorite, handleMeetingClick, meetingListItemClasses) => {
     return (
         <div
+            className={meetingListItemClasses.frame}
         >
             <ListItem
                 alignItems="flex-start"

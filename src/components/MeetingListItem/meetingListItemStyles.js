@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const meetingListItemClasses = makeStyles(({
+const meetingListItemStyles = makeStyles(({
     frame: props => ({
         borderLeft: `15px solid ${props.borderColor}`,
         margin: "3px"
@@ -15,4 +15,4 @@ const meetingListItemClasses = makeStyles(({
 
 }));
 
-export default meetingListItemClasses;
+export default meetingListItemStyles;

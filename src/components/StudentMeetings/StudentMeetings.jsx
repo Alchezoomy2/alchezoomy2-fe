@@ -6,7 +6,7 @@ import useStyles from "./studentMeetingsStyles";
 import fuse from "fuse.js";
 import MeetingListItem from "../MeetingListItem/MeetingListItem";
 import Transition from "../../components/DialogTransition/DialogTransition";
-
+import meetingListItemStyles from "../MeetingListItem/meetingListItemStyles";
 
 import CommentIcon from "@material-ui/icons/Comment";
 import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "../../utils/student-fetches/favorite-fetches";
@@ -21,6 +21,8 @@ export const Student = (props) => {
     const [favoriteArray, setFavoriteArray] = useState();
     const [open, setOpen] = useState(false);
     const classes = useStyles();
+    const meetingListItemClasses = meetingListItemStyles();
+
     let fuseMeetingList = new fuse(store.meetingsObj, {
         keys: ["topic"],
         threshold: 0.4,
@@ -116,7 +118,8 @@ export const Student = (props) => {
                                 favoriteArray,
                                 handleUnfavorite,
                                 handleFavorite,
-                                () => { props.handleMeetingDetailClick(meeting.id); }))
+                                () => { props.handleMeetingDetailClick(meeting.id); },
+                                meetingListItemClasses))
                             :
                             fuseMeetingList.search(searchField).map(({ item }) => {
                                 return MeetingListItem(
@@ -124,7 +127,8 @@ export const Student = (props) => {
                                     favoriteArray,
                                     handleUnfavorite,
                                     handleFavorite,
-                                    () => { props.handleMeetingDetailClick(item.id); }
+                                    () => { props.handleMeetingDetailClick(item.id); },
+                                    meetingListItemClasses
                                 );
                             })
 
