@@ -40,42 +40,30 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                         size="small"
                         color={meeting.videoUrl ? "primary" : ""}
                         icon={<VideoLabelIcon />}
-                        label="video"
-                        className={meetingListItemClasses.chip}
-                    />
+                        label="video" />
                     <Chip
                         size="small"
                         color={meeting.audioUrl ? "primary" : ""}
                         icon={<VolumeUpIcon />}
-                        label="audio"
-                        className={meetingListItemClasses.chip}
-                    />
+                        label="audio" />
                     <Chip
                         size="small"
                         color={meeting.chatUrl ? "primary" : ""}
                         icon={<ChatIcon />}
-                        label="chat"
-                        className={meetingListItemClasses.chip}
-                    />
+                        label="chat" />
                     <Chip
                         size="small"
                         color={meeting.transcriptUrl ? "primary" : ""}
-                        icon={<RecordVoiceOverIcon />} label="transcript"
-                        className={meetingListItemClasses.chip}
-                    />
+                        icon={<RecordVoiceOverIcon />} label="transcript" />
 
                     <Chip
                         size="small"
                         color="secondary"
-                        label={"views: " + meeting.meetingViews}
-                        className={meetingListItemClasses.chip}
-                    />
+                        label={"views: " + meeting.meetingViews} />
                     <Chip
                         size="small"
                         color="secondary"
-                        label={"favorites: " + meeting.meetingFavs}
-                        className={meetingListItemClasses.chip}
-                    />
+                        label={"favorites: " + meeting.meetingFavs} />
                     <Tooltip title="Favorite">
                         {
                             favoriteArray &&
