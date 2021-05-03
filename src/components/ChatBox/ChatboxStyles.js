@@ -7,12 +7,12 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxHeight: "500px",
         maxWidth: "700px",
-        backgroundColor: primaryMain,
-        color: "white"
     },
     header: {
         width: "100%",
-        padding: "5px",
+        // padding: "5px",
+        backgroundColor: primaryMain,
+        color: "white"
     },
     list: {
         height: "400px",
