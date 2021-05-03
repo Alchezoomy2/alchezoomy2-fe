@@ -11,11 +11,8 @@ const useStyles = makeStyles((theme) => ({
     header: {
         width: "100%",
         padding: "5px",
-        colorPrimary: "primary"
-    },
-    label: {
         backgroundColor: primaryMain,
-        color: secondaryMain
+        color: "white"
     },
     list: {
         height: "400px",
