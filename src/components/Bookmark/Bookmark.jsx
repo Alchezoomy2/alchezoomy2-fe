@@ -1,4 +1,3 @@
-import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
 import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
@@ -7,10 +6,10 @@ import { deleteBookmark } from "../../utils/student-fetches/bookmark-fetches.js"
 import useStyles from "./bookmarkStyles";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useHistory } from "react-router-dom";
-import BookmarkListItem from "../BookmarkListItem/BookmarkListItem.js";
+import BookmarkListItem from "../BookmarkListItem/BookmarkListItem";
 import Transition from "../DialogTransition/DialogTransition.js";
 import CommentIcon from "@material-ui/icons/Comment";
-
+import BookmarkListItemStyles from "../BookmarkListItem/BookmarkListItemStyles";
 
 // const useStyles = makeStyles((theme) => ({
 //     reply_icon: {
@@ -21,6 +20,7 @@ import CommentIcon from "@material-ui/icons/Comment";
 
 export const Bookmark = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();
+    const bookmarkListItemClasses = BookmarkListItemStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -79,11 +79,13 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
                         {searchField === "" ?
                             store.bookmarkArray.map(bookmark => BookmarkListItem(bookmark,
                                 handleDeleteClick,
-                                handleOpenMeeting))
+                                handleOpenMeeting,
+                                bookmarkListItemClasses))
                             :
                             fuseBookmarkList.search(searchField).map(({ item }) => BookmarkListItem(item,
                                 handleDeleteClick,
-                                handleOpenMeeting))
+                                handleOpenMeeting,
+                                bookmarkListItemClasses))
                         }
                     </List>
                 </div>

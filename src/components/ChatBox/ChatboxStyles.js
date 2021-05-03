@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: primaryMain,
         color: "white"
     },
+    label: {
+        marginLeft: "15px"
+    },
     list: {
         height: "400px",
         width: "100%",
