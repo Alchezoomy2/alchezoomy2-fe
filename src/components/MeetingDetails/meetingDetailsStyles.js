@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         alignContent: "center",
         justifyItems: "center",
+        margin: "15px"
     },
     bigContainer: {
         width: "100%",

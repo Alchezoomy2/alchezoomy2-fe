@@ -5,10 +5,11 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: "50vw",
         height: "auto",
-        maxHeight: "500px"
+        maxHeight: "500px",
+        maxWidth: "700px"
     },
     header: {
-        width: "90%",
+        width: "100%",
         padding: "5px",
         backgroundColor: primaryMain,
         color: "white"
