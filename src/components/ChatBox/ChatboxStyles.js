@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "500px"
     },
     header: {
-        width: "100%",
+        width: "90%",
         padding: "5px",
         backgroundColor: primaryMain,
         color: "white"
