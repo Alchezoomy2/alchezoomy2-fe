@@ -53,36 +53,38 @@ export const MeetingDetails = ({ startTime }) => {
                 maxWidth="xl"
                 elevation={3}
                 className={classes.frame}>
-                <div
-                    className={classes.playerWrapper}>
-                    {media ?
-                        <ReactPlayer
-                            className={classes.reactPlayer}
-                            ref={player}
-                            width="100%"
-                            height="100%"
-                            url={media}
-                            controls
-                        />
-                        : null
-                    }
-                </div>
-                <div className={classes.boxDiv}>
-                    {store.meetingDetails.chat_url ?
-                        <ChatBox
-                            returnVideoTimestamp={returnVideoTimestamp}
-                            handleChatSeek={handleChatSeek}
-                        />
-                        :
-                        null
-                    }
-                    {store.meetingDetails.transcript_url ?
-                        <TranscriptBox
-                            returnVideoTimestamp={returnVideoTimestamp}
-                            handleChatSeek={handleChatSeek}
-                        />
-                        : null
-                    }
+                <div className={classes.component}>
+                    <div
+                        className={classes.playerWrapper}>
+                        {media ?
+                            <ReactPlayer
+                                className={classes.reactPlayer}
+                                ref={player}
+                                width="100%"
+                                height="100%"
+                                url={media}
+                                controls
+                            />
+                            : null
+                        }
+                    </div>
+                    <div className={classes.boxDiv}>
+                        {store.meetingDetails.chat_url ?
+                            <ChatBox
+                                returnVideoTimestamp={returnVideoTimestamp}
+                                handleChatSeek={handleChatSeek}
+                            />
+                            :
+                            null
+                        }
+                        {store.meetingDetails.transcript_url ?
+                            <TranscriptBox
+                                returnVideoTimestamp={returnVideoTimestamp}
+                                handleChatSeek={handleChatSeek}
+                            />
+                            : null
+                        }
+                    </div>
                 </div>
             </Paper>
         </div>
