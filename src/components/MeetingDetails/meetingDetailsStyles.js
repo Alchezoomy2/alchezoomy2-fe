@@ -19,14 +19,12 @@ const useStyles = makeStyles(() => ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        border: "1px solid blue",
 
     },
     boxContainer: {
         display: "flex",
         justifyItems: "center",
         alignContent: "space-between",
-        border: "1px solid orange"
     }
 }));
 

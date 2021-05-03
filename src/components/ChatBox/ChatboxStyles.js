@@ -1,9 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { primaryMain, secondaryMain } from "../../styles/colors";
+import { primaryMain } from "../../styles/colors";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // flexGrow: 1,
         width: "50vw",
         height: "auto",
         maxHeight: "500px"

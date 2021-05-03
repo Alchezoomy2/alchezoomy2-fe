@@ -143,7 +143,7 @@ export const ChatBox = ({ handleChatSeek }) => {
             className={classes.root}>
             <div className={classes.header}>
                 <Typography
-                    variant='h5'
+                    variant='button'
                 >
                     CHAT
                 </Typography>
