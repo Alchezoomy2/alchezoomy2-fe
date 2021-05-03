@@ -31,6 +31,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     secondary={`${meeting.displayTime} - ${meeting.duration} min`}
                 />
                 <div
+                    className={meetingListItemClasses.chips}
                 >
                     <Chip
                         size="small"
