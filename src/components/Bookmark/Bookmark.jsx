@@ -56,8 +56,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
     };
 
 
-    return useObserver(() =>
-
+    return (
         <div className={classes.root}>
             <Paper
                 maxWidth="xl"

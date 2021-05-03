@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import { useObserver } from "mobx-react";
 import { useStateStore } from "../../utils/StoreProvider.js";
-import { Container } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import ChatBox from "../ChatBox/ChatBox";
 import TranscriptBox from "../../components/TranscriptBox/TranscriptBox";
 import useStyles from "./meetingDetailsStyles";
@@ -48,11 +48,13 @@ export const MeetingDetails = ({ startTime }) => {
     };
 
     return useObserver(() =>
-        <Container
-            maxWidth="xl"
-            style={{ display: "flex", justifyItems: "center" }}>
-            <div className={classes.root}>
-                <div className={classes.playerWrapper}>
+        <div className={classes.root}>
+            <Paper
+                maxWidth="xl"
+                elevation={3}
+                className={classes.frame}>
+                <div
+                    className={classes.playerWrapper}>
                     {media ?
                         <ReactPlayer
                             className={classes.reactPlayer}
@@ -82,8 +84,8 @@ export const MeetingDetails = ({ startTime }) => {
                         : null
                     }
                 </div>
-            </div>
-        </Container >
+            </Paper>
+        </div>
     );
 };
 

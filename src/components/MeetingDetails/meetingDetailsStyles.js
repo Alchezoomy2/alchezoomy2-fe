@@ -1,19 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
-
+import { root, frame } from "../../styles/frames";
 const useStyles = makeStyles(() => ({
-    root: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        width: "100vw",
-        marginTop: "50px",
-        alignItems: "center"
-    },
+    root, frame,
     boxDiv: {
         marginTop: "20px"
     },
     playerWrapper: {
-        width: "90%",
+        width: "80%",
         maxWidth: "1000px",
         height: "auto", // Reset height
     },
