@@ -9,6 +9,7 @@ const useStyles = makeStyles(() => ({
         width: "80%",
         maxWidth: "1000px",
         height: "auto", // Reset height
+        maxHeight: "500px"
     },
     // reactPlayer: {
     //     // paddingTop: "56.25 %", // Percentage ratio for 16:9

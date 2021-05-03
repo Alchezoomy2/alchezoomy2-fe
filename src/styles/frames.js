@@ -20,5 +20,6 @@ export const component = {
     flexDirection: "column",
     width: "100%",
     minHeight: "85vh",
-    padding: "10px"
+    padding: "10px",
+    justifyContent: "center"
 };
