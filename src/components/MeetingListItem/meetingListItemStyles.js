@@ -8,7 +8,7 @@ const meetingListItemStyles = makeStyles(({
     chips: {
         height: "50px",
         width: "40vw",
-        maxWidth: "700px",
+        maxWidth: "650px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
