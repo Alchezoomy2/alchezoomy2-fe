@@ -21,5 +21,4 @@ export const component = {
     width: "100%",
     minHeight: "85vh",
     padding: "10px",
-    justifyContent: "center"
 };
