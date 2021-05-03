@@ -74,6 +74,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
                         variant="outlined"
                         onChange={handleSearchChange}
                         autocomplete="off"
+                        className={classes.searchBar}
                     />
                     <List>
                         {searchField === "" ?
