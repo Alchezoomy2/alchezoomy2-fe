@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
         alignContent: "center",
         justifyItems: "center",
     },
-    container: {
+    bigContainer: {
         width: "100%",
         display: "flex",
         flexDirection: "column",
@@ -21,12 +21,13 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center",
         border: "1px solid blue",
 
+    },
+    boxContainer: {
+        display: "flex",
+        justifyItems: "center",
+        alignContent: "space-between",
+        border: "1px solid orange"
     }
-    // reactPlayer: {
-    //     // paddingTop: "56.25 %", // Percentage ratio for 16:9
-    //     width: "100%",
-    //     height: "100%"
-    // }
 }));
 
 export default useStyles;

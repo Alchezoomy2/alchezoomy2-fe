@@ -54,7 +54,7 @@ export const MeetingDetails = ({ startTime }) => {
                 elevation={3}
                 className={classes.frame}>
                 <div className={classes.component}>
-                    <div className={classes.container}>
+                    <div className={classes.bigContainer}>
                         <div
                             className={classes.playerWrapper}>
                             {media ?
@@ -69,7 +69,7 @@ export const MeetingDetails = ({ startTime }) => {
                                 : null
                             }
                         </div>
-                        <div className={classes.boxDiv}>
+                        <div className={classes.boxContainer}>
                             {store.meetingDetails.chat_url ?
                                 <ChatBox
                                     returnVideoTimestamp={returnVideoTimestamp}
