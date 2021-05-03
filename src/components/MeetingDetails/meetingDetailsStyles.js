@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { root, frame, component } from "../../styles/frames";
+import { root, frame, container } from "../../styles/frames";
 const useStyles = makeStyles(() => ({
-    root, frame, component,
+    root, frame, container,
     boxDiv: {
         marginTop: "20px"
     },
@@ -9,7 +9,10 @@ const useStyles = makeStyles(() => ({
         width: "80%",
         maxWidth: "1000px",
         height: "auto", // Reset height
-        maxHeight: "500px"
+        border: "1px solid blue",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
     },
     // reactPlayer: {
     //     // paddingTop: "56.25 %", // Percentage ratio for 16:9
