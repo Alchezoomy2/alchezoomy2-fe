@@ -3,8 +3,8 @@ import { primaryMain } from "../../styles/colors";
 
 export const useStyles = makeStyles({
     root: {
-        // height: "300px",
-        // width: "700px",
+        height: "300px",
+        width: "500px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
