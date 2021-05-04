@@ -1,14 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
-// import { primaryColor, textColor } from "./constants.js";
-
+import { root } from "../../styles/frames";
 export const useStyles = makeStyles({
-    root: {
-        height: "100vh",
-        flexDirection: "column",
-        display: "flex",
-        justifyItems: "center",
-        alignItems: "center"
-    },
+    root,
     button: {
         height: "50px",
         width: "150px",
@@ -16,7 +9,7 @@ export const useStyles = makeStyles({
         // color: textColor
     },
     mainLogo: {
-        height: "500px",
+        height: "250px",
     },
     inviteText: {
         margin: "25px"

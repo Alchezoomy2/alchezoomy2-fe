@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ListItem, ListItemText } from "@material-ui/core";
+import { ListItem, ListItemText, Tooltip, Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => {
@@ -15,10 +15,18 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
                     primary={subscription.firstName}
                     secondary={`${subscription.studentEmail} - ${subscription.creationDate}`}
                 />
-                <DeleteIcon
-                    clickable
-                    onClick={() => handleSubscriptionDelete(subscription)}
-                />
+                <Tooltip title="Delete">
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        size="small"
+                        endIcon={<DeleteIcon />}
+                        onClick={() => handleSubscriptionDelete(subscription)}
+                    >
+                        Delete Sub
+                        </Button>
+                </Tooltip>
+
             </ListItem>
         </div>
     );

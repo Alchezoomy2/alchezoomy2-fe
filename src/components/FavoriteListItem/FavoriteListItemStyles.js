@@ -14,7 +14,7 @@ const FavoriteListItemStyles = makeStyles(({
         width: "15vw",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
     }
 
 }));
