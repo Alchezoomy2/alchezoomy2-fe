@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useStateStore } from "../../utils/StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
@@ -7,15 +7,10 @@ import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/tea
 import useStyles from "./teacherDashboardStyles";
 
 
-export const TeacherDashboard = ({ setOpen, colorDialog }) => {
+export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
-    const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
-
-    useEffect(() => {
-        setMeetingsToDisplay(store.meetingsObj);
-        console.log("Hi!");
-    }, [colorDialog]);
+    // const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
     const handlePublish = async meeting => {
         let newMeetingObj;
@@ -27,8 +22,8 @@ export const TeacherDashboard = ({ setOpen, colorDialog }) => {
         } else {
             newMeetingObj = await publishMeeting(meeting.id);
         }
-
-        setMeetingsToDisplay(newMeetingObj);
+        store.changeMeetingsObj(newMeetingObj);
+        // setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
     };
 
@@ -36,7 +31,9 @@ export const TeacherDashboard = ({ setOpen, colorDialog }) => {
         await setOpen(true);
 
         const newMeetingArray = await updateMeeting(meeting.id, meeting);
-        setMeetingsToDisplay(newMeetingArray);
+        store.changeMeetingsObj(newMeetingArray);
+
+        // setMeetingsToDisplay(newMeetingArray);
         setOpen(false);
     };
 
@@ -47,8 +44,8 @@ export const TeacherDashboard = ({ setOpen, colorDialog }) => {
                 elevation={3}
                 className={classes.frame}>
                 <List className={classes.list}>
-                    {meetingsToDisplay !== null ?
-                        meetingsToDisplay.map((meeting, index) => (
+                    {store.meetingsObj !== null ?
+                        store.meetingsObj.map((meeting, index) => (
                             <div key={index}>
                                 <TeacherMeetingItem
                                     meeting={meeting}
