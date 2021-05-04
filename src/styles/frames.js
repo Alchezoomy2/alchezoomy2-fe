@@ -32,4 +32,4 @@ export const welcomeFrame = {
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
-},
+};
