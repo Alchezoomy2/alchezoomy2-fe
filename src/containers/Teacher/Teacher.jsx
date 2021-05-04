@@ -50,9 +50,7 @@ export const Teacher = () => {
         const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
         store.changeMeetingsObj(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
-            setOpen={setOpen}
-            colorDialog={colorDialog}
-        />);
+            setOpen={setOpen} />);
         setOpen(false);
     };
 
@@ -65,6 +63,9 @@ export const Teacher = () => {
     };
 
     const closeColorDialog = () => {
+        setDisplayModule(<TeacherDashboard
+            setOpen={setOpen} />
+        );
         setOpen(false);
         setColorDialog(false);
     };
