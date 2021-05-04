@@ -6,7 +6,7 @@ import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fet
 import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 import snackBar from "../../hooks/snackBar/snackBar";
-import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBarStyles";
+import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBar";
 
 
 export default function StudentLogin() {
