@@ -44,22 +44,20 @@ export const TeacherDashboard = ({ setOpen }) => {
                 elevation={3}
                 className={classes.frame}>
                 <List className={classes.list}>
-                    <Observer>
-                        {store.meetingsObj !== null ?
-                            store.meetingsObj.map((meeting, index) => (
-                                <div key={index}>
-                                    <TeacherMeetingItem
-                                        meeting={meeting}
-                                        handlePublish={handlePublish}
-                                        handleUpdate={handleUpdate}
-                                    />
-                                    <Divider variant="middle" component="li" />
-                                </div>
+                    {store.meetingsObj !== null ?
+                        store.meetingsObj.map((meeting, index) => (
+                            <div key={index}>
+                                <TeacherMeetingItem
+                                    meeting={meeting}
+                                    handlePublish={handlePublish}
+                                    handleUpdate={handleUpdate}
+                                />
+                                <Divider variant="middle" component="li" />
+                            </div>
 
-                            ))
-                            : null
-                        }
-                    </Observer>
+                        ))
+                        : null
+                    }
                 </List>
             </Paper >
         </div >
