@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useStateStore } from "../../utils/StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
@@ -10,7 +10,7 @@ import useStyles from "./teacherDashboardStyles";
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
-    // const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
+    const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
     const handlePublish = async meeting => {
         let newMeetingObj;
@@ -23,7 +23,7 @@ export const TeacherDashboard = ({ setOpen }) => {
             newMeetingObj = await publishMeeting(meeting.id);
         }
         store.changeMeetingsObj(newMeetingObj);
-        // setMeetingsToDisplay(newMeetingObj);
+        setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
     };
 
@@ -33,7 +33,7 @@ export const TeacherDashboard = ({ setOpen }) => {
         const newMeetingArray = await updateMeeting(meeting.id, meeting);
         store.changeMeetingsObj(newMeetingArray);
 
-        // setMeetingsToDisplay(newMeetingArray);
+        setMeetingsToDisplay(newMeetingArray);
         setOpen(false);
     };
 
@@ -44,8 +44,8 @@ export const TeacherDashboard = ({ setOpen }) => {
                 elevation={3}
                 className={classes.frame}>
                 <List className={classes.list}>
-                    {store.meetingsObj !== null ?
-                        store.meetingsObj.map((meeting, index) => (
+                    {meetingsToDisplay !== null ?
+                        meetingsToDisplay.map((meeting, index) => (
                             <div key={index}>
                                 <TeacherMeetingItem
                                     meeting={meeting}
