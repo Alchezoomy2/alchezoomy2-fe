@@ -46,51 +46,50 @@ export default function AdminLogin() {
     return (
         <>
             <LandingPageAppBar />
-            <Paper elevation={3}
+            <Paper
+                elevation={3}
                 className={classes.root}>
                 <div
                     className={classes.welcomeFrame}>
-                    <Paper elevation={2}>
-                        <img
-                            className={classes.mainLogo}
-                            src="/images/AL-logo.JPG"
-                            alt="logo" />
-                    </Paper>
-                </div>
-                <form
-                    onSubmit={handleSubmit}
-                    className={classes.loginForm}
-                >
-                    <Typography
-                        variant="h5">
-                        Student Sign In
+                    <img
+                        className={classes.mainLogo}
+                        src="/images/AL-logo.JPG"
+                        alt="logo" />
+                    <form
+                        onSubmit={handleSubmit}
+                        className={classes.loginForm}
+                    >
+                        <Typography
+                            variant="h5">
+                            Admin Signin
                         </Typography>
-                    <TextField
-                        id="userName"
-                        label="User Name"
-                        value={userName}
-                        onChange={({ target }) => setUserName(target.value)}
-                        autocomplete="off"
-                        variant="outlined"
-                        required
-                    />
-                    <TextField
-                        id="password"
-                        label="Password"
-                        value={password}
-                        onChange={({ target }) => setPassword(target.value)}
-                        autocomplete="current-password"
-                        type="password"
-                        variant="outlined"
-                        required
-                    />
-                    <Button
-                        variant="contained"
-                        type="submit"
-                        color="primary">
-                        SUBMIT
+                        <TextField
+                            id="userName"
+                            label="User Name"
+                            value={userName}
+                            onChange={({ target }) => setUserName(target.value)}
+                            autocomplete="off"
+                            variant="outlined"
+                            required
+                        />
+                        <TextField
+                            id="password"
+                            label="Password"
+                            value={password}
+                            onChange={({ target }) => setPassword(target.value)}
+                            autocomplete="current-password"
+                            type="password"
+                            variant="outlined"
+                            required
+                        />
+                        <Button
+                            variant="contained"
+                            type="submit"
+                            color="primary">
+                            SUBMIT
                     </Button>
-                </form>
+                    </form>
+                </div>
             </Paper>
             <NewAdminDialog
                 handleClose={handleClose}

@@ -16,11 +16,9 @@ export const useStyles = makeStyles({
         color: "white"
     },
     colorFrame: {
-        width: "100%",
-        height: "100%",
         flexDirection: "column",
-        justifyContent: "space-around",
-        alignItems: "center",
+        justifyItems: "space-around",
+        alignContent: "center",
         border: "1px solid purple"
     },
     list: {
