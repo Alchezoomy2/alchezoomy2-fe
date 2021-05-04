@@ -1,5 +1,5 @@
 import React from "react";
-import { Toolbar, AppBar, Typography } from "@materiaul-ui/core";
+import { Toolbar, AppBar, Typography } from "@material-ui/core";
 import useStyles from "./LandingPageAppBarStyles";
 
 export default function LandingPageAppBar() {
