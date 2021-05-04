@@ -16,17 +16,18 @@ export const useStyles = makeStyles({
         color: "white"
     },
     colorFrame: {
+        display: "flex",
         flexDirection: "column",
         justifyItems: "space-around",
         alignContent: "center",
         border: "1px solid purple",
-        width: "100%",
+        width: "90%",
         height: "100%",
     },
     list: {
         listStyleType: "none",
         display: "flex",
-        width: "100%",
+        // width: "100%",
         justifyContent: "space-around",
         margin: "5px",
         border: "1px solid green"
