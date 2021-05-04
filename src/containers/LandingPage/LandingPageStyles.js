@@ -8,6 +8,17 @@ export const useStyles = makeStyles({
         // backgroundColor: primaryColor,
         // color: textColor
     },
+    welcomeFrame: {
+        display: "flex",
+        height: "50vh",
+        width: "50vw",
+        border: "5px solid white",
+        borderRadius: "15px",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+
+    },
     mainLogo: {
         height: "250px",
     },
