@@ -14,6 +14,7 @@ export const TeacherDashboard = ({ setOpen, colorDialog }) => {
 
     useEffect(() => {
         setMeetingsToDisplay(store.meetingsObj);
+        console.log("Hi!");
     }, [colorDialog]);
 
     const handlePublish = async meeting => {
@@ -68,6 +69,5 @@ export const TeacherDashboard = ({ setOpen, colorDialog }) => {
 
 TeacherDashboard.propTypes = {
     setOpen: PropTypes.func,
-    handleSnackbarClose: PropTypes.func,
-    snackbarOpen: PropTypes.bool
+    colorDialog: PropTypes.bool
 };

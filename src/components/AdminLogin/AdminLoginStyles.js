@@ -2,11 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { root, welcomeFrame } from "../../styles/frames";
 
 export const useStyles = makeStyles({
-    root, welcomeFrame,
-    // welcomeFrame: {
-    //     ...welcomeFrame,
-    //     border: "none"
-    // },
+    root,
+    welcomeFrame: {
+        ...welcomeFrame,
+        border: "none"
+    },
     button: {
         height: "50px",
         width: "150px",
