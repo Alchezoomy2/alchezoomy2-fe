@@ -23,7 +23,8 @@ export const LandingPage = () => {
                         variant="h5">
                         Welcome to Alchemy Lectures!
                 </Typography>
-                    <div>
+                    <div
+                        className={classes.buttonDiv}>
                         <Button
                             variant="contained"
                             color="primary"
