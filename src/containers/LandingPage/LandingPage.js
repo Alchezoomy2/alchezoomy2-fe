@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Button, AppBar, ToolbarTypeMap } from "@material-ui/core";
+import { Paper, Button, AppBar, Toolbar } from "@material-ui/core";
 import { useStyles } from "./LandingPageStyles.js";
 
 export const LandingPage = () => {
@@ -10,7 +10,7 @@ export const LandingPage = () => {
             <AppBar
                 position="static"
                 className={classes.appBar}>
-                <ToolbarTypeMap />
+                <Toolbar />
             </AppBar>
             <Paper
                 elevation={3}
