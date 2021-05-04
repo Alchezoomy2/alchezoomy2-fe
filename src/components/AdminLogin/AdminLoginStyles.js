@@ -23,7 +23,7 @@ export const useStyles = makeStyles({
         flexDirection: "column",
         justifyContent: "space-between",
         width: "500px",
-        border: "5px solid white",
+        // border: "5px solid white",
         borderRadius: "15px",
         padding: "25px",
         margin: "25px"

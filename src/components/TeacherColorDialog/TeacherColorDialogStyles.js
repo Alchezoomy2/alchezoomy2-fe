@@ -18,8 +18,8 @@ export const useStyles = makeStyles({
     colorFrame: {
         display: "flex",
         flexDirection: "column",
-        justifyItems: "space-around",
-        alignContent: "center",
+        justifyContent: "space-around",
+        alignItems: "center",
         border: "1px solid purple",
         width: "90%",
         height: "100%",
@@ -27,12 +27,15 @@ export const useStyles = makeStyles({
     list: {
         listStyleType: "none",
         display: "flex",
-        // width: "100%",
         justifyContent: "space-around",
-        // margin: "5px",
         border: "1px solid green",
         padding: 0
     },
+    buttonDiv: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "flex-end"
+    }
 
 });
 

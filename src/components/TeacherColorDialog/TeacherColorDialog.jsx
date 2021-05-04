@@ -49,7 +49,8 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                                 />
                             ))}
                         </ul>
-                        <div>
+                        <div
+                            className={classes.buttonDiv}>
                             <Button
                                 onClick={closeColorDialog}
                                 variant="contained"
