@@ -29,7 +29,7 @@ export const useStyles = makeStyles({
         display: "flex",
         // width: "100%",
         justifyContent: "space-around",
-        margin: "5px",
+        // margin: "5px",
         border: "1px solid green"
     },
 

@@ -7,10 +7,10 @@ export const useStyles = makeStyles({
     colorBlock: {
         height: "50px",
         width: "50px",
-        padding: "5px"
+        padding: "3px"
     },
     selected: {
-        border: `5px solid ${secondaryMain}`,
+        border: `3px solid ${secondaryMain}`,
         height: "50px",
         width: "50px"
     }

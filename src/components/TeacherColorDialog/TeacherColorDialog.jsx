@@ -49,18 +49,20 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                                 />
                             ))}
                         </ul>
-                        <Button
-                            onClick={closeColorDialog}
-                            variant="contained"
-                            color="secondary">
-                            CANCEL
-                        </Button>
-                        <Button
-                            onClick={handleSubmit}
-                            variant="contained"
-                            color="primary">
-                            SUMBIT
+                        <div>
+                            <Button
+                                onClick={closeColorDialog}
+                                variant="contained"
+                                color="secondary">
+                                CANCEL
                             </Button>
+                            <Button
+                                onClick={handleSubmit}
+                                variant="contained"
+                                color="primary">
+                                SUMBIT
+                            </Button>
+                        </div>
                     </div>
                     : <Typography>
                         Trouble
