@@ -54,7 +54,7 @@ export default function StudentLogin() {
                     />
                     <Typography
                         variant="h5">
-                        Sign in as a Teacher
+                        Sign in as a Student
                     </Typography>
                     <form
                         onSubmit={handleSubmit}
@@ -66,6 +66,7 @@ export default function StudentLogin() {
                             value={studentEmail}
                             onChange={({ target }) => setStudentEmail(target.value)}
                             autocomplete="email"
+                            variant="outlined"
                             required
                         />
                         <TextField
@@ -75,11 +76,13 @@ export default function StudentLogin() {
                             onChange={({ target }) => setPassword(target.value)}
                             autocomplete="current-password"
                             type="password"
+                            variant="outlined"
                             required
                         />
                         <Button
                             variant="contained"
-                            type="submit">
+                            type="submit"
+                            color="primary">
                             SUBMIT
                     </Button>
                     </form>
