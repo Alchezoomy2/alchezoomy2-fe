@@ -15,7 +15,9 @@ export const useStyles = makeStyles({
         }
     },
     selected: {
-        border: "3px solid orange"
+        border: "3px solid orange",
+        height: "50px",
+        width: "50px"
     }
 });
 
