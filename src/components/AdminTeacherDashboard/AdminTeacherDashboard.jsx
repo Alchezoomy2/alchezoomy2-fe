@@ -115,12 +115,14 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
                             teacherArray.map(item =>
                                 ListableItem(
                                     item,
-                                    handleItemDelete
+                                    handleItemDelete,
+                                    listableClasses
                                 ))
                             :
                             fuseTeacherList.search(searchField).map(({ item }) => ListableItem(
                                 item,
-                                handleItemDelete
+                                handleItemDelete,
+                                listableClasses
                             ))
                         }
                     </List>

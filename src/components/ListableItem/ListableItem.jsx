@@ -1,9 +1,9 @@
 import React from "react";
 
-import { ListItem, ListItemText, ListItemAvatar, Avatar } from "@material-ui/core";
+import { ListItem, ListItemText, ListItemAvatar, Avatar, Tooltip, Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-export const ListableItem = (item, handleItemDelete) => {
+export const ListableItem = (item, handleItemDelete, listableClasses) => {
 
     return (
         <div style={{ borderLeft: `15px solid ${item.color}` }}>
@@ -18,10 +18,21 @@ export const ListableItem = (item, handleItemDelete) => {
                     primary={item.userName}
                     secondary={item.email}
                 />
-                <DeleteIcon
+                <Tooltip title="Delete">
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        size="small"
+                        endIcon={<DeleteIcon />}
+                        onClick={() => handleItemDelete(item)}
+                    >
+                        Delete
+                        </Button>
+                </Tooltip>
+                {/* <DeleteIcon
                     clickable
                     onClick={() => handleItemDelete(item)}
-                />
+                /> */}
             </ListItem>
         </div>
     );

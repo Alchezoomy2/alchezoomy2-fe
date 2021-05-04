@@ -43,7 +43,7 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting,
                             endIcon={<PlayArrowIcon />}
                             onClick={() => handleOpenMeeting(bookmark)}>
                             Play
-                    </Button>
+                        </Button>
                     </Tooltip>
                 </div>
 

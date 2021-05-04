@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
         justifyItems: "center",
         width: "70%",
         minHeight: "85vh",
-        border: "1px solid pink"
+        margin: "25px"
     },
     textField: {
         margin: "10px",
