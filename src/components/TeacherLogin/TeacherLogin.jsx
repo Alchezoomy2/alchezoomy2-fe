@@ -1,8 +1,9 @@
 import React from "react";
 import { Paper, Button, Typography } from "@material-ui/core";
 import { useStyles } from "./TeacherLoginStyles";
+import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBar";
+
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
-import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBarStyles";
 
 export default function TeacherLogin() {
     const classes = useStyles();
