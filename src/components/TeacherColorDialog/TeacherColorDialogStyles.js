@@ -3,8 +3,8 @@ import { primaryMain } from "../../styles/colors";
 
 export const useStyles = makeStyles({
     root: {
-        height: "300px",
-        width: "700px",
+        // height: "300px",
+        // width: "700px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
@@ -19,7 +19,9 @@ export const useStyles = makeStyles({
         flexDirection: "column",
         justifyItems: "space-around",
         alignContent: "center",
-        border: "1px solid purple"
+        border: "1px solid purple",
+        width: "100%",
+        height: "100%",
     },
     list: {
         listStyleType: "none",
