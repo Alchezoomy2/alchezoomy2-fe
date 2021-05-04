@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-// import { primaryColor, textColor } from "./constants.js";
-
+import { secondaryMain } from "../../styles/colors";
 export const useStyles = makeStyles({
     radioButton: {
         display: "none"
@@ -15,7 +14,7 @@ export const useStyles = makeStyles({
         }
     },
     selected: {
-        border: "3px solid orange",
+        border: `3px solid ${secondaryMain}`,
         height: "50px",
         width: "50px"
     }
