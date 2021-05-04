@@ -5,12 +5,12 @@ import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/teacher-fetches/meeting-fetches.js";
 import useStyles from "./teacherDashboardStyles";
-
+import { observer } from "mobx-react";
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
-    const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
+    // const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
 
     const handlePublish = async meeting => {
         let newMeetingObj;
@@ -23,7 +23,7 @@ export const TeacherDashboard = ({ setOpen }) => {
             newMeetingObj = await publishMeeting(meeting.id);
         }
         store.changeMeetingsObj(newMeetingObj);
-        setMeetingsToDisplay(newMeetingObj);
+        // setMeetingsToDisplay(newMeetingObj);
         setOpen(false);
     };
 
@@ -33,7 +33,7 @@ export const TeacherDashboard = ({ setOpen }) => {
         const newMeetingArray = await updateMeeting(meeting.id, meeting);
         store.changeMeetingsObj(newMeetingArray);
 
-        setMeetingsToDisplay(newMeetingArray);
+        // setMeetingsToDisplay(newMeetingArray);
         setOpen(false);
     };
 
@@ -44,8 +44,8 @@ export const TeacherDashboard = ({ setOpen }) => {
                 elevation={3}
                 className={classes.frame}>
                 <List className={classes.list}>
-                    {meetingsToDisplay !== null ?
-                        meetingsToDisplay.map((meeting, index) => (
+                    {store.meetingsObj !== null ?
+                        observer(store.meetingsObj.map((meeting, index) => (
                             <div key={index}>
                                 <TeacherMeetingItem
                                     meeting={meeting}
@@ -55,7 +55,7 @@ export const TeacherDashboard = ({ setOpen }) => {
                                 <Divider variant="middle" component="li" />
                             </div>
 
-                        ))
+                        )))
                         : null
                     }
                 </List>

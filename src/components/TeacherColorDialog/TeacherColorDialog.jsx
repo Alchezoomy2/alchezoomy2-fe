@@ -30,7 +30,7 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                 id="color-update"
                 className={classes.title}
             >
-                Change your display color.
+                Change your display color
             </DialogTitle>
             <DialogContent
                 className={classes.root}
@@ -61,7 +61,7 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                                 onClick={handleSubmit}
                                 variant="contained"
                                 color="primary">
-                                SUMBIT
+                                SUBMIT
                             </Button>
                         </div>
                     </div>

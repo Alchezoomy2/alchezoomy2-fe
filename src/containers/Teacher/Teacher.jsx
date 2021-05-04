@@ -63,10 +63,6 @@ export const Teacher = () => {
     };
 
     const closeColorDialog = () => {
-        setDisplayModule(<TeacherDashboard
-            setOpen={setOpen} />
-        );
-        console.log("close!");
         setOpen(false);
         setColorDialog(false);
     };
