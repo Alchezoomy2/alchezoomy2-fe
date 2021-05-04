@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../utils/StoreProvider";
 import { Paper, List, Divider } from "@material-ui/core";
 import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
@@ -7,10 +7,14 @@ import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/tea
 import useStyles from "./teacherDashboardStyles";
 
 
-export const TeacherDashboard = ({ setOpen }) => {
+export const TeacherDashboard = ({ setOpen, colorDialog }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [meetingsToDisplay, setMeetingsToDisplay] = useState(store.meetingsObj);
+
+    useEffect(() => {
+        setMeetingsToDisplay(store.meetingsObj);
+    }, [colorDialog]);
 
     const handlePublish = async meeting => {
         let newMeetingObj;

@@ -51,6 +51,7 @@ export const Teacher = () => {
         store.changeMeetingsObj(returnedMeetingArray);
         setDisplayModule(<TeacherDashboard
             setOpen={setOpen}
+            colorDialog={colorDialog}
         />);
         setOpen(false);
     };
