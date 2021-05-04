@@ -30,7 +30,8 @@ export const useStyles = makeStyles({
         // width: "100%",
         justifyContent: "space-around",
         // margin: "5px",
-        border: "1px solid green"
+        border: "1px solid green",
+        padding: 0
     },
 
 });
