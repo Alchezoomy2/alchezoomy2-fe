@@ -9,7 +9,6 @@ export const useStyles = makeStyles({
         flexDirection: "column",
         justifyContent: "space-around",
         alignItems: "center",
-        border: "1px solid red"
     },
     title: {
         backgroundColor: primaryMain,
@@ -20,7 +19,6 @@ export const useStyles = makeStyles({
         flexDirection: "column",
         justifyContent: "space-around",
         alignItems: "center",
-        border: "1px solid purple",
         width: "90%",
         height: "100%",
     },
@@ -28,13 +26,13 @@ export const useStyles = makeStyles({
         listStyleType: "none",
         display: "flex",
         justifyContent: "space-around",
-        border: "1px solid green",
+        width: "100%",
         padding: 0
     },
     buttonDiv: {
         width: "100%",
         display: "flex",
-        justifyContent: "flex-end"
+        justifyContent: "center"
     }
 
 });
