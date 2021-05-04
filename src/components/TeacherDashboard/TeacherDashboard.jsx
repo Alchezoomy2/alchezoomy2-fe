@@ -5,7 +5,7 @@ import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/teacher-fetches/meeting-fetches.js";
 import useStyles from "./teacherDashboardStyles";
-import { observer } from "mobx-react";
+import { Observer } from "mobx-react";
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
@@ -44,20 +44,22 @@ export const TeacherDashboard = ({ setOpen }) => {
                 elevation={3}
                 className={classes.frame}>
                 <List className={classes.list}>
-                    {store.meetingsObj !== null ?
-                        observer(store.meetingsObj.map((meeting, index) => (
-                            <div key={index}>
-                                <TeacherMeetingItem
-                                    meeting={meeting}
-                                    handlePublish={handlePublish}
-                                    handleUpdate={handleUpdate}
-                                />
-                                <Divider variant="middle" component="li" />
-                            </div>
+                    <Observer>
+                        {store.meetingsObj !== null ?
+                            store.meetingsObj.map((meeting, index) => (
+                                <div key={index}>
+                                    <TeacherMeetingItem
+                                        meeting={meeting}
+                                        handlePublish={handlePublish}
+                                        handleUpdate={handleUpdate}
+                                    />
+                                    <Divider variant="middle" component="li" />
+                                </div>
 
-                        )))
-                        : null
-                    }
+                            ))
+                            : null
+                        }
+                    </Observer>
                 </List>
             </Paper >
         </div >
