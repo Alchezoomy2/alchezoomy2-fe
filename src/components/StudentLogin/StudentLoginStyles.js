@@ -24,9 +24,11 @@ export const useStyles = makeStyles({
         height: "500px",
         display: "flex",
         flexDirection: "column",
+        alignContent: "space-around",
         width: "500px",
         border: "5px solid white",
-        borderRadius: "15px"
+        borderRadius: "15px",
+        padding: "25px"
     }
 });
 

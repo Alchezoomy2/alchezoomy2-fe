@@ -24,6 +24,7 @@ export const component = {
 };
 
 export const welcomeFrame = {
+    marginTop: "25px",
     display: "flex",
     height: "50vh",
     width: "50vw",
