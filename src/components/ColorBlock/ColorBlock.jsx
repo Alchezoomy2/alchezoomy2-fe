@@ -17,7 +17,7 @@ export default function ColorBlock({ color, selectedColor, handleColorChange }) 
                     onChange={() => handleColorChange(color)}
                     required />
                 <div
-                    className={selectedColor === color ? classes.colorBlock : classes.selected}
+                    className={selectedColor === color ? classes.selected : classes.colorBlock}
                     style={{ backgroundColor: color }}
                 />
             </label>

@@ -28,7 +28,7 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
         >
             <DialogTitle
                 id="color-update"
-                className="classes.title"
+                className={classes.title}
             >
                 Change your display color.
             </DialogTitle>
@@ -37,7 +37,8 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                 style={{ borderLeft: `15px solid ${selectedColor}` }}
             >
                 {hexPalette[0] ?
-                    <div>
+                    <div
+                        className={classes.colorFrame}>
                         <ul className={classes.list}>
                             {hexPalette.map(color => (
                                 <ColorBlock

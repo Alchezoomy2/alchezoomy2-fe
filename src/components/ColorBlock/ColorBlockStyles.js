@@ -6,15 +6,11 @@ export const useStyles = makeStyles({
     },
     colorBlock: {
         height: "50px",
-        width: "50px"
-    },
-    label: {
-        "&aria-checked=true": {
-            border: "1px solid blue"
-        }
+        width: "50px",
+        padding: "5px"
     },
     selected: {
-        border: `3px solid ${secondaryMain}`,
+        border: `5px solid ${secondaryMain}`,
         height: "50px",
         width: "50px"
     }
