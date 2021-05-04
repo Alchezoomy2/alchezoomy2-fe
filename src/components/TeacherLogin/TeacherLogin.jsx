@@ -23,7 +23,7 @@ export default function TeacherLogin() {
                     />
                     <Typography
                         variant="h5">
-                        Sign in as a Teacher
+                        Teacher Sign In
                     </Typography>
                     <Button
                         color="primary"

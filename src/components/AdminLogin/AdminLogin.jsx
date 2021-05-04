@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Paper, TextField, Snackbar, Button } from "@material-ui/core";
+import { Paper, TextField, Snackbar, Button, Typography } from "@material-ui/core";
 import { useStyles } from "./AdminLoginStyles.js";
 import { adminAuth, adminSetupPassword } from "../../utils/admin-fetches/auth-fetches.js";
 import { useStateStore } from "../../utils/StoreProvider";
 import { NewAdminDialog } from "../NewAdminDialog/NewAdminDialog.jsx";
 import { useHistory } from "react-router-dom";
+import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBar";
 
 
 export default function AdminLogin() {
@@ -43,9 +44,12 @@ export default function AdminLogin() {
     };
 
     return (
-        <div>
-            <Paper elevation={3}>
-                <div>
+        <>
+            <LandingPageAppBar />
+            <Paper elevation={3}
+                className={classes.root}>
+                <div
+                    className={classes.welcomeFrame}>
                     <Paper elevation={2}>
                         <img
                             className={classes.mainLogo}
@@ -57,12 +61,17 @@ export default function AdminLogin() {
                     onSubmit={handleSubmit}
                     className={classes.loginForm}
                 >
+                    <Typography
+                        variant="h5">
+                        Student Sign In
+                        </Typography>
                     <TextField
                         id="userName"
                         label="User Name"
                         value={userName}
                         onChange={({ target }) => setUserName(target.value)}
                         autocomplete="off"
+                        variant="outlined"
                         required
                     />
                     <TextField
@@ -72,9 +81,15 @@ export default function AdminLogin() {
                         onChange={({ target }) => setPassword(target.value)}
                         autocomplete="current-password"
                         type="password"
+                        variant="outlined"
                         required
                     />
-                    <Button type="submit">SUBMIT</Button>
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        color="primary">
+                        SUBMIT
+                    </Button>
                 </form>
             </Paper>
             <NewAdminDialog
@@ -87,7 +102,7 @@ export default function AdminLogin() {
                 message="Invalid Username or Password"
                 onClose={handleSnackbarClose}
             />
-        </div>
+        </>
     );
 
 }

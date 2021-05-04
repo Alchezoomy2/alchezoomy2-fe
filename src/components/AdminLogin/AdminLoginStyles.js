@@ -1,32 +1,32 @@
 import { makeStyles } from "@material-ui/core/styles";
-// import { primaryColor, textColor } from "./constants.js";
+import { root, welcomeFrame } from "../../styles/frames";
 
 export const useStyles = makeStyles({
-    root: {
-        height: "100vh",
-        flexDirection: "column",
-        display: "flex",
-        justifyItems: "center",
-        alignItems: "center"
+    root,
+    welcomeFrame: {
+        ...welcomeFrame,
+        border: "none"
     },
     button: {
         height: "50px",
         width: "150px",
-        // backgroundColor: primaryColor,
-        // color: textColor
     },
     mainLogo: {
-        height: "500px",
+        height: "250px",
     },
     inviteText: {
         margin: "25px"
     },
-
     loginForm: {
         height: "500px",
         display: "flex",
         flexDirection: "column",
-        width: "500px"
+        justifyContent: "space-around",
+        width: "500px",
+        border: "5px solid white",
+        borderRadius: "15px",
+        padding: "25px",
+        margin: "25px"
     }
 });
 

@@ -59,7 +59,7 @@ export default function StudentLogin() {
                     >
                         <Typography
                             variant="h5">
-                            Sign in as a Student
+                            Student Sign In
                         </Typography>
                         <TextField
                             id="studentEmail"

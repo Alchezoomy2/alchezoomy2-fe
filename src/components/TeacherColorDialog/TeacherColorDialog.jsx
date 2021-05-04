@@ -26,7 +26,9 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
         <Dialog
             open={colorDialog}
         >
-            <DialogTitle id="color-update"
+            <DialogTitle
+                id="color-update"
+                className="classes.title"
             >
                 Change your display color.
             </DialogTitle>

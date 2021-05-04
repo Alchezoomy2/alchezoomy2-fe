@@ -10,8 +10,6 @@ export const useStyles = makeStyles({
     button: {
         height: "50px",
         width: "150px",
-        // backgroundColor: primaryColor,
-        // color: textColor
     },
     mainLogo: {
         height: "250px",
@@ -28,7 +26,8 @@ export const useStyles = makeStyles({
         width: "500px",
         border: "5px solid white",
         borderRadius: "15px",
-        padding: "25px"
+        padding: "25px",
+        margin: "25px"
     }
 });
 

@@ -23,7 +23,7 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
                         endIcon={<DeleteIcon />}
                         onClick={() => handleSubscriptionDelete(subscription)}
                     >
-                        Delete Sub
+                        Delete
                         </Button>
                 </Tooltip>
 
