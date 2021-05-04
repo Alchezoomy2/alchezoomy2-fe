@@ -8,6 +8,9 @@ export const useStyles = makeStyles({
         // backgroundColor: primaryColor,
         // color: textColor
     },
+    appBar: {
+        width: "100%"
+    },
     mainLogo: {
         height: "250px",
     },
