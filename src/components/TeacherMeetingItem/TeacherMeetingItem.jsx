@@ -37,8 +37,14 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                         />}
                         label="publish" />
                     <div>
-                        <Chip size="small" color="secondary" label={"views: " + meeting.meetingViews} />
-                        <Chip size="small" color="secondary" label={"favorites " + meeting.meetingFavs} />
+                        <Chip
+                            size="small"
+                            color="primary"
+                            label={"views: " + meeting.meetingViews} />
+                        <Chip
+                            size="small"
+                            color="primary"
+                            label={"favorites " + meeting.meetingFavs} />
                     </div>
                 </div>
             </ListItem >

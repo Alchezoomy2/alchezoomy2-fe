@@ -7,8 +7,8 @@ export const useStyles = makeStyles({
         width: "700px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "space-around",
+        justifyContent: "space-around",
+        alignItems: "center",
         border: "1px solid red"
     },
     title: {
@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
     list: {
         listStyleType: "none",
         display: "flex",
-        width: "350px",
+        width: "100%",
         justifyContent: "space-around",
         margin: "5px",
         border: "1px solid green"

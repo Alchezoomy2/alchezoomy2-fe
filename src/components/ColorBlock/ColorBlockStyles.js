@@ -13,6 +13,9 @@ export const useStyles = makeStyles({
         "&aria-checked=true": {
             border: "1px solid blue"
         }
+    },
+    selected: {
+        border: "3px solid orange"
     }
 });
 

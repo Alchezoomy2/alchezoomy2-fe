@@ -51,7 +51,7 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                         <Button
                             onClick={closeColorDialog}
                             variant="contained"
-                            color="primary">
+                            color="secondary">
                             CANCEL
                         </Button>
                         <Button
