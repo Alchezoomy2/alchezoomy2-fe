@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
         margin: "25px"
     },
     loginForm: {
-        height: "500px",
+        height: "600px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
