@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
         border: "5px solid white",
         borderRadius: "15px",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
 
     },
