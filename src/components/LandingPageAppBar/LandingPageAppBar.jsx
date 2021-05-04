@@ -1,5 +1,5 @@
 import React from "react";
-import { Toolbar, AppBar, Typography } from "@material-ui/core";
+import { Toolbar, AppBar } from "@material-ui/core";
 import useStyles from "./LandingPageAppBarStyles";
 
 export default function LandingPageAppBar() {
@@ -9,11 +9,7 @@ export default function LandingPageAppBar() {
         <AppBar
             position="static"
             className={classes.appBar}>
-            <Toolbar>
-                <Typography>
-                    Alchemy Lectures
-                </Typography>
-            </Toolbar>
+            <Toolbar />
         </AppBar>
     );
 }

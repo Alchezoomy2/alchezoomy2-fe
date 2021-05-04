@@ -22,3 +22,14 @@ export const component = {
     minHeight: "85vh",
     padding: "10px",
 };
+
+export const welcomeFrame = {
+    display: "flex",
+    height: "50vh",
+    width: "50vw",
+    border: "5px solid white",
+    borderRadius: "15px",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "center",
+},

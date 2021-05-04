@@ -22,7 +22,7 @@ export const LandingPage = () => {
                     <Typography
                         variant="h5">
                         Welcome to Alchemy Lectures!
-                </Typography>
+                    </Typography>
                     <div
                         className={classes.buttonDiv}>
                         <Button
@@ -32,7 +32,7 @@ export const LandingPage = () => {
                                 window.location.href = "/teacher/login";
                             }}>
                             TEACHER
-                </Button>
+                        </Button>
                         <Button
                             variant="contained"
                             color="secondary"

@@ -1,31 +1,38 @@
 import React from "react";
-import { Paper, Button } from "@material-ui/core";
+import { Paper, Button, Typography } from "@material-ui/core";
 import { useStyles } from "./TeacherLoginStyles";
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
-
+import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBarStyles";
 
 export default function TeacherLogin() {
     const classes = useStyles();
 
     return (
-        <div>
-            <Paper elevation={3}>
-                <div>
-                    <Paper elevation={2}>
-                        <img
-                            className={classes.mainLogo}
-                            src="/images/AL-logo.JPG"
-                            alt="logo" />
-                    </Paper>
-                </div>
-                <Button
-                    color="primary"
-                    variant="contained"
-                    onClick={() => window.location.href = zoomAPIurl}
-                >
-                    SIGN IN WITH ZOOM
+        <>
+            <LandingPageAppBar />
+            <Paper
+                elevation={3}
+                className={classes.root}>
+                <div
+                    className={classes.welcomeFrame}>
+                    <img
+                        className={classes.mainLogo}
+                        src="/images/AL-logo.JPG"
+                        alt="logo"
+                    />
+                    <Typography
+                        variant="h5">
+                        Sign in as a Teacher
+                    </Typography>
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        onClick={() => window.location.href = zoomAPIurl}
+                    >
+                        SIGN IN WITH ZOOM
                     </Button>
+                </div>
             </Paper>
-        </div>
+        </>
     );
 }

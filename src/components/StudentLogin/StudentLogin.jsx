@@ -6,6 +6,7 @@ import { fetchAllStudentMeetings } from "../../utils/student-fetches/meeting-fet
 import { useStateStore } from "../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 import snackBar from "../../hooks/snackBar/snackBar";
+import LandingPageAppBar from "../LandingPageAppBar/LandingPageAppBarStyles";
 
 
 export default function StudentLogin() {
@@ -39,46 +40,53 @@ export default function StudentLogin() {
     };
 
     return (
-        <div>
-            <Paper elevation={3}>
-                <div>
-                    <Paper elevation={2}>
-                        <img
-                            className={classes.mainLogo}
-                            src="/images/AL-logo.JPG"
-                            alt="logo" />
-                    </Paper>
-                </div>
-                <form
-                    onSubmit={handleSubmit}
-                    className={classes.loginForm}
-                >
-                    <TextField
-                        id="studentEmail"
-                        label="Email"
-                        value={studentEmail}
-                        onChange={({ target }) => setStudentEmail(target.value)}
-                        autocomplete="email"
-                        required
+        <>
+            <LandingPageAppBar />
+            <Paper
+                elevation={3}
+                className={classes.root}>
+                <div
+                    className={classes.welcomeFrame}>
+                    <img
+                        className={classes.mainLogo}
+                        src="/images/AL-logo.JPG"
+                        alt="logo"
                     />
-                    <TextField
-                        id="password"
-                        label="Password"
-                        value={password}
-                        onChange={({ target }) => setPassword(target.value)}
-                        autocomplete="current-password"
-                        type="password"
-                        required
-                    />
-                    <Button
-                        variant="contained"
-                        type="submit">
-                        SUBMIT
+                    <Typography
+                        variant="h5">
+                        Sign in as a Teacher
+                    </Typography>
+                    <form
+                        onSubmit={handleSubmit}
+                        className={classes.loginForm}
+                    >
+                        <TextField
+                            id="studentEmail"
+                            label="Email"
+                            value={studentEmail}
+                            onChange={({ target }) => setStudentEmail(target.value)}
+                            autocomplete="email"
+                            required
+                        />
+                        <TextField
+                            id="password"
+                            label="Password"
+                            value={password}
+                            onChange={({ target }) => setPassword(target.value)}
+                            autocomplete="current-password"
+                            type="password"
+                            required
+                        />
+                        <Button
+                            variant="contained"
+                            type="submit">
+                            SUBMIT
                     </Button>
-                </form>
+                    </form>
+                </div>
             </Paper>
             <SnackbarComponent />
-        </div>
+        </>
     );
 
 }
