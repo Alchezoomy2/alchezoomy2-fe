@@ -52,14 +52,15 @@ export default function StudentLogin() {
                         src="/images/AL-logo.JPG"
                         alt="logo"
                     />
-                    <Typography
-                        variant="h5">
-                        Sign in as a Student
-                    </Typography>
+
                     <form
                         onSubmit={handleSubmit}
                         className={classes.loginForm}
                     >
+                        <Typography
+                            variant="h5">
+                            Sign in as a Student
+                        </Typography>
                         <TextField
                             id="studentEmail"
                             label="Email"

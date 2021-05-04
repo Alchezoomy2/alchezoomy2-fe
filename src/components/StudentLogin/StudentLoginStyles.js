@@ -24,7 +24,7 @@ export const useStyles = makeStyles({
         height: "500px",
         display: "flex",
         flexDirection: "column",
-        alignContent: "space-around",
+        justifyContent: "space-around",
         width: "500px",
         border: "5px solid white",
         borderRadius: "15px",
