@@ -9,18 +9,18 @@ import {
 
 import PrivateRoute from "./PrivateRoute.js";
 import LandingPage from "./containers/LandingPage/LandingPage";
-import AutoRedirect from "./components/Redirect/Redirect";
-import TeacherLogin from "./components/TeacherLogin/TeacherLogin";
-import TeacherInvite from "./components/TeacherInvite/TeacherInvite";
+import AutoRedirect from "./components/Teacher/Redirect/Redirect";
+import TeacherLogin from "./components/Teacher/TeacherLogin/TeacherLogin";
+import TeacherInvite from "./components/Teacher/TeacherInvite/TeacherInvite";
 import Teacher from "./containers/Teacher/Teacher";
 import Student from "./containers/Student/Student";
-import StudentLogin from "./components/StudentLogin/StudentLogin";
-import StudentInvite from "./components/StudentInvite/StudentInvite";
+import StudentLogin from "./components/Student/StudentLogin/StudentLogin";
+import StudentInvite from "./components/Student/StudentInvite/StudentInvite";
 import Policies from "./Policies.jsx";
 import Terms from "./Terms.jsx";
 import Support from "./Support.jsx";
-import Instructions from "./components/Instructions/Instructions";
-import AdminLogin from "./components/AdminLogin/AdminLogin";
+import Instructions from "./components/Shared/Instructions/Instructions";
+import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import Admin from "./containers/Admin/Admin";
 import { useStateStore } from "./utils/StoreProvider";
 import { useObserver } from "mobx-react";

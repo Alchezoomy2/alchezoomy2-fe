@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Button, Typography } from "@material-ui/core";
 import { useStyles } from "./LandingPageStyles.js";
-import LandingPageAppBar from "../../components/LandingPageAppBar/LandingPageAppBar";
+import LandingPageAppBar from "../../components/Shared/LandingPageAppBar/LandingPageAppBar";
 
 export const LandingPage = () => {
     const classes = useStyles();

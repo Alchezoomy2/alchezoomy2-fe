@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import AdminAppBar from "../../components/AdminAppBar/AdminAppBar";
+import AdminAppBar from "../../components/Admin/AdminAppBar/AdminAppBar";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeachers } from "../../utils/admin-fetches/teacher-fetches";
-import AdminTeacherDashboard from "../../components/AdminTeacherDashboard/AdminTeacherDashboard";
+import AdminTeacherDashboard from "../../components/Admin/AdminTeacherDashboard/AdminTeacherDashboard";
 import useStyles from "./AdminStyles.js";
 import { fetchAllStudents } from "../../utils/admin-fetches/student-fetches";
-import AdminStudentDashboard from "../../components/AdminStudentDashboard/AdminStudentDashboard";
+import AdminStudentDashboard from "../../components/Admin/AdminStudentDashboard/AdminStudentDashboard";
 import { fetchS3Obj } from "../../utils/admin-fetches/s3-fetches";
-import AdminBucketDashboard from "../../components/AdminBucketDashboard/AdminBucketDashboard";
+import AdminBucketDashboard from "../../components/Admin/AdminBucketDashboard/AdminBucketDashboard";
 import snackBar from "../../hooks/snackBar/snackBar";
-import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Shared/Footer/Footer";
 
 
 export default function Admin() {

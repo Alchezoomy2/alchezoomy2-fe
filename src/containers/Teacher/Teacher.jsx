@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../utils/StoreProvider.js";
-import { TeacherCreator } from "../../components/TeacherCreator/TeacherCreator";
-import { TeacherDashboard } from "../../components/TeacherDashboard/TeacherDashboard";
+import { TeacherCreator } from "../../components/Teacher/TeacherCreator/TeacherCreator";
+import { TeacherDashboard } from "../../components/Teacher/TeacherDashboard/TeacherDashboard";
 import { fetchAllTeacherMeetings } from "../../utils/teacher-fetches/meeting-fetches.js";
 import { createTeacher } from "../../utils/teacher-fetches/auth-fetches";
-import { TeacherAppBar } from "../../components/TeacherAppBar/TeacherAppBar";
+import { TeacherAppBar } from "../../components/Teacher/TeacherAppBar/TeacherAppBar";
 import { useStyles } from "./TeacherStyles";
 import { Grid, Backdrop, CircularProgress } from "@material-ui/core";
 import { fetchAllTeacherSubscriptions } from "../../utils/teacher-fetches/subscription-fetches.js";
-import { TeacherSubscriptions } from "../../components/TeacherSubscriptions/TeacherSubscriptions.jsx";
+import { TeacherSubscriptions } from "../../components/Teacher/TeacherSubscriptions/TeacherSubscriptions.jsx";
 import { fetchColorPalette } from "../../utils/teacher-fetches/auth-fetches";
 import snackBar from "../../hooks/snackBar/snackBar";
-import TeacherColorDialog from "../../components/TeacherColorDialog/TeacherColorDialog";
-import Footer from "../../components/Footer/Footer";
+import TeacherColorDialog from "../../components/Teacher/TeacherColorDialog/TeacherColorDialog";
+import Footer from "../../components/Shared/Footer/Footer";
 
 
 export const Teacher = () => {
