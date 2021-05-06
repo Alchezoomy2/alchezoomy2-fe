@@ -5,7 +5,7 @@ import { TeacherMeetingItem } from "../TeacherMeetingItem/TeacherMeetingItem";
 import PropTypes from "prop-types";
 import { publishMeeting, unpublishMeeting, updateMeeting } from "../../utils/teacher-fetches/meeting-fetches.js";
 import useStyles from "./teacherDashboardStyles";
-import { Observer } from "mobx-react";
+import { useObserver } from "mobx-react";
 
 export const TeacherDashboard = ({ setOpen }) => {
     const store = useStateStore();
@@ -37,7 +37,7 @@ export const TeacherDashboard = ({ setOpen }) => {
         setOpen(false);
     };
 
-    return (
+    return useObserver(() => (
         <div className={classes.root}>
             <Paper
                 maxWidth="xl"
