@@ -6,13 +6,13 @@ export const useStyles = makeStyles({
     button: {
         height: "50px",
         width: "150px",
-
-        mainLogo: {
-            height: "500px",
-        },
-        inviteText: {
-            margin: "25px"
-        }
-    });
+    },
+    mainLogo: {
+        height: "500px",
+    },
+    inviteText: {
+        margin: "25px"
+    }
+});
 
 export default useStyles;
