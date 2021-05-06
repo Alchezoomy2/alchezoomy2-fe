@@ -137,6 +137,7 @@ export default function StudentInvite() {
                         <PasswordMeterComponent />
                         <Button
                             type="submit"
+                            variant="contained"
                             color="primary">
                             SUBMIT
                         </Button>
