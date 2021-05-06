@@ -27,7 +27,8 @@ export default function AdminTeacherDashboard({ returnedTeacherArray, openSnackb
         setTeacherEmail(value);
     };
 
-    const handleTeacherInvite = async () => {
+    const handleTeacherInvite = async (e) => {
+        e.preventDefault();
         let teacherEmailArray;
 
         if (teacherEmail.includes(",")) {
