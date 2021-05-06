@@ -8,25 +8,31 @@ export default function TeacherInvite() {
     const classes = useStyles();
 
     return (
-        <Paper elevation={3} className={classes.root}>
-            <div>
-                <Paper elevation={2}>
-                    <img
-                        className={classes.mainLogo}
-                        src="/images/AL-logo.JPG"
-                        alt="logo"
-                    />
-                </Paper>
-                <div>
-                    <Button
-                        color="primary"
-                        variant="contained"
-                        onClick={() => window.location.href = zoomAPIurl}
-                    >
-                        SIGN IN WITH ZOOM
+        <>
+            <LandingPageAppBar />
+            <Paper
+                elevation={3}
+                className={classes.root}>
+                <div
+                    className={classes.welcomeFrame}>
+                    <Paper elevation={2}>
+                        <img
+                            className={classes.mainLogo}
+                            src="/images/AL-logo.JPG"
+                            alt="logo"
+                        />
+                    </Paper>
+                    <div>
+                        <Button
+                            color="primary"
+                            variant="contained"
+                            onClick={() => window.location.href = zoomAPIurl}
+                        >
+                            SIGN IN WITH ZOOM
                     </Button>
+                    </div>
                 </div>
-            </div>
-        </Paper>
+            </Paper>
+        </>
     );
 }
