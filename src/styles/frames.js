@@ -27,6 +27,7 @@ export const welcomeFrame = {
     marginTop: "50px",
     display: "flex",
     height: "70vh",
+    minHeight: "500px",
     width: "50vw",
     border: "5px solid white",
     borderRadius: "15px",
