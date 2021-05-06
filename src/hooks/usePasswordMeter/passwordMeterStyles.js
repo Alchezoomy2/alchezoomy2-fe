@@ -7,7 +7,7 @@ export const useStyles = makeStyles(({
         height: "25px",
     },
     progress: props => ({
-        background: "white",
+        backgroundColor: "white",
         width: "500px",
         appearance: "none",
         WebkitAppearance: "none",

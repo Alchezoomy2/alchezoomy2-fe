@@ -33,7 +33,7 @@ export default function usePasswordMeter() {
             </Typography>
             <progress
                 className={classes.progress}
-                style={{ backgroundColor: color }}
+                // style={{ backgroundColor: color }}
                 value={strength}
                 max="4" />
         </div >
