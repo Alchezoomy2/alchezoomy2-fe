@@ -61,7 +61,7 @@ export const TeacherDashboard = ({ setOpen }) => {
                 </List>
             </Paper >
         </div >
-    );
+    ));
 };
 
 TeacherDashboard.propTypes = {
