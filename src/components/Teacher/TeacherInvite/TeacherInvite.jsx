@@ -1,6 +1,7 @@
 import React from "react";
 import { Paper, Button } from "@material-ui/core";
 import { useStyles } from "./TeacherInviteStyles";
+import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBar";
 
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
