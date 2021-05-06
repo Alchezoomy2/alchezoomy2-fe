@@ -7,7 +7,7 @@ import useStyles from "./teacherSubscriptionStyles";
 import fuse from "fuse.js";
 import { SubscriptionListItem } from "../SubscriptionListItem/SubscriptionListItem";
 import { inviteStudent, deleteSubscription } from "../../../utils/teacher-fetches/subscription-fetches";
-import DeleteDialog from "../../Shared/ListableItem/DeleteDialog/DeleteDialog";
+import DeleteDialog from "../../Shared/DeleteDialog/DeleteDialog";
 
 export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, setOpen }) => {
     const store = useStateStore();
