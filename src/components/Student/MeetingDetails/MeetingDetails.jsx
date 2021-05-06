@@ -43,6 +43,8 @@ export const MeetingDetails = ({ startTime }) => {
 
     useEffect(() => {
         console.log("ready?");
+        console.log(player.current);
+        console.log(startTime);
         if (startTime && player.current) player.current.seekTo(startTime, "seconds");
 
     }, [player.current]);
