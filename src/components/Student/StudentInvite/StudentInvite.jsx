@@ -143,15 +143,14 @@ export default function StudentInvite() {
                         </Button>
 
                     </form>
-                    <Backdrop
-                        className={classes.backdrop}
-                        open={open}>
-                        <CircularProgress />
-                    </Backdrop>
-                    <SnackbarComponent />
                 </div>
             </Paper>
-
+            <Backdrop
+                className={classes.backdrop}
+                open={open}>
+                <CircularProgress />
+            </Backdrop>
+            <SnackbarComponent />
         </>
     );
 

@@ -5,7 +5,6 @@ export const useStyles = makeStyles({
     root: {
         width: "500px",
         height: "25px",
-        border: "1px solid yellow"
     },
     progress: {
         WebkitAppearance: "none",
