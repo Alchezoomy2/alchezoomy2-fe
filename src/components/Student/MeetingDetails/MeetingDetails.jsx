@@ -26,29 +26,11 @@ export const MeetingDetails = ({ startTime }) => {
         } else if (store.meetingDetails.audioUrl !== "") {
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
         }
-        async function startAtTimestamp(startTime) {
-            // console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
-            // console.log(player.current);
-            // if (startTime && player.current) player.current.seekTo(startTime, "seconds");
-            setTimeout(() => player.current.seekTo(startTime, "seconds"), 500);
-        }
-        // function videoProgression() {
-        //     setInterval(() => {
-        //         videoTimestamp.current = player.current.getCurrentTime();
-        //     }, 500)
-        // }
 
-        // videoProgression();
-        startAtTimestamp(startTime);
+        setTimeout(() => player.current.seekTo(startTime, "seconds"), 500);
+
     }, []);
 
-    useEffect(() => {
-        console.log("ready?");
-        console.log(player.current);
-        console.log(startTime);
-        // if (startTime) player.current.seekTo(startTime, "seconds");
-
-    }, [player.current]);
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
@@ -75,16 +57,6 @@ export const MeetingDetails = ({ startTime }) => {
                                     width="100%"
                                     height="100%"
                                     url={media}
-                                    start={startTime}
-                                    config={{
-                                        file: {
-                                            attributes: {
-                                                currentTime: startTime,
-                                                autoPictureInPicture: true,
-                                                autoplay: true
-                                            }
-                                        }
-                                    }}
                                     controls
                                 />
                                 : null
