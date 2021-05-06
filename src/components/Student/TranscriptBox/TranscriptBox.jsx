@@ -4,12 +4,12 @@ import fuse from "fuse.js";
 import useStyles from "../ChatBox/ChatboxStyles";
 
 import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
-import { useStateStore } from "../../../utils/StoreProvider";
+import { useStateStore } from "../../utils/StoreProvider";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CommentIcon from "@material-ui/icons/Comment";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../../utils/student-fetches/bookmark-fetches.js";
+import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../utils/student-fetches/bookmark-fetches.js";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
