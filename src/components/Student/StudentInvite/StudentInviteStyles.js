@@ -13,17 +13,22 @@ export const useStyles = makeStyles({
         // color: textColor
     },
     mainLogo: {
-        height: "500px",
+        height: "250px",
     },
     inviteText: {
         margin: "25px"
     },
 
     signupForm: {
-        height: "300px",
+        height: "500px",
         display: "flex",
         flexDirection: "column",
-        width: "500px"
+        justifyContent: "space-around",
+        width: "500px",
+        border: "5px solid white",
+        borderRadius: "15px",
+        padding: "25px",
+        margin: "25px"
     }
 });
 
