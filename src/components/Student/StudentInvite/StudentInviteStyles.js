@@ -2,15 +2,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import { root, welcomeFrame } from "../../../styles/frames";
 
 export const useStyles = makeStyles({
-    root, welcomeFrame: {
+    root,
+    welcomeFrame: {
         ...welcomeFrame,
         border: "none"
     },
     button: {
         height: "50px",
         width: "150px",
-        // backgroundColor: primaryColor,
-        // color: textColor
     },
     mainLogo: {
         height: "250px",
@@ -18,7 +17,6 @@ export const useStyles = makeStyles({
     inviteText: {
         margin: "25px"
     },
-
     signupForm: {
         height: "500px",
         display: "flex",
