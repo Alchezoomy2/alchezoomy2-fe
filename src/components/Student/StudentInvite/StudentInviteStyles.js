@@ -1,13 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-// import { primaryColor, textColor } from "./constants.js";
+import { root, welcomeFrame } from "../../../styles/frames";
 
 export const useStyles = makeStyles({
-    root: {
-        height: "100vh",
-        flexDirection: "column",
-        display: "flex",
-        justifyItems: "center",
-        alignItems: "center"
+    root, welcomeFrame: {
+        ...welcomeFrame,
+        border: "none"
     },
     button: {
         height: "50px",

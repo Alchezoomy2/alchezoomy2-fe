@@ -16,7 +16,6 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
         history.push("/");
     };
 
-
     return (
         <AppBar position="static" className={classes.root}>
             <Toolbar>
@@ -58,5 +57,7 @@ export const TeacherAppBar = ({ handleSubscriptionDashboard, handleLectureDashbo
 };
 
 TeacherAppBar.propTypes = {
-    handleSnackbarOpen: PropTypes.func
+    handleSubscriptionDashboard: PropTypes.func,
+    handleLectureDashboard: PropTypes.func,
+    handleAvatarClick: PropTypes.func
 };

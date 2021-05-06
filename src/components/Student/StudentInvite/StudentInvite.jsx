@@ -9,6 +9,7 @@ import { useStateStore } from "../../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 import usePasswordMeter from "../../../hooks/usePasswordMeter/usePasswordMeter";
 import snackBar from "../../../hooks/snackBar/snackBar";
+import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBarStyles";
 
 
 
@@ -72,9 +73,13 @@ export default function StudentInvite() {
 
 
     return (
-        <Paper elevation={3} className={classes.root}>
-            <div>
-                <Paper elevation={2}>
+        <>
+            <LandingPageAppBar />
+            <Paper
+                elevation={3}
+                className={classes.root}>
+                <div
+                    className={classes.welcomeFrame}>
                     <img
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
@@ -137,18 +142,16 @@ export default function StudentInvite() {
                         </Button>
 
                     </form>
-                </Paper>
+                    <Backdrop
+                        className={classes.backdrop}
+                        open={open}>
+                        <CircularProgress />
+                    </Backdrop>
+                    <SnackbarComponent />
+                </div>
+            </Paper>
 
-                <Backdrop
-                    className={classes.backdrop}
-                    open={open}>
-                    <CircularProgress />
-                </Backdrop>
-                <SnackbarComponent />
-            </div>
-        </Paper>
-
-
+        </>
     );
 
 }
