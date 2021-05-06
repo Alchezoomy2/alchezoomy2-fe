@@ -36,15 +36,15 @@ export const MeetingDetails = ({ startTime }) => {
         // videoProgression();
     }, []);
 
-    useEffect(() => {
-        // function startAtTimestamp(startTime) {
-        //     console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
-        //     console.log(player.current);
-        // }
-        // startAtTimestamp(startTime);
-        if (startTime) player.current.seekTo(startTime, "seconds");
+    // useEffect(() => {
+    //     // function startAtTimestamp(startTime) {
+    //     //     console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
+    //     //     console.log(player.current);
+    //     // }
+    //     // startAtTimestamp(startTime);
+    //     if (startTime) player.current.seekTo(startTime, "seconds");
 
-    }, [player]);
+    // }, [player]);
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
@@ -54,7 +54,7 @@ export const MeetingDetails = ({ startTime }) => {
         player.current.seekTo(newTimestamp, "seconds");
     };
 
-    return useObserver(() =>
+    return (
         <div className={classes.root}>
             <Paper
                 maxWidth="xl"
@@ -72,6 +72,7 @@ export const MeetingDetails = ({ startTime }) => {
                                     height="100%"
                                     url={media}
                                     controls
+                                    config={{ file: { playerVars: { start: startTime } } }}
                                 />
                                 : null
                             }
