@@ -26,11 +26,7 @@ export const MeetingDetails = ({ startTime }) => {
         } else if (store.meetingDetails.audioUrl !== "") {
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
         }
-        async function startAtTimestamp(startTime) {
-            console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
-            console.log(player.current);
-            if (startTime) player.current.seekTo(startTime, "seconds");
-        }
+
         // function videoProgression() {
         //     setInterval(() => {
         //         videoTimestamp.current = player.current.getCurrentTime();
@@ -38,8 +34,17 @@ export const MeetingDetails = ({ startTime }) => {
         // }
 
         // videoProgression();
-        startAtTimestamp(startTime);
     }, []);
+
+    useEffect(() => {
+        // function startAtTimestamp(startTime) {
+        //     console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
+        //     console.log(player.current);
+        // }
+        // startAtTimestamp(startTime);
+        if (startTime) player.current.seekTo(startTime, "seconds");
+
+    }, [player]);
 
     const returnVideoTimestamp = () => {
         return videoTimestamp.current;
@@ -66,10 +71,6 @@ export const MeetingDetails = ({ startTime }) => {
                                     width="100%"
                                     height="100%"
                                     url={media}
-                                    onReady={() => {
-                                        console.log("onReady");
-                                        // player.current.seekTo(startTime, "seconds");
-                                    }}
                                     controls
                                 />
                                 : null
