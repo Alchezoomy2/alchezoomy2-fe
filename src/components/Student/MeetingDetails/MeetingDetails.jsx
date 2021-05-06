@@ -27,9 +27,10 @@ export const MeetingDetails = ({ startTime }) => {
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
         }
         async function startAtTimestamp(startTime) {
-            console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
-            console.log(player.current);
-            if (startTime && player.current) player.current.seekTo(startTime, "seconds");
+            // console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
+            // console.log(player.current);
+            // if (startTime && player.current) player.current.seekTo(startTime, "seconds");
+            setTimeout(() => player.current.seekTo(startTime, "seconds"), 200);
         }
         // function videoProgression() {
         //     setInterval(() => {
@@ -74,7 +75,7 @@ export const MeetingDetails = ({ startTime }) => {
                                     width="100%"
                                     height="100%"
                                     url={media}
-                                    startTime={startTime}
+                                    start={startTime}
                                     config={{
                                         file: {
                                             attributes: {
