@@ -72,7 +72,7 @@ export const MeetingDetails = ({ startTime }) => {
                                     height="100%"
                                     url={media}
                                     controls
-                                    config={{ file: { playerVars: { start: startTime } } }}
+                                    config={{ file: { attributes: { currentTime: startTime } } }}
                                 />
                                 : null
                             }
