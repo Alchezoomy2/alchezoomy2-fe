@@ -45,7 +45,7 @@ export const MeetingDetails = ({ startTime }) => {
         console.log("ready?");
         console.log(player.current);
         console.log(startTime);
-        if (startTime && player.current) player.current.seekTo(startTime, "seconds");
+        if (startTime) player.current.seekTo(startTime, "seconds");
 
     }, [player.current]);
 
