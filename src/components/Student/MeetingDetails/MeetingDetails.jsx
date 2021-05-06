@@ -68,7 +68,7 @@ export const MeetingDetails = ({ startTime }) => {
                                     url={media}
                                     onReady={() => {
                                         console.log("onReady");
-                                        player.current.seekTo(startTime, "seconds");
+                                        // player.current.seekTo(startTime, "seconds");
                                     }}
                                     controls
                                 />
