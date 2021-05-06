@@ -45,7 +45,7 @@ export const MeetingDetails = ({ startTime }) => {
         console.log("ready?");
         console.log(player.current);
         console.log(startTime);
-        if (startTime) player.current.seekTo(startTime, "seconds");
+        // if (startTime) player.current.seekTo(startTime, "seconds");
 
     }, [player.current]);
 
@@ -74,6 +74,15 @@ export const MeetingDetails = ({ startTime }) => {
                                     width="100%"
                                     height="100%"
                                     url={media}
+                                    config={{
+                                        file: {
+                                            attributes: {
+                                                currentTime: startTime,
+                                                autoPictureInPicture: true,
+                                                autoplay: true
+                                            }
+                                        }
+                                    }}
                                     controls
                                 />
                                 : null
