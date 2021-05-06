@@ -141,7 +141,6 @@ export default function StudentInvite() {
                             color="primary">
                             SUBMIT
                         </Button>
-
                     </form>
                 </div>
             </Paper>

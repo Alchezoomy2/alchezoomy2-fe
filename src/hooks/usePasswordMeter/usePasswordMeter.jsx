@@ -5,10 +5,11 @@ import { useStyles } from "./passwordMeterStyles";
 import returnPasswordLabel from "./returnPasswordLabel";
 
 export default function usePasswordMeter() {
-    const classes = useStyles();
     const [strength, setStrength] = useState(0);
     const [label, setLabel] = useState("");
     const [color, setColor] = useState("");
+    const props = { progressColor: color };
+    const classes = useStyles(props);
 
     const checkPasswordStrength = (password = "") => {
         if (password !== "") {
@@ -18,7 +19,6 @@ export default function usePasswordMeter() {
             setStrength(0);
         }
         const { returnLabel, returnColor } = returnPasswordLabel(strength);
-        console.log("🚀 ~ file: usePasswordMeter.jsx ~ line 21 ~ checkPasswordStrength ~ returnLabel, returnColor", returnLabel, returnColor);
 
         setLabel(returnLabel);
         setColor(returnColor);

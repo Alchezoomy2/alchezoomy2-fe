@@ -1,14 +1,22 @@
 
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles(({
     root: {
         width: "500px",
         height: "25px",
     },
-    progress: {
-        WebkitAppearance: "none",
+    progress: props => ({
+        background: "white",
+        width: "500px",
         appearance: "none",
-        width: "500px"
-    }
-});
+        WebkitAppearance: "none",
+        WebkitProgressValue: props.progressColor,
+        MozProgressBar: props.progressColor
+    })
+    // progress: {
+    //     WebkitAppearance: "none",
+    //     appearance: "none",
+    //     width: "500px"
+    // }
+}));
