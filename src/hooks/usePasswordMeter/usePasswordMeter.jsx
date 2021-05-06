@@ -26,14 +26,14 @@ export default function usePasswordMeter() {
 
     const PasswordMeterComponent = () => (
         <div className={classes.root}>
+            <Typography>
+                {`Password Strength: ${label}`}
+            </Typography>
             <progress
                 className={classes.progress}
                 style={{ backgroundColor: color }}
                 value={strength}
                 max="4" />
-            <Typography>
-                {`Password Strength: ${label}`}
-            </Typography>
         </div >
     );
 

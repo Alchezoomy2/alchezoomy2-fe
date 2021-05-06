@@ -10,5 +10,6 @@ export const useStyles = makeStyles({
     progress: {
         WebkitAppearance: "none",
         appearance: "none",
+        width: "500px"
     }
 });
