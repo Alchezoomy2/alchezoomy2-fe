@@ -26,7 +26,8 @@ export const MeetingDetails = ({ startTime }) => {
         } else if (store.meetingDetails.audioUrl !== "") {
             setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
         }
-        async function startAtTimestamp() {
+        async function startAtTimestamp(startTime) {
+            console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
             if (startTime) player.current.seekTo(startTime, "seconds");
         }
         // function videoProgression() {
@@ -36,7 +37,7 @@ export const MeetingDetails = ({ startTime }) => {
         // }
 
         // videoProgression();
-        startAtTimestamp();
+        startAtTimestamp(startTime);
     }, []);
 
     const returnVideoTimestamp = () => {
