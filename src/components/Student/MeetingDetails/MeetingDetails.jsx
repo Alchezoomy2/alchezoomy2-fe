@@ -74,6 +74,7 @@ export const MeetingDetails = ({ startTime }) => {
                                     width="100%"
                                     height="100%"
                                     url={media}
+                                    startTime={startTime}
                                     config={{
                                         file: {
                                             attributes: {
