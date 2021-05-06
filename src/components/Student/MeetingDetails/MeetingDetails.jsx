@@ -30,7 +30,7 @@ export const MeetingDetails = ({ startTime }) => {
             // console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
             // console.log(player.current);
             // if (startTime && player.current) player.current.seekTo(startTime, "seconds");
-            setTimeout(() => player.current.seekTo(startTime, "seconds"), 200);
+            setTimeout(() => player.current.seekTo(startTime, "seconds"), 500);
         }
         // function videoProgression() {
         //     setInterval(() => {
