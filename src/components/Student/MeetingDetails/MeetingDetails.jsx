@@ -28,6 +28,7 @@ export const MeetingDetails = ({ startTime }) => {
         }
         async function startAtTimestamp(startTime) {
             console.log("🚀 ~ file: MeetingDetails.jsx ~ line 30 ~ startAtTimestamp ~ startTime", startTime);
+            console.log(player.current);
             if (startTime) player.current.seekTo(startTime, "seconds");
         }
         // function videoProgression() {
@@ -65,6 +66,10 @@ export const MeetingDetails = ({ startTime }) => {
                                     width="100%"
                                     height="100%"
                                     url={media}
+                                    onReady={() => {
+                                        console.log("onReady");
+                                        player.current.seekTo(startTime, "seconds");
+                                    }}
                                     controls
                                 />
                                 : null
