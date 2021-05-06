@@ -9,7 +9,7 @@ import { useStateStore } from "../../../utils/StoreProvider";
 import { useHistory } from "react-router-dom";
 import usePasswordMeter from "../../../hooks/usePasswordMeter/usePasswordMeter";
 import snackBar from "../../../hooks/snackBar/snackBar";
-import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBarStyles";
+import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBar";
 
 
 
