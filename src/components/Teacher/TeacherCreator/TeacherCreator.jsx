@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStateStore } from "../../../utils/StoreProvider";
-import { Dialog, Typography, Paper, Avatar, Card, CardContent, Button, DialogTitle, DialogContent } from "@material-ui/core";
+import { Dialog, Typography, Avatar, Button, DialogTitle, DialogContent } from "@material-ui/core";
 import PropTypes from "prop-types";
 import useStyles from "./TeacherCreatorStyles";
 import ColorBlock from "../ColorBlock/ColorBlock";
