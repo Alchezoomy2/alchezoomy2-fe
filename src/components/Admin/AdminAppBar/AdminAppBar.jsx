@@ -17,7 +17,9 @@ export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashb
     };
 
     return (
-        <AppBar position="static" className={classes.root}>
+        <AppBar
+            position="static"
+            className={classes.root}>
             <Toolbar>
                 <div className={classes.userInfo}>
                     <Typography

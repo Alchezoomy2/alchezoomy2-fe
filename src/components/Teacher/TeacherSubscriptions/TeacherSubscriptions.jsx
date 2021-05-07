@@ -3,7 +3,7 @@ import { Paper, TextField, Typography, Button, List } from "@material-ui/core";
 import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "../../../utils/StoreProvider";
-import useStyles from "./teacherSubscriptionStyles";
+import useStyles from "./TeacherSubscriptionStyles";
 import fuse from "fuse.js";
 import { SubscriptionListItem } from "../SubscriptionListItem/SubscriptionListItem";
 import { inviteStudent, deleteSubscription } from "../../../utils/teacher-fetches/subscription-fetches";
