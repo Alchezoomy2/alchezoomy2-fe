@@ -30,6 +30,7 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
                 <Typography>
                     {`WELCOME TO ALCHEMY LECTURES ${userName}!`}
                 </Typography>
+                <br />
                 <Typography>
                     {"This appears to be your first visit!  You'll need to create an account to continue.  Is this you?"}
                 </Typography>
