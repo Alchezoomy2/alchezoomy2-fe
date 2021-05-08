@@ -4,16 +4,22 @@ import { Dialog, Typography, Avatar, Button, DialogTitle, DialogContent } from "
 import PropTypes from "prop-types";
 import useStyles from "./TeacherCreatorStyles";
 import ColorBlock from "../ColorBlock/ColorBlock";
+import { useHistory } from "react-router-dom";
 
 
 export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
     const store = useStateStore();
+    const history = useHistory();
     const classes = useStyles();
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
     const [selectedColor, setSelectedColor] = useState(colorPalette[0]);
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
+    };
+
+    const handleCancelClick = () => {
+        history.push("/");
     };
 
     return (
@@ -61,6 +67,13 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
                     : <Typography>
                         ERROR
                     </Typography>}
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleCancelClick}
+                >
+                    Cancel
+                    </Button>
                 <Button
                     variant="contained"
                     color="primary"
