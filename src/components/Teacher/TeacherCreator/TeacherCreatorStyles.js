@@ -3,7 +3,7 @@ import { primaryMain } from "../../../styles/colors";
 
 export const useStyles = makeStyles({
     root: {
-        height: "700px",
+        height: "500px",
         flexDirection: "column",
         display: "flex",
         justifyContents: "center",
@@ -12,6 +12,15 @@ export const useStyles = makeStyles({
     },
     title: {
         backgroundColor: primaryMain,
+        color: "white"
+    },
+    colorFrame: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "center",
+        width: "90%",
+        height: "100%",
     },
     list: {
         listStyleType: "none",
