@@ -28,7 +28,7 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
             <DialogTitle
                 id="teacher-creator-title"
                 className={classes.title}>
-                Create User
+                Create Teacher
             </DialogTitle>
             <DialogContent
                 className={classes.root}
