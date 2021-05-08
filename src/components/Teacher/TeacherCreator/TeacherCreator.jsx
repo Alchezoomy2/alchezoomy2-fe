@@ -9,8 +9,8 @@ import ColorBlock from "../ColorBlock/ColorBlock";
 export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
     const store = useStateStore();
     const classes = useStyles();
-    const [selectedColor, setSelectedColor] = useState("");
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
+    const [selectedColor, setSelectedColor] = useState(colorPalette[0]);
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
@@ -20,7 +20,8 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
         <Dialog
             open={creatorOpen}>
             <DialogTitle
-                id="teacher-creator-title">
+                id="teacher-creator-title"
+                className={classes.title}>
                 Create User
             </DialogTitle>
             <DialogContent
