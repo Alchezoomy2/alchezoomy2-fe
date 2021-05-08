@@ -20,6 +20,7 @@ export const useStyles = makeStyles({
         justifyContent: "space-around",
         alignItems: "center",
         width: "90%",
+        flexGrow: 1
     },
     list: {
         listStyleType: "none",
