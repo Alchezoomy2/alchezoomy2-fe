@@ -67,20 +67,24 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
                     : <Typography>
                         ERROR
                     </Typography>}
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={handleCancelClick}
-                >
-                    Cancel
+                <div
+                    className={classes.buttonDiv}>
+
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={handleCancelClick}
+                    >
+                        Cancel
                     </Button>
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => handleCreateTeacher(selectedColor)}
-                >
-                    CREATE USER
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => handleCreateTeacher(selectedColor)}
+                    >
+                        CREATE USER
                     </Button>
+                </div>
             </DialogContent>
         </Dialog >
     );
