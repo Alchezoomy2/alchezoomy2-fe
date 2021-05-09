@@ -20,8 +20,7 @@ export const StoreProvider = ({ children }) => {
         transcriptArray: JSON.parse(localStorage.getItem("TRANSCRIPT_ARRAY")) || "",
         favoriteArray: JSON.parse(localStorage.getItem("FAVORITE_ARRAY")) || [],
         meetingDetails: localStorage.getItem("MEETING_DETAILS" || ""),
-        // loading: localStorage.getItem("LOADING" || true),
-        videoTimestamp: 0,
+        // videoTimestamp: 0,
 
         changeLoggedIn: () => {
             store.loggedIn = true;

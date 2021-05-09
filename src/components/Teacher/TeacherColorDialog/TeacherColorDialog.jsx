@@ -69,7 +69,6 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                         ERROR
                     </Typography>}
             </DialogContent>
-
         </Dialog >
     );
 }

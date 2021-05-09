@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
         justifyContent: "space-around",
         alignItems: "center",
         width: "90%",
-        height: "100%",
+        height: "90%",
     },
     list: {
         listStyleType: "none",
