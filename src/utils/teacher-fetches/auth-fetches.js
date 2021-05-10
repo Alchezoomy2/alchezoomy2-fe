@@ -2,11 +2,11 @@ import request from "superagent";
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 
 
-export async function teacherAuth(code) {
+export async function teacherAuth(code, jwt) {
 
     const response = await request
         .post(serverUrl + "/teacher/oauth")
-        .send({ code })
+        .send({ code, jwt })
         .withCredentials();
 
     return response.body;

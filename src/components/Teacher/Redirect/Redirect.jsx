@@ -10,12 +10,12 @@ export const AutoRedirect = ({ location }) => {
     const store = useStateStore();
     const history = useHistory();
     let params = new URLSearchParams(location.search);
-    console.log(params.get("state"));
-    console.log(params.getAll());
+    const code = params.get("code");
+    const jwt = params.get("state");
 
     useEffect(() => {
         async function loginTeacher() {
-            const returnedObject = await teacherAuth(params.get("code"), params.get("state"));
+            const returnedObject = await teacherAuth(code, jwt);
 
             if (returnedObject.error) {
                 window.alert(returnedObject.error);
