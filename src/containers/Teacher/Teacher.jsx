@@ -68,7 +68,8 @@ export const Teacher = () => {
     };
 
 
-    useEffect(async () => {
+    useEffect(() => {
+        console.log("🚀 ~ file: Teacher.jsx ~ line 73 ~ useEffect ~ store.teacherInfo", store.teacherInfo);
         if (store.teacherInfo.newUser) {
             setCreatorOpen(true);
         } else {
