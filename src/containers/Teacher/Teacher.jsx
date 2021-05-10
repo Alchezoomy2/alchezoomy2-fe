@@ -89,18 +89,18 @@ export const Teacher = () => {
                 {displayModule}
                 <Footer />
             </Grid>
-            {/* <Backdrop
+            <Backdrop
                 className={classes.backdrop}
                 open={open}>
                 <CircularProgress />
             </Backdrop>
             <SnackbarComponent />
-            <TeacherColorDialog
+            {/* <TeacherColorDialog
                 hexPalette={hexPalette}
                 closeColorDialog={closeColorDialog}
                 colorDialog={colorDialog}
-            />
-            <TeacherCreator
+            /> */}
+            {/* <TeacherCreator
                 handleCreateTeacher={handleCreateTeacher}
                 creatorOpen={creatorOpen}
             /> */}
