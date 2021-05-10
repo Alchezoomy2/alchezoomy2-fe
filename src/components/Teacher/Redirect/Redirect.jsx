@@ -18,7 +18,11 @@ export const AutoRedirect = ({ location }) => {
             if (returnedObject.error) {
                 window.alert(returnedObject.error);
                 history.push("/teacher/login");
+            } else if (returnedObject.message) {
+                window.alert(returnedObject.message);
+                history.push("/");
             }
+
             await store.changeTeacherInfo(returnedObject);
             store.changeLoggedIn();
             history.push("/teacher");
