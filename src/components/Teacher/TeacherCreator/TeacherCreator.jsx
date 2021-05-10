@@ -18,7 +18,7 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
         if (store.teacherInfo.colorPalette) {
             setSelectedColor(store.teacherInfo.colorPalette[0]);
         }
-    });
+    }, []);
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
