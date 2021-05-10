@@ -46,6 +46,7 @@ export const Teacher = () => {
     };
 
     const handleLectureDashboard = async () => {
+        console.log("handleLectureDashboard");
         setOpen(true);
         const returnedMeetingArray = await fetchAllTeacherMeetings(store.teacherInfo);
         store.changeMeetingsObj(returnedMeetingArray);
@@ -69,7 +70,7 @@ export const Teacher = () => {
 
 
     useEffect(() => {
-        console.log("🚀 ~ file: Teacher.jsx ~ line 73 ~ useEffect ~ store.teacherInfo", store.teacherInfo);
+        console.log("useEffect");
         if (store.teacherInfo.newUser) {
             setCreatorOpen(true);
         } else {
