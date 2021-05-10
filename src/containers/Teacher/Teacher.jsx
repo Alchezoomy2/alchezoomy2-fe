@@ -25,6 +25,15 @@ export const Teacher = () => {
     let [open, setOpen] = useState(true);
     const store = useStateStore();
 
+    useEffect(() => {
+        console.log("useEffect");
+        if (store.teacherInfo.newUser) {
+            setCreatorOpen(true);
+        } else {
+            handleLectureDashboard();
+        }
+    }, []);
+
     const handleCreateTeacher = async (selectedColor) => {
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
@@ -67,16 +76,6 @@ export const Teacher = () => {
         setOpen(false);
         setColorDialog(false);
     };
-
-
-    useEffect(() => {
-        console.log("useEffect");
-        if (store.teacherInfo.newUser) {
-            setCreatorOpen(true);
-        } else {
-            handleLectureDashboard();
-        }
-    }, []);
 
     return (
         <div>
