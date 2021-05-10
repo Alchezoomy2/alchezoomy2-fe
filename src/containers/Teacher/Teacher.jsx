@@ -16,6 +16,7 @@ import Footer from "../../components/Shared/Footer/Footer";
 
 
 export const Teacher = () => {
+    console.log("teacher");
     const { openSnackbar, SnackbarComponent } = snackBar();
     const classes = useStyles();
     const [displayModule, setDisplayModule] = useState(null);
