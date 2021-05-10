@@ -81,11 +81,11 @@ export const Teacher = () => {
     return (
         <div>
             <Grid>
-                {/* <TeacherAppBar
+                <TeacherAppBar
                     handleSubscriptionDashboard={handleSubscriptionDashboard}
                     handleLectureDashboard={handleLectureDashboard}
                     handleAvatarClick={handleAvatarClick}
-                /> */}
+                />
                 {displayModule}
                 <Footer />
             </Grid>
