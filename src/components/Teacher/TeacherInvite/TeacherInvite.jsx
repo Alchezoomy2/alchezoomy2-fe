@@ -1,12 +1,15 @@
 import React from "react";
 import { Paper, Button } from "@material-ui/core";
 import { useStyles } from "./TeacherInviteStyles";
+import { useParams } from "react-router-dom";
 import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBar";
 
 const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 
 export default function TeacherInvite() {
     const classes = useStyles();
+    const { jwt } = useParams();
+    console.log("🚀 ~ file: TeacherInvite.jsx ~ line 12 ~ TeacherInvite ~ jwt", jwt);
 
     return (
         <>
@@ -27,7 +30,7 @@ export default function TeacherInvite() {
                         <Button
                             color="primary"
                             variant="contained"
-                            onClick={() => window.location.href = zoomAPIurl}
+                            onClick={() => window.location.href = zoomAPIurl + `&state=${jwt}`}
                         >
                             SIGN IN WITH ZOOM
                     </Button>

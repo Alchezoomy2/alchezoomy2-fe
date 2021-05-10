@@ -10,6 +10,8 @@ export const AutoRedirect = ({ location }) => {
     const store = useStateStore();
     const history = useHistory();
     let code = new URLSearchParams(location.search);
+    console.log("🚀 ~ file: Redirect.jsx ~ line 13 ~ AutoRedirect ~ code", code);
+
 
     useEffect(() => {
         async function loginTeacher() {
