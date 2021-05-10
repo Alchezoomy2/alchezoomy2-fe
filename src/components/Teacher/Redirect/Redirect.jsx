@@ -12,6 +12,7 @@ export const AutoRedirect = ({ location }) => {
     let params = new URLSearchParams(location.search);
     const code = params.get("code");
     const jwt = params.get("state");
+    console.log("🚀 ~ file: Redirect.jsx ~ line 15 ~ AutoRedirect ~ jwt", jwt);
 
     useEffect(() => {
         async function loginTeacher() {
