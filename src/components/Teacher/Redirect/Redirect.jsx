@@ -9,13 +9,13 @@ import PropTypes from "prop-types";
 export const AutoRedirect = ({ location }) => {
     const store = useStateStore();
     const history = useHistory();
-    let code = new URLSearchParams(location.search);
-    console.log("🚀 ~ file: Redirect.jsx ~ line 13 ~ AutoRedirect ~ code", code);
-
+    let params = new URLSearchParams(location.search);
+    console.log(params.get("state"));
+    console.log(params.getAll());
 
     useEffect(() => {
         async function loginTeacher() {
-            const returnedObject = await teacherAuth(code.get("code"));
+            const returnedObject = await teacherAuth(params.get("code"), params.get("state"));
 
             if (returnedObject.error) {
                 window.alert(returnedObject.error);
