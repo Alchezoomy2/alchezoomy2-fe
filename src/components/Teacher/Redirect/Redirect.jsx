@@ -19,8 +19,11 @@ export const AutoRedirect = ({ location }) => {
                 window.alert(returnedObject.error);
                 history.push("/teacher/login");
             }
+            console.log("🚀 ~ file: Redirect.jsx ~ line 23 ~ loginTeacher ~ returnedObject", returnedObject);
             await store.changeTeacherInfo(returnedObject);
+            console.log("after store change");
             store.changeLoggedIn();
+            console.log("changeLogin");
             history.push("/teacher");
         }
 
