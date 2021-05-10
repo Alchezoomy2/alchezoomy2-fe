@@ -17,11 +17,7 @@ export const AutoRedirect = ({ location }) => {
         async function loginTeacher() {
             const returnedObject = await teacherAuth(code, jwt);
 
-            if (returnedObject.error) {
-                window.alert(returnedObject.error);
-                history.push("/teacher/login");
-
-            } else if (returnedObject.message) {
+            if (returnedObject.message) {
                 window.alert(returnedObject.message);
                 history.push("/");
 
