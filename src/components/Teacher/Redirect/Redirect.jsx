@@ -22,6 +22,7 @@ export const AutoRedirect = ({ location }) => {
             } else if (returnedObject.message) {
                 window.alert(returnedObject.message);
                 history.push("/");
+
             } else {
                 await store.changeTeacherInfo(returnedObject);
                 store.changeLoggedIn();
