@@ -14,7 +14,7 @@ export async function teacherAuth(code, jwt) {
 
 export async function createTeacher(teacherInfo) {
     const response = await request
-        .post(serverUrl + "/teacher/new")
+        .post(serverUrl + "/teacher/create")
         .send({ teacherInfo })
         .withCredentials();
 
