@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateStore } from "../../../utils/StoreProvider";
 import { Dialog, Typography, Avatar, Button, DialogTitle, DialogContent } from "@material-ui/core";
 import PropTypes from "prop-types";
@@ -12,7 +12,13 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
     const history = useHistory();
     const classes = useStyles();
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
-    const [selectedColor, setSelectedColor] = useState(colorPalette[0]);
+    const [selectedColor, setSelectedColor] = useState(null);
+
+    useEffect(() => {
+        if (store.teacherInfo.colorPalette) {
+            setSelectedColor(store.teacherInfo.colorPalette[0]);
+        }
+    });
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
