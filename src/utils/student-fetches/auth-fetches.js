@@ -45,6 +45,14 @@ export async function studentExists(jwt) {
     return response.body;
 }
 
+export async function getStudentInfo(jwt) {
+    const response = await fetch
+        .get(serverUrl + "/student/" + jwt)
+        .withCredentials();
+
+    return response.body;
+}
+
 export async function studentChangeProfile(studentId, payload) {
     const response = await fetch
         .patch(serverUrl + "/student/user/" + studentId)

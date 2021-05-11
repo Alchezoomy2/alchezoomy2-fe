@@ -5,7 +5,7 @@ import snackBar from "../../../hooks/snackBar/snackBar";
 import usePasswordMeter from "../../../hooks/usePasswordMeter/usePasswordMeter";
 import { useStyles } from "./StudentChangePasswordStyles";
 import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBar";
-import { studentExists, studentChangePassword } from "../../../utils/student-fetches/auth-fetches";
+import { getStudentInfo, studentChangePassword } from "../../../utils/student-fetches/auth-fetches";
 
 
 
@@ -25,7 +25,7 @@ export default function StudentChangePassword() {
 
     useEffect(() => {
         const checkStudent = async () => {
-            const response = await studentExists(jwt);
+            const response = await getStudentInfo(jwt);
             setStudentInfo(response);
             setOpen(false);
         };
