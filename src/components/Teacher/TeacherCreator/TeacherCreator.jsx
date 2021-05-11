@@ -14,12 +14,12 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
     const { userName, picUrl, email, colorPalette } = store.teacherInfo;
     const [selectedColor, setSelectedColor] = useState(null);
 
-    // useEffect(() => {
-    //     if (store.teacherInfo.colorPalette) {
-    //         console.log("test");
-    //         setSelectedColor(store.teacherInfo.colorPalette[0]);
-    //     }
-    // }, []);
+    useEffect(() => {
+        if (store.teacherInfo.colorPalette) {
+            console.log("test");
+            setSelectedColor(store.teacherInfo.colorPalette[0]);
+        }
+    }, []);
 
     const handleColorChange = (color) => {
         setSelectedColor(color);

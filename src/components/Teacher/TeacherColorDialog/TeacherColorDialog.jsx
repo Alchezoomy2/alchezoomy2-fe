@@ -36,7 +36,7 @@ export default function TeacherColorDialog({ hexPalette, closeColorDialog, color
                 className={classes.root}
                 style={{ borderLeft: `15px solid ${selectedColor}` }}
             >
-                {hexPalette[0] ?
+                {hexPalette.length > 0 ?
                     <div
                         className={classes.colorFrame}>
                         <ul className={classes.list}>

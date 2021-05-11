@@ -39,9 +39,9 @@ export const Teacher = () => {
         setOpen(true);
         const returnedTeacherInfo = await createTeacher({ ...store.teacherInfo, color: selectedColor });
         store.changeTeacherInfo(returnedTeacherInfo);
+        handleLectureDashboard();
         setOpen(false);
         setCreatorOpen(false);
-        handleLectureDashboard();
     };
 
     const handleSubscriptionDashboard = async () => {
