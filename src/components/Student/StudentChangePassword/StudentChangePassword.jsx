@@ -38,6 +38,9 @@ export default function StudentChangePassword() {
 
         if (passwordStrength > 2) {
             const response = await studentChangePassword(studentInfo.id, password1);
+
+            console.log("🚀 ~ file: StudentChangePassword.jsx ~ line 41 ~ handleSubmit ~ response", response);
+
             openSnackbar(response);
             history.push("/student/login");
         } else {
