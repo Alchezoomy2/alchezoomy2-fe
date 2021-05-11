@@ -12,7 +12,7 @@ export async function studentAuth(studentEmail, password) {
 
 export async function studentResetPassword(studentEmail) {
     const response = await fetch
-        .get(serverUrl + "/student/reset")
+        .post(serverUrl + "/student/reset")
         .send({ studentEmail })
         .withCredentials();
 
