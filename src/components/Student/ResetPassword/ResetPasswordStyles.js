@@ -2,7 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { root, welcomeFrame } from "../../../styles/frames";
 
 export const useStyles = makeStyles({
-    root, welcomeFrame,
+    root, welcomeFrame: {
+        ...welcomeFrame,
+        border: "none"
+    },
     button: {
         height: "50px",
         width: "150px",
@@ -13,7 +16,7 @@ export const useStyles = makeStyles({
     inviteText: {
         margin: "25px"
     },
-    restForm: {
+    resetForm: {
         height: "500px",
         display: "flex",
         flexDirection: "column",
