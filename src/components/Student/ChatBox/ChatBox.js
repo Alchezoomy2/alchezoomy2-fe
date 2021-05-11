@@ -1,9 +1,8 @@
-import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "./ChatboxStyles";
 
-import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
+import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Tooltip } from "@material-ui/core";
 import { useStateStore } from "../../../utils/StoreProvider.js";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
@@ -14,8 +13,6 @@ import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-
-
 
 export const ChatBox = ({ handleChatSeek }) => {
     const store = useStateStore();
@@ -110,18 +107,20 @@ export const ChatBox = ({ handleChatSeek }) => {
                     className={classes.listItem}
                     divider={true}
                 >
-                    {(bookmarkArray &&
-                        bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
-                        <BookmarkIcon
-                            clickable
-                            onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id), chat)}
-                        />
-                        :
-                        <BookmarkBorderIcon
-                            clickable
-                            onClick={() => handleBookmark(chat)}
-                        />
-                    }
+                    <Tooltip title="Bookmark">
+                        {(bookmarkArray &&
+                            bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
+                            <BookmarkIcon
+                                clickable
+                                onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id), chat)}
+                            />
+                            :
+                            <BookmarkBorderIcon
+                                clickable
+                                onClick={() => handleBookmark(chat)}
+                            />
+                        }
+                    </Tooltip>
                     <ListItemText
                         primary={`${chat.speaker} ${chat.text}`}
                         secondary={chat.timestamp} />
