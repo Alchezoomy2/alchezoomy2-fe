@@ -17,7 +17,7 @@ export const useStyles = makeStyles({
         margin: "25px"
     },
     resetForm: {
-        height: "500px",
+        height: "300px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
