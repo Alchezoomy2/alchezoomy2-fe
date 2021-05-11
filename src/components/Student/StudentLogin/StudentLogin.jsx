@@ -24,7 +24,8 @@ export default function StudentLogin() {
 
 
             if (studentInfo.error) {
-                openSnackbar("error", studentInfo.error.message);
+                console.log("if (studentInfo.error) {");
+                openSnackbar("error", studentInfo.error);
                 setPassword("");
             } else {
                 store.changeStudentInfo(studentInfo);
@@ -34,7 +35,7 @@ export default function StudentLogin() {
                 console.log("🚀 ~ file: StudentLogin.jsx ~ line 33 ~ handleSubmit ~ newMeetingObj", newMeetingObj);
 
                 if (newMeetingObj.error) {
-                    openSnackbar("error", e.message);
+                    openSnackbar("error", newMeetingObj.error);
                     setPassword("");
                 } else {
                     store.changeMeetingsObj(newMeetingObj);
