@@ -25,7 +25,9 @@ export const Teacher = () => {
     let [open, setOpen] = useState(true);
     const store = useStateStore();
 
+    console.log("teacher");
     useEffect(() => {
+        console.log("useEffect");
         if (store.teacherInfo.newUser) {
             setCreatorOpen(true);
         } else {

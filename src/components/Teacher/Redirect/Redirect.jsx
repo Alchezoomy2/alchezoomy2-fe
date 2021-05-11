@@ -23,6 +23,8 @@ export const AutoRedirect = ({ location }) => {
                 returnedObject = await teacherAuth(code, jwt);
             }
 
+            console.log("🚀 ~ file: Redirect.jsx ~ line 24 ~ loginTeacher ~ returnedObject", returnedObject);
+
             if (returnedObject.message) {
                 window.alert(returnedObject.message);
                 history.push("/");
