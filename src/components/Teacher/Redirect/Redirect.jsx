@@ -18,7 +18,7 @@ export const AutoRedirect = ({ location }) => {
             let returnedObject;
             console.log("🚀 ~ file: Redirect.jsx ~ line 15 ~ AutoRedirect ~ jwt", jwt);
 
-            if (jwt) {
+            if (jwt !== null) {
                 returnedObject = await teacherInvite(code, jwt);
             } else {
                 returnedObject = await teacherAuth(code, jwt);
