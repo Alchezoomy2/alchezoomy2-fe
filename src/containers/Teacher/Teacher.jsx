@@ -101,11 +101,11 @@ export const Teacher = () => {
                     closeColorDialog={closeColorDialog}
                     colorDialog={colorDialog}
                 /> : null}
-            {/* {creatorOpen ?
+            {creatorOpen ?
                 <TeacherCreator
                     handleCreateTeacher={handleCreateTeacher}
                     creatorOpen={creatorOpen}
-                /> : null} */}
+                /> : null}
         </div>
 
     );
