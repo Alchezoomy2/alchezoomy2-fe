@@ -62,6 +62,9 @@ export const App = () => {
                         path="/teacher"
                         component={Teacher} />
                     <Route
+                        path="/student/password/:jwt"
+                        component={StudentChangePassword} />
+                    <Route
                         exact
                         path="/student/login"
                         component={StudentLogin} />
@@ -72,9 +75,6 @@ export const App = () => {
                         exact
                         path="/student/reset"
                         component={ResetPassword} />
-                    <Route
-                        path="/student/password/:jwt"
-                        component={StudentChangePassword} />
                     <PrivateRoute
                         path="/student"
                         token={store.loggedIn}
