@@ -95,13 +95,13 @@ export const Teacher = () => {
                 <CircularProgress />
             </Backdrop>
             <SnackbarComponent />
-            {/* {colorDialog ?
+            {colorDialog ?
                 <TeacherColorDialog
                     hexPalette={hexPalette}
                     closeColorDialog={closeColorDialog}
                     colorDialog={colorDialog}
                 /> : null}
-            {creatorOpen ?
+            {/* {creatorOpen ?
                 <TeacherCreator
                     handleCreateTeacher={handleCreateTeacher}
                     creatorOpen={creatorOpen}
