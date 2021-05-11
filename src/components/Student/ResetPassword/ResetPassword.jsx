@@ -16,6 +16,7 @@ export default function ResetPassword() {
         try {
             const { code, message } = await studentResetPassword(studentEmail.toLowerCase().trim());
             openSnackbar(code, message);
+            localStorage.clear();
             setStudentEmail("");
         } catch (e) {
             openSnackbar("error", e.message);
