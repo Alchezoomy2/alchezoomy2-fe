@@ -92,7 +92,8 @@ export default function StudentLogin() {
                     </Button>
                     </form>
                     <Typography
-                        onClick={handleResetPassword}>
+                        onClick={handleResetPassword}
+                        className={classes.resetButton}>
                         Reset Your Password
                     </Typography>
                 </div>

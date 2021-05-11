@@ -27,6 +27,9 @@ export const useStyles = makeStyles({
         borderRadius: "15px",
         padding: "25px",
         margin: "25px"
+    },
+    resetButton: {
+        cursor: "pointer",
     }
 });
 
