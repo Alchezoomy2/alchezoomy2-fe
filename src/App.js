@@ -73,7 +73,6 @@ export const App = () => {
                         path="/student/reset"
                         component={ResetPassword} />
                     <Route
-                        exact
                         path="/student/password/:jwt"
                         component={StudentChangePassword} />
                     <PrivateRoute
