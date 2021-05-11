@@ -10,6 +10,24 @@ export async function studentAuth(studentEmail, password) {
     return response.body;
 }
 
+export async function studentResetPassword(studentEmail) {
+    const response = await fetch
+        .get(serverUrl + "/student/reset")
+        .send({ studentEmail })
+        .withCredentials();
+
+    return response.body;
+}
+
+export async function studentChangePassword(studentId, password) {
+    const response = await fetch
+        .post(serverUrl + "/student/change/" + studentId)
+        .send({ password })
+        .withCredentials();
+
+    return response.body;
+}
+
 export async function createStudent(studentEmail, teacherEmail, password, firstName) {
     const response = await fetch
         .post(serverUrl + "/student/new")

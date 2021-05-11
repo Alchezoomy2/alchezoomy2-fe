@@ -58,11 +58,11 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
 
                     <Chip
                         size="small"
-                        color="secondary"
+                        color="primary"
                         label={"views: " + meeting.meetingViews} />
                     <Chip
                         size="small"
-                        color="secondary"
+                        color="primary"
                         label={"favorites: " + meeting.meetingFavs} />
                     <Tooltip title="Favorite">
                         {

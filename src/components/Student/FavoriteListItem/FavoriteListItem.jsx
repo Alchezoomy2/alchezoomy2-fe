@@ -36,7 +36,8 @@ export const FavoriteListItem = (favorite, handleDeleteClick, handleOpenMeeting,
                     </Tooltip>
                     <Tooltip title="Play">
                         <Button
-                            variant="contained" color="primary"
+                            variant="contained"
+                            color="primary"
                             className={listItemClasses.playButton}
                             size="small"
                             endIcon={<PlayArrowIcon />}

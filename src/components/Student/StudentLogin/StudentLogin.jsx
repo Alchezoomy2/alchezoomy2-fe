@@ -20,9 +20,9 @@ export default function StudentLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const studentInfo = await studentAuth(studentEmail.toLowerCase(), password);
+            const studentInfo = await studentAuth(studentEmail.toLowerCase().trim(), password);
             if (studentInfo.error) {
-                openSnackbar("error", "Invalid username or password");
+                openSnackbar("error", e.message);
                 setPassword("");
             } else {
                 store.changeStudentInfo(studentInfo);
@@ -34,9 +34,13 @@ export default function StudentLogin() {
                 history.push("/student");
             }
         } catch (e) {
-            openSnackbar("error", "Invalid username or password");
+            openSnackbar("error", e.message);
             setPassword("");
         }
+    };
+
+    const handleResetPassword = () => {
+        history.push("/student/reset");
     };
 
     return (
@@ -87,6 +91,10 @@ export default function StudentLogin() {
                             SUBMIT
                     </Button>
                     </form>
+                    <Typography
+                        onClick={handleResetPassword}>
+                        Reset Your Password
+                    </Typography>
                 </div>
             </Paper>
             <SnackbarComponent />

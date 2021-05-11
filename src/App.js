@@ -22,9 +22,10 @@ import Support from "./Support.jsx";
 import Instructions from "./components/Shared/Instructions/Instructions";
 import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import Admin from "./containers/Admin/Admin";
+import ResetPassword from "./components/Student/ResetPassword/ResetPassword";
+
 import { useStateStore } from "./utils/StoreProvider";
 import { useObserver } from "mobx-react";
-
 
 export const App = () => {
     const store = useStateStore();
@@ -66,6 +67,14 @@ export const App = () => {
                     <Route
                         path="/student/invite/:jwt"
                         component={StudentInvite} />
+                    <Route
+                        exact
+                        path="/student/reset"
+                        component={ResetPassword} />
+                    <Route
+                        exact
+                        path="/student/password/:jwt"
+                        component={StudentChangePassword} />
                     <PrivateRoute
                         path="/student"
                         token={store.loggedIn}

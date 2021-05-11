@@ -1,0 +1,193 @@
+Date : 2021-05-11 11:15:49
+Directory : /Users/paulstevens/Developer/alchezoomy2-fe/src
+Total : 110 files,  5289 codes, 73 comments, 715 blanks, all 6077 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |        108 |      5,257 |         73 |        709 |      6,039 |
+| CSS        |          2 |         32 |          0 |          6 |         38 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                    | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                       |        110 |      5,289 |         73 |        715 |      6,077 |
+| components                                                                                                              |         72 |      4,055 |         65 |        486 |      4,606 |
+| components/Admin                                                                                                        |         12 |        684 |          1 |         87 |        772 |
+| components/Admin/AdminAppBar                                                                                            |          2 |         78 |          0 |          9 |         87 |
+| components/Admin/AdminBucketDashboard                                                                                   |          2 |        115 |          0 |         20 |        135 |
+| components/Admin/AdminLogin                                                                                             |          2 |        130 |          0 |         13 |        143 |
+| components/Admin/AdminStudentDashboard                                                                                  |          2 |        117 |          0 |         17 |        134 |
+| components/Admin/AdminTeacherDashboard                                                                                  |          2 |        167 |          0 |         18 |        185 |
+| components/Admin/NewAdminDialog                                                                                         |          2 |         77 |          1 |         10 |         88 |
+| components/Shared                                                                                                       |          9 |        232 |          0 |         28 |        260 |
+| components/Shared/DeleteDialog                                                                                          |          1 |         36 |          0 |          4 |         40 |
+| components/Shared/DialogTransition                                                                                      |          1 |          9 |          0 |          3 |         12 |
+| components/Shared/Footer                                                                                                |          2 |         40 |          0 |          7 |         47 |
+| components/Shared/Instructions                                                                                          |          1 |         95 |          0 |          3 |         98 |
+| components/Shared/LandingPageAppBar                                                                                     |          2 |         20 |          0 |          6 |         26 |
+| components/Shared/ListableItem                                                                                          |          2 |         32 |          0 |          5 |         37 |
+| components/Student                                                                                                      |         30 |      2,201 |         62 |        250 |      2,513 |
+| components/Student/Bookmark                                                                                             |          2 |        129 |          9 |         22 |        160 |
+| components/Student/BookmarkListItem                                                                                     |          2 |         69 |          0 |         10 |         79 |
+| components/Student/ChatBox                                                                                              |          2 |        246 |         24 |         26 |        296 |
+| components/Student/Favorite                                                                                             |          2 |        127 |          1 |         16 |        144 |
+| components/Student/FavoriteListItem                                                                                     |          2 |         70 |          0 |          8 |         78 |
+| components/Student/MeetingDetails                                                                                       |          2 |        105 |          1 |         15 |        121 |
+| components/Student/MeetingListItem                                                                                      |          2 |        126 |          0 |         11 |        137 |
+| components/Student/ResetPassword                                                                                        |          2 |         94 |          0 |          8 |        102 |
+| components/Student/StudentAppBar                                                                                        |          2 |        138 |          0 |         15 |        153 |
+| components/Student/StudentChangePassword                                                                                |          2 |        133 |          0 |         16 |        149 |
+| components/Student/StudentInvite                                                                                        |          2 |        173 |          0 |         19 |        192 |
+| components/Student/StudentListItem                                                                                      |          1 |         22 |          0 |          4 |         26 |
+| components/Student/StudentLogin                                                                                         |          2 |        126 |          0 |         14 |        140 |
+| components/Student/StudentMeetings                                                                                      |          2 |        216 |          0 |         24 |        240 |
+| components/Student/StudentProfile                                                                                       |          2 |        235 |          2 |         19 |        256 |
+| components/Student/TranscriptBox                                                                                        |          1 |        192 |         25 |         23 |        240 |
+| components/Teacher                                                                                                      |         21 |        938 |          2 |        121 |      1,061 |
+| components/Teacher/ColorBlock                                                                                           |          2 |         48 |          0 |          6 |         54 |
+| components/Teacher/Redirect                                                                                             |          1 |         42 |          0 |         12 |         54 |
+| components/Teacher/SubscriptionListItem                                                                                 |          1 |         29 |          0 |          5 |         34 |
+| components/Teacher/TeacherAppBar                                                                                        |          2 |         83 |          0 |         11 |         94 |
+| components/Teacher/TeacherColorDialog                                                                                   |          2 |        112 |          0 |          9 |        121 |
+| components/Teacher/TeacherCreator                                                                                       |          2 |        128 |          0 |         13 |        141 |
+| components/Teacher/TeacherDashboard                                                                                     |          2 |         70 |          0 |         17 |         87 |
+| components/Teacher/TeacherInvite                                                                                        |          2 |         54 |          0 |          6 |         60 |
+| components/Teacher/TeacherLogin                                                                                         |          2 |         58 |          2 |          5 |         65 |
+| components/Teacher/TeacherMeetingItem                                                                                   |          2 |         88 |          0 |          8 |         96 |
+| components/Teacher/TeacherMeetingTopic                                                                                  |          1 |         60 |          0 |         10 |         70 |
+| components/Teacher/TeacherSubscriptions                                                                                 |          2 |        166 |          0 |         19 |        185 |
+| containers                                                                                                              |          8 |        339 |          0 |         57 |        396 |
+| containers/Admin                                                                                                        |          2 |         76 |          0 |         14 |         90 |
+| containers/LandingPage                                                                                                  |          2 |         68 |          0 |          8 |         76 |
+| containers/Student                                                                                                      |          2 |         86 |          0 |         20 |        106 |
+| containers/Teacher                                                                                                      |          2 |        109 |          0 |         15 |        124 |
+| hooks                                                                                                                   |          4 |        106 |          0 |         21 |        127 |
+| hooks/snackBar                                                                                                          |          1 |         29 |          0 |          8 |         37 |
+| hooks/usePasswordMeter                                                                                                  |          3 |         77 |          0 |         13 |         90 |
+| styles                                                                                                                  |          3 |         63 |          0 |          4 |         67 |
+| utils                                                                                                                   |         12 |        358 |          1 |        113 |        472 |
+| utils/admin-fetches                                                                                                     |          4 |         73 |          0 |         30 |        103 |
+| utils/student-fetches                                                                                                   |          4 |        107 |          0 |         29 |        136 |
+| utils/teacher-fetches                                                                                                   |          3 |         89 |          0 |         33 |        122 |
++-------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/App.js                                                                  | JavaScript |         97 |          0 |          6 |        103 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/App.test.js                                                             | JavaScript |          7 |          0 |          2 |          9 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/Policies.jsx                                                            | JavaScript |        161 |          0 |          4 |        165 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/PrivateRoute.js                                                         | JavaScript |         15 |          0 |          4 |         19 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/Support.jsx                                                             | JavaScript |          7 |          0 |          2 |          9 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/Terms.jsx                                                               | JavaScript |         20 |          0 |          4 |         24 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminAppBar/AdminAppBar.jsx                            | JavaScript |         61 |          0 |          5 |         66 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminAppBar/AdminAppBarStyles.js                       | JavaScript |         17 |          0 |          4 |         21 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminBucketDashboard/AdminBucketDashboard.jsx          | JavaScript |         93 |          0 |         16 |        109 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminBucketDashboard/AdminBucketDashboardStyles.js     | JavaScript |         22 |          0 |          4 |         26 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminLogin/AdminLogin.jsx                              | JavaScript |         99 |          0 |         10 |        109 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminLogin/AdminLoginStyles.js                         | JavaScript |         31 |          0 |          3 |         34 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminStudentDashboard/AdminStudentDashboard.jsx        | JavaScript |         90 |          0 |         14 |        104 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminStudentDashboard/AdminStudentDashboardStyles.js   | JavaScript |         27 |          0 |          3 |         30 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminTeacherDashboard/AdminTeacherDashboard.jsx        | JavaScript |        130 |          0 |         15 |        145 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/AdminTeacherDashboard/AdminTeacherDashboardStyles.js   | JavaScript |         37 |          0 |          3 |         40 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/NewAdminDialog/NewAdminDialog.jsx                      | JavaScript |         63 |          0 |          7 |         70 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Admin/NewAdminDialog/NewAdminDialogStyles.js                 | JavaScript |         14 |          1 |          3 |         18 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/DeleteDialog/DeleteDialog.jsx                         | JavaScript |         36 |          0 |          4 |         40 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/DialogTransition/DialogTransition.js                  | JavaScript |          9 |          0 |          3 |         12 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/Footer/Footer.jsx                                     | JavaScript |         26 |          0 |          4 |         30 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/Footer/FooterStyles.js                                | JavaScript |         14 |          0 |          3 |         17 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/Instructions/Instructions.jsx                         | JavaScript |         95 |          0 |          3 |         98 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/LandingPageAppBar/LandingPageAppBar.jsx               | JavaScript |         13 |          0 |          2 |         15 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/LandingPageAppBar/LandingPageAppBarStyles.js          | JavaScript |          7 |          0 |          4 |         11 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/ListableItem/ListableItem.jsx                         | JavaScript |         32 |          0 |          4 |         36 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Shared/ListableItem/ListableItemStyles.js                    | JavaScript |          0 |          0 |          1 |          1 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/Bookmark/Bookmark.jsx                                | JavaScript |        120 |          9 |         18 |        147 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/Bookmark/bookmarkStyles.js                           | JavaScript |          9 |          0 |          4 |         13 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/BookmarkListItem/BookmarkListItem.jsx                | JavaScript |         50 |          0 |          7 |         57 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/BookmarkListItem/BookmarkListItemStyles.js           | JavaScript |         19 |          0 |          3 |         22 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/ChatBox/ChatBox.js                                   | JavaScript |        195 |         23 |         23 |        241 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/ChatBox/ChatboxStyles.js                             | JavaScript |         51 |          1 |          3 |         55 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/Favorite/Favorite.jsx                                | JavaScript |        121 |          1 |         15 |        137 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/Favorite/FavoriteStyle.js                            | JavaScript |          6 |          0 |          1 |          7 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/FavoriteListItem/FavoriteListItem.jsx                | JavaScript |         51 |          0 |          5 |         56 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/FavoriteListItem/FavoriteListItemStyles.js           | JavaScript |         19 |          0 |          3 |         22 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/MeetingDetails/MeetingDetails.jsx                    | JavaScript |         75 |          1 |         13 |         89 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/MeetingDetails/meetingDetailsStyles.js               | JavaScript |         30 |          0 |          2 |         32 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/MeetingListItem/MeetingListItem.jsx                  | JavaScript |        110 |          0 |          8 |        118 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/MeetingListItem/meetingListItemStyles.js             | JavaScript |         16 |          0 |          3 |         19 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/ResetPassword/ResetPassword.jsx                      | JavaScript |         63 |          0 |          5 |         68 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/ResetPassword/ResetPasswordStyles.js                 | JavaScript |         31 |          0 |          3 |         34 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentAppBar/StudentAppBar.jsx                      | JavaScript |        114 |          0 |         11 |        125 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentAppBar/StudentAppBarStyles.js                 | JavaScript |         24 |          0 |          4 |         28 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentChangePassword/StudentChangePassword.jsx      | JavaScript |        105 |          0 |         13 |        118 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentChangePassword/StudentChangePasswordStyles.js | JavaScript |         28 |          0 |          3 |         31 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentInvite/StudentInvite.jsx                      | JavaScript |        142 |          0 |         16 |        158 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentInvite/StudentInviteStyles.js                 | JavaScript |         31 |          0 |          3 |         34 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentListItem/StudentListItem.jsx                  | JavaScript |         22 |          0 |          4 |         26 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentLogin/StudentLogin.jsx                        | JavaScript |         95 |          0 |         11 |        106 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentLogin/StudentLoginStyles.js                   | JavaScript |         31 |          0 |          3 |         34 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentMeetings/StudentMeetings.jsx                  | JavaScript |        180 |          0 |         21 |        201 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentMeetings/studentMeetingsStyles.js             | JavaScript |         36 |          0 |          3 |         39 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentProfile/StudentProfile.jsx                    | JavaScript |        184 |          0 |         16 |        200 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/StudentProfile/StudentProfileStyles.js               | JavaScript |         51 |          2 |          3 |         56 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Student/TranscriptBox/TranscriptBox.jsx                      | JavaScript |        192 |         25 |         23 |        240 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/ColorBlock/ColorBlock.jsx                            | JavaScript |         30 |          0 |          4 |         34 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/ColorBlock/ColorBlockStyles.js                       | JavaScript |         18 |          0 |          2 |         20 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/Redirect/Redirect.jsx                                | JavaScript |         42 |          0 |         12 |         54 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/SubscriptionListItem/SubscriptionListItem.jsx        | JavaScript |         29 |          0 |          5 |         34 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherAppBar/TeacherAppBar.jsx                      | JavaScript |         58 |          0 |          6 |         64 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherAppBar/TeacherAppBarStyles.js                 | JavaScript |         25 |          0 |          5 |         30 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherColorDialog/TeacherColorDialog.jsx            | JavaScript |         75 |          0 |          5 |         80 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherColorDialog/TeacherColorDialogStyles.js       | JavaScript |         37 |          0 |          4 |         41 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherCreator/TeacherCreator.jsx                    | JavaScript |         96 |          0 |          9 |        105 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherCreator/TeacherCreatorStyles.js               | JavaScript |         32 |          0 |          4 |         36 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherDashboard/TeacherDashboard.jsx                | JavaScript |         57 |          0 |         12 |         69 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherDashboard/teacherDashboardStyles.js           | JavaScript |         13 |          0 |          5 |         18 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherInvite/TeacherInvite.jsx                      | JavaScript |         38 |          0 |          3 |         41 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherInvite/TeacherInviteStyles.js                 | JavaScript |         16 |          0 |          3 |         19 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherLogin/TeacherLogin.jsx                        | JavaScript |         36 |          0 |          3 |         39 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherLogin/TeacherLoginStyles.js                   | JavaScript |         22 |          2 |          2 |         26 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherMeetingItem/TeacherMeetingItem.jsx            | JavaScript |         66 |          0 |          5 |         71 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherMeetingItem/teacherMeetingItemsStyles.js      | JavaScript |         22 |          0 |          3 |         25 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherMeetingTopic/TeacherMeetingTopic.jsx          | JavaScript |         60 |          0 |         10 |         70 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherSubscriptions/TeacherSubscriptionStyles.js    | JavaScript |         36 |          0 |          3 |         39 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/components/Teacher/TeacherSubscriptions/TeacherSubscriptions.jsx        | JavaScript |        130 |          0 |         16 |        146 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/Admin/Admin.jsx                                              | JavaScript |         69 |          0 |         11 |         80 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/Admin/AdminStyles.js                                         | JavaScript |          7 |          0 |          3 |         10 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/LandingPage/LandingPage.jsx                                  | JavaScript |         48 |          0 |          4 |         52 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/LandingPage/LandingPageStyles.js                             | JavaScript |         20 |          0 |          4 |         24 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/Student/Student.jsx                                          | JavaScript |         80 |          0 |         18 |         98 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/Student/StudentStyles.js                                     | JavaScript |          6 |          0 |          2 |          8 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/Teacher/Teacher.jsx                                          | JavaScript |        103 |          0 |         13 |        116 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/containers/Teacher/TeacherStyles.js                                     | JavaScript |          6 |          0 |          2 |          8 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/hooks/snackBar/snackBar.jsx                                             | JavaScript |         29 |          0 |          8 |         37 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/hooks/usePasswordMeter/passwordMeterStyles.js                           | JavaScript |         12 |          0 |          2 |         14 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/hooks/usePasswordMeter/returnPasswordLabel.js                           | JavaScript |         28 |          0 |          2 |         30 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/hooks/usePasswordMeter/usePasswordMeter.jsx                             | JavaScript |         37 |          0 |          9 |         46 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/index.css                                                               | CSS        |         12 |          0 |          2 |         14 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/index.js                                                                | JavaScript |         16 |          3 |          3 |         22 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/reportWebVitals.js                                                      | JavaScript |         12 |          0 |          2 |         14 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/setupTests.js                                                           | JavaScript |          1 |          4 |          1 |          6 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/styles/colors.js                                                        | JavaScript |          2 |          0 |          0 |          2 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/styles/frames.js                                                        | JavaScript |         34 |          0 |          3 |         37 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/styles/theme.js                                                         | JavaScript |         27 |          0 |          1 |         28 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/temp.css                                                                | CSS        |         20 |          0 |          4 |         24 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/StoreProvider.js                                                  | JavaScript |         89 |          1 |         21 |        111 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/admin-fetches/auth-fetches.js                                     | JavaScript |         23 |          0 |          9 |         32 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/admin-fetches/s3-fetches.js                                       | JavaScript |         15 |          0 |          4 |         19 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/admin-fetches/student-fetches.js                                  | JavaScript |         14 |          0 |          7 |         21 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/admin-fetches/teacher-fetches.js                                  | JavaScript |         21 |          0 |         10 |         31 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/student-fetches/auth-fetches.js                                   | JavaScript |         51 |          0 |         14 |         65 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/student-fetches/bookmark-fetches.js                               | JavaScript |         21 |          0 |          6 |         27 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/student-fetches/favorite-fetches.js                               | JavaScript |         21 |          0 |          5 |         26 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/student-fetches/meeting-fetches.js                                | JavaScript |         14 |          0 |          4 |         18 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/teacher-fetches/auth-fetches.js                                   | JavaScript |         37 |          0 |         15 |         52 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/teacher-fetches/meeting-fetches.js                                | JavaScript |         28 |          0 |         12 |         40 |
+| /Users/paulstevens/Developer/alchezoomy2-fe/src/utils/teacher-fetches/subscription-fetches.js                           | JavaScript |         24 |          0 |          6 |         30 |
+| Total                                                                                                                   |            |      5,289 |         73 |        715 |      6,077 |
++-------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

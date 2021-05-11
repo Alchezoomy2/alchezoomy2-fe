@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
         width: "150px",
     },
     mainLogo: {
-        height: "500px",
+        height: "250px",
     },
     inviteText: {
         margin: "25px"
