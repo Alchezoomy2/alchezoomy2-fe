@@ -23,6 +23,7 @@ import Instructions from "./components/Shared/Instructions/Instructions";
 import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import Admin from "./containers/Admin/Admin";
 import ResetPassword from "./components/Student/ResetPassword/ResetPassword";
+import StudentChangePassword from "./components/Student/StudentChangePassword/StudentChangePassword";
 
 import { useStateStore } from "./utils/StoreProvider";
 import { useObserver } from "mobx-react";
