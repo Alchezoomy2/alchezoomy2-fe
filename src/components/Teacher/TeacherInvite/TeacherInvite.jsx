@@ -9,7 +9,6 @@ const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
 export default function TeacherInvite() {
     const classes = useStyles();
     const { jwt } = useParams();
-    console.log("🚀 ~ file: TeacherInvite.jsx ~ line 12 ~ TeacherInvite ~ jwt", jwt);
 
     return (
         <>
