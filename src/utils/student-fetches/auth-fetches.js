@@ -12,8 +12,7 @@ export async function studentAuth(studentEmail, password) {
 
 export async function studentResetPassword(studentEmail) {
     const response = await fetch
-        .post(serverUrl + "/student/reset")
-        .send({ studentEmail })
+        .get(serverUrl + "/student/reset/" + studentEmail)
         .withCredentials();
 
     return response.body;

@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
     inviteText: {
         margin: "25px"
     },
-    loginForm: {
+    restForm: {
         height: "500px",
         display: "flex",
         flexDirection: "column",
