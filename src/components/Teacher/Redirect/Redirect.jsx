@@ -16,14 +16,13 @@ export const AutoRedirect = ({ location }) => {
     useEffect(() => {
         async function loginTeacher() {
             let returnedObject;
+            console.log("🚀 ~ file: Redirect.jsx ~ line 15 ~ AutoRedirect ~ jwt", jwt);
 
             if (jwt) {
                 returnedObject = await teacherInvite(code, jwt);
             } else {
                 returnedObject = await teacherAuth(code, jwt);
             }
-
-            console.log("🚀 ~ file: Redirect.jsx ~ line 24 ~ loginTeacher ~ returnedObject", returnedObject);
 
             if (returnedObject.message) {
                 window.alert(returnedObject.message);
