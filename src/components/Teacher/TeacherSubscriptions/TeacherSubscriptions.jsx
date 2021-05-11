@@ -37,13 +37,14 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
             if (studentEmail.includes(",")) {
                 studentEmailArray = studentEmail.split(",").map(address => {
                     const cleanedAddress = address.toLowerCase().trim();
-                    openSnackbar("success", `${cleanedAddress} Invited`);
                     return cleanedAddress;
                 });
+                openSnackbar("success", "Multiple Students Invited!");
+
             } else {
                 const cleanedAddress = studentEmail.toLowerCase().trim();
                 studentEmailArray = [cleanedAddress];
-                openSnackbar("success", `${cleanedAddress} Invited`);
+                openSnackbar("success", `${cleanedAddress} Invited!`);
 
             }
 
