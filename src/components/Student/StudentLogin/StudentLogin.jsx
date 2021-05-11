@@ -21,17 +21,26 @@ export default function StudentLogin() {
         e.preventDefault();
         try {
             const studentInfo = await studentAuth(studentEmail.toLowerCase().trim(), password);
+
+
             if (studentInfo.error) {
-                openSnackbar("error", e.message);
+                openSnackbar("error", studentInfo.error.message);
                 setPassword("");
             } else {
                 store.changeStudentInfo(studentInfo);
 
                 const newMeetingObj = await fetchAllStudentMeetings();
 
-                store.changeMeetingsObj(newMeetingObj);
-                store.changeLoggedIn();
-                history.push("/student");
+                console.log("🚀 ~ file: StudentLogin.jsx ~ line 33 ~ handleSubmit ~ newMeetingObj", newMeetingObj);
+
+                if (newMeetingObj.error) {
+                    openSnackbar("error", e.message);
+                    setPassword("");
+                } else {
+                    store.changeMeetingsObj(newMeetingObj);
+                    store.changeLoggedIn();
+                    history.push("/student");
+                }
             }
         } catch (e) {
             openSnackbar("error", e.message);
