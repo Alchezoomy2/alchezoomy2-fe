@@ -35,14 +35,20 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
         let studentEmailArray;
         if (studentEmail.includes("@") && studentEmail.includes(".")) {
             if (studentEmail.includes(",")) {
-                studentEmailArray = studentEmail.split(",").map(address => address.toLowerCase().trim());
+                studentEmailArray = studentEmail.split(",").map(address => {
+                    const cleanedAddress = address.toLowerCase().trim();
+                    openSnackbar("success", `${cleanedAddress} Invited`);
+                    return cleanedAddress;
+                });
             } else {
-                studentEmailArray = [studentEmail.toLowerCase().trim()];
+                const cleanedAddress = studentEmail.toLowerCase().trim();
+                studentEmailArray = [cleanedAddress];
+                openSnackbar("success", `${cleanedAddress} Invited`);
+
             }
 
             await inviteStudent(studentEmailArray, store.teacherInfo);
             setStudentEmail("");
-            openSnackbar("success", "Student Invited");
         }
     };
 
