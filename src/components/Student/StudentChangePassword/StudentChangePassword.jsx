@@ -37,11 +37,9 @@ export default function StudentChangePassword() {
         e.preventDefault();
 
         if (passwordStrength > 2) {
-            const response = await studentChangePassword(studentInfo.id, password1);
+            const { code, message } = await studentChangePassword(studentInfo.id, password1);
 
-            console.log("🚀 ~ file: StudentChangePassword.jsx ~ line 41 ~ handleSubmit ~ response", response);
-
-            openSnackbar(response);
+            openSnackbar(code, message);
             history.push("/student/login");
         } else {
             openSnackbar("warning", "Password Must Be More Complex!");
