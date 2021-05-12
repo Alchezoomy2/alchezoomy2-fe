@@ -26,23 +26,7 @@ const useStyles = makeStyles((theme) => ({
         zIndex: theme.zIndex.drawer + 1,
         color: "#fff",
     },
-    dialogTitle: {
-        fontWeight: "bold",
-        color: "black"
-    },
-    dialogSpeaker: {
-        fontWeight: "bold",
-        fontSize: "1.1em",
-        margin: "3px"
-    },
-    dialogTimestamp: {
-        fontSize: ".9em",
-        margin: "3px",
-        color: "secondary"
-    },
-    dialogText: {
-        margin: "3px"
-    },
+
     replyIcon: {
         transform: "scaleX(-1)"
     }

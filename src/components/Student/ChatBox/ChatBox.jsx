@@ -2,21 +2,21 @@ import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "./ChatboxStyles";
 import useListItemStyles from "../ChatListItem/ChatListItemStyles";
+import useBookmarkDialogStyles from "../BookmarkDialog/BookmarkDialogStyles";
 
-import { Paper, Divider, List, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@material-ui/core";
+import { Paper, List, Typography, TextField } from "@material-ui/core";
 import { useStateStore } from "../../../utils/StoreProvider.js";
-import CommentIcon from "@material-ui/icons/Comment";
 import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../../utils/student-fetches/bookmark-fetches.js";
 import ChatListItem from "../ChatListItem/ChatListItem";
+import BookmarkDialog from "../BookmarkDialog/BookmarkDialog";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+
 
 export const ChatBox = ({ handleChatSeek }) => {
     const store = useStateStore();
     const classes = useStyles();
     const listItemClasses = useListItemStyles();
+    const dialogClasses = useBookmarkDialogStyles();
     const [open, setOpen] = useState(false);
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
@@ -53,6 +53,10 @@ export const ChatBox = ({ handleChatSeek }) => {
             current: true
         });
         setOpen(true);
+    };
+
+    const handleDialogClose = () => {
+        setOpen(false);
     };
 
     const handleBookmarkChange = async () => {
@@ -153,66 +157,15 @@ export const ChatBox = ({ handleChatSeek }) => {
                 }
             </List>
             {bookmarkCard ?
-                <Dialog
+                <BookmarkDialog
                     open={open}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={() => setOpen(false)}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-                    maxWidth="xl"
-                >
-                    <DialogContent>
-                        <DialogTitle className={classes.dialogTitle}>
-                            {bookmarkCard.title}
-                        </DialogTitle>
-                        <DialogContentText
-                            id="speaker"
-                            className={classes.dialogSpeaker}>
-                            {bookmarkCard.speaker}
-                        </DialogContentText>
-                        <DialogContentText
-                            id="timestamp"
-                            className={classes.dialogTimestamp}>
-                            {bookmarkCard.timestamp}
-                        </DialogContentText>
-                        <DialogContentText
-                            id="text"
-                            className={classes.dialogText}>
-                            {bookmarkCard.text}
-                        </DialogContentText>
-                        <Divider />
-                        {!bookmarkCard.current ?
-                            <TextField
-                                id="comment"
-                                label="comment"
-                                multiline
-                                fullWidth
-                                rows={4}
-                                variant="outlined"
-                                onChange={handleCommentChange}
-                                value={commentField}
-                            />
-                            :
-                            <Typography>
-                                <CommentIcon fontSize="small" />
-                                {`  ${bookmarkCard.comment}`}
-                            </Typography>
-                        }
-                    </DialogContent>
-                    <DialogActions>
-                        <Button
-                            onClick={() => setOpen(false)}
-                            color="primary">
-                            Cancel
-                        </Button>
-                        <Button
-                            onClick={handleBookmarkChange}
-                            color="primary">
-                            {bookmarkCard.title}
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                    dialogClasses={dialogClasses}
+                    bookmarkCard={bookmarkCard}
+                    handleBookmarkChange={handleBookmarkChange}
+                    handleDialogClose={handleDialogClose}
+                    handleCommentChange={handleCommentChange}
+                    commentField={commentField}
+                />
                 :
                 null
             }

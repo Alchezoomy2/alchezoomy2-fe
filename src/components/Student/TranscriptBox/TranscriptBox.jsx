@@ -124,10 +124,12 @@ export const TranscriptBox = ({ handleChatSeek }) => {
                     <ListItemText
                         primary={`${transcript.identifier} ${transcript.text}`}
                         secondary={transcript.timestamp} />
-                    <PlayArrowIcon
-                        clickable
-                        onClick={() => handleChatSeek(transcript.time_start)}
-                    />
+                    <Tooltip title="Jump to">
+                        <PlayArrowIcon
+                            clickable
+                            onClick={() => handleChatSeek(transcript.time_start)}
+                        />
+                    </Tooltip>
                 </ListItem>
             </div>
 
