@@ -38,17 +38,19 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                 >
                     <Chip
                         size="small"
-                        style={{ padding: "5px" }}
+                        className={meetingListItemClasses.chip}
                         color={meeting.videoUrl ? "primary" : ""}
                         icon={<VideoLabelIcon />}
                         label="video" />
                     <Chip
                         size="small"
+                        className={meetingListItemClasses.chip}
                         color={meeting.audioUrl ? "primary" : ""}
                         icon={<VolumeUpIcon />}
                         label="audio" />
                     <Chip
                         size="small"
+                        className={meetingListItemClasses.chip}
                         color={meeting.chatUrl ? "primary" : ""}
                         icon={<ChatIcon />}
                         label="chat" />
