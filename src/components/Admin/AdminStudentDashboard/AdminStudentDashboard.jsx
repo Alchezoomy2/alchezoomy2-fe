@@ -4,7 +4,7 @@ import { deleteStudent } from "../../../utils/admin-fetches/student-fetches";
 import useStyles from "./AdminStudentDashboardStyles";
 import { Paper, TextField, Typography, List } from "@material-ui/core";
 import { PropTypes } from "mobx-react";
-import StudentListItem from "../../Student/StudentListItem/StudentListItem";
+import StudentListItem from "../StudentListItem/StudentListItem";
 import DeleteDialog from "../../Shared/DeleteDialog/DeleteDialog";
 
 
