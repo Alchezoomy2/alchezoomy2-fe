@@ -1,2 +1,2 @@
-export const primaryMain = "#2b2e4a";
-export const secondaryMain = "#e84545";
+export const primaryMain = "#312c51";
+export const secondaryMain = "#f0c38e";
