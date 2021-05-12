@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "./ChatboxStyles";
 
-import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Tooltip } from "@material-ui/core";
+import { Paper, Divider, List, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@material-ui/core";
 import { useStateStore } from "../../../utils/StoreProvider.js";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import CommentIcon from "@material-ui/icons/Comment";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../../utils/student-fetches/bookmark-fetches.js";
+import ChatListItem from "../ChatListItem/ChatListItem";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -99,41 +97,6 @@ export const ChatBox = ({ handleChatSeek }) => {
         // selectedChat();
     }, []);
 
-    const chatListItems = (chat) => {
-
-        return (
-            <div>
-                <ListItem
-                    className={classes.listItem}
-                    divider={true}
-                >
-                    <Tooltip title="Bookmark">
-                        {(bookmarkArray &&
-                            bookmarkArray.some(bookmark => bookmark.chat_id === chat.id)) ?
-                            <BookmarkIcon
-                                clickable
-                                onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.chat_id === chat.id), chat)}
-                            />
-                            :
-                            <BookmarkBorderIcon
-                                clickable
-                                onClick={() => handleBookmark(chat)}
-                            />
-                        }
-                    </Tooltip>
-                    <ListItemText
-                        primary={`${chat.speaker} ${chat.text}`}
-                        secondary={chat.timestamp} />
-                    <PlayArrowIcon
-                        clickable
-                        onClick={() => handleChatSeek(chat.parsed_timestamp)}
-                    />
-                </ListItem>
-            </div>
-
-        );
-    };
-
 
 
     return (
@@ -169,9 +132,20 @@ export const ChatBox = ({ handleChatSeek }) => {
             />
             <List className={classes.list}>
                 {searchField === "" ?
-                    store.chatArray.map(chat => chatListItems(chat))
+                    store.chatArray.map(chat =>
+                        ChatListItem(
+                            chat,
+                            handleBookmark,
+                            handleUnbookmark,
+                            bookmarkArray,
+                            handleChatSeek))
                     :
-                    FuseChatList.search(searchField).map(({ item }) => chatListItems(item))
+                    FuseChatList.search(searchField).map(({ item }) => ChatListItem(
+                        item,
+                        handleBookmark,
+                        handleUnbookmark,
+                        bookmarkArray,
+                        handleChatSeek))
                 }
             </List>
             {bookmarkCard ?
@@ -188,13 +162,19 @@ export const ChatBox = ({ handleChatSeek }) => {
                         <DialogTitle className={classes.dialogTitle}>
                             {bookmarkCard.title}
                         </DialogTitle>
-                        <DialogContentText id="speaker" className={classes.dialogSpeaker}>
+                        <DialogContentText
+                            id="speaker"
+                            className={classes.dialogSpeaker}>
                             {bookmarkCard.speaker}
                         </DialogContentText>
-                        <DialogContentText id="timestamp" className={classes.dialogTimestamp}>
+                        <DialogContentText
+                            id="timestamp"
+                            className={classes.dialogTimestamp}>
                             {bookmarkCard.timestamp}
                         </DialogContentText>
-                        <DialogContentText id="text" className={classes.dialogText}>
+                        <DialogContentText
+                            id="text"
+                            className={classes.dialogText}>
                             {bookmarkCard.text}
                         </DialogContentText>
                         <Divider />
@@ -230,7 +210,7 @@ export const ChatBox = ({ handleChatSeek }) => {
                     </DialogActions>
                 </Dialog>
                 :
-                <></>
+                null
             }
         </Paper>
     );

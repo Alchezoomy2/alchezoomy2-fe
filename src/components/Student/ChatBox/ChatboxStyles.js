@@ -22,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         overflow: "scroll"
     },
-    listItem: {
-        width: "100%",
-    },
     backdrop: {
         zIndex: theme.zIndex.drawer + 1,
         color: "#fff",
