@@ -19,11 +19,12 @@ export default function BookmarkDialog({ open, dialogClasses, bookmarkCard, hand
             aria-describedby="alert-dialog-slide-description"
             maxWidth="xl"
         >
+
+            <DialogTitle
+                className={dialogClasses.dialogTitle}>
+                {bookmarkCard.title}
+            </DialogTitle>
             <DialogContent>
-                <DialogTitle
-                    className={dialogClasses.dialogTitle}>
-                    {bookmarkCard.title}
-                </DialogTitle>
                 <DialogContentText
                     id="speaker"
                     className={dialogClasses.dialogSpeaker}>

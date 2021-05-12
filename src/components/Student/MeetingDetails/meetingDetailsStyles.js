@@ -3,7 +3,7 @@ import { root, frame, component } from "../../../styles/frames";
 const useStyles = makeStyles(() => ({
     root: {
         ...root,
-        height: "100%"
+        height: "110vh"
     },
     frame,
     component,

@@ -3,7 +3,6 @@ import { primaryMain } from "../../../styles/colors";
 
 const useListItemStyles = makeStyles(() => ({
     dialogTitle: {
-        fontWeight: "bold",
         color: "white",
         backgroundColor: primaryMain
     },
