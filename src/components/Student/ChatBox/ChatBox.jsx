@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "./ChatboxStyles";
+import useListItemStyles from "..ChatListItem/ChatListItemStyles";
 
 import { Paper, Divider, List, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@material-ui/core";
 import { useStateStore } from "../../../utils/StoreProvider.js";
@@ -15,6 +16,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export const ChatBox = ({ handleChatSeek }) => {
     const store = useStateStore();
     const classes = useStyles();
+    const listItemClasses = useListItemStyles();
     const [open, setOpen] = useState(false);
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
@@ -134,6 +136,7 @@ export const ChatBox = ({ handleChatSeek }) => {
                 {searchField === "" ?
                     store.chatArray.map(chat =>
                         ChatListItem(
+                            listItemClasses,
                             chat,
                             handleBookmark,
                             handleUnbookmark,
@@ -141,6 +144,7 @@ export const ChatBox = ({ handleChatSeek }) => {
                             handleChatSeek))
                     :
                     FuseChatList.search(searchField).map(({ item }) => ChatListItem(
+                        listItemClasses,
                         item,
                         handleBookmark,
                         handleUnbookmark,

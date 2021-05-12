@@ -5,15 +5,13 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
-import useStyles from "./ChatListItemStyles";
+export default function ChatListItem(listItemClasses, chat, handleBookmark, handleUnbookmark, bookmarkArray, handleChatSeek) {
 
-export default function ChatListItem(chat, handleBookmark, handleUnbookmark, bookmarkArray, handleChatSeek) {
-    const classes = useStyles();
 
     return (
         <div>
             <ListItem
-                className={classes.listItem}
+                className={listItemClasses.listItem}
                 divider={true}
             >
                 <Tooltip title="Bookmark">
