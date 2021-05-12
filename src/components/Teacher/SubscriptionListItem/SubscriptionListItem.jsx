@@ -6,11 +6,12 @@ import { primaryMain } from "../../../styles/colors";
 export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => {
 
     return (
-        <div>
+        <div
+            style={{ borderLeft: `15px solid ${primaryMain}`, width: "90%", margin: "5px" }}
+        >
             <ListItem
                 alignItems="flex-start"
                 divider={true}
-                style={{ borderLeft: `15px solid ${primaryMain}`, width: "90%", margin: "5px" }}
             >
                 <ListItemText
                     primary={subscription.firstName}
