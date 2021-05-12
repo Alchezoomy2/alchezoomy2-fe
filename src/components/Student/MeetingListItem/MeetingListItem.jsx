@@ -42,12 +42,12 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                         color={meeting.videoUrl ? "primary" : ""}
                         icon={<VideoLabelIcon />}
                         label="video" />
-                    <Chip
+                    {/* <Chip
                         size="small"
                         className={meetingListItemClasses.chip}
                         color={meeting.audioUrl ? "primary" : ""}
                         icon={<VolumeUpIcon />}
-                        label="audio" />
+                        label="audio" /> */}
                     <Chip
                         size="small"
                         className={meetingListItemClasses.chip}

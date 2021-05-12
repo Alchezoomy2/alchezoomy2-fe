@@ -30,12 +30,12 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                             color={meeting.videoUrl ? "primary" : ""}
                             icon={<VideoLabelIcon />}
                             label="video" />
-                        <Chip
+                        {/* <Chip
                             size="small"
                             className={classes.chip}
                             color={meeting.audioUrl ? "primary" : ""}
                             icon={<VolumeUpIcon />}
-                            label="audio" />
+                            label="audio" /> */}
                         <Chip
                             size="small"
                             className={classes.chip}
