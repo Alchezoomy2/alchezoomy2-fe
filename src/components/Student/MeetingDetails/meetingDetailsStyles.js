@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
     },
     boxContainer: {
         display: "flex",
-        justifyItems: "center",
+        justifyItems: "space-between",
         alignContent: "space-between",
     }
 }));
