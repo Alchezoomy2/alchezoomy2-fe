@@ -32,7 +32,8 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        border: "1px solid salmon"
     },
     searchBar: {
         padding: "15px"
