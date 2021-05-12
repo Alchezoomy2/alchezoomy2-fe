@@ -31,7 +31,8 @@ const useStyles = makeStyles(() => ({
         overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
     },
     searchBar: {
         padding: "15px"
