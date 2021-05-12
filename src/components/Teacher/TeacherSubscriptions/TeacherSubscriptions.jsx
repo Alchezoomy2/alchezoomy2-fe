@@ -126,7 +126,9 @@ export const TeacherSubscriptions = ({ returnedSubscriptionArray, openSnackbar, 
                             autocomplete="off"
                         />
                     </div>
-                    <List className={classes.list}>
+                    <List
+                    //className={classes.list}>
+                    >
                         {searchField === "" ?
                             subscriptionArray.map(subscription => SubscriptionListItem(
                                 subscription,
