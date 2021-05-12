@@ -14,7 +14,7 @@ const meetingListItemStyles = makeStyles(({
         justifyContent: "space-between",
     },
     chip: {
-        padding: "10px"
+        padding: "5px"
     }
 
 }));

@@ -56,15 +56,18 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                         label="chat" />
                     <Chip
                         size="small"
+                        className={meetingListItemClasses.chip}
                         color={meeting.transcriptUrl ? "primary" : ""}
                         icon={<RecordVoiceOverIcon />} label="transcript" />
 
                     <Chip
                         size="small"
+                        className={meetingListItemClasses.chip}
                         color="primary"
                         label={"views: " + meeting.meetingViews} />
                     <Chip
                         size="small"
+                        className={meetingListItemClasses.chip}
                         color="primary"
                         label={"favorites: " + meeting.meetingFavs} />
                     <Tooltip title="Favorite">
