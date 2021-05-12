@@ -123,7 +123,7 @@ export const TranscriptBox = ({ handleChatSeek }) => {
                         }
                     </Tooltip>
                     <ListItemText
-                        primary={`${transcript.identifier} ${transcript.text}`}
+                        primary={`${transcript.speaker}: ${transcript.text}`}
                         secondary={transcript.timestamp} />
                     <Tooltip title="Jump to">
                         <PlayArrowIcon

@@ -21,11 +21,8 @@ export const MeetingDetails = ({ startTime }) => {
 
 
     useEffect(() => {
-        if (store.meetingDetails.videoUrl !== "") {
-            setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.mp4`);
-        } else if (store.meetingDetails.audioUrl !== "") {
-            setMedia(`${s3VideoUrl}videos/${store.meetingDetails.teacher_id}/${store.meetingDetails.id}.m4a`);
-        }
+        setMedia(`${s3VideoUrl}${store.meetingDetails.media_url}`);
+
 
         setTimeout(() => player.current.seekTo(startTime, "seconds"), 500);
 
