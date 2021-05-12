@@ -1,9 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { primaryMain } from "../../../styles/colors";
 
 const useListItemStyles = makeStyles(() => ({
     dialogTitle: {
         fontWeight: "bold",
-        color: "black"
+        color: "white",
+        backgroundColor: primaryMain
     },
     dialogSpeaker: {
         fontWeight: "bold",

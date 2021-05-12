@@ -20,7 +20,8 @@ export default function BookmarkDialog({ open, dialogClasses, bookmarkCard, hand
             maxWidth="xl"
         >
             <DialogContent>
-                <DialogTitle className={dialogClasses.dialogTitle}>
+                <DialogTitle
+                    className={dialogClasses.dialogTitle}>
                     {bookmarkCard.title}
                 </DialogTitle>
                 <DialogContentText
