@@ -1,9 +1,8 @@
-import { useObserver } from "mobx-react";
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "../ChatBox/ChatboxStyles";
 
-import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, } from "@material-ui/core";
+import { Paper, Divider, List, ListItemText, ListItem, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Tooltip } from "@material-ui/core";
 import { useStateStore } from "../../../utils/StoreProvider";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
@@ -17,18 +16,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 
 
-export const TranscriptBox = (props) => {
+export const TranscriptBox = ({ handleChatSeek }) => {
     const store = useStateStore();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [bookmarkCard, setBookmarkCard] = useState();
     const [bookmarkArray, setBookmarkArray] = useState([]);
     const [commentField, setCommentField] = useState("");
-    // const [chatSync, setChatSync] = useState(true);
     const [searchField, setSearchField] = useState("");
-    // const selectedChatIndex = useRef(0)
-    const FuseTranscriptList = new fuse(store.chatArray, {
-        keys: ["text", "speaker"],
+    const FuseTranscriptList = new fuse(store.transcriptArray, {
+        keys: ["text", "identifier"],
         threshold: 0.4,
         ignoreLocation: true
     });
@@ -110,25 +107,27 @@ export const TranscriptBox = (props) => {
                     className={classes.listItem}
                     divider={true}
                 >
-                    {(bookmarkArray &&
-                        bookmarkArray.some(bookmark => bookmark.transcript_id === transcript.id)) ?
-                        <BookmarkIcon
-                            clickable
-                            onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.transcript_id === transcript.id), transcript)}
-                        />
-                        :
-                        <BookmarkBorderIcon
-                            clickable
-                            onClick={() => handleBookmark(transcript)}
-                        />
-                    }
+                    <Tooltip title="Bookmark">
+                        {(bookmarkArray &&
+                            bookmarkArray.some(bookmark => bookmark.transcript_id === transcript.id)) ?
+                            <BookmarkIcon
+                                clickable
+                                onClick={() => handleUnbookmark(bookmarkArray.find(bookmark => bookmark.transcript_id === transcript.id), transcript)}
+                            />
+                            :
+                            <BookmarkBorderIcon
+                                clickable
+                                onClick={() => handleBookmark(transcript)}
+                            />
+                        }
+                    </Tooltip>
                     <ListItemText
-                        primary={`${transcript.speaker} ${transcript.text}`}
+                        primary={`${transcript.identifier} ${transcript.text}`}
                         secondary={transcript.timestamp} />
-                    {/* <PlayArrowIcon
+                    <PlayArrowIcon
                         clickable
-                        onClick={() => props.handleChatSeek(transcript.parsed_timestamp)}
-                    /> */}
+                        onClick={() => handleChatSeek(transcript.parsed_timestamp)}
+                    />
                 </ListItem>
             </div>
 
@@ -137,16 +136,16 @@ export const TranscriptBox = (props) => {
 
 
 
-    return useObserver(() =>
+    return (
         <Paper
             elevation={3}
             className={classes.root}>
             <div className={classes.header}>
                 <Typography
-                    variant='h5'
-                    color="primary"
+                    variant='h6'
+                    className={classes.label}
                 >
-                    CHAT
+                    TRANSCRIPT
                 </Typography>
             </div>
             {/* <FormControlLabel
@@ -169,7 +168,7 @@ export const TranscriptBox = (props) => {
             />
             <List className={classes.list}>
                 {searchField === "" ?
-                    store.chatArray.map(chat => transcriptListItems(chat))
+                    store.transcriptArray.map(chat => transcriptListItems(chat))
                     :
                     FuseTranscriptList.search(searchField).map(({ item }) => transcriptListItems(item))
                 }
@@ -188,8 +187,8 @@ export const TranscriptBox = (props) => {
                         <DialogTitle className={classes.dialogTitle}>
                             {bookmarkCard.title}
                         </DialogTitle>
-                        <DialogContentText id="speaker" className={classes.dialogSpeaker}>
-                            {bookmarkCard.speaker}
+                        <DialogContentText id="identifier" className={classes.dialogSpeaker}>
+                            {bookmarkCard.identifier}
                         </DialogContentText>
                         <DialogContentText id="timestamp" className={classes.dialogTimestamp}>
                             {bookmarkCard.timestamp}
