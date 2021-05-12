@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     component: {
         display: "flex",
         flexDirection: "column",
-        width: "100px",
+        width: "70%",
         minHeight: "85vh"
     },
     textField: {
@@ -33,8 +33,6 @@ const useStyles = makeStyles(() => ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        border: "1px solid red",
-        background: "green"
     },
     searchBar: {
         padding: "15px"
