@@ -136,7 +136,7 @@ export const ChatBox = ({ handleChatSeek }) => {
 
 
 
-    return useObserver(() =>
+    return (
         <Paper
             elevation={3}
             className={classes.root}>
