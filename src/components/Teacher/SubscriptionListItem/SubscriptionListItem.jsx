@@ -10,7 +10,7 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
             <ListItem
                 alignItems="flex-start"
                 divider={true}
-                style={{ borderLeft: `15px solid ${primaryMain}`, width: "90%" }}
+                style={{ borderLeft: `15px solid ${primaryMain}`, width: "90%", margin: "5px" }}
             >
                 <ListItemText
                     primary={subscription.firstName}

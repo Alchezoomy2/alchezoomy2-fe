@@ -28,7 +28,10 @@ const useStyles = makeStyles(() => ({
         width: "100%",
         minHeight: "60vh",
         overflowY: "scroll",
-        overflowX: "hidden"
+        overflowX: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "center"
     },
     searchBar: {
         padding: "15px"
