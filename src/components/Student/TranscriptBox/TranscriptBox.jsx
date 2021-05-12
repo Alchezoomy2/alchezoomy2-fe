@@ -126,7 +126,7 @@ export const TranscriptBox = ({ handleChatSeek }) => {
                         secondary={transcript.time_start} />
                     <PlayArrowIcon
                         clickable
-                        onClick={() => handleChatSeek(transcript.time_start)}
+                        onClick={() => handleChatSeek(transcript.timestamp)}
                     />
                 </ListItem>
             </div>
