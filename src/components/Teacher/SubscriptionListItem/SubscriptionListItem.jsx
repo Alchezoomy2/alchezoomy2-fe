@@ -2,7 +2,7 @@ import React from "react";
 
 import { ListItem, ListItemText, Tooltip, Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
-
+import { primaryMain } from "../../../styles/colors";
 export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => {
 
     return (
@@ -10,12 +10,13 @@ export const SubscriptionListItem = (subscription, handleSubscriptionDelete) => 
             <ListItem
                 alignItems="flex-start"
                 divider={true}
+                style={{ borderLeft: `5px solid ${primaryMain}` }}
             >
                 <ListItemText
                     primary={subscription.firstName}
                     secondary={`${subscription.studentEmail} - ${subscription.creationDate}`}
                 />
-                <Tooltip title="Delete">
+                <Tooltip title="Delete Subscription">
                     <Button
                         variant="contained"
                         color="secondary"
