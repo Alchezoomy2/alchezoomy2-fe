@@ -9,6 +9,8 @@ const meetingListItemStyles = makeStyles(({
         height: "50px",
         width: "40vw",
         maxWidth: "650px",
+        minWidth: "100px",
+        overflow: "hidden",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
