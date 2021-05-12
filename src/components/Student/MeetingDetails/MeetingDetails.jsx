@@ -6,9 +6,6 @@ import { Paper } from "@material-ui/core";
 import ChatBox from "../ChatBox/ChatBox";
 import TranscriptBox from "../TranscriptBox/TranscriptBox";
 import useStyles from "./meetingDetailsStyles";
-const s3VideoUrl = process.env.REACT_APP_S3_VIDEO_URL;
-
-
 
 export const MeetingDetails = ({ startTime }) => {
     const store = useStateStore();
@@ -21,9 +18,8 @@ export const MeetingDetails = ({ startTime }) => {
 
 
     useEffect(() => {
-        setMedia(`${s3VideoUrl}${store.meetingDetails.media_url}`);
-
-
+        console.log(store.meetingDetails.media_url);
+        setMedia(store.meetingDetails.media_url);
         setTimeout(() => player.current.seekTo(startTime, "seconds"), 500);
 
     }, []);
