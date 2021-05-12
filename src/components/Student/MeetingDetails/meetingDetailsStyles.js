@@ -5,7 +5,8 @@ const useStyles = makeStyles(() => ({
         ...root,
         height: "100%"
     },
-    frame, component,
+    frame,
+    component,
     boxDiv: {
         marginTop: "20px"
     },
@@ -28,8 +29,11 @@ const useStyles = makeStyles(() => ({
     },
     boxContainer: {
         display: "flex",
-        justifyItems: "space-between",
-        alignContent: "space-between",
+        justifyContent: "space-between",
+        alignItems: "space-between",
+    },
+    box: {
+        margin: "15px"
     }
 }));
 

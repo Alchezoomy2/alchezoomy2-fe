@@ -37,7 +37,7 @@ export const MeetingListItem = (meeting, favoriteArray, handleUnfavorite, handle
                     className={meetingListItemClasses.chips}
                 >
                     <Chip
-                        size="small"
+                        // size="small"
                         color={meeting.videoUrl ? "primary" : ""}
                         icon={<VideoLabelIcon />}
                         label="video" />

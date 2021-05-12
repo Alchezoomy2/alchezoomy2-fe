@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         maxHeight: "500px",
         maxWidth: "700px",
+        margin: "15px"
     },
     header: {
         width: "100%",

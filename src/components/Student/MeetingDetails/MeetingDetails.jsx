@@ -18,7 +18,6 @@ export const MeetingDetails = ({ startTime }) => {
 
 
     useEffect(() => {
-        console.log(store.meetingDetails.media_url);
         setMedia(store.meetingDetails.media_url);
         setTimeout(() => player.current.seekTo(startTime, "seconds"), 500);
 
