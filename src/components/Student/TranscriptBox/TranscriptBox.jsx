@@ -123,7 +123,7 @@ export const TranscriptBox = ({ handleChatSeek }) => {
                     </Tooltip>
                     <ListItemText
                         primary={`${transcript.identifier} ${transcript.text}`}
-                        secondary={transcript.timestamp} />
+                        secondary={transcript.time_start} />
                     <PlayArrowIcon
                         clickable
                         onClick={() => handleChatSeek(transcript.parsed_timestamp)}
@@ -184,14 +184,14 @@ export const TranscriptBox = ({ handleChatSeek }) => {
                     maxWidth="xl"
                 >
                     <DialogContent>
-                        <DialogTitle className={classes.dialogTitle}>
+                        {/* <DialogTitle className={classes.dialogTitle}>
                             {bookmarkCard.title}
-                        </DialogTitle>
+                        </DialogTitle> */}
                         <DialogContentText id="identifier" className={classes.dialogSpeaker}>
                             {bookmarkCard.identifier}
                         </DialogContentText>
                         <DialogContentText id="timestamp" className={classes.dialogTimestamp}>
-                            {bookmarkCard.timestamp}
+                            {bookmarkCard.time_start}
                         </DialogContentText>
                         <DialogContentText id="text" className={classes.dialogText}>
                             {bookmarkCard.text}

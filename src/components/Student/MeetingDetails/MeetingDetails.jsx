@@ -63,6 +63,13 @@ export const MeetingDetails = ({ startTime }) => {
                             }
                         </div>
                         <div className={classes.boxContainer}>
+                            {store.meetingDetails.transcript_url ?
+                                <TranscriptBox
+                                    returnVideoTimestamp={returnVideoTimestamp}
+                                    handleChatSeek={handleChatSeek}
+                                />
+                                : null
+                            }
                             {store.meetingDetails.chat_url ?
                                 <ChatBox
                                     returnVideoTimestamp={returnVideoTimestamp}
@@ -70,13 +77,6 @@ export const MeetingDetails = ({ startTime }) => {
                                 />
                                 :
                                 null
-                            }
-                            {store.meetingDetails.transcript_url ?
-                                <TranscriptBox
-                                    returnVideoTimestamp={returnVideoTimestamp}
-                                    handleChatSeek={handleChatSeek}
-                                />
-                                : null
                             }
                         </div>
                     </div>
