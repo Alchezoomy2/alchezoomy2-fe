@@ -6,7 +6,7 @@ const useStyles = makeStyles(() => ({
     component: {
         display: "flex",
         flexDirection: "column",
-        width: "100%",
+        width: "70%",
         minHeight: "85vh"
     },
     textField: {
