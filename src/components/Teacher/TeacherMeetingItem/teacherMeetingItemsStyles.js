@@ -13,6 +13,9 @@ const useStyles = makeStyles(({
         justifyContent: "center",
         marginRight: "15px",
     },
+    chip: {
+        padding: "5px"
+    },
     widgets: {
         width: "38vw",
         display: "flex",

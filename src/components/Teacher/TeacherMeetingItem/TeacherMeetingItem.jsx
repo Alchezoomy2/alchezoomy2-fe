@@ -24,10 +24,30 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                 />
                 <div className={classes.widgets}>
                     <div className={classes.chips}>
-                        <Chip size="small" color={meeting.videoUrl ? "primary" : ""} icon={<VideoLabelIcon />} label="video" />
-                        <Chip size="small" color={meeting.audioUrl ? "primary" : ""} icon={<VolumeUpIcon />} label="audio" />
-                        <Chip size="small" color={meeting.chatUrl ? "primary" : ""} icon={<ChatIcon />} label="chat" />
-                        <Chip size="small" color={meeting.transcriptUrl ? "primary" : ""} icon={<RecordVoiceOverIcon />} label="transcript" />
+                        <Chip
+                            size="small"
+                            className={classes.chip}
+                            color={meeting.videoUrl ? "primary" : ""}
+                            icon={<VideoLabelIcon />}
+                            label="video" />
+                        <Chip
+                            size="small"
+                            className={classes.chip}
+                            color={meeting.audioUrl ? "primary" : ""}
+                            icon={<VolumeUpIcon />}
+                            label="audio" />
+                        <Chip
+                            size="small"
+                            className={classes.chip}
+                            color={meeting.chatUrl ? "primary" : ""}
+                            icon={<ChatIcon />}
+                            label="chat" />
+                        <Chip
+                            size="small"
+                            className={classes.chip}
+                            color={meeting.transcriptUrl ? "primary" : ""}
+                            icon={<RecordVoiceOverIcon />}
+                            label="transcript" />
                     </div>
                     <FormControlLabel
                         control={<Switch checked={meeting.published}
@@ -39,10 +59,12 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                     <div>
                         <Chip
                             size="small"
+                            className={classes.chip}
                             color="primary"
                             label={"views: " + meeting.meetingViews} />
                         <Chip
                             size="small"
+                            className={classes.chip}
                             color="primary"
                             label={"favorites " + meeting.meetingFavs} />
                     </div>
