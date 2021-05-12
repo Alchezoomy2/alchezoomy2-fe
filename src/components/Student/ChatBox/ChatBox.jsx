@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fuse from "fuse.js";
 import useStyles from "./ChatboxStyles";
-import useListItemStyles from "..ChatListItem/ChatListItemStyles";
+import useListItemStyles from "../ChatListItem/ChatListItemStyles";
 
 import { Paper, Divider, List, Typography, Slide, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from "@material-ui/core";
 import { useStateStore } from "../../../utils/StoreProvider.js";

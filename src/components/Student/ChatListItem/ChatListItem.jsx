@@ -41,7 +41,4 @@ export default function ChatListItem(listItemClasses, chat, handleBookmark, hand
         </div>
 
     );
-
-
-
 }
