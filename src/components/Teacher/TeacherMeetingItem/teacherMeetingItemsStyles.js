@@ -17,7 +17,7 @@ const useStyles = makeStyles(({
         padding: "5px"
     },
     widgets: {
-        width: "38vw",
+        width: "30vw",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
