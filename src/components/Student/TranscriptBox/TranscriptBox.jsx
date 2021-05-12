@@ -10,7 +10,7 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { fetchAllStudentBookmarks, deleteBookmark, createBookmark } from "../../../utils/student-fetches/bookmark-fetches.js";
-
+import BookmarkDialog from "../BookmarkDialog/BookmarkDialog";
 
 export const TranscriptBox = ({ handleChatSeek }) => {
     const store = useStateStore();
