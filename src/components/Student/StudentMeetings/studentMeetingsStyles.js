@@ -3,11 +3,10 @@ import { root, frame, component } from "../../../styles/frames";
 import { primaryMain } from "../../../styles/colors";
 
 const useStyles = makeStyles((theme) => ({
-    root, frame,
-    component,
+    root, frame, component,
     list: {
         width: "100%",
-        height: "80vh",
+        height: "85vh",
         overflowY: "scroll",
         overflowX: "hidden"
     },
