@@ -85,22 +85,13 @@ export default function StudentInvite() {
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
                         alt="logo" />
-                    {/* <div className={classes.inviteText}>
-                        <Typography
-                            variant="body1"
-                            align="center">
-                            {"Welcome to Alchezoomy!"}
-                            <br />
-                            {"You have been invited to view lectures from Alchemy Code Lab!"}
-                            <br />
-                            {"To create your account, you'll need to create a password"}
-                            <br />
-                            {"We will use your email address as your user name!"}
-                        </Typography>
-                    </div> */}
                     <form
                         onSubmit={(e) => handleSubmit(e, studentInfo.studentEmail, studentInfo.teacherEmail)}
                         className={classes.signupForm}>
+                        <Typography
+                            variant="h5">
+                            Student Creator
+                        </Typography>
                         <TextField
                             className={classes.textField}
                             id="studentEmail"
