@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import usePasswordMeter from "../../../hooks/usePasswordMeter/usePasswordMeter";
 import snackBar from "../../../hooks/snackBar/snackBar";
 import LandingPageAppBar from "../../Shared/LandingPageAppBar/LandingPageAppBar";
-import Footer from "../../components/Shared/Footer/Footer";
+import Footer from "../../Shared/Footer/Footer";
 
 
 
