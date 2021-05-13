@@ -4,7 +4,7 @@ export const root = {
     justifyContent: "center",
     overflow: "hidden",
     backgroundColor: "#d7dfea",
-    height: "100vh",
+    height: "90vh",
 };
 
 export const frame = {
