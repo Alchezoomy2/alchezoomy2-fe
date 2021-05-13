@@ -7,7 +7,6 @@ export default function LandingPageAppBar() {
 
     return (
         <AppBar
-            position="fixed"
             className={classes.appBar}>
             <Toolbar />
         </AppBar>
