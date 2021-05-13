@@ -13,7 +13,7 @@ import deleteDialogStyles from "../StudentDeleteDialog/StudentDeleteDialogStyles
 
 export const Bookmark = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();
-    const deleteDialogClassses = deleteDialogStyles();
+    const deleteDialogClasses = deleteDialogStyles();
     const bookmarkListItemClasses = bookmarkListItemStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
@@ -94,7 +94,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
                         dialogCard={dialogCard}
                         handleCloseDialog={handleCloseDialog}
                         handleDelete={handleDeleteBookmark}
-                        deleteDialogClassses={deleteDialogClassses}
+                        deleteDialogClasses={deleteDialogClasses}
                     />
                     : null
             }
