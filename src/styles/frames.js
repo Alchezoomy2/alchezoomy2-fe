@@ -2,9 +2,9 @@ export const root = {
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    overflow: "hidden",
+    // overflow: "hidden",
     backgroundColor: "#d7dfea",
-    height: "85vh",
+    height: "90vh",
 };
 
 export const frame = {
