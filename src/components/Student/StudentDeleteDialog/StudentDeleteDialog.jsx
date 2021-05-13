@@ -22,12 +22,12 @@ export default function DeleteDialog({
             maxWidth="md"
             fullWidth={true}
         >
-            {/* <DialogTitle
+            <DialogTitle
                 className={deleteDialogClasses.dialogTitle}
             >
                 DELETE
             </DialogTitle>
-            <DialogContent>
+            {/* <DialogContent>
                 <DialogContentText
                     id="speaker"
                     className={deleteDialogClasses.dialogSpeaker}
@@ -45,8 +45,8 @@ export default function DeleteDialog({
                     {`  ${dialogCard.comment}`}
                 </Typography>
 
-            </DialogContent>
-            <DialogActions>
+            </DialogContent> */}
+            {/* <DialogActions>
                 <Button
                     onClick={handleCloseDialog}
                     color="primary">
