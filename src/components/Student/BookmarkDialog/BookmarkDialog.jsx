@@ -2,10 +2,7 @@ import React from "react";
 import { Divider, Typography, Dialog, Button, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Slide } from "@material-ui/core";
 import CommentIcon from "@material-ui/icons/Comment";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
-
+import Transition from "../../Shared/DialogTransition/DialogTransition";
 
 export default function BookmarkDialog({ open, dialogClasses, bookmarkCard, handleBookmarkChange, handleDialogClose, handleCommentChange, commentField }) {
 

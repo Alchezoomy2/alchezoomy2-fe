@@ -1,19 +1,20 @@
 // import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "../../../utils/StoreProvider.js";
-import { Divider, Paper, List, Typography, Avatar, TextField, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
+import { Paper, List, Typography, TextField, } from "@material-ui/core";
 import fuse from "fuse.js";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
-import Transition from "../../Shared/DialogTransition/DialogTransition";
 import useStyles from "./FavoriteStyle";
 import FavoriteListItemStyles from "../FavoriteListItem/FavoriteListItemStyles";
 
 
-import CommentIcon from "@material-ui/icons/Comment";
 import { deleteFavorite } from "../../../utils/student-fetches/favorite-fetches";
+import DeleteDialog from "../DeleteDialog/DeleteDialog.jsx";
+import deleteDialogStyles from "../DeleteDialog/DeleteDialogStyles";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();
+    const deleteDialogClasses = deleteDialogStyles();
     const listItemClasses = FavoriteListItemStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
@@ -44,6 +45,10 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
 
     const handleOpenMeeting = async (favorite) => {
         handleMeetingDetailClick(favorite.meetingId, favorite.parsed_timestamp);
+    };
+
+    const handleCloseDialog = () => {
+        setOpen(false);
     };
 
 
@@ -86,48 +91,14 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
             </Paper>
             {
                 dialogCard ?
-                    <Dialog
+                    <DeleteDialog
                         open={open}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="alert-dialog-slide-title"
-                        aria-describedby="alert-dialog-slide-description"
-                        maxWidth="xl"
-                    >
-                        <DialogContent>
-                            <Avatar alt={dialogCard.user_name} src={dialogCard.pic_url} />
-                            <DialogTitle >
-                                {dialogCard.topic}
-                            </DialogTitle>
-                            <DialogContentText id="speaker">
-                                {dialogCard.user_name}
-                            </DialogContentText>
-                            <DialogContentText id="timestamp">
-                                {dialogCard.display_time}
-                            </DialogContentText>
-                            <Divider />
-                            <Typography>
-                                <CommentIcon fontSize="small" />
-                                {`  ${dialogCard.comment}`}
-                            </Typography>
-
-                        </DialogContent>
-                        <DialogActions>
-                            <Button
-                                onClick={() => setOpen(false)}
-                                color="primary">
-                                Cancel
-                                </Button>
-                            <Button
-                                onClick={() => { handleDeleteFavorite(dialogCard.id); }}
-                                color="primary">
-                                Delete
-                            </Button>
-                        </DialogActions>
-                    </Dialog >
-                    :
-                    <></>
+                        dialogCard={dialogCard}
+                        handleCloseDialog={handleCloseDialog}
+                        handleDeleteFavorite={handleDeleteFavorite}
+                        deleteDialogClasses={deleteDialogClasses}
+                    />
+                    : null
             }
         </div >
 
