@@ -63,15 +63,15 @@ export default function StudentLogin() {
                         src="/images/AL-logo.JPG"
                         alt="logo"
                     />
+                    <Typography
+                        variant="button">
+                        Student Sign In
+                        </Typography>
 
                     <form
                         onSubmit={handleSubmit}
                         className={classes.loginForm}
                     >
-                        <Typography
-                            variant="button">
-                            Student Sign In
-                        </Typography>
                         <TextField
                             id="studentEmail"
                             label="Email"

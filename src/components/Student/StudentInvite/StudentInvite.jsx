@@ -85,13 +85,13 @@ export default function StudentInvite() {
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
                         alt="logo" />
+                    <Typography
+                        variant="button">
+                        Student Creator
+                        </Typography>
                     <form
                         onSubmit={(e) => handleSubmit(e, studentInfo.studentEmail, studentInfo.teacherEmail)}
                         className={classes.signupForm}>
-                        <Typography
-                            variant="button">
-                            Student Creator
-                        </Typography>
                         <TextField
                             className={classes.textField}
                             id="studentEmail"
