@@ -3,7 +3,7 @@ import { AppBar, Typography, Button, ButtonGroup, Toolbar } from "@material-ui/c
 import { useStateStore } from "../../../utils/StoreProvider";
 import { useStyles } from "./AdminAppBarStyles";
 import { useHistory } from "react-router-dom";
-import { PropTypes } from "mobx-react";
+import { PropTypes } from "prop-types";
 
 export default function AdminAppBar({ handleTeacherDashboard, handleStudentDashboard, handleBucketDashboard }) {
     const store = useStateStore();

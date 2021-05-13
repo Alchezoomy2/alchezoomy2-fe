@@ -1,6 +1,7 @@
 // import { useObserver } from "mobx-react";
 import React, { useState } from "react";
 import { useStateStore } from "../../../utils/StoreProvider.js";
+import PropTypes from "prop-types";
 import { Paper, List, Typography, TextField, } from "@material-ui/core";
 import fuse from "fuse.js";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
@@ -95,7 +96,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
                         open={open}
                         dialogCard={dialogCard}
                         handleCloseDialog={handleCloseDialog}
-                        handleDeleteFavorite={handleDeleteFavorite}
+                        handleDelete={handleDeleteFavorite}
                         deleteDialogClasses={deleteDialogClasses}
                     />
                     : null
@@ -106,3 +107,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
 };
 
 export default Favorite;
+
+Favorite.propTypes = {
+    handleMeetingDetailClick: PropTypes.func
+};

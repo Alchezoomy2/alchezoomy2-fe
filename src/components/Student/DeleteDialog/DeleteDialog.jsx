@@ -2,13 +2,13 @@ import React from "react";
 import { Divider, Typography, Dialog, DialogContentText, DialogContent, DialogTitle, DialogActions, Button } from "@material-ui/core";
 import Transition from "../../Shared/DialogTransition/DialogTransition";
 import CommentIcon from "@material-ui/icons/Comment";
-
+import PropTypes from "prop-types";
 
 export default function DeleteDialog({
     open,
     dialogCard,
     handleCloseDialog,
-    handleDeleteFavorite,
+    handleDelete,
     deleteDialogClasses }) {
 
 
@@ -54,7 +54,7 @@ export default function DeleteDialog({
                     Cancel
                 </Button>
                 <Button
-                    onClick={() => { handleDeleteFavorite(dialogCard.id); }}
+                    onClick={() => { handleDelete(dialogCard.id); }}
                     color="primary">
                     Delete
             </Button>
@@ -63,3 +63,11 @@ export default function DeleteDialog({
 
     );
 }
+
+DeleteDialog.propTypes = {
+    open: PropTypes.bool,
+    dialogCard: PropTypes.object,
+    handleCloseDialog: PropTypes.func,
+    handleDelete: PropTypes.func,
+    deleteDialogClasses: PropTypes.func
+};
