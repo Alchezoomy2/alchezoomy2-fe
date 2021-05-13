@@ -89,7 +89,7 @@ export default function StudentInvite() {
                         onSubmit={(e) => handleSubmit(e, studentInfo.studentEmail, studentInfo.teacherEmail)}
                         className={classes.signupForm}>
                         <Typography
-                            variant="h5">
+                            variant="button">
                             Student Creator
                         </Typography>
                         <TextField

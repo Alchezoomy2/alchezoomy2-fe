@@ -69,7 +69,7 @@ export default function StudentLogin() {
                         className={classes.loginForm}
                     >
                         <Typography
-                            variant="h5">
+                            variant="button">
                             Student Sign In
                         </Typography>
                         <TextField
