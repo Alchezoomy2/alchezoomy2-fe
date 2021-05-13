@@ -6,8 +6,6 @@ import PropTypes from "prop-types";
 
 export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting, bookmarkListItemClasses) => {
 
-    console.log(bookmark);
-
     return (
 
         <div

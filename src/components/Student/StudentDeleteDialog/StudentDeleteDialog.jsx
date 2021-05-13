@@ -22,11 +22,11 @@ export default function DeleteDialog({
             maxWidth="md"
             fullWidth={true}
         >
-            <DialogTitle
+            {/* <DialogTitle
                 className={deleteDialogClasses.dialogTitle}
             >
                 DELETE
-            </DialogTitle>
+            </DialogTitle> */}
             {/* <DialogContent>
                 <DialogContentText
                     id="speaker"
