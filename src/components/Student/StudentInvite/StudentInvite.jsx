@@ -85,7 +85,7 @@ export default function StudentInvite() {
                         className={classes.mainLogo}
                         src="/images/AL-logo.JPG"
                         alt="logo" />
-                    <div className={classes.inviteText}>
+                    {/* <div className={classes.inviteText}>
                         <Typography
                             variant="body1"
                             align="center">
@@ -97,7 +97,7 @@ export default function StudentInvite() {
                             <br />
                             {"We will use your email address as your user name!"}
                         </Typography>
-                    </div>
+                    </div> */}
                     <form
                         onSubmit={(e) => handleSubmit(e, studentInfo.studentEmail, studentInfo.teacherEmail)}
                         className={classes.signupForm}>

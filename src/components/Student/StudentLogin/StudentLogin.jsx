@@ -24,15 +24,12 @@ export default function StudentLogin() {
 
 
             if (studentInfo.error) {
-                console.log("if (studentInfo.error) {");
                 openSnackbar("error", studentInfo.error);
                 setPassword("");
             } else {
                 store.changeStudentInfo(studentInfo);
 
                 const newMeetingObj = await fetchAllStudentMeetings();
-
-                console.log("🚀 ~ file: StudentLogin.jsx ~ line 33 ~ handleSubmit ~ newMeetingObj", newMeetingObj);
 
                 if (newMeetingObj.error) {
                     openSnackbar("error", newMeetingObj.error);
