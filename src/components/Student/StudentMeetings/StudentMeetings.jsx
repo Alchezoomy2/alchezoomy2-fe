@@ -145,17 +145,24 @@ export const Student = (props) => {
                         onClose={() => setOpen(false)}
                         aria-labelledby="alert-dialog-slide-title"
                         aria-describedby="alert-dialog-slide-description"
-                        maxWidth="xl"
+                        maxWidth="md"
+                        fullWidth={true}
                     >
+                        <DialogTitle
+                            className={classes.dialogTitle}>
+                            {favoriteCard.title}
+                        </DialogTitle>
                         <DialogContent>
-                            <Avatar alt={favoriteCard.userName} src={favoriteCard.picUrl} />
-                            <DialogTitle className={classes.dialogTitle}>
-                                {favoriteCard.topic}
-                            </DialogTitle>
                             <DialogContentText id="speaker" className={classes.dialogSpeaker}>
                                 {favoriteCard.userName}
                             </DialogContentText>
-                            <DialogContentText id="timestamp" className={classes.dialogTimestamp}>
+                            <DialogContentText
+                                id="dialog-topic" className={classes.dialogTopic}>
+                                {favoriteCard.topic}
+                            </DialogContentText>
+                            <DialogContentText
+                                id="timestamp"
+                                className={classes.dialogTimestamp}>
                                 {favoriteCard.displayTime}
                             </DialogContentText>
                             <Divider />

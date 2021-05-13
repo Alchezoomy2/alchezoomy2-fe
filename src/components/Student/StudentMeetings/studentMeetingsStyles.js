@@ -1,5 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { root, frame, component } from "../../../styles/frames";
+import { primaryMain } from "../../../styles/colors";
+
 const useStyles = makeStyles((theme) => ({
     root, frame, component,
     list: {
@@ -16,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
         color: "#fff",
     },
     dialogTitle: {
-        fontWeight: "bold",
-        color: "black"
+        backgroundColor: primaryMain,
+        color: "white"
     },
     dialogSpeaker: {
         fontWeight: "bold",
