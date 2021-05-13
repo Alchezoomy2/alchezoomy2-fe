@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles({
     root: {
         width: "500px",
-        height: "25px",
+        height: "75px",
     },
     progress: {
         WebkitAppearance: "none",
