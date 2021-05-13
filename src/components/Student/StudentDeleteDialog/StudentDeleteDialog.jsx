@@ -11,6 +11,7 @@ export default function DeleteDialog({
     handleDelete,
     deleteDialogClasses }) {
 
+
     return (
         <Dialog
             open={open}
@@ -45,8 +46,8 @@ export default function DeleteDialog({
                     {`  ${dialogCard.comment}`}
                 </Typography>
 
-            </DialogContent> */}
-            {/* <DialogActions>
+            </DialogContent>
+            <DialogActions>
                 <Button
                     onClick={handleCloseDialog}
                     color="primary">
