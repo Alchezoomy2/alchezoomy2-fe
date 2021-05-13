@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
     list: {
         width: "100%",
         minHeight: "60vh",
-        overflowY: "scroll",
+        overflowY: "auto",
         overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
