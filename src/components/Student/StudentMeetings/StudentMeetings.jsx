@@ -45,6 +45,8 @@ export const Student = (props) => {
         setCommentField("");
         setFavoriteCard({
             ...meetingObj,
+            speaker: meetingObj.userName,
+            timestamp: meetingObj.displayTime,
             title: "FAVORITE",
             current: false
         });
@@ -55,6 +57,8 @@ export const Student = (props) => {
         setCommentField("");
         setFavoriteCard({
             ...meetingObj,
+            speaker: meetingObj.userName,
+            timestamp: meetingObj.displayTime,
             comment: favoriteObj.comment,
             favoriteId: favoriteObj.id,
             title: "UNFAVORITE",
