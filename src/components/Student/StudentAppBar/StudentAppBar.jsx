@@ -104,7 +104,7 @@ export default function StudentAppBar({
                     </Tooltip>
                 </div>
                 <Typography
-                    variant="h6"
+                    variant="button"
                     style={{ marginLeft: "25px" }}>
                     {store.studentInfo.studentEmail}
                 </Typography>
