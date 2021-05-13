@@ -22,7 +22,7 @@ export default function DeleteDialog({
             maxWidth="md"
             fullWidth={true}
         >
-            <DialogTitle
+            {/* <DialogTitle
                 className={deleteDialogClasses.dialogTitle}
             >
                 DELETE
@@ -57,7 +57,7 @@ export default function DeleteDialog({
                     color="primary">
                     Delete
             </Button>
-            </DialogActions>
+            </DialogActions> */}
         </Dialog >
 
     );
