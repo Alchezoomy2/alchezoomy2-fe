@@ -21,7 +21,7 @@ export const useStyles = makeStyles({
         margin: "10px"
     },
     signupForm: {
-        height: "00px",
+        height: "800px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
