@@ -26,19 +26,19 @@ export default function DeleteDialog({
             <DialogTitle
                 className={deleteDialogClasses.dialogTitle}
             >
-                {dialogCard.topic}
+                DELETE
             </DialogTitle>
             <DialogContent>
                 <DialogContentText
                     id="speaker"
                     className={deleteDialogClasses.dialogSpeaker}
                 >
-                    {dialogCard.user_name}
+                    {dialogCard.userName}
                 </DialogContentText>
                 <DialogContentText
                     className={deleteDialogClasses.dialogTimestamp}
                     id="timestamp">
-                    {dialogCard.display_time}
+                    {dialogCard.displayTime}
                 </DialogContentText>
                 <Divider />
                 <Typography>
