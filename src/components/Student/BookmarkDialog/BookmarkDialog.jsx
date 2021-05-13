@@ -31,6 +31,14 @@ export default function BookmarkDialog({ open, dialogClasses, bookmarkCard, hand
                     className={dialogClasses.dialogSpeaker}>
                     {bookmarkCard.speaker}
                 </DialogContentText>
+                {bookmarkCard.topic ?
+                    <DialogContentText
+                        id="dialog-topic"
+                        className={dialogClasses.dialogTopic}>
+                        {bookmarkCard.topic}
+                    </DialogContentText>
+                    : null
+                }
                 <DialogContentText
                     id="timestamp"
                     className={dialogClasses.dialogTimestamp}>

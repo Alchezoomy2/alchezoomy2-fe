@@ -1,26 +1,28 @@
-import { Paper, List, Avatar, Divider, Button, Dialog, DialogContent, DialogTitle, DialogContentText, TextField, Typography, DialogActions } from "@material-ui/core";
+import { Paper, List, TextField, Typography } from "@material-ui/core";
 import { useObserver } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import { useStateStore } from "../../../utils/StoreProvider.js";
 import useStyles from "./studentMeetingsStyles";
 import fuse from "fuse.js";
 import MeetingListItem from "../MeetingListItem/MeetingListItem";
-import Transition from "../../Shared/DialogTransition/DialogTransition";
 import meetingListItemStyles from "../MeetingListItem/meetingListItemStyles";
+import BookmarkDialog from "../BookmarkDialog/BookmarkDialog";
+import useBookmarkDialogStyles from "../BookmarkDialog/BookmarkDialogStyles";
 
-import CommentIcon from "@material-ui/icons/Comment";
+
 import { createFavorite, deleteFavorite, fetchAllStudentFavorites } from "../../../utils/student-fetches/favorite-fetches";
 import { fetchAllStudentMeetings } from "../../../utils/student-fetches/meeting-fetches";
 
 
 export const Student = (props) => {
     const store = useStateStore();
+    const classes = useStyles();
+    const dialogClasses = useBookmarkDialogStyles();
     const [searchField, setSearchField] = useState("");
     const [commentField, setCommentField] = useState("");
     const [favoriteCard, setFavoriteCard] = useState("");
     const [favoriteArray, setFavoriteArray] = useState();
     const [open, setOpen] = useState(false);
-    const classes = useStyles();
     const meetingListItemClasses = meetingListItemStyles();
 
     let fuseMeetingList = new fuse(store.meetingsObj, {
@@ -83,6 +85,10 @@ export const Student = (props) => {
         setCommentField("");
     };
 
+    const handleDialogClose = () => {
+        setOpen(false);
+    };
+
     const handleCommentChange = async (e) => {
         setCommentField(e.target.value);
     };
@@ -138,67 +144,17 @@ export const Student = (props) => {
             </Paper >
             {
                 favoriteCard ?
-                    <Dialog
+                    <BookmarkDialog
                         open={open}
-                        TransitionComponent={Transition}
-                        keepMounted
-                        onClose={() => setOpen(false)}
-                        aria-labelledby="alert-dialog-slide-title"
-                        aria-describedby="alert-dialog-slide-description"
-                        maxWidth="md"
-                        fullWidth={true}
-                    >
-                        <DialogTitle
-                            className={classes.dialogTitle}>
-                            {favoriteCard.title}
-                        </DialogTitle>
-                        <DialogContent>
-                            <DialogContentText id="speaker" className={classes.dialogSpeaker}>
-                                {favoriteCard.userName}
-                            </DialogContentText>
-                            <DialogContentText
-                                id="dialog-topic" className={classes.dialogTopic}>
-                                {favoriteCard.topic}
-                            </DialogContentText>
-                            <DialogContentText
-                                id="timestamp"
-                                className={classes.dialogTimestamp}>
-                                {favoriteCard.displayTime}
-                            </DialogContentText>
-                            <Divider />
-                            {!favoriteCard.current ?
-                                <TextField
-                                    id="comment"
-                                    label="comment"
-                                    multiline
-                                    fullWidth
-                                    rows={4}
-                                    variant="outlined"
-                                    onChange={handleCommentChange}
-                                    value={commentField}
-                                />
-                                :
-                                <Typography>
-                                    <CommentIcon fontSize="small" />
-                                    {`  ${favoriteCard.comment}`}
-                                </Typography>
-                            }
-                        </DialogContent>
-                        <DialogActions>
-                            <Button
-                                onClick={() => setOpen(false)}
-                                color="primary">
-                                Cancel
-                                </Button>
-                            <Button
-                                onClick={handleFavoriteChange}
-                                color="primary">
-                                {favoriteCard.title}
-                            </Button>
-                        </DialogActions>
-                    </Dialog >
-                    :
-                    <></>
+                        dialogClasses={dialogClasses}
+                        bookmarkCard={favoriteCard}
+                        handleBookmarkChange={handleFavoriteChange}
+                        handleDialogClose={handleDialogClose}
+                        handleCommentChange={handleCommentChange}
+                        commentField={commentField}
+                    />
+                    : null
+
             }
         </div >
     );
