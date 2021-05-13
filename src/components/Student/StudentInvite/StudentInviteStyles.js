@@ -2,10 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { root, welcomeFrame } from "../../../styles/frames";
 
 export const useStyles = makeStyles({
-    root: {
-        ...root,
-        marginTop: "25px",
-    },
+    root,
     welcomeFrame: {
         ...welcomeFrame,
         border: "none"
@@ -24,7 +21,7 @@ export const useStyles = makeStyles({
         margin: "10px"
     },
     signupForm: {
-        height: "900px",
+        height: "00px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
