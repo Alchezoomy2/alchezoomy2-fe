@@ -48,8 +48,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
     };
 
     const handleOpenMeeting = async (bookmark) => {
-
-        handleMeetingDetailClick(bookmark.meeting_id, bookmark.parsed_timestamp);
+        handleMeetingDetailClick(bookmark.meetingId, bookmark.parsedTimestamp);
     };
 
 
