@@ -8,8 +8,8 @@ import useStyles from "./bookmarkStyles";
 
 import BookmarkListItem from "../BookmarkListItem/BookmarkListItem";
 import bookmarkListItemStyles from "../BookmarkListItem/BookmarkListItemStyles";
-import DeleteDialog from "../DeleteDialog/DeleteDialog";
-import deleteDialogStyles from "../DeleteDialog/DeleteDialogStyles";
+import StudentDeleteDialog from "../StudentDeleteDialog/StudentDeleteDialog";
+import deleteDialogStyles from "../StudentDeleteDialog/StudentDeleteDialogStyles";
 
 export const Bookmark = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();
@@ -90,7 +90,7 @@ export const Bookmark = ({ handleMeetingDetailClick }) => {
             </Paper>
             {
                 dialogCard ?
-                    <DeleteDialog
+                    <StudentDeleteDialog
                         open={open}
                         dialogCard={dialogCard}
                         handleCloseDialog={handleCloseDialog}

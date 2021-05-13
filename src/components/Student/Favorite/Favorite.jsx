@@ -6,17 +6,17 @@ import { Paper, List, Typography, TextField, } from "@material-ui/core";
 import fuse from "fuse.js";
 import FavoriteListItem from "../FavoriteListItem/FavoriteListItem";
 import useStyles from "./FavoriteStyle";
-import FavoriteListItemStyles from "../FavoriteListItem/FavoriteListItemStyles";
+import favoriteListItemStyles from "../FavoriteListItem/FavoriteListItemStyles";
 
 
 import { deleteFavorite } from "../../../utils/student-fetches/favorite-fetches";
-import DeleteDialog from "../DeleteDialog/DeleteDialog.jsx";
-import deleteDialogStyles from "../DeleteDialog/DeleteDialogStyles";
+import StudentDeleteDialog from "../StudentDeleteDialog/StudentDeleteDialog.jsx";
+import deleteDialogStyles from "../StudentDeleteDialog/StudentDeleteDialogStyles";
 
 export const Favorite = ({ handleMeetingDetailClick }) => {
     const classes = useStyles();
     const deleteDialogClasses = deleteDialogStyles();
-    const listItemClasses = FavoriteListItemStyles();
+    const listItemClasses = favoriteListItemStyles();
     const [searchField, setSearchField] = useState("");
     const [dialogCard, setDialogCard] = useState();
     const [open, setOpen] = useState(false);
@@ -92,7 +92,7 @@ export const Favorite = ({ handleMeetingDetailClick }) => {
             </Paper>
             {
                 dialogCard ?
-                    <DeleteDialog
+                    <StudentDeleteDialog
                         open={open}
                         dialogCard={dialogCard}
                         handleCloseDialog={handleCloseDialog}

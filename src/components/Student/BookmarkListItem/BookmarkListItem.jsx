@@ -46,7 +46,6 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting,
                         </Button>
                     </Tooltip>
                 </div>
-
             </ListItem>
             <Divider variant="middle" component="li" />
         </div>

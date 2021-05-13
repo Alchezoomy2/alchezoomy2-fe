@@ -11,6 +11,7 @@ export default function DeleteDialog({
     handleDelete,
     deleteDialogClasses }) {
 
+    console.log(dialogCard);
 
     return (
         <Dialog
