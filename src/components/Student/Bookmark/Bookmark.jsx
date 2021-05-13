@@ -8,7 +8,7 @@ import useStyles from "./bookmarkStyles";
 
 import BookmarkListItem from "../BookmarkListItem/BookmarkListItem";
 import bookmarkListItemStyles from "../BookmarkListItem/BookmarkListItemStyles";
-import DeleteDialog from "../DeleteDialog/DeleteDialogStyles";
+import DeleteDialog from "../DeleteDialog/DeleteDialog";
 import deleteDialogStyles from "../DeleteDialog/DeleteDialogStyles";
 
 export const Bookmark = ({ handleMeetingDetailClick }) => {
