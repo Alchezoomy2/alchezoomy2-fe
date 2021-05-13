@@ -18,6 +18,7 @@ export default function BookmarkDialog({ open, dialogClasses, bookmarkCard, hand
             aria-labelledby="alert-dialog-slide-title"
             aria-describedby="alert-dialog-slide-description"
             maxWidth="xl"
+            className={dialogClasses.root}
         >
 
             <DialogTitle

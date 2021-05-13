@@ -2,6 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { primaryMain } from "../../../styles/colors";
 
 const useListItemStyles = makeStyles(() => ({
+    root: {
+        minWidth: "500px",
+        minHeight: "300px"
+    },
     dialogTitle: {
         color: "white",
         backgroundColor: primaryMain
