@@ -3,6 +3,8 @@ import { Paper, Button, Typography } from "@material-ui/core";
 import { useStyles } from "./LandingPageStyles.js";
 import LandingPageAppBar from "../../components/Shared/LandingPageAppBar/LandingPageAppBar";
 
+const zoomAPIurl = process.env.REACT_APP_ZOOM_API_URL;
+
 export const LandingPage = () => {
     const classes = useStyles();
 
@@ -28,9 +30,7 @@ export const LandingPage = () => {
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={() => {
-                                window.location.href = "/teacher/login";
-                            }}>
+                            onClick={() => window.location.href = zoomAPIurl}                            >
                             TEACHER
                         </Button>
                         <Button
