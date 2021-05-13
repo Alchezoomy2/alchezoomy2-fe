@@ -4,7 +4,7 @@ const useStyles = makeStyles(() => ({
     root: {
         top: "auto",
         bottom: 0,
-        position: "absolute"
+        position: "fixed"
     },
     frame: {
         display: "flex",
