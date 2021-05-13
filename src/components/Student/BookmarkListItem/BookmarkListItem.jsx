@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 
 export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting, bookmarkListItemClasses) => {
 
+    console.log(bookmark);
 
     return (
 
@@ -14,11 +15,11 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting,
         >
             <ListItem alignItems='flex-start'>
                 <ListItemAvatar>
-                    <Avatar alt={bookmark.user_name} src={bookmark.pic_url} />
+                    <Avatar alt={bookmark.userName} src={bookmark.picUrl} />
                 </ListItemAvatar>
                 <ListItemText
                     primary={bookmark.topic}
-                    secondary={bookmark.display_time}
+                    secondary={bookmark.displayTime}
                 />
                 <ListItemText
                     primary={`${bookmark.speaker}:  ${bookmark.text}`}
