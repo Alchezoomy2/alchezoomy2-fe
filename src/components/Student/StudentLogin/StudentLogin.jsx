@@ -64,7 +64,7 @@ export default function StudentLogin() {
                         alt="logo"
                     />
                     <Typography
-                        variant="button">
+                        variant="h6">
                         Student Sign In
                         </Typography>
 

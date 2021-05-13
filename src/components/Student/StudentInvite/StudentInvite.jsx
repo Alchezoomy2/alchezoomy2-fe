@@ -86,7 +86,7 @@ export default function StudentInvite() {
                         src="/images/AL-logo.JPG"
                         alt="logo" />
                     <Typography
-                        variant="button">
+                        variant="h6">
                         Student Creator
                         </Typography>
                     <form
