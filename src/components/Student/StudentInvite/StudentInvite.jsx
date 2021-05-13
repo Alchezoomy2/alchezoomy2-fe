@@ -101,12 +101,14 @@ export default function StudentInvite() {
                         onSubmit={(e) => handleSubmit(e, studentInfo.studentEmail, studentInfo.teacherEmail)}
                         className={classes.signupForm}>
                         <TextField
+                            className={classes.textField}
                             id="studentEmail"
                             variant="outlined"
                             value={studentInfo.studentEmail}
                             disabled
                         />
                         <TextField
+                            className={classes.textField}
                             id="firstName"
                             label="First Name"
                             variant="outlined"
@@ -115,6 +117,7 @@ export default function StudentInvite() {
                             required
                         />
                         <TextField
+                            className={classes.textField}
                             id="password1"
                             label="Password"
                             value={password1}
@@ -125,6 +128,7 @@ export default function StudentInvite() {
                             required
                         />
                         <TextField
+                            className={classes.textField}
                             id="password2"
                             label="Password"
                             value={password2}

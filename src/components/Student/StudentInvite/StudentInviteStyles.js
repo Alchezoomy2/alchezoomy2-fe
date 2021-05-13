@@ -17,8 +17,11 @@ export const useStyles = makeStyles({
     inviteText: {
         margin: "25px"
     },
+    textField: {
+        margin: "10px"
+    },
     signupForm: {
-        height: "700px",
+        height: "800px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
