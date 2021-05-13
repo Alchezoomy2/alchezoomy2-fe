@@ -4,7 +4,6 @@ const useStyles = makeStyles(() => ({
     appBar: {
         position: "static",
         width: "100%",
-        margin: "25px",
         flexGrow: 1,
     },
 }));

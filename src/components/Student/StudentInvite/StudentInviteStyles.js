@@ -2,7 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { root, welcomeFrame } from "../../../styles/frames";
 
 export const useStyles = makeStyles({
-    root,
+    root: {
+        ...root,
+        marginTop: "25px",
+    },
     welcomeFrame: {
         ...welcomeFrame,
         border: "none"
