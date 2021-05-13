@@ -4,7 +4,7 @@ import { primaryMain } from "../../../styles/colors";
 const useListItemStyles = makeStyles(() => ({
     root: {
         minWidth: "500px",
-        minHeight: "300px"
+        minHeight: "1000px"
     },
     dialogTitle: {
         color: "white",
