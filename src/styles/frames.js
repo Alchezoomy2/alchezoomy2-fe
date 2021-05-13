@@ -2,7 +2,7 @@ export const root = {
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    overflow: "scroll",
+    overflow: "auto",
     backgroundColor: "#d7dfea",
     height: "90vh",
 };
