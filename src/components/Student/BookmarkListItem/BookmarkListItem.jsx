@@ -2,6 +2,7 @@ import React from "react";
 import { Divider, ListItemText, ListItem, ListItemAvatar, Avatar, Tooltip, Button, } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import DeleteIcon from "@material-ui/icons/Delete";
+import PropTypes from "prop-types";
 
 export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting, bookmarkListItemClasses) => {
 
@@ -53,3 +54,9 @@ export const BookmarkListItem = (bookmark, handleDeleteClick, handleOpenMeeting,
 };
 
 export default BookmarkListItem;
+
+BookmarkListItem.propTypes = {
+    bookmark: PropTypes.object,
+    handleDeleteClick: PropTypes.func,
+    handleOpenMeeting: PropTypes.func, bookmarkListItemClasses: PropTypes.object
+};
