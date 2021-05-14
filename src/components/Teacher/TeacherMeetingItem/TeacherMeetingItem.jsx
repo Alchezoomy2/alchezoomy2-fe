@@ -17,7 +17,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
     const store = useStateStore();
 
     const handleRefreshClick = async () => {
-        const refreshedMeeting = await refreshMeeting(meeting.id);
+        const refreshedMeeting = await refreshMeeting(meeting.id, store.teacherInfo);
 
         const meetingIndex = store.meetingsObj.some(meeting, index => { if (meeting.id === refreshedMeeting.id) return index; });
         console.log("🚀 ~ file: TeacherMeetingItem.jsx ~ line 23 ~ handleRefreshClick ~ meetingIndex", meetingIndex);

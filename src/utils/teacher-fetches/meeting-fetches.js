@@ -38,9 +38,10 @@ export async function updateMeeting(meetingId, meetingInfo) {
     return response.body;
 }
 
-export async function refreshMeeting(meetingId) {
+export async function refreshMeeting(meetingId, teacherInfo) {
     const response = await request
-        .get(`${serverUrl}/teacher/meetings/refresh/${meetingId}`)
+        .post(`${serverUrl}/teacher/meetings/refresh/${meetingId}`)
+        .send({ teacherInfo })
         .withCredentials();
 
     return response.body;
