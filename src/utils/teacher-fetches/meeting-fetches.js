@@ -37,3 +37,11 @@ export async function updateMeeting(meetingId, meetingInfo) {
 
     return response.body;
 }
+
+export async function refreshMeeting(meetingId) {
+    const response = await request
+        .get(`${serverUrl}/teacher/meetings/refresh/${meetingId}`)
+        .withCredentials();
+
+    return response.body;
+}

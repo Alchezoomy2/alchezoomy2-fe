@@ -1,23 +1,39 @@
 import React from "react";
-import { Chip, ListItem, FormControlLabel, Switch } from "@material-ui/core";
-import VolumeUpIcon from "@material-ui/icons/VolumeUp";
+import { Chip, ListItem, FormControlLabel, Switch, IconButton } from "@material-ui/core";
 import VideoLabelIcon from "@material-ui/icons/VideoLabel";
 import ChatIcon from "@material-ui/icons/Chat";
+import RefreshIcon from "@material-ui/icons/Refresh";
 import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import PropTypes from "prop-types";
 import useStyles from "./teacherMeetingItemsStyles";
+import { useStateStore } from "../../../utils/StoreProvider";
+import { refreshMeeting } from "../../../utils/teacher-fetches/meeting-fetches";
 
 import TeacherMeetingTopic from "../TeacherMeetingTopic/TeacherMeetingTopic";
 
 export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => {
     const props = { borderColor: meeting.color };
     const classes = useStyles(props);
+    const store = useStateStore();
+
+    const handleRefreshClick = async () => {
+        const refreshedMeeting = await refreshMeeting(meeting.id);
+
+        const meetingIndex = store.meetingsObj.some(meeting, index => { if (meeting.id === refreshedMeeting.id) return index; });
+        console.log("🚀 ~ file: TeacherMeetingItem.jsx ~ line 23 ~ handleRefreshClick ~ meetingIndex", meetingIndex);
+        store.meetingsObj.splice(meetingIndex, 1, refreshedMeeting);
+    };
 
     return (
         <div className={classes.frame}>
             <ListItem
                 alignItems="flex-start"
                 className={classes.listItem}>
+                <IconButton
+                    onClick={handleRefreshClick}
+                    aria-label="refresh">
+                    <RefreshIcon />
+                </IconButton>
                 <TeacherMeetingTopic
                     meeting={meeting}
                     handleUpdate={handleUpdate}
@@ -30,12 +46,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                             color={meeting.videoUrl ? "primary" : ""}
                             icon={<VideoLabelIcon />}
                             label="video" />
-                        {/* <Chip
-                            size="small"
-                            className={classes.chip}
-                            color={meeting.audioUrl ? "primary" : ""}
-                            icon={<VolumeUpIcon />}
-                            label="audio" /> */}
+
                         <Chip
                             size="small"
                             className={classes.chip}
