@@ -10,75 +10,82 @@ import { useStateStore } from "../../../utils/StoreProvider";
 import { refreshMeeting } from "../../../utils/teacher-fetches/meeting-fetches";
 
 import TeacherMeetingTopic from "../TeacherMeetingTopic/TeacherMeetingTopic";
+import useSnackBar from "../../../hooks/snackBar/snackBar";
 
 export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => {
     const props = { borderColor: meeting.color };
     const classes = useStyles(props);
     const store = useStateStore();
+    const { openSnackbar, SnackbarComponent } = useSnackBar();
 
     const handleRefreshClick = async () => {
-        const refreshedMeetingsObj = await refreshMeeting(meeting.id, store.teacherInfo);
-        store.changeMeetingsObj(refreshedMeetingsObj);
+
+        await refreshMeeting(meeting.id, store.teacherInfo)
+            .then(response => store.changeMeetingsObj(response))
+            .catch(error => openSnackbar("error", error));
     };
 
     return (
-        <div className={classes.frame}>
-            <ListItem
-                alignItems="flex-start"
-                className={classes.listItem}>
-                <IconButton
-                    onClick={handleRefreshClick}
-                    aria-label="refresh">
-                    <RefreshIcon />
-                </IconButton>
-                <TeacherMeetingTopic
-                    meeting={meeting}
-                    handleUpdate={handleUpdate}
-                />
-                <div className={classes.widgets}>
-                    <div className={classes.chips}>
-                        <Chip
-                            size="small"
-                            className={classes.chip}
-                            color={meeting.videoUrl ? "primary" : ""}
-                            icon={<VideoLabelIcon />}
-                            label="video" />
+        <>
+            <div className={classes.frame}>
+                <ListItem
+                    alignItems="flex-start"
+                    className={classes.listItem}>
+                    <IconButton
+                        onClick={handleRefreshClick}
+                        aria-label="refresh">
+                        <RefreshIcon />
+                    </IconButton>
+                    <TeacherMeetingTopic
+                        meeting={meeting}
+                        handleUpdate={handleUpdate}
+                    />
+                    <div className={classes.widgets}>
+                        <div className={classes.chips}>
+                            <Chip
+                                size="small"
+                                className={classes.chip}
+                                color={meeting.videoUrl ? "primary" : ""}
+                                icon={<VideoLabelIcon />}
+                                label="video" />
 
-                        <Chip
-                            size="small"
-                            className={classes.chip}
-                            color={meeting.chatUrl ? "primary" : ""}
-                            icon={<ChatIcon />}
-                            label="chat" />
-                        <Chip
-                            size="small"
-                            className={classes.chip}
-                            color={meeting.transcriptUrl ? "primary" : ""}
-                            icon={<RecordVoiceOverIcon />}
-                            label="transcript" />
+                            <Chip
+                                size="small"
+                                className={classes.chip}
+                                color={meeting.chatUrl ? "primary" : ""}
+                                icon={<ChatIcon />}
+                                label="chat" />
+                            <Chip
+                                size="small"
+                                className={classes.chip}
+                                color={meeting.transcriptUrl ? "primary" : ""}
+                                icon={<RecordVoiceOverIcon />}
+                                label="transcript" />
+                        </div>
+                        <FormControlLabel
+                            control={<Switch checked={meeting.published}
+                                onChange={() => handlePublish(meeting)}
+                                name='publish'
+                                color="primary"
+                            />}
+                            label="publish" />
+                        <div>
+                            <Chip
+                                size="small"
+                                className={classes.chip}
+                                color="primary"
+                                label={"views: " + meeting.meetingViews} />
+                            <Chip
+                                size="small"
+                                className={classes.chip}
+                                color="primary"
+                                label={"favorites " + meeting.meetingFavs} />
+                        </div>
                     </div>
-                    <FormControlLabel
-                        control={<Switch checked={meeting.published}
-                            onChange={() => handlePublish(meeting)}
-                            name='publish'
-                            color="primary"
-                        />}
-                        label="publish" />
-                    <div>
-                        <Chip
-                            size="small"
-                            className={classes.chip}
-                            color="primary"
-                            label={"views: " + meeting.meetingViews} />
-                        <Chip
-                            size="small"
-                            className={classes.chip}
-                            color="primary"
-                            label={"favorites " + meeting.meetingFavs} />
-                    </div>
-                </div>
-            </ListItem >
-        </div >
+                </ListItem >
+            </div >
+            <SnackbarComponent />
+        </>
     );
 };
 
