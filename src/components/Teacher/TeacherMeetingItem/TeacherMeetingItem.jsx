@@ -23,7 +23,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
         await refreshMeeting(meeting.id, store.teacherInfo)
             .then(response => store.changeMeetingsObj(response)
             )
-            .catch(({ text }) => openSnackbar("error", text));
+            .catch(({ response }) => openSnackbar("error", response.text));
     };
 
     return (
