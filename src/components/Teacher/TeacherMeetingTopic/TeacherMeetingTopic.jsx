@@ -18,7 +18,7 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate, openSnackba
         const updatedMeeting = meeting;
         updatedMeeting.topic = topicContent;
 
-        await handleUpdate(meeting)
+        await handleUpdate(updatedMeeting)
             .then(newMeetingObj => {
                 store.changeMeetingsObj(newMeetingObj);
             })
