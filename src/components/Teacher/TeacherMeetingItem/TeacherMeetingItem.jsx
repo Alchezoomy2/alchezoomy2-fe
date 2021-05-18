@@ -40,6 +40,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                     <TeacherMeetingTopic
                         meeting={meeting}
                         handleUpdate={handleUpdate}
+                        openSnackbar={openSnackbar}
                     />
                     <div className={classes.widgets}>
                         <div className={classes.chips}>

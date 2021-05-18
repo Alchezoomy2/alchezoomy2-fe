@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useStateStore } from "../../../utils/StoreProvider";
+
 
 import { ListItemText, TextField, IconButton } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 
 
-export default function TeacherMeetingTopic({ meeting, handleUpdate }) {
+export default function TeacherMeetingTopic({ meeting, handleUpdate, openSnackbar }) {
+    const store = useStateStore();
     const { topic, displayTime, duration, id } = meeting;
     const [editTopic, setEditTopic] = useState(false);
     const [topicContent, setTopicContent] = useState(topic);
@@ -14,7 +17,13 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate }) {
         e.preventDefault();
         const updatedMeeting = meeting;
         updatedMeeting.topic = topicContent;
-        await handleUpdate(meeting);
+
+        await handleUpdate(meeting)
+            .then(newMeetingObj => {
+                store.changeMeetingsObj(newMeetingObj);
+            })
+            .catch(({ message }) => openSnackbar(message));
+
         setEditTopic(false);
     };
 
@@ -65,5 +74,7 @@ TeacherMeetingTopic.propTypes = {
         topic: PropTypes.string.isRequired,
     })
     ),
-    handleUpdate: PropTypes.func
+    handleUpdate: PropTypes.func,
+    openSnackbar: PropTypes.func
+
 };
