@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import useStyles from "./teacherMeetingItemsStyles";
 import { useStateStore } from "../../../utils/StoreProvider";
 import { refreshMeeting } from "../../../utils/teacher-fetches/meeting-fetches";
+import { useObserver } from "mobx-react";
 
 import TeacherMeetingTopic from "../TeacherMeetingTopic/TeacherMeetingTopic";
 import useSnackBar from "../../../hooks/snackBar/snackBar";
@@ -26,7 +27,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
             .catch(({ message }) => openSnackbar("error", message));
     };
 
-    return (
+    return useObserver(() => (
         <>
             <div className={classes.frame}>
                 <ListItem
