@@ -22,7 +22,7 @@ export default function TeacherMeetingTopic({ meeting, handleUpdate, openSnackba
             .then(newMeetingObj => {
                 store.changeMeetingsObj(newMeetingObj);
             })
-            .catch(({ message }) => openSnackbar(message));
+            .catch(({ message }) => openSnackbar("error", message));
 
         setEditTopic(false);
     };
