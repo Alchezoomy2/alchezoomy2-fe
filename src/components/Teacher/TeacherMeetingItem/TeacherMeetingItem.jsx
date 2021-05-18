@@ -89,7 +89,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
             </div >
             <SnackbarComponent />
         </>
-    );
+    ));
 };
 
 TeacherMeetingItem.propTypes = {
