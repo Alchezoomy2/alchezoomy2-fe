@@ -16,7 +16,6 @@ export const TeacherCreator = ({ handleCreateTeacher, creatorOpen }) => {
 
     useEffect(() => {
         if (store.teacherInfo.colorPalette) {
-            console.log("test");
             setSelectedColor(store.teacherInfo.colorPalette[0]);
         }
     }, []);

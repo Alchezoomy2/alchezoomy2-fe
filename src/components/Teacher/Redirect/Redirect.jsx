@@ -16,7 +16,6 @@ export const AutoRedirect = ({ location }) => {
     useEffect(() => {
         async function loginTeacher() {
             let returnedObject;
-            console.log("🚀 ~ file: Redirect.jsx ~ line 15 ~ AutoRedirect ~ jwt", jwt);
 
             if (jwt !== null) {
                 returnedObject = await teacherInvite(code, jwt);
