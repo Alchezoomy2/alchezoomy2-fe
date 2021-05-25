@@ -21,6 +21,10 @@ const useStyles = makeStyles(({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+    },
+    zoomImage: {
+        width: "25px",
+        height: "25px"
     }
 
 }));
