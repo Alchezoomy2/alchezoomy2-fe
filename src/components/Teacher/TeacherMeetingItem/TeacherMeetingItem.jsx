@@ -33,6 +33,21 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                 <ListItem
                     alignItems="flex-start"
                     className={classes.listItem}>
+                    {meeting.onZoom ?
+                        <Tooltip title="On Zoom">
+                            <img
+                                src="/images/onZoom.png"
+                                className={classes.zoomImage}
+                                alt="hosted on zoom" />
+                        </Tooltip>
+                        :
+                        <Tooltip title="Not On Zoom">
+                            <img
+                                src="/images/notOnZoom.png"
+                                className={classes.zoomImage}
+                                alt="not hosted on zoom" />
+                        </Tooltip>
+                    }
                     <IconButton
                         onClick={handleRefreshClick}
                         aria-label="refresh">
@@ -44,21 +59,6 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                         openSnackbar={openSnackbar}
                     />
                     <div className={classes.widgets}>
-                        {meeting.onZoom ?
-                            <Tooltip title="On Zoom">
-                                <img
-                                    src="/images/onZoom.png"
-                                    className={classes.zoomImage}
-                                    alt="hosted on zoom" />
-                            </Tooltip>
-                            :
-                            <Tooltip title="Not On Zoom">
-                                <img
-                                    src="/images/notOnZoom.png"
-                                    className={classes.zoomImage}
-                                    alt="not hosted on zoom" />
-                            </Tooltip>
-                        }
                         <div className={classes.chips}>
                             <Chip
                                 size="small"
