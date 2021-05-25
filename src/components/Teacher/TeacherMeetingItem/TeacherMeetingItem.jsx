@@ -33,6 +33,11 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                 <ListItem
                     alignItems="flex-start"
                     className={classes.listItem}>
+                    <IconButton
+                        onClick={handleRefreshClick}
+                        aria-label="refresh">
+                        <RefreshIcon />
+                    </IconButton>
                     {meeting.onZoom ?
                         <Tooltip title="On Zoom">
                             <img
@@ -48,11 +53,6 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                                 alt="not hosted on zoom" />
                         </Tooltip>
                     }
-                    <IconButton
-                        onClick={handleRefreshClick}
-                        aria-label="refresh">
-                        <RefreshIcon />
-                    </IconButton>
                     <TeacherMeetingTopic
                         meeting={meeting}
                         handleUpdate={handleUpdate}
@@ -85,7 +85,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                                 onChange={() => handlePublish(meeting)}
                                 name='publish'
                                 color="primary"
-                                disabled={!meeting.onZoom}
+                                disabled={!meeting.onZoom && !meeting.published}
                             />}
                             label="publish" />
                         <div>
