@@ -25,7 +25,7 @@ const useStyles = makeStyles(({
     zoomImage: {
         width: "25px",
         height: "25px",
-        imageRendering: "auto"
+        imageRendering: "crisp-edges"
     }
 
 }));
