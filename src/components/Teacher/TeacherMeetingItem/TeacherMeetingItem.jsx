@@ -85,6 +85,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                                 onChange={() => handlePublish(meeting)}
                                 name='publish'
                                 color="primary"
+                                disabled={!meeting.onZoom}
                             />}
                             label="publish" />
                         <div>
