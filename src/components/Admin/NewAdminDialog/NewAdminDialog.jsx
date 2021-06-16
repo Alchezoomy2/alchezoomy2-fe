@@ -3,7 +3,7 @@ import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions } 
 import { PropTypes } from "mobx-react";
 import { useStyles } from "./NewAdminDialogStyles.js";
 
-export const NewAdminDialog = ({ handleClose, newUserDialogOpen, userName }) => {
+export const NewAdminDialog = ({ handleClose, newUserDialogOpen, userName, handleCancelDialog }) => {
     const classes = useStyles();
     const [newPassword1, setNewPassword1] = useState("");
     const [newPassword2, setNewPassword2] = useState("");
@@ -18,10 +18,13 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen, userName }) => 
     return (
         <Dialog
             open={newUserDialogOpen}
+            keepMounted
+            onClose={handleCancelDialog}
         >
-            <DialogTitle id="password-update-dialog-title">
+            <DialogTitle
+                id="password-update-dialog-title">
                 You are a new admin, please create a new password.
-        </DialogTitle>
+            </DialogTitle>
             <DialogContent
                 className={classes.root}>
                 <TextField
@@ -53,10 +56,16 @@ export const NewAdminDialog = ({ handleClose, newUserDialogOpen, userName }) => 
             </DialogContent>
             <DialogActions>
                 <Button
+                    onClick={handleCancelDialog}
+                    color="primary">
+                    Cancel
+                </Button>
+                <Button
+                    color="primary"
                     onClick={handleCloseLocal}
                 >
                     SUBMIT
-            </Button>
+                </Button>
             </DialogActions>
         </Dialog>
 

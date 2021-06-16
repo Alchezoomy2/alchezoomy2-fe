@@ -39,6 +39,10 @@ export default function AdminLogin() {
         setNewUserDialogOpen(false);
     };
 
+    const handleCancelDialog = () => {
+        setNewUserDialogOpen(false);
+    };
+
     const handleSnackbarClose = () => {
         setInvalidLoginOpen(false);
     };
@@ -87,7 +91,7 @@ export default function AdminLogin() {
                             type="submit"
                             color="primary">
                             SUBMIT
-                    </Button>
+                        </Button>
                     </form>
                 </div>
             </Paper>
@@ -95,6 +99,7 @@ export default function AdminLogin() {
                 handleClose={handleClose}
                 newUserDialogOpen={newUserDialogOpen}
                 userName={userName}
+                handleCancelDialog={handleCancelDialog}
             />
             <Snackbar
                 open={invalidLoginOpen}
