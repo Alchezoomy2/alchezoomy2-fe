@@ -2,7 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({
     frame: props => ({
-        borderLeft: `15px solid ${props.borderColor}`
+        borderLeft: `15px solid ${props.borderColor}`,
+        minWidth: "90vw"
     }),
     listItem: {
         display: "flex",
@@ -26,6 +27,9 @@ const useStyles = makeStyles(({
         width: "25px",
         height: "25px",
         marginRight: "5px"
+    },
+    chipDiv: {
+        minWidth: "150px"
     }
 
 }));

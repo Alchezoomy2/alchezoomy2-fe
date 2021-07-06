@@ -88,7 +88,7 @@ export const TeacherMeetingItem = ({ meeting, handlePublish, handleUpdate }) => 
                                 disabled={!meeting.onZoom && !meeting.published}
                             />}
                             label="publish" />
-                        <div>
+                        <div className={classes.chipDiv}>
                             <Chip
                                 size="small"
                                 className={classes.chip}
